@@ -8,6 +8,7 @@ export default function PagarPage() {
   const [codigoValido, setCodigoValido] = useState<boolean | null>(null)
   const [precio, setPrecio] = useState(20)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -24,11 +25,31 @@ export default function PagarPage() {
   }
 
   async function handlePago(e: React.FormEvent) {
-    e.preventDefault(); setLoading(true)
-    const res = await fetch('/api/stripe/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, codigo }) })
-    const data = await res.json()
-    if (data.url) window.location.href = data.url
-    else setLoading(false)
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, codigo }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data?.error || 'No se pudo iniciar el pago. Intenta de nuevo.')
+        setLoading(false)
+        return
+      }
+      if (data.url) {
+        window.location.href = data.url
+        return
+      }
+      setError('Stripe no devolvió URL de pago. Intenta de nuevo.')
+      setLoading(false)
+    } catch {
+      setError('Error de conexión con pagos. Revisa tu internet e intenta de nuevo.')
+      setLoading(false)
+    }
   }
 
   const inp = { width: '100%', padding: '14px 16px', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: 16, outline: 'none', fontFamily: 'Inter, sans-serif', marginBottom: 8 }
@@ -60,6 +81,11 @@ export default function PagarPage() {
             <button type="submit" className="btn-primary" style={{ width: '100%', fontSize: 17, padding: '16px', justifyContent: 'center', display: 'flex', boxShadow: '0 8px 24px rgba(244,162,97,.35)' }} disabled={loading}>
               {loading ? 'Conectando con Stripe...' : `Pagar $${precio} con tarjeta →`}
             </button>
+            {error && (
+              <p style={{ marginTop: 12, color: '#b91c1c', fontSize: 14, lineHeight: 1.5 }}>
+                {error}
+              </p>
+            )}
           </form>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 16, flexWrap: 'wrap' }}>
             {['🔒 Stripe SSL', '✓ Garantía 30 días', '⚡ Acceso inmediato'].map(b => (

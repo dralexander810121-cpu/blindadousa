@@ -3,8 +3,15 @@ import { createAdmin } from '@/lib/supabase/server'
 
 export async function POST(req: Request) {
   try {
+    const secretKey = process.env.STRIPE_SECRET_KEY
+    if (!secretKey || secretKey.includes('placeholder')) {
+      return Response.json(
+        { error: 'Stripe no está configurado en producción. Falta STRIPE_SECRET_KEY real en Vercel.' },
+        { status: 503 }
+      )
+    }
     const Stripe = require('stripe')
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder', { apiVersion: '2026-04-22.dahlia' })
+    const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const { email, codigo } = await req.json()
     const db = createAdmin()
     let esValido = false
