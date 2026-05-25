@@ -14,3 +14,5 @@ next-env.d.ts
 .vscode/
 *.tsbuildinfo
 stitch_instant_delivery_system.zip
+
+.vercel
