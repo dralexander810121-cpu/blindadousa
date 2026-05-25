@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cómo subir tu Score de Crédito - Biblia Financiera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002114",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "secondary-container": "#ffab69",
+                    "primary-mid": "#2D6A4F",
+                    "on-tertiary-fixed": "#271900",
+                    "surface": "#f9faf6",
+                    "secondary-fixed-dim": "#ffb780",
+                    "secondary": "#8e4e14",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1c1a",
+                    "surface-bright": "#f9faf6",
+                    "dark": "#1A1A2E",
+                    "surface-container-lowest": "#ffffff",
+                    "warning": "#F77F00",
+                    "secondary-fixed": "#ffdcc4",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f3f4f1",
+                    "on-secondary-container": "#783d01",
+                    "on-background": "#1a1c1a",
+                    "accent-dark": "#E76F51",
+                    "surface-variant": "#e2e3e0",
+                    "primary-light": "#40916C",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "inverse-on-surface": "#f0f1ee",
+                    "tertiary-container": "#503700",
+                    "surface-container-highest": "#e2e3e0",
+                    "primary-container": "#1b4332",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#ffdea9",
+                    "tertiary": "#342300",
+                    "surface-container-high": "#e8e8e5",
+                    "gray": "#6B7280",
+                    "primary-fixed": "#c1ecd4",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary": "#012d1d",
+                    "background": "#f9faf6",
+                    "surface-container": "#eeeeeb",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-tint": "#3f6653",
+                    "surface-dim": "#dadad7",
+                    "pale-green": "#D8F3DC",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#d89b00",
+                    "success": "#52B788",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "outline": "#717973",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary-container": "#86af99",
+                    "on-surface-variant": "#414844",
+                    "on-secondary": "#ffffff",
+                    "danger": "#D62828"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "3rem",
+                    "gutter": "1rem",
+                    "touch-target": "48px",
+                    "stack-md": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-sm": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .text-balance { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest h-16 px-gutter border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight cursor-pointer">BIBLIA FINANCIERA</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Buscar guías..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-colors">person</span>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-gutter py-8 lg:py-12 flex flex-col lg:flex-row gap-12">
+<!-- Left Column: Article Content -->
+<article class="flex-1">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-6 text-on-surface-variant font-label-sm text-label-sm">
+<a class="hover:text-primary-mid transition-colors" href="#">Inicio</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a class="hover:text-primary-mid transition-colors" href="#">Blog</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-primary-mid font-bold">Crédito</span>
+</nav>
+<!-- Header -->
+<header class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-label-sm font-label-sm uppercase tracking-wider">Crédito</span>
+<span class="text-on-surface-variant flex items-center gap-1 text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span> 6 min de lectura
+                    </span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary text-balance mb-6 uppercase">Cómo subir tu Score de Crédito 100 puntos en 3 meses</h1>
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant">
+<img alt="Dr. Alexander" class="w-12 h-12 rounded-full object-cover" data-alt="A professional studio portrait of a middle-aged Hispanic man with an authoritative yet kind expression, wearing a sharp business suit and glasses. The background is a soft, blurred corporate office setting with warm, professional lighting that suggests expertise and trustworthiness. The image is clean and high-contrast, fitting a modern financial advisory brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ1iH5LWgZp3QhGSW4W8RQylrHfAlqpkSiTRlT7sx_KMhExjLbjtPIiSxxteVSur13icc_xt78r5cjNpTSxgv6B7uxlETExuXfiazvppfkuBMe5_EOoXUYd0awe-wBejVwChB-DwDTOZjU5pHAr31a6dEkIKJPNTDJ80DdErq2j-QBKy2A_fbC9yBPN79VZ8cxQ_2B6W80Z0z92DuPp2V6qim_8_-PudvRt7mbeTNUyipgMIc12Q7BNW99vNPwSSQCTsrILUOVqzW_"/>
+<div>
+<p class="font-bold text-primary">Dr. Alexander Jesús Figueredo Izaguirre</p>
+<p class="text-on-surface-variant text-sm">Publicado el 24 de Octubre, 2023</p>
+</div>
+</div>
+</header>
+<!-- Featured Image -->
+<div class="mb-10 rounded-2xl overflow-hidden sombra-verde border border-outline-variant">
+<img class="w-full h-[400px] object-cover" data-alt="A bright and optimistic scene of a young Hispanic man sitting in a sunlit living room, looking joyfully at his smartphone with a broad smile. He is holding a credit card in the other hand, suggesting success in a financial application. The room is modern and airy with light green and white tones, soft natural lighting, and a high-key, clean aesthetic that communicates financial freedom and happiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjACrXHPurW7jwHB2N2-zJTR3N03yGlv3CbGj3cX30FCbo1zFnKQvCi3dkumN6W4CTwQCQ-QTWiQvbPoZwFcLQ1qyJk6AqU_ThFxQk6Qs7xPvR5tFLLm-64dhEvPxi4Mj4jX9iddnWgUEUpmi1OmH6JnwCzWsCttKAYsh2krCqo8lTY0phw-T5IhQHYqb9S3Qj3S0gJNmHFVwkqD36ynmKK7N-swQhiaG_C7a04SFPt8L5VxtdzfJKWNlP6ddUXfKJPJ_jpRZ7RJN8"/>
+</div>
+<!-- Content Body -->
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-8 max-w-none">
+<p class="text-on-surface leading-relaxed italic border-l-4 border-primary-mid pl-6">El crédito no es solo un número; es la llave que abre las puertas del sueño americano. En esta guía, te enseñamos a dominar las reglas del juego para que el sistema trabaje para ti.</p>
+<h2 class="font-headline-md text-headline-md text-primary pt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Paso 1: Paga todo a tiempo (Cero Excusas)
+                </h2>
+<p>El historial de pagos representa el **35% de tu puntaje**. Un solo retraso de 30 días puede derrumbar tu score drásticamente. Configura pagos automáticos hoy mismo para evitar errores humanos.</p>
+<div class="bg-pale-green p-6 rounded-xl border-l-8 border-primary-mid my-8">
+<div class="flex items-center gap-2 mb-2 text-primary font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined">lightbulb</span> Pro Tip
+                    </div>
+<p class="text-primary font-medium">Si ya tienes un retraso, llama a tu banco y pide una "Remoción de Cortesía". Si has sido un buen cliente, muchas veces borrarán la mancha solo por pedirlo educadamente.</p>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary pt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-warning" style="font-variation-settings: 'FILL' 1;">speed</span>
+                    Paso 2: Reduce tu utilización al 10%
+                </h2>
+<p>No esperes a la fecha de vencimiento. Los bancos reportan tu saldo en la **fecha de corte**. Si tu límite es de $1,000, nunca dejes que el saldo pase de $100 cuando llegue el día de cierre del estado de cuenta.</p>
+<!-- Semáforo UI -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+<div class="bg-surface-container p-4 rounded-lg border border-red-200">
+<div class="flex items-center gap-2 text-error font-bold mb-2">
+<span class="material-symbols-outlined">error</span> Peligro
+                        </div>
+<p class="text-sm">Uso mayor al 50%. Tu puntaje bajará rápidamente.</p>
+</div>
+<div class="bg-surface-container p-4 rounded-lg border border-yellow-200">
+<div class="flex items-center gap-2 text-warning font-bold mb-2">
+<span class="material-symbols-outlined">warning</span> Alerta
+                        </div>
+<p class="text-sm">Uso del 30%. Es el estándar, pero no el ideal para subir rápido.</p>
+</div>
+<div class="bg-surface-container p-4 rounded-lg border border-success">
+<div class="flex items-center gap-2 text-success font-bold mb-2">
+<span class="material-symbols-outlined">verified</span> Ideal
+                        </div>
+<p class="text-sm">Uso del 1% al 9%. Aquí es donde los puntos suben como espuma.</p>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary pt-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid" style="font-variation-settings: 'FILL' 1;">block</span>
+                    Paso 3: No abras cuentas nuevas
+                </h2>
+<p>Cada vez que aplicas a un nuevo crédito, se genera un "Hard Inquiry". Durante estos 3 meses de reconstrucción, **prohibido aplicar** a tarjetas, préstamos de autos o muebles. Cada consulta te quita entre 2 y 5 puntos inmediatamente.</p>
+<ul class="list-disc pl-6 space-y-4 marker:text-primary-mid">
+<li>Mantén tus cuentas viejas abiertas (aunque no las uses).</li>
+<li>Revisa tu reporte semanalmente en sitios oficiales.</li>
+<li>Disputa errores de identidad o saldos incorrectos de inmediato.</li>
+</ul>
+<hr class="border-outline-variant my-12"/>
+<!-- Social Share -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 py-4">
+<p class="font-bold text-primary">¿Te sirvió este artículo? Comparte:</p>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white rounded-full hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">share</span> WhatsApp
+                        </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-[#1877F2] text-white rounded-full hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">social_leaderboard</span> Facebook
+                        </button>
+<button class="flex items-center gap-2 px-6 py-3 bg-surface-container-high text-on-surface rounded-full hover:bg-surface-variant transition-colors border border-outline-variant">
+<span class="material-symbols-outlined">link</span> Copiar Link
+                        </button>
+</div>
+</div>
+</div>
+</article>
+<!-- Right Column: Sidebar -->
+<aside class="w-full lg:w-80 space-y-8">
+<!-- Author Card -->
+<section class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant sombra-verde">
+<h3 class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant mb-4">El Autor</h3>
+<img class="w-20 h-20 rounded-full mb-4 object-cover" data-alt="Close up of a professional Hispanic male financial advisor in a modern white office. He looks directly at the camera with a confident and helpful smile. Soft lighting, high contrast, corporate photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgfmqS3JoduZ65H9T87TdEOKNhKSFUA70XTfei_EfYIGwfE5AWpBjDhvQyvevLmbAYvfIMbak_6C-qoqbPKkN6-55SOnl5egBfBQ-UtWl-aMfzORS1EYx7kj-A7iMkpGo9zpq5H8wGynjcSieJOafYAnacNjSWGKfk8Vt_JBHmoeFCOwVkVzbX1kD3m5ccYIJkR8mHsVwEqKnPRn1917qfa04Cb3Zwv7yJCbMiNLycV2x37Fe8d5jJ8OQ1L3oohzueGc5rZTDEPckp"/>
+<h4 class="font-headline-md text-headline-md text-primary mb-2 leading-tight">Dr. Alexander Figueredo</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Experto en leyes financieras y defensor de la comunidad hispana. Ha ayudado a más de 5,000 familias a recuperar su libertad financiera.</p>
+<a class="inline-block mt-4 text-primary-mid font-bold text-sm border-b-2 border-primary-mid hover:text-primary transition-colors" href="#">Ver perfil completo</a>
+</section>
+<!-- Sticky CTA Box -->
+<section class="sticky top-24 bg-primary-container p-8 rounded-2xl text-on-primary sombra-verde border border-primary">
+<h3 class="font-display-lg text-display-lg-mobile text-pale-green mb-4 leading-none">BIBLIA FINANCIERA PRO</h3>
+<p class="text-body-md mb-8">Aprende paso a paso cómo comprar tu casa, arreglar tu crédito y proteger tu patrimonio.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check</span>
+<span class="text-sm">Asesoría de Expertos</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check</span>
+<span class="text-sm">Modelos de Cartas Legales</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check</span>
+<span class="text-sm">Acceso a Asistente IA 24/7</span>
+</div>
+</div>
+<button class="w-full mt-10 h-14 bg-secondary-container text-on-secondary-container font-bold rounded-xl shadow-lg hover:scale-105 active:scale-95 transition-all uppercase tracking-wide">
+                    Prueba GRATIS 3 días
+                </button>
+<p class="text-center text-xs mt-4 opacity-70">Sin compromiso. Cancela cuando quieras.</p>
+</section>
+<!-- Related Resources -->
+<section class="p-6">
+<h3 class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Relacionados</h3>
+<ul class="space-y-6">
+<li>
+<a class="group block" href="#">
+<p class="text-on-surface font-bold group-hover:text-primary-mid transition-colors">Cómo borrar colecciones médicas legalmente</p>
+<span class="text-xs text-on-surface-variant uppercase">4 min lectura</span>
+</a>
+</li>
+<li>
+<a class="group block" href="#">
+<p class="text-on-surface font-bold group-hover:text-primary-mid transition-colors">Los 5 mejores bancos para inmigrantes</p>
+<span class="text-xs text-on-surface-variant uppercase">8 min lectura</span>
+</a>
+</li>
+<li>
+<a class="group block" href="#">
+<p class="text-on-surface font-bold group-hover:text-primary-mid transition-colors">ITIN vs SSN: ¿Cuál usar para crédito?</p>
+<span class="text-xs text-on-surface-variant uppercase">10 min lectura</span>
+</a>
+</li>
+</ul>
+</section>
+</aside>
+</main>
+<!-- Footer CTA -->
+<section class="bg-pale-green py-20 mt-16 text-center border-t border-outline-variant">
+<div class="max-w-4xl mx-auto px-gutter">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 uppercase">Saber es el primer paso para ser libre</h2>
+<p class="text-body-lg text-on-primary-fixed-variant mb-10 max-w-2xl mx-auto">Únete a miles de hispanos que están tomando el control de sus finanzas hoy mismo.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<a class="h-14 px-10 bg-primary-mid text-white flex items-center justify-center rounded-xl font-bold shadow-md hover:bg-primary transition-colors" href="#">
+                    Explorar Biblia Financiera
+                </a>
+<a class="h-14 px-10 border-2 border-primary-mid text-primary-mid flex items-center justify-center rounded-xl font-bold hover:bg-surface-container-low transition-colors" href="#">
+                    Ver Planes de Membresía
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer Meta -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-8">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-sm">
+<p>© 2023 BlindadoUSA - Biblia Financiera. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary-mid" href="#">Términos y Condiciones</a>
+<a class="hover:text-primary-mid" href="#">Privacidad</a>
+<a class="hover:text-primary-mid" href="#">Soporte</a>
+</div>
+</div>
+</footer>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-8 right-8 z-50 group">
+<div class="absolute bottom-full right-0 mb-4 w-64 bg-surface-container-lowest p-4 rounded-2xl shadow-2xl border border-outline-variant opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all pointer-events-none">
+<p class="font-bold text-primary mb-1">¿Dudas con tu crédito?</p>
+<p class="text-xs text-on-surface-variant">Pregúntale a nuestro Asistente Inteligente.</p>
+</div>
+<button class="bg-primary-mid text-on-primary rounded-full h-16 w-16 flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</div>
+</body></html>

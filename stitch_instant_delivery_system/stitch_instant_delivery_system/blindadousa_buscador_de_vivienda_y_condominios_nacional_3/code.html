@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buscador de Vivienda | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e8e5",
+                    "on-tertiary-fixed": "#271900",
+                    "surface-variant": "#e2e3e0",
+                    "on-error-container": "#93000a",
+                    "primary": "#012d1d",
+                    "tertiary-container": "#503700",
+                    "surface-tint": "#3f6653",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "outline-variant": "#c1c8c2",
+                    "on-surface": "#1a1c1a",
+                    "primary-light": "#40916C",
+                    "secondary-fixed-dim": "#ffb780",
+                    "gray": "#6B7280",
+                    "on-tertiary": "#ffffff",
+                    "dark": "#1A1A2E",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary": "#ffffff",
+                    "outline": "#717973",
+                    "surface-container-low": "#f3f4f1",
+                    "surface": "#f9faf6",
+                    "warning": "#F77F00",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "success": "#52B788",
+                    "on-tertiary-container": "#d89b00",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-secondary-fixed": "#2f1400",
+                    "secondary": "#8e4e14",
+                    "on-primary-container": "#86af99",
+                    "danger": "#D62828",
+                    "primary-container": "#1b4332",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-container": "#783d01",
+                    "secondary-fixed": "#ffdcc4",
+                    "tertiary": "#342300",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "background": "#f9faf6",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-highest": "#e2e3e0",
+                    "pale-green": "#D8F3DC",
+                    "secondary-container": "#ffab69",
+                    "on-surface-variant": "#414844",
+                    "surface-container": "#eeeeeb",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9faf6",
+                    "primary-mid": "#2D6A4F",
+                    "on-primary-fixed": "#002114",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "inverse-primary": "#a5d0b9",
+                    "on-error": "#ffffff",
+                    "on-background": "#1a1c1a",
+                    "accent-dark": "#E76F51"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest border-b border-outline-variant h-16 px-gutter">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex items-center bg-surface-container-low rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar condominios..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-low rounded-full transition-colors text-primary-mid" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-surface-container-low rounded-full transition-colors text-primary-mid" data-icon="person">person</button>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex sticky left-0 top-16 h-[calc(100vh-64px)] w-64 flex-col z-40 bg-surface border-r border-outline-variant">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-6">
+<div class="h-10 w-10 rounded-full bg-primary-mid flex items-center justify-center text-on-primary font-bold">U</div>
+<div>
+<p class="font-bold text-on-surface">Mi Cuenta</p>
+<p class="text-xs text-on-surface-variant">Estatus: Seguro</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span> Crédito
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Comprar Casa
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span> Comprar Auto
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Remesas
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span> Derechos Laborales
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span> Impuestos
+                    </a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-outline-variant">
+<button class="w-full py-3 bg-primary-mid text-on-primary rounded-lg font-bold mb-4 hover:bg-primary transition-colors">Obtener Asesoría</button>
+<div class="space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant text-sm" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span> Ajustes</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant text-sm" href="#"><span class="material-symbols-outlined" data-icon="logout">logout</span> Cerrar Sesión</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-gutter lg:p-margin-desktop overflow-x-hidden">
+<!-- Hero Search & Selectors -->
+<section class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm uppercase">Encuentra tu próximo hogar</h1>
+<p class="text-body-lg text-on-surface-variant mb-stack-md max-w-2xl">Buscador nacional especializado en la comunidad hispana. Filtramos por seguridad, accesibilidad y facilidad de trámites con ITIN.</p>
+<div class="bg-white p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col md:flex-row gap-4 items-end">
+<div class="flex-1 w-full">
+<label class="block text-label-sm mb-2 text-primary">Ciudad o Estado</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid" data-icon="location_on">location_on</span>
+<select class="w-full pl-10 h-touch-target border border-outline-variant rounded-lg bg-surface-container-low focus:ring-2 focus:ring-primary-mid appearance-none" id="state-selector">
+<option value="TX-HOU">Houston, Texas</option>
+<option value="TX-DAL">Dallas, Texas</option>
+<option value="TX-SA">San Antonio, Texas</option>
+<option value="TX-AUS">Austin, Texas</option>
+<option value="CA">Los Angeles, California</option>
+<option value="FL">Miami, Florida</option>
+</select>
+</div>
+</div>
+<div class="flex-1 w-full">
+<label class="block text-label-sm mb-2 text-primary">Presupuesto Máximo</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid" data-icon="attach_money">attach_money</span>
+<input class="w-full pl-10 h-touch-target border border-outline-variant rounded-lg bg-surface-container-low focus:ring-2 focus:ring-primary-mid" placeholder="Ej: 325,000" type="number"/>
+</div>
+</div>
+<button class="h-touch-target px-8 bg-[#F4A261] text-primary font-bold rounded-lg hover:scale-105 transition-transform w-full md:w-auto">BUSCAR AHORA</button>
+</div>
+<!-- Fast Filters -->
+<div class="flex flex-wrap gap-3 mt-stack-md">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary-mid text-on-primary rounded-full text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span> Mejor calificados por hispanos
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-pale-green text-primary-mid border border-primary-mid/20 rounded-full text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span> Más Económicos
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full text-label-sm text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-sm" data-icon="translate">translate</span> Habla Español
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container rounded-full text-label-sm text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span> Acepta ITIN
+                    </button>
+</div>
+</section>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Condominium Feed -->
+<div class="xl:col-span-2 space-y-gutter">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Resultados en Houston, TX</h2>
+<span class="text-body-md text-on-surface-variant">158 propiedades encontradas</span>
+</div>
+<!-- Property Card 1 -->
+<article class="bg-white rounded-xl border border-outline-variant overflow-hidden flex flex-col md:flex-row hover:border-primary-mid transition-colors group">
+<div class="md:w-72 h-48 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Modern Texas suburban home with a mix of brick and stone facade, large front yard, and bright sunny sky. The style is professional and inviting for families." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7UpnHPBYXgiKEjppCi2WsweJ7ZQYxlBfJKoNx8v9oTUiUPvQkZiCf6Or4QBe8yT3uNiYw8EvPMeNy_jDHYE6UbLJgv_BZNHY4FFXaP9Tq8gVvoY9_YutABCBc9P5M-1fMGpMndjpf8rm-rKP4uovFHWeSlQGR81HUBlOuFEtK5FSct3vI2-iIYwa8ujU3d6L6je4DVA7GHykYKz0FTSpGppdEikPlDt5XIkJ06ZR0St1GNaFXU5KOUAUB_gE6zlV66oKSyDku9zxR"/>
+<div class="absolute top-3 left-3 bg-primary text-on-primary text-[10px] px-2 py-1 rounded font-bold uppercase tracking-widest">Destacado</div>
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-xl text-primary">Residencial La Estrella</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Katy, TX 77494
+                                    </p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-4xl text-primary-mid block leading-none">$315,000</span>
+<span class="text-xs text-on-surface-variant">Est. $1,950/mes</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="chat">chat</span> Habla Español
+                                </span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified_user">verified_user</span> Acepta ITIN
+                                </span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-4">Ubicado en una de las zonas con mejor crecimiento de Houston. Cerca de escuelas nivel A y centros comerciales latinos.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center">
+<div class="flex gap-4 text-xs font-semibold text-primary">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="bed">bed</span> 4 Hab</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="bathtub">bathtub</span> 2.5 Baños</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="square_foot">square_foot</span> 1,850 ft²</span>
+</div>
+<button class="text-primary-mid font-bold flex items-center gap-1 hover:underline">Ver Detalles <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="bg-white rounded-xl border border-outline-variant overflow-hidden flex flex-col md:flex-row hover:border-primary-mid transition-colors group">
+<div class="md:w-72 h-48 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A brightly lit, contemporary apartment interior in Dallas showing a spacious living room. Modern professional financial vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHutlbzmz_U61NGjkDjXPSjTVg8laDICWMY5ReWa-XVIePGVW54xsgv43bOvtpX2duxh2dAgci8P1gsVpojagQD1ALe0z-swG7eSFX112dz1-w5WpNk9lS7p6T97CEnLb3g5RUK4ZdX_-YAlJZWXudB9RPhGm_dAAXtGd4NVxgfFyZMebSu3szVjRVc_xVJ2WhCrCl3V-0LIJvlMJptDMO5_GY0Dea7CqyLQo06kJGJVfZdyKZ7zKQnduYAxXGFnz2JkZKYCGSy71n"/>
+</div>
+<div class="flex-1 p-6 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-bold text-xl text-primary">Condominios Dallas Central</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span> Irving, TX 75039
+                                    </p>
+</div>
+<div class="text-right">
+<span class="font-display-lg text-4xl text-primary-mid block leading-none">$265,000</span>
+<span class="text-xs text-on-surface-variant">Est. $1,720/mes</span>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="chat">chat</span> Habla Español
+                                </span>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="savings">savings</span> Pago inicial bajo
+                                </span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-4">Excelente oportunidad para primeros compradores. Administración bilingüe y procesos ágiles para financiamiento ITIN.</p>
+<div class="mt-auto pt-4 border-t border-outline-variant flex justify-between items-center">
+<div class="flex gap-4 text-xs font-semibold text-primary">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="bed">bed</span> 2 Hab</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="bathtub">bathtub</span> 2 Baños</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="square_foot">square_foot</span> 1,100 ft²</span>
+</div>
+<button class="text-primary-mid font-bold flex items-center gap-1 hover:underline">Ver Detalles <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</article>
+</div>
+<!-- Sidebar Content: Map & Info -->
+<div class="space-y-gutter">
+<!-- Interactive Map Mockup -->
+<div class="bg-surface-container rounded-xl border border-outline-variant overflow-hidden h-96 relative">
+<div class="absolute inset-0 bg-slate-200">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="Stylized map of Texas urban areas highlighting residential zones." data-location="Houston" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbzWilEdUWrzHM2yMIg_OxKX_17H0pDkcZ8cc4PxuYY6H_NLsxneldOjHngKib8CFQxlD-KPC59r3IGztB_v_p-hY_cyb0Ef0gUcXWmOPQ8x5sehekhQmjFG1vEBskuU5FS2n13pQDcqMvX4pLdKvDcQS9OlXrZnolf-ZFaHwsQL2E9-ZLSTmPMlgBpgQlCTDsJhMgmX8r7RNbTKtUN3FAmkPg3tphpajNouJ77_BXwDmMxSYMvTIi81b-Zpq48ctICtN1HClbulAD"/>
+<!-- Pins -->
+<div class="absolute top-1/2 left-1/2 animate-bounce">
+<span class="material-symbols-outlined text-primary-mid text-4xl" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-white p-3 rounded shadow-lg text-xs font-bold text-primary flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-mid"></span> Ver zonas con alta población hispana en Texas
+                        </div>
+</div>
+<!-- State Specific Help -->
+<div class="bg-primary-container text-on-primary p-6 rounded-xl sombra-verde">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-success" data-icon="info">info</span>
+<h3 class="font-bold text-lg">Guía para Texas (TX)</h3>
+</div>
+<div class="space-y-4">
+<div>
+<p class="text-xs uppercase font-bold text-success/80 mb-1">Costos de Cierre</p>
+<p class="text-sm">En Texas, los costos de cierre suelen oscilar entre el 2% y 3%. Texas no tiene impuesto estatal a la renta, pero los impuestos a la propiedad son de los más altos.</p>
+</div>
+<div class="p-3 bg-white/10 rounded-lg border border-white/10">
+<p class="text-xs uppercase font-bold text-pale-green mb-1">Ayuda Estatal (TSAHC)</p>
+<p class="text-sm font-semibold">My First Texas Home: Ofrece préstamos a tasas bajas y subvenciones para el pago inicial de hasta el 5% del valor del préstamo.</p>
+<button class="mt-2 text-xs text-success underline font-bold">Ver requisitos de elegibilidad</button>
+</div>
+</div>
+</div>
+<!-- Score Gauge Mockup -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant text-center">
+<p class="text-label-sm text-primary mb-4">Tu Crédito Estimado</p>
+<div class="relative w-32 h-16 mx-auto mb-2 overflow-hidden">
+<div class="absolute inset-0 rounded-t-full border-[10px] border-surface-container-high"></div>
+<div class="absolute inset-0 rounded-t-full border-[10px] border-success border-b-0 rotate-[45deg] origin-bottom"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 font-data-mono text-2xl text-primary">680</div>
+</div>
+<div class="flex items-center justify-center gap-2 mb-4">
+<span class="w-3 h-3 rounded-full bg-success"></span>
+<span class="text-xs font-bold text-success uppercase">Saludable (Semáforo)</span>
+</div>
+<p class="text-xs text-on-surface-variant">Con 680 puedes calificar para programas de ITIN en Texas con solo 10-15% de enganche según el condado.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-8 right-8 z-50 group">
+<div class="absolute bottom-16 right-0 bg-white p-4 rounded-xl shadow-xl border border-outline-variant w-64 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all pointer-events-none mb-2">
+<p class="text-sm font-bold text-primary mb-1">Hola, soy tu Asistente IA</p>
+<p class="text-xs text-on-surface-variant">Pregúntame sobre cómo comprar casa en Texas con ITIN o programas de ayuda para el primer hogar.</p>
+</div>
+<button class="rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid text-on-primary shadow-md shadow-primary-container/20 hover:scale-110 hover:shadow-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+</div>
+<!-- Mobile Nav Bar (Phone Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center py-3 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-mid">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-bold">Buscar</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-[10px] font-bold">Favoritos</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</button>
+</div>
+<script>
+        // Simple Interaction logic
+        const stateSelector = document.getElementById('state-selector');
+        stateSelector.addEventListener('change', (e) => {
+            console.log('Cambiando a:', e.target.value);
+            // In a real app, this would refresh the property list for the selected Texas city
+        });
+    </script>
+</body></html>

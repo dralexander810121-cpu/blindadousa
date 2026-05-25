@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoTX - Mi Crédito Local</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#717973",
+                        "on-surface": "#1a1c1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e2e3e0",
+                        "on-surface-variant": "#414844",
+                        "secondary": "#8e4e14",
+                        "tertiary-container": "#503700",
+                        "dark": "#1A1A2E",
+                        "surface-dim": "#dadad7",
+                        "on-primary-container": "#86af99",
+                        "accent-dark": "#E76F51",
+                        "secondary-container": "#ffab69",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-container": "#783d01",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary-fixed": "#ffdcc4",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1b4332",
+                        "error-container": "#ffdad6",
+                        "primary-mid": "#2D6A4F",
+                        "on-tertiary-fixed": "#271900",
+                        "on-secondary": "#ffffff",
+                        "warning": "#F77F00",
+                        "danger": "#D62828",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "secondary-fixed-dim": "#ffb780",
+                        "background": "#f9faf6",
+                        "success": "#52B788",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "primary": "#012d1d",
+                        "surface-bright": "#f9faf6",
+                        "surface-container-high": "#e8e8e5",
+                        "inverse-primary": "#a5d0b9",
+                        "surface": "#f9faf6",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-container": "#eeeeeb",
+                        "primary-light": "#40916C",
+                        "pale-green": "#D8F3DC",
+                        "on-error": "#ffffff",
+                        "tertiary": "#342300",
+                        "surface-container-low": "#f3f4f1",
+                        "on-background": "#1a1c1a",
+                        "outline-variant": "#c1c8c2",
+                        "gray": "#6B7280",
+                        "inverse-surface": "#2f312f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-sm": ["14px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.1", "fontWeight": "400" }],
+                        "data-mono": ["20px", { "lineHeight": "1.0", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased md:pl-64 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 flex items-center justify-between px-margin-mobile md:px-margin-desktop z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-wide">BlindadoTX</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:inline-flex items-center px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full font-label-sm text-label-sm">
+                Miembro Premium
+            </span>
+<span class="hidden md:inline-flex items-center px-3 py-1 border border-primary text-primary rounded-full font-label-sm text-label-sm">
+                Trial
+            </span>
+<div class="flex items-center gap-2">
+<button aria-label="Notificaciones" class="p-2 rounded-full hover:text-primary-mid text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button aria-label="Ajustes" class="p-2 rounded-full hover:text-primary-mid text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary-mid flex items-center justify-center text-on-primary font-bold overflow-hidden border-2 border-primary-container">
+<img alt="Avatar del usuario" class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA30ETGGBSSdgbWhyuX--j47t7djny3kUrp7ngrnSKaz-qbkDl3ra5pqwaJuGEPLhmWAemeDmH11MC3o41tHjeJFkcFyDbgTl4eGe4uFfnWq14Cqx_ra2smbLbImGtSHsCnEWWALb1MH5Ig9UThf9XngNiA5wPU0g_9Tf0RUSy7EQhHOCDje28jB8gn3i1u7MJL3J19AMiGaXxsD1Zg0bBqekEUbbbjHLvEOkW_ynqCGRymHr4QXYlm888UUsOpIEsHwnBZXlghccQl"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-primary py-6 px-4 border-r border-primary-mid shadow-md z-50">
+<div class="mb-8 px-2 flex flex-col gap-2">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-pale-green tracking-wide">BlindadoTX</h2>
+<p class="font-body-md text-body-md text-pale-green/70">Biblia Financiera (Texas)</p>
+</div>
+<ul class="flex flex-col gap-2 flex-grow">
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Resumen
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-primary-fixed bg-primary-fixed font-bold font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined fill-icon">credit_card</span>
+                    Crédito
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">badge</span>
+                    ITIN/SSN
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Presupuesto
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">savings</span>
+                    Ahorros
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                    Deudas
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                    Impuestos
+                </a>
+</li>
+</ul>
+<div class="mt-auto pt-4 border-t border-primary-mid">
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container rounded-lg font-label-sm text-label-sm font-bold flex items-center justify-center gap-2 hover:bg-opacity-90 transition-colors">
+<span class="material-symbols-outlined">upgrade</span>
+                Actualizar Plan
+            </button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto space-y-stack-lg">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-outline-variant pb-4">
+<div>
+<h2 class="font-display-lg text-display-lg md:text-[64px] text-primary">Mi Crédito (Texas)</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Monitorea y mejora tu puntaje con estrategias legales en Texas.</p>
+</div>
+<div class="flex items-center gap-2 bg-primary-fixed/20 px-4 py-2 rounded-full border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+<span class="font-label-sm text-label-sm text-primary">Leyes aplicadas: Texas</span>
+</div>
+</section>
+<!-- Bento Grid: Score & Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Score Card (Left Column) -->
+<div class="lg:col-span-1 bg-surface rounded-xl p-6 border border-outline-variant shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-danger via-warning to-success"></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6 w-full text-left">Puntaje FICO 8</h3>
+<!-- Score Gauge Graphic -->
+<div class="relative w-48 h-24 mb-4">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 100 50">
+<!-- Background Arc -->
+<path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#e2e3e0" stroke-linecap="round" stroke-width="8"></path>
+<!-- Colored Segments (Conceptual) -->
+<path d="M 10 50 A 40 40 0 0 1 30 20" fill="none" stroke="#D62828" stroke-linecap="round" stroke-width="8"></path> <!-- Red -->
+<path d="M 30 20 A 40 40 0 0 1 70 20" fill="none" stroke="#F77F00" stroke-linecap="round" stroke-width="8"></path> <!-- Yellow -->
+<path d="M 70 20 A 40 40 0 0 1 90 50" fill="none" stroke="#52B788" stroke-linecap="round" stroke-width="8"></path> <!-- Green -->
+<!-- Value Arc (Active) -->
+<path d="M 10 50 A 40 40 0 0 1 75 25" fill="none" stroke="#52B788" stroke-dasharray="125" stroke-dashoffset="0" stroke-linecap="round" stroke-width="8"></path>
+<!-- Needle -->
+<circle cx="50" cy="50" fill="#1a1c1a" r="4"></circle>
+<line stroke="#1a1c1a" stroke-linecap="round" stroke-width="2" x1="50" x2="75" y1="50" y2="25"></line>
+</svg>
+</div>
+<div class="font-display-lg text-display-lg text-primary leading-none mb-2">680</div>
+<!-- Semáforo Status -->
+<div class="flex items-center gap-2 bg-pale-green text-primary-mid px-4 py-2 rounded-full mb-4">
+<span class="material-symbols-outlined fill-icon text-success">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">Saludable</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Tu puntaje está en un buen nivel. Es suficiente para rentar un apartamento o comprar un auto usado en Texas.</p>
+<button class="mt-6 w-full h-touch-target bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm font-bold border border-outline-variant transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined">refresh</span>
+                    Actualizar Reporte
+                </button>
+</div>
+<!-- AI Action Plan (Right Columns) -->
+<div class="lg:col-span-2 bg-surface-bright rounded-xl p-6 border border-primary-fixed shadow-md shadow-primary-container/10">
+<div class="flex items-center gap-3 mb-6 border-b border-outline-variant pb-4">
+<div class="h-10 w-10 rounded-full bg-primary-mid flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined fill-icon">smart_toy</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Plan de Acción (Texas)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Pasos legales para subir tu puntaje este mes.</p>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Action 1: High Priority -->
+<div class="flex flex-col md:flex-row items-start md:items-center gap-4 bg-surface rounded-lg p-4 border-l-4 border-warning shadow-sm">
+<div class="bg-warning/10 p-3 rounded-full shrink-0">
+<span class="material-symbols-outlined text-warning">credit_card_off</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface mb-1">Pagar tarjeta Chase para bajar utilización</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Paga $300 antes del día 15 para bajar tu uso al 29%.</p>
+</div>
+<button class="w-full md:w-auto px-6 h-touch-target bg-secondary-container text-on-secondary-container rounded-lg font-label-sm text-label-sm font-bold hover:bg-opacity-90 transition-colors shrink-0">
+                            Pagar Ahora
+                        </button>
+</div>
+<!-- Action 2: Dispute -->
+<div class="flex flex-col md:flex-row items-start md:items-center gap-4 bg-surface rounded-lg p-4 border-l-4 border-primary-mid shadow-sm">
+<div class="bg-primary-fixed p-3 rounded-full shrink-0">
+<span class="material-symbols-outlined text-primary-mid">gavel</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface mb-1">Disputar dirección antigua en Houston</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Borrar direcciones viejas ayuda a prevenir robo de identidad.</p>
+</div>
+<button class="w-full md:w-auto px-6 h-touch-target border border-primary-mid text-primary-mid rounded-lg font-label-sm text-label-sm font-bold hover:bg-pale-green transition-colors shrink-0">
+                            Crear Carta
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Button -->
+<button aria-label="Asistente Blindado" class="fixed bottom-8 right-8 z-50 rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid shadow-lg shadow-primary-container/20 text-on-primary hover:scale-110 hover:shadow-xl transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+</body></html>

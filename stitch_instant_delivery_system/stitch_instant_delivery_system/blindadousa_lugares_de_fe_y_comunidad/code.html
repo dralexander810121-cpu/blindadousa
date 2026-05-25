@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lugares de Fe y Comunidad | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#342300",
+                        "success": "#52B788",
+                        "accent-dark": "#E76F51",
+                        "on-tertiary-container": "#d89b00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "primary-light": "#40916C",
+                        "on-primary-container": "#86af99",
+                        "primary-fixed": "#c1ecd4",
+                        "on-secondary-fixed": "#2f1400",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface-container": "#eeeeeb",
+                        "background": "#f9faf6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "tertiary-container": "#503700",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-surface-variant": "#414844",
+                        "surface": "#f9faf6",
+                        "danger": "#D62828",
+                        "primary-container": "#1b4332",
+                        "surface-variant": "#e2e3e0",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "pale-green": "#D8F3DC",
+                        "dark": "#1A1A2E",
+                        "outline": "#717973",
+                        "on-background": "#1a1c1a",
+                        "inverse-surface": "#2f312f",
+                        "primary-mid": "#2D6A4F",
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e2e3e0",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f3f4f1",
+                        "on-surface": "#1a1c1a",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9faf6",
+                        "warning": "#F77F00",
+                        "on-surface": "#1a1c1a",
+                        "tertiary-fixed": "#ffdea9",
+                        "secondary-container": "#ffab69",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary": "#8e4e14",
+                        "gray": "#6B7280",
+                        "primary": "#012d1d",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Sidebar Navigation (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-surface-container border-r border-outline-variant z-50 p-gutter gap-stack-md shadow-sm">
+<div class="mb-8">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">BlindadoUSA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Estatus: Seguro</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">credit_score</span> Crédito
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">gavel</span> Legal
+            </a>
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container rounded-lg font-bold scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">groups</span> Comunidad
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">savings</span> Ahorros
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">verified_user</span> Seguros
+            </a>
+</nav>
+<div class="mt-auto pt-gutter border-t border-outline-variant flex flex-col gap-2">
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">smart_toy</span> Obtener Ayuda AI
+            </button>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">settings</span> Configuración
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">logout</span> Cerrar Sesión
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen pb-24 md:pb-8">
+<!-- Top App Bar (Shared Component) -->
+<header class="w-full top-0 sticky z-40 bg-background border-b border-outline-variant flex justify-between items-center h-touch-target px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary cursor-pointer">menu</span>
+<span class="font-headline-md text-headline-md text-primary hidden md:block">Lugares de Fe y Comunidad</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full text-label-sm focus:outline-primary w-64" placeholder="Buscar comunidad..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-colors">account_circle</span>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A warm and vibrant photograph of a diverse Latino community gathering in a sunny, decorated community center. People of all ages are smiling, talking, and sharing food around large wooden tables. The lighting is soft and golden, creating a welcoming and inclusive atmosphere. The style is professional and high-trust, reflecting a corporate yet empathetic brand identity with natural green and warm orange tones in the environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-NhcR8FU1PQVjWG9w_17p0z9R9saAy042pZ9OvUE4iV_v8wkLJUaHUWPYEqp09RQr1YT8cXvf_jfsnU96XBozsT04whR-iq1RqJzpXPpt0zyK0yAf2FZjJ3Fxtowahwmow_17nf58xkXoGXf7N7PyIme8KCDf64j_QtfOLXJeTBlOhtLysyKvzVV7ocWZeWc_8a9TYQbImtVxV9BL1uhdHAUqUwy5ErWebwEqWbtRc7tpfGMNfU6tmpXcV-gZQYtsxt8Ay7tQADSI"/>
+<div class="absolute inset-0 bg-primary/40"></div>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<h2 class="font-display-lg text-display-lg md:text-display-lg text-white mb-4 drop-shadow-lg">TU COMUNIDAD, TU APOYO</h2>
+<p class="font-body-lg text-body-lg text-white max-w-2xl mx-auto drop-shadow-md">
+                    Encuentra iglesias, centros comunitarios y grupos de apoyo que hablan tu idioma y comparten tus valores. No estás solo en este camino.
+                </p>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="px-margin-mobile md:px-margin-desktop -mt-12 relative z-20">
+<div class="bg-white p-gutter rounded-xl sombra-verde border border-outline-variant grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">Categoría</label>
+<div class="relative">
+<select class="w-full h-touch-target rounded-lg border-outline-variant bg-surface-container-low text-body-md appearance-none focus:ring-primary focus:border-primary">
+<option>Todas las categorías</option>
+<option>Iglesia</option>
+<option>Centro Comunitario</option>
+<option>Asociación de Paisanos</option>
+<option>Grupo de Apoyo</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">Denominación</label>
+<div class="relative">
+<select class="w-full h-touch-target rounded-lg border-outline-variant bg-surface-container-low text-body-md appearance-none focus:ring-primary focus:border-primary">
+<option>Cualquier creencia</option>
+<option>Católico</option>
+<option>Cristiano / Evangélico</option>
+<option>No denominacional</option>
+<option>Otro / Comunitario</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant px-1">Ciudad / ZIP Code</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant bg-surface-container-low text-body-md focus:ring-primary focus:border-primary" placeholder="Ej: Houston, TX" type="text"/>
+</div>
+<button class="w-full h-touch-target bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-mid transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">search</span> Buscar Ahora
+                </button>
+</div>
+</section>
+<!-- Events Highlight Banner -->
+<section class="px-margin-mobile md:px-margin-desktop mt-stack-lg">
+<div class="bg-tertiary-container rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 border border-tertiary">
+<div class="flex-1 space-y-4">
+<div class="inline-flex items-center gap-2 bg-secondary-container px-3 py-1 rounded-full text-on-secondary-container font-label-sm">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span>PRÓXIMO EVENTO</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-tertiary-fixed">Feria de Recursos para la Familia</h3>
+<p class="text-white opacity-90 font-body-md">Habrá asesoría legal gratuita, despensa de alimentos y actividades para niños. ¡Toda la comunidad es bienvenida!</p>
+<div class="flex flex-wrap gap-4 text-white">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container">calendar_today</span>
+<span>Sábado, 15 de Octubre</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container">schedule</span>
+<span>9:00 AM - 2:00 PM</span>
+</div>
+</div>
+</div>
+<button class="bg-secondary text-on-secondary font-bold px-8 h-touch-target rounded-xl hover:bg-secondary/90 transition-all active:scale-95">
+                    Ver Detalles del Evento
+                </button>
+</div>
+</section>
+<!-- Directory Grid -->
+<section class="px-margin-mobile md:px-margin-desktop mt-stack-lg">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-headline-md text-primary">Resultados Cerca de Ti</h3>
+<span class="text-on-surface-variant font-label-sm">Mostrando 12 lugares en Houston, TX</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Place Card 1 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant hover:sombra-verde transition-all flex flex-col">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A clean, professional photograph of a welcoming community church entrance with modern architecture and large glass doors. A diverse group of people is standing near the entrance, chatting and smiling. The environment is well-maintained and bright, with lush green plants around. The lighting is bright and optimistic, emphasizing a safe and reliable community space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVhLi7WrZEw3DdsVd4BRFRO0S-YFdWetXF7UhJAIIZZJK_OSi2A1yP6noYYyM1XqsI6PVa-np8sHvgsSM2zJO6-mb8sdkbmaUtpd-7yHc5z9GNF8ynorlyPlq3-coFLUQE4gnybvZzay_kG1m0MpPxJCTTrPCbyCBAXSJUwDjRgVSSvJldnUcvQ1q_xmro-LwtKEsQwrb_jqAg2-HTDwsWhLuirxIAN0jk5UJ75-uDyeYu2hIRccR70wvplXN7ixY2nqru8EwMX_AW"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-[12px] font-bold px-2 py-1 rounded uppercase">Iglesia</div>
+</div>
+<div class="p-5 flex-grow space-y-3">
+<div>
+<h4 class="font-headline-md text-[20px] leading-tight text-primary">Parroquia San Judas Tadeo</h4>
+<p class="text-on-surface-variant font-label-sm">Católico</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-label-sm">1234 Prosperity Way, Houston, TX (1.2 mi)</span>
+</div>
+<div class="flex items-center gap-2 text-primary-mid">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span class="text-label-sm font-bold">Español 100% / Inglés</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Despensa de Alimentos</span>
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Clases de Inglés</span>
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">+2 más</span>
+</div>
+</div>
+<div class="p-5 pt-0 grid grid-cols-2 gap-3">
+<button class="h-10 border border-primary text-primary font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span> Ver en Mapa
+                        </button>
+<button class="h-10 bg-primary text-white font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">chat</span> Contactar
+                        </button>
+</div>
+</div>
+<!-- Place Card 2 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant hover:sombra-verde transition-all flex flex-col">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A brightly lit community center interior with large windows and comfortable seating areas. In the background, a small classroom setup is visible with a whiteboard where English classes are taught. The space is filled with warm wood textures and modern office furniture. The mood is professional, safe, and productive, featuring a high-contrast corporate aesthetic with a focus on trust and accessibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyQ994SgyvFKbPM8Bm3AkvQEaxDMC50TvCsSgcW_JCsWCssS_fU9skS7IIv2ckyudxHf6ff7AX5Qe7huV36-qOthnugMvc-Llx2U3JYpZopv5ORbZlIP29ujPZxVJLSsIFsS9jT21jnseASJqBpDeJ9oplh8cuAX5Lvlb-BUF1Ank-_5NO1evSGsa_rtPyNY_3LYIaztktzUOPyaaIc5S-Ov10XcghJ6q9SZyjdowJ85tQ3XKO0sO7t6PDzFQd7FqwCHrEGyuZcaJO"/>
+<div class="absolute top-3 left-3 bg-secondary text-white text-[12px] font-bold px-2 py-1 rounded uppercase">Centro Comunitario</div>
+</div>
+<div class="p-5 flex-grow space-y-3">
+<div>
+<h4 class="font-headline-md text-[20px] leading-tight text-primary">Casa del Inmigrante HOU</h4>
+<p class="text-on-surface-variant font-label-sm">No denominacional</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-label-sm">882 Community St, Houston, TX (2.5 mi)</span>
+</div>
+<div class="flex items-center gap-2 text-primary-mid">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span class="text-label-sm font-bold">Español 100%</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Apoyo Legal</span>
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Asesoría ITIN</span>
+</div>
+</div>
+<div class="p-5 pt-0 grid grid-cols-2 gap-3">
+<button class="h-10 border border-primary text-primary font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span> Ver en Mapa
+                        </button>
+<button class="h-10 bg-primary text-white font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">chat</span> Contactar
+                        </button>
+</div>
+</div>
+<!-- Place Card 3 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant hover:sombra-verde transition-all flex flex-col">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover" data-alt="A warm, authentic image of two people shaking hands across a table in a modern, welcoming support group office. In the background, posters with encouraging Spanish messages are visible. The atmosphere is professional yet deeply empathetic, with soft natural light streaming in. The color palette is composed of deep greens and neutral tones, conveying a sense of stability and community advocacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC76c1UwmpSuhR1uwIbYMo3HOpRX9glY9Owq0SkY2Afa_5k1Pc27dJf5TJJ-SNdJEtQNw1hpZOWMRWmOoR2WRuMxA0cQ5pvsFkpe5CJzIJ6vIjiWIC1xauobLEhyCoX-F5h28lpLCgqoAueVhmBjRKM8TvwwYCUckA00ZS76rwFl8xRmwW7JY9BmfJlgdT1IgMSaUKc8a9ZIadB2hS5pG3kQNmJlKeFDP-cYqegH4r9MEUQum17CXBxT0fxr32GIWbUIMPh7MGwr7gT"/>
+<div class="absolute top-3 left-3 bg-accent-dark text-white text-[12px] font-bold px-2 py-1 rounded uppercase">Grupo de Apoyo</div>
+</div>
+<div class="p-5 flex-grow space-y-3">
+<div>
+<h4 class="font-headline-md text-[20px] leading-tight text-primary">Caminando Juntos Houston</h4>
+<p class="text-on-surface-variant font-label-sm">Asociación Civil</p>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-label-sm">560 Hope Blvd, Houston, TX (3.8 mi)</span>
+</div>
+<div class="flex items-center gap-2 text-primary-mid">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span class="text-label-sm font-bold">Bilingüe (ES/EN)</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Salud Mental</span>
+<span class="bg-pale-green text-on-primary-fixed-variant text-[11px] font-bold px-2 py-1 rounded-full border border-primary-light/20">Empoderamiento</span>
+</div>
+</div>
+<div class="p-5 pt-0 grid grid-cols-2 gap-3">
+<button class="h-10 border border-primary text-primary font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span> Ver en Mapa
+                        </button>
+<button class="h-10 bg-primary text-white font-bold rounded-lg text-label-sm flex items-center justify-center gap-1 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">chat</span> Contactar
+                        </button>
+</div>
+</div>
+</div>
+<div class="mt-stack-md flex justify-center">
+<button class="h-touch-target px-8 bg-surface-container border border-outline-variant text-primary font-bold rounded-xl hover:bg-surface-variant transition-colors flex items-center gap-2">
+                    Cargar más resultados <span class="material-symbols-outlined">keyboard_arrow_down</span>
+</button>
+</div>
+</section>
+<!-- Traffic Light Status (Semáforo) -->
+<section class="px-margin-mobile md:px-margin-desktop mt-stack-lg">
+<div class="bg-white p-6 rounded-2xl border border-outline-variant flex items-center gap-6">
+<div class="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-success text-[40px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-success"></div>
+<span class="font-bold text-success text-label-sm">COMUNIDAD ACTIVA</span>
+</div>
+<p class="font-body-md text-on-surface-variant mt-1">Actualmente hay 5 eventos comunitarios y 3 campañas de ayuda activa en tu área. ¡Únete y fortalece tu blindaje!</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-safe border-t border-outline-variant bg-surface-container-lowest md:hidden shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">policy</span>
+<span class="font-label-sm text-label-sm">Legal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50" id="ai-assistant">
+<button class="w-16 h-16 rounded-full bg-primary-mid text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+<script>
+        // Micro-interactions for AI Assistant
+        const fab = document.getElementById('ai-assistant');
+        let isMoving = false;
+        
+        fab.addEventListener('mouseenter', () => {
+            if(!isMoving) {
+                fab.querySelector('button').classList.add('animate-bounce');
+                setTimeout(() => fab.querySelector('button').classList.remove('animate-bounce'), 1000);
+            }
+        });
+
+        // Simple sticky header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('glass-header', 'shadow-sm');
+            } else {
+                header.classList.remove('glass-header', 'shadow-sm');
+            }
+        });
+    </script>
+</body></html>

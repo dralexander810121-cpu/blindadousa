@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #F4A261;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+            margin-top: -8px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #D8F3DC;
+            border-radius: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f9faf6",
+                      "outline-variant": "#c1c8c2",
+                      "on-primary-container": "#86af99",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-mid": "#2D6A4F",
+                      "on-background": "#1a1c1a",
+                      "on-tertiary-fixed": "#271900",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "surface-container-high": "#e8e8e5",
+                      "surface-variant": "#e2e3e0",
+                      "outline": "#717973",
+                      "secondary": "#8e4e14",
+                      "on-secondary-container": "#783d01",
+                      "tertiary-container": "#503700",
+                      "on-secondary-fixed": "#2f1400",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#ffb780",
+                      "surface-bright": "#f9faf6",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#342300",
+                      "danger": "#D62828",
+                      "surface-container-highest": "#e2e3e0",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f3f4f1",
+                      "inverse-on-surface": "#f0f1ee",
+                      "surface-dim": "#dadad7",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "gray": "#6B7280",
+                      "primary": "#012d1d",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "pale-green": "#D8F3DC",
+                      "inverse-surface": "#2f312f",
+                      "on-tertiary-container": "#d89b00",
+                      "background": "#f9faf6",
+                      "inverse-primary": "#a5d0b9",
+                      "success": "#52B788",
+                      "primary-light": "#40916C",
+                      "on-surface": "#1a1c1a",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#002114",
+                      "on-surface-variant": "#414844",
+                      "dark": "#1A1A2E",
+                      "primary-fixed": "#c1ecd4",
+                      "tertiary-fixed": "#ffdea9",
+                      "surface-tint": "#3f6653",
+                      "accent-dark": "#E76F51",
+                      "primary-container": "#1b4332",
+                      "secondary-container": "#ffab69",
+                      "surface-container": "#eeeeeb",
+                      "secondary-fixed": "#ffdcc4",
+                      "warning": "#F77F00",
+                      "tertiary-fixed-dim": "#ffba27"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "margin-desktop": "2.5rem",
+                      "touch-target": "48px",
+                      "margin-mobile": "1.25rem",
+                      "gutter": "1rem",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "3rem"
+              },
+              "fontFamily": {
+                      "display-lg": ["Bebas Neue"],
+                      "body-lg": ["Inter"],
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "label-sm": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background dark:bg-on-background shadow-sm">
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary-mid dark:text-primary-fixed-dim">BlindadoUSA</span>
+</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Precios</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-on-surface-variant font-medium px-4 py-2 hover:text-primary-light transition-colors">Iniciar Sesión</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:bg-primary-light transition-colors active:scale-95 duration-150">Empieza Gratis</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 pt-20 p-4 bg-surface-container-lowest border-r border-outline-variant z-40">
+<div class="mb-8 flex items-center gap-3 p-2">
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Hola, Miembro</p>
+<p class="text-xs text-on-surface-variant">Plan Premium Activo</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">person</span> Mi Perfil
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">folder_open</span> Mis Documentos
+            </a>
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">history</span> Historial
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">calculate</span> Calculadoras
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span> Soporte
+            </a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-pale-green text-primary p-3 rounded-lg font-bold mb-4 hover:bg-primary-fixed transition-all">Mejorar Plan</button>
+<a class="flex items-center gap-3 p-3 text-danger font-medium" href="#">
+<span class="material-symbols-outlined">logout</span> Cerrar Sesión
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 pt-20 pb-24 px-margin-mobile md:px-margin-desktop overflow-x-hidden">
+<!-- Alert Banner -->
+<div class="bg-danger text-white p-4 rounded-xl mb-stack-md flex items-center justify-between shadow-lg animate-pulse">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<p class="font-bold font-headline-md text-headline-md-mobile md:text-headline-md">Nuevo Impuesto a Remesas 2026 - Prepárate hoy</p>
+</div>
+<span class="material-symbols-outlined cursor-pointer">close</span>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Calculadora de Ahorro -->
+<section class="xl:col-span-2 bg-white p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col gap-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-mid">calculate</span>
+<h2 class="font-headline-md text-primary">Calculadora de Impacto Fiscal</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-6">
+<div class="space-y-4">
+<label class="font-bold text-on-surface flex justify-between">
+                                Monto mensual enviado
+                                <span class="text-primary-mid font-data-mono" id="amount-display">$500</span>
+</label>
+<input class="w-full h-2 bg-pale-green rounded-lg appearance-none cursor-pointer" id="remittance-slider" max="5000" min="100" step="50" type="range" value="500"/>
+</div>
+<div class="space-y-4">
+<label class="font-bold text-on-surface">Método de envío actual</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 border-2 border-primary-mid bg-pale-green rounded-lg font-bold text-primary flex items-center justify-center gap-2" id="method-cash" onclick="setMethod('cash')">
+<span class="material-symbols-outlined">payments</span> Efectivo
+                                </button>
+<button class="p-3 border-2 border-outline-variant rounded-lg font-bold text-on-surface-variant flex items-center justify-center gap-2" id="method-bank" onclick="setMethod('bank')">
+<span class="material-symbols-outlined">account_balance</span> Banco
+                                </button>
+</div>
+</div>
+</div>
+<!-- Dynamic Results -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col gap-4">
+<div class="border-b border-outline-variant pb-4">
+<p class="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Impuesto anual estimado (2026)</p>
+<p class="font-display-lg text-danger leading-none" id="tax-result">$180</p>
+<p class="text-xs text-on-surface-variant mt-1 italic">Basado en el proyectado de retención del 3%</p>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant uppercase tracking-wider font-bold">Ahorro potencial con BlindadoUSA</p>
+<p class="font-display-lg text-success leading-none" id="savings-result">$120</p>
+<p class="text-xs text-on-surface-variant mt-1">Optimizando vía transferencia bancaria y deducciones.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Sección Educativa -->
+<section class="bg-primary-container text-white p-6 rounded-xl sombra-verde">
+<h2 class="font-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">lightbulb</span> ¿Por qué este cambio?
+                </h2>
+<div class="space-y-4 font-body-md text-on-primary-container">
+<p>A partir de 2026, el gobierno implementará una tasa de control sobre envíos de efectivo para combatir la informalidad.</p>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-warning">verified</span>
+<span><strong>Usa Bancos:</strong> Las transferencias digitales tendrán una tasa menor o nula.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-warning">verified</span>
+<span><strong>Reporta:</strong> Mantener recibos te permitirá deducir gastos en tu declaración.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-warning">verified</span>
+<span><strong>Agrupa:</strong> Menos envíos de mayor monto reducen cargos fijos.</span>
+</li>
+</ul>
+</div>
+<button class="w-full mt-6 bg-secondary-container text-on-secondary-container p-4 rounded-lg font-bold hover:scale-105 transition-transform active:scale-95">
+                    Ver guía completa de ahorro
+                </button>
+</section>
+</div>
+<!-- Comparador de Servicios -->
+<section class="mt-stack-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div>
+<h2 class="font-headline-md text-primary">Comparador de Servicios en Tiempo Real</h2>
+<p class="text-on-surface-variant">Analizamos las mejores opciones para el envío seleccionado de <span class="font-bold text-primary" id="amount-summary">$500</span>.</p>
+</div>
+<div class="flex gap-2 bg-surface-container p-1 rounded-lg">
+<button class="px-4 py-1 bg-white shadow rounded-md text-sm font-bold">Tarifa</button>
+<button class="px-4 py-1 text-sm font-medium">Velocidad</button>
+</div>
+</div>
+<div class="overflow-x-auto bg-white rounded-xl border border-outline-variant">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-on-surface-variant border-b border-outline-variant">
+<tr>
+<th class="p-4 font-bold">Proveedor</th>
+<th class="p-4 font-bold">Tarifa de Envío</th>
+<th class="p-4 font-bold">Tiempo de Entrega</th>
+<th class="p-4 font-bold">¿Paga Impuesto 2026?</th>
+<th class="p-4 font-bold">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-blue-100 flex items-center justify-center font-bold text-blue-800">W</div>
+<span class="font-bold">Wise</span>
+</div>
+</td>
+<td class="p-4 font-data-mono text-primary-mid">$4.50</td>
+<td class="p-4">Instantáneo</td>
+<td class="p-4">
+<span class="bg-pale-green text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span> Exento (Digital)
+                                </span>
+</td>
+<td class="p-4"><button class="text-primary font-bold hover:underline">Seleccionar</button></td>
+</tr>
+<tr class="bg-pale-green/20 hover:bg-pale-green/30 transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-orange-100 flex items-center justify-center font-bold text-orange-800">R</div>
+<span class="font-bold">Remitly</span>
+</div>
+</td>
+<td class="p-4 font-data-mono text-primary-mid">$2.99</td>
+<td class="p-4">3-5 días</td>
+<td class="p-4">
+<span class="bg-pale-green text-primary px-3 py-1 rounded-full text-xs font-bold flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span> Exento (Digital)
+                                </span>
+</td>
+<td class="p-4"><button class="text-primary font-bold hover:underline">Seleccionar</button></td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-yellow-100 flex items-center justify-center font-bold text-yellow-800">WU</div>
+<span class="font-bold">Western Union</span>
+</div>
+</td>
+<td class="p-4 font-data-mono text-primary-mid">$8.00</td>
+<td class="p-4">15 minutos</td>
+<td class="p-4">
+<span class="bg-error-container text-error px-3 py-1 rounded-full text-xs font-bold flex items-center w-fit gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span> Aplica (Efectivo)
+                                </span>
+</td>
+<td class="p-4"><button class="text-primary font-bold hover:underline">Seleccionar</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Visual Content / Image -->
+<section class="mt-stack-lg rounded-2xl overflow-hidden relative h-64 md:h-80 shadow-xl">
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent z-10 flex flex-col justify-center px-10 text-white">
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-2">Protege tu Esfuerzo</h3>
+<p class="max-w-md font-body-lg">Entendemos el valor de cada dólar que envías a casa. BlindadoUSA es tu aliado para navegar las nuevas leyes fiscales de 2026.</p>
+</div>
+<img alt="Financial security and family support" class="w-full h-full object-cover" data-alt="A warm, emotionally resonant photograph of a Hispanic family in a bright, modern living room, smiling while looking at a tablet together. The lighting is soft and golden, suggesting comfort and financial security. The background is slightly blurred with minimalist decor, maintaining a high-contrast corporate yet accessible aesthetic with deep green and soft white tones reflecting the BlindadoUSA brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw6CtkZ71fBoC71bFblDS6XeVrrsEaLksLpOjo1LisSbsM1dx47zp2mEdRJGygDMe4dwXDORqu0CGJt5SUJ7DuZTXrhDRgoTssYXDt5XBcmEIt9r8V6-s3A7r0xQ8DxiT6wV-tZMXK-h6izx2B3i05GKs06WZBojHDmQaO2MWo8STkasMgy2NMGW-qoalcJaDYTB-H-gGNGrErFGq2Q3gTw_I6d70KiaiU5uEZ64cAptg9FMQeunI274A958E9q81mxru0VBVu28gR"/>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-label-sm font-label-sm">Crédito</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Casa</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-transform active:scale-90">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-label-sm font-label-sm">Carro</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-label-sm font-label-sm">Seguros</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-label-sm font-label-sm">Más</span>
+</button>
+</footer>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-20 right-6 md:bottom-8 md:right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-mid to-primary shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">smart_toy</span>
+</button>
+</div>
+<!-- Simple Script for interactivity -->
+<script>
+        const slider = document.getElementById('remittance-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const amountSummary = document.getElementById('amount-summary');
+        const taxResult = document.getElementById('tax-result');
+        const savingsResult = document.getElementById('savings-result');
+        
+        let currentMethod = 'cash';
+
+        function updateCalculations() {
+            const amount = parseInt(slider.value);
+            amountDisplay.innerText = `$${amount}`;
+            amountSummary.innerText = `$${amount}`;
+            
+            // Logic: 3% tax for cash, 0.5% for bank
+            const taxRate = currentMethod === 'cash' ? 0.03 : 0.005;
+            const annualTax = amount * taxRate * 12;
+            const potentialSavings = currentMethod === 'cash' ? (amount * 0.025 * 12) : (amount * 0.01 * 12);
+            
+            taxResult.innerText = `$${Math.round(annualTax)}`;
+            savingsResult.innerText = `$${Math.round(potentialSavings)}`;
+        }
+
+        function setMethod(method) {
+            currentMethod = method;
+            const cashBtn = document.getElementById('method-cash');
+            const bankBtn = document.getElementById('method-bank');
+            
+            if (method === 'cash') {
+                cashBtn.className = "p-3 border-2 border-primary-mid bg-pale-green rounded-lg font-bold text-primary flex items-center justify-center gap-2";
+                bankBtn.className = "p-3 border-2 border-outline-variant rounded-lg font-bold text-on-surface-variant flex items-center justify-center gap-2";
+            } else {
+                bankBtn.className = "p-3 border-2 border-primary-mid bg-pale-green rounded-lg font-bold text-primary flex items-center justify-center gap-2";
+                cashBtn.className = "p-3 border-2 border-outline-variant rounded-lg font-bold text-on-surface-variant flex items-center justify-center gap-2";
+            }
+            updateCalculations();
+        }
+
+        slider.addEventListener('input', updateCalculations);
+        updateCalculations();
+    </script>
+</body></html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Realtors Verificados | Biblia Financiera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-mid": "#2D6A4F",
+                    "surface-container-high": "#e8e8e5",
+                    "inverse-on-surface": "#f0f1ee",
+                    "inverse-surface": "#2f312f",
+                    "primary": "#012d1d",
+                    "error-container": "#ffdad6",
+                    "gray": "#6B7280",
+                    "primary-fixed": "#c1ecd4",
+                    "tertiary-container": "#503700",
+                    "inverse-primary": "#a5d0b9",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-surface-variant": "#414844",
+                    "warning": "#F77F00",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-background": "#1a1c1a",
+                    "surface-tint": "#3f6653",
+                    "outline-variant": "#c1c8c2",
+                    "surface-container-low": "#f3f4f1",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#d89b00",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dadad7",
+                    "secondary-container": "#ffab69",
+                    "on-tertiary-fixed": "#271900",
+                    "on-error": "#ffffff",
+                    "accent-dark": "#E76F51",
+                    "on-primary-container": "#86af99",
+                    "surface": "#f9faf6",
+                    "on-primary-fixed": "#002114",
+                    "primary-container": "#1b4332",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffdcc4",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-surface": "#1a1c1a",
+                    "dark": "#1A1A2E",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-bright": "#f9faf6",
+                    "background": "#f9faf6",
+                    "on-secondary-container": "#783d01",
+                    "tertiary": "#342300",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "success": "#52B788",
+                    "secondary": "#8e4e14",
+                    "surface-variant": "#e2e3e0",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface-container": "#eeeeeb",
+                    "danger": "#D62828",
+                    "outline": "#717973",
+                    "primary-light": "#40916C",
+                    "surface-container-lowest": "#ffffff",
+                    "pale-green": "#D8F3DC"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem",
+                    "touch-target": "48px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest h-16 px-gutter border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined cursor-pointer" onclick="document.getElementById('side-nav').classList.toggle('-translate-x-full')">menu</span>
+<h1 class="font-display-lg text-display-lg-mobile text-primary-mid tracking-tight">BIBLIA FINANCIERA</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md ml-2 w-48" placeholder="Buscar realtor..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex-col z-40 bg-surface dark:bg-surface-dim border-r border-outline-variant w-64 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out lg:sticky lg:top-16 lg:h-[calc(100vh-64px)]" id="side-nav">
+<div class="p-6 border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-on-primary font-bold">JD</div>
+<div>
+<p class="font-label-sm text-on-surface">Mi Cuenta</p>
+<p class="text-[12px] text-primary-mid font-bold">Estatus: Seguro</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="font-body-md">Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg translate-x-1" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md">Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-body-md">Comprar Auto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md">Remesas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-md">Derechos Laborales</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md">Impuestos</span>
+</a>
+<div class="pt-6 mt-6 border-t border-outline-variant">
+<button class="w-full bg-primary-mid text-on-primary py-3 px-4 rounded-lg font-bold hover:scale-[1.02] transition-transform active:scale-95">
+                        Obtener Asesoría
+                    </button>
+</div>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary-mid transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container transition-all rounded-lg mt-1" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 w-full lg:max-w-[calc(100vw-256px)]">
+<!-- Hero Section -->
+<section class="p-margin-mobile md:p-margin-desktop bg-surface-container-low border-b border-outline-variant">
+<div class="max-w-6xl mx-auto">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight uppercase">
+                        DIRECTORIO DE REALTORS VERIFICADOS
+                    </h2>
+<p class="mt-stack-sm text-body-lg text-on-surface-variant max-w-3xl">
+                        Encuentra expertos inmobiliarios que entienden nuestra comunidad. Profesionales certificados que hablan español, dominan el financiamiento con <span class="font-bold text-primary-mid">ITIN</span> y te garantizan una compra sin cargos ocultos.
+                    </p>
+</div>
+</section>
+<!-- Search and Filter Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-md">
+<div class="max-w-6xl mx-auto bg-white p-6 rounded-xl border border-outline-variant shadow-sm space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Search -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Buscar por nombre o ciudad</label>
+<div class="flex items-center border border-outline px-4 rounded-lg h-touch-target focus-within:ring-2 focus-within:ring-primary-mid">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="w-full border-none focus:ring-0 text-body-md" placeholder="Ej: Houston, TX" type="text"/>
+</div>
+</div>
+<!-- State Filter -->
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Estado</label>
+<select class="border border-outline rounded-lg h-touch-target px-4 focus:ring-2 focus:ring-primary-mid text-body-md bg-white">
+<option>Todos los estados</option>
+<option>Texas</option>
+<option>California</option>
+<option>Florida</option>
+<option>Arizona</option>
+<option>Illinois</option>
+</select>
+</div>
+<!-- CTA Filter -->
+<div class="flex items-end">
+<button class="w-full bg-secondary-container text-on-secondary-container h-touch-target rounded-lg font-bold hover:brightness-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">filter_alt</span>
+                                APLICAR FILTROS
+                            </button>
+</div>
+</div>
+<!-- Specialty Chips -->
+<div class="flex flex-wrap gap-3">
+<button class="px-4 py-2 rounded-full border border-primary-mid bg-pale-green text-primary-mid text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">check</span> Especialista ITIN
+                        </button>
+<button class="px-4 py-2 rounded-full border border-outline text-on-surface-variant text-label-sm hover:border-primary-mid transition-colors">
+                            Primeros Compradores
+                        </button>
+<button class="px-4 py-2 rounded-full border border-outline text-on-surface-variant text-label-sm hover:border-primary-mid transition-colors">
+                            Habla Español
+                        </button>
+<button class="px-4 py-2 rounded-full border border-outline text-on-surface-variant text-label-sm hover:border-primary-mid transition-colors">
+                            Inversionistas
+                        </button>
+</div>
+</div>
+</section>
+<!-- Confidence Banner -->
+<section class="px-margin-mobile md:px-margin-desktop mb-stack-md">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-6 p-6 bg-primary-container text-on-primary rounded-xl overflow-hidden relative">
+<div class="z-10 flex-shrink-0">
+<div class="w-16 h-16 bg-success rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+</div>
+<div class="z-10 text-center md:text-left">
+<h3 class="font-headline-md mb-1 uppercase tracking-wide">Compromiso de Transparencia</h3>
+<p class="text-on-primary-container opacity-90">Cada realtor en esta lista ha firmado nuestro código de ética. <span class="font-bold underline decoration-success">Sin comisiones ocultas</span> y gastos de cierre 100% transparentes para compradores de ITIN.</p>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute right-0 top-0 w-32 h-32 bg-primary-mid opacity-20 rounded-full -mr-10 -mt-10"></div>
+</div>
+</section>
+<!-- Realtor Grid -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-md">
+<div class="max-w-6xl mx-auto">
+<h4 class="font-label-sm text-primary-mid tracking-[0.2em] mb-4">REALTORS DESTACADOS</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Realtor Card 1 (Premium) -->
+<div class="bg-white rounded-xl border-2 border-primary-mid sombra-verde overflow-hidden flex flex-col hover:scale-[1.01] transition-transform">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="A professional Latino real estate agent smiling in a modern office environment. He is wearing a sharp navy blue business suit. The lighting is bright and airy, suggesting a high-trust, corporate-yet-accessible financial bible aesthetic. The background features subtle green architectural accents and soft bokeh from city windows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA936eKHXAMOxyFlWNYL4JbHDZYVH3rCt2XE7aGO8oulemaTDWQF-9RpuFzllsCuCLR41Ds3lZiAgymoj8BsP0JeeDYCbJlux-VEA9ZwSFOCQBq-R4Pd3dC70QSfVw6fci3Wi1S4qp4m_fB7iHypeJBt0E1sYrwX6qBHJfGFF7w8JdT-_koWs6Z5bDO-cusjBk-YvKZr2pvJO5vN7485K8Q9RBNIDGvra1CDtMTgN5kUZlwW2eDONJEA0dtj6Yh8p1NSuu8Qbn_Uiib"/>
+<div class="absolute top-3 left-3 bg-primary-mid text-on-primary px-3 py-1 rounded text-[10px] font-bold tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span> PREDILECTO
+                                </div>
+<div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg text-primary font-bold text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-success">verified</span> VERIFICADO
+                                </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h5 class="font-headline-md text-primary leading-tight">Ricardo Morales</h5>
+<p class="text-on-surface-variant font-medium text-body-md">Empire Home Group</p>
+</div>
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-on-surface ml-1">4.9</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+<span>Houston, TX &amp; alrededores</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[11px] font-bold">ITIN OK</span>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-[11px] font-bold">HABLA ESPAÑOL</span>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-[11px] font-bold">+10 AÑOS EXP.</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-primary-mid text-on-primary py-3 rounded-lg font-bold text-label-sm hover:bg-primary transition-colors">VER LISTADOS</button>
+<button class="px-4 py-3 border border-primary-mid text-primary-mid rounded-lg hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Realtor Card 2 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden flex flex-col hover:border-primary-mid transition-all shadow-sm">
+<div class="relative h-48 grayscale-[30%] hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="A confident female real estate professional of Hispanic heritage, standing in front of a modern residential property. She is dressed in a professional charcoal blazer. The sunlight is warm and golden-hour style, creating an atmosphere of reliability and empathy. High contrast and clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7-eVFYfk7YYuRgg8xaYvipuqV-Lookz0zhY2gyhRLw-ws_5IX9dMSR8hezbTLU87Pn2C4x9iEuHBj7hIEEkNA4yE7e9YlqbBR5Vrh__Ak-4cUi_MMUQsJzK0VBY2vO0uOqkOQeHp6XtjPvaiZifmPW4DFCPDnC2ilQ7UG_m9C0gUgWe1hTOowVHhz0Di1aHb2EF9KI7E_NKh9InikNXGtILcnFXuiGt-ZD6BYyBymPrKw5ONrUqfQfVUSVyg4R9-5tVjxodOKGOPY"/>
+<div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg text-primary font-bold text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-success">verified</span> VERIFICADO
+                                </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h5 class="font-headline-md text-primary leading-tight">Elena Rodríguez</h5>
+<p class="text-on-surface-variant font-medium text-body-md">Sunshine Realty</p>
+</div>
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-on-surface ml-1">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+<span>Miami, FL</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[11px] font-bold">ITIN OK</span>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-[11px] font-bold">HABLA ESPAÑOL</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-primary-mid text-on-primary py-3 rounded-lg font-bold text-label-sm hover:bg-primary transition-colors">VER LISTADOS</button>
+<button class="px-4 py-3 border border-primary-mid text-primary-mid rounded-lg hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Realtor Card 3 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden flex flex-col hover:border-primary-mid transition-all shadow-sm">
+<div class="relative h-48 grayscale-[30%] hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="A mature, professional male realtor with a welcoming smile, holding a digital tablet with property listings. He is dressed in a professional green-toned business casual outfit. The setting is a bright, upscale kitchen of a show home. The visual style is clean, corporate, and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE_5B0JXQqk7fVy8hveQVxCpXwhpxjT-x_VkaFg8Bvzy4Jmh2j3yDa6EUKOkkhvBE4BgOz5TpnxqdaEW4s5WDsxf1raYRCWh8IGxiykc3B6Nz6MRNr7YjPuPbsOLk9BtOTSR34hQkTMOeNqB7VvE9DMg07yeCGbB-cM2a845_3u2jBFalafZbW9G5PluIAIQIhOx0zj5un_oVgyZ87i3agd5Eb4lfeWHIdxCljXGOqycueY4sqnyxop_Yv8ACD1bnew9bCHxle4fiF"/>
+<div class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg text-primary font-bold text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-success">verified</span> VERIFICADO
+                                </div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h5 class="font-headline-md text-primary leading-tight">Carlos Mendoza</h5>
+<p class="text-on-surface-variant font-medium text-body-md">Dallas Elite Homes</p>
+</div>
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-on-surface ml-1">5.0</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+<span>Dallas, TX</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[11px] font-bold">ITIN OK</span>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded text-[11px] font-bold">HABLA ESPAÑOL</span>
+</div>
+<div class="mt-auto flex gap-3">
+<button class="flex-1 bg-primary-mid text-on-primary py-3 rounded-lg font-bold text-label-sm hover:bg-primary transition-colors">VER LISTADOS</button>
+<button class="px-4 py-3 border border-primary-mid text-primary-mid rounded-lg hover:bg-pale-green transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 text-center">
+<button class="px-8 py-3 bg-surface-container-highest text-primary-mid font-bold rounded-lg hover:bg-outline-variant transition-colors">
+                            CARGAR MÁS REALTORS
+                        </button>
+</div>
+</div>
+</section>
+<!-- B2B Banner -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-lg">
+<div class="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-primary-mid">
+<div class="flex flex-col md:flex-row">
+<div class="bg-primary-container p-8 md:p-12 md:w-3/5 text-on-primary">
+<h2 class="font-display-lg text-display-lg-mobile md:text-[56px] mb-4">¿ERES REALTOR? ÚNETE A NUESTRA RED</h2>
+<p class="text-body-lg text-pale-green mb-8 max-w-lg">
+                                Miles de familias en nuestra comunidad están listas para comprar su primer hogar usando ITIN. Si eres un profesional ético y hablas español, queremos trabajar contigo.
+                            </p>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>Lead calificados con crédito listo</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>Exposición en nuestra red nacional</span>
+</div>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform active:scale-95 w-full md:w-auto">
+                                SOLICITAR VERIFICACIÓN
+                            </button>
+</div>
+<div class="md:w-2/5 relative h-64 md:h-auto">
+<img class="w-full h-full object-cover" data-alt="Professional business interaction showing a firm handshake between two business people over a clean wooden desk. A modern tablet and property brochures are visible. The lighting is crisp and natural, highlighting themes of partnership, success, and trust in a financial bible design context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCwbnUK2ZWxulZYYPbO_4kPgrGaUd9NwZ-YPA7bZ2NJZ5GzM3yODI_fxLdeXEGY-bvTjcJhVqmiKRT9AQnAiecwRkMxz9ruFw_5I1wxbdK8BUGCkBk0Kfmt7m1-v3NsMcA1cK1xHUySHc6DoUq79vJuzDXh5C5U7fKrO8xS7y-mY2WO2tyeZdVQzT-RyYTFs4rj1uROD1GUD4MpQH4oM00XOpf6wfB5d9kP1ciUn1Bk4nTa0vkuV24yW3JGdkhiyKOBOgUvVWHcblh"/>
+<div class="absolute inset-0 bg-primary-mid/20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-inverse-surface text-inverse-on-surface px-margin-mobile md:px-margin-desktop py-12">
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-2">
+<h3 class="font-display-lg text-headline-md mb-4 text-primary-fixed">BIBLIA FINANCIERA</h3>
+<p class="text-on-surface-variant max-w-sm opacity-80">
+                            La plataforma #1 de educación y servicios financieros para la comunidad hispana en Estados Unidos. Empoderando familias a través del conocimiento y herramientas reales.
+                        </p>
+</div>
+<div>
+<h4 class="font-bold text-label-sm uppercase tracking-widest mb-4">Recursos</h4>
+<ul class="space-y-2 text-on-surface-variant opacity-80">
+<li><a class="hover:text-primary-fixed" href="#">Calculadora ITIN</a></li>
+<li><a class="hover:text-primary-fixed" href="#">Guía de Compra</a></li>
+<li><a class="hover:text-primary-fixed" href="#">Reporte de Crédito</a></li>
+<li><a class="hover:text-primary-fixed" href="#">Blog Financiero</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-label-sm uppercase tracking-widest mb-4">Legal</h4>
+<ul class="space-y-2 text-on-surface-variant opacity-80">
+<li><a class="hover:text-primary-fixed" href="#">Términos de Uso</a></li>
+<li><a class="hover:text-primary-fixed" href="#">Privacidad</a></li>
+<li><a class="hover:text-primary-fixed" href="#">Licencias Inmobiliarias</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant">
+<p>© 2024 Biblia Financiera - BlindadoUSA. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-fixed">social_leaderboard</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-fixed">share_reviews</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary-fixed">alternate_email</span>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<!-- Floating AI Button -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center gap-3">
+<div class="hidden md:block bg-white px-4 py-2 rounded-full shadow-lg border border-primary-mid font-label-sm animate-bounce">
+            ¿Necesitas ayuda con ITIN?
+        </div>
+<button class="bg-primary-mid text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-md shadow-primary-container/20 hover:scale-110 hover:shadow-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[28px]">smart_toy</span>
+</button>
+</div>
+<script>
+        // Simple interactivity for mobile nav toggle
+        const menuBtn = document.querySelector('header .material-symbols-outlined');
+        const sideNav = document.getElementById('side-nav');
+        
+        // In-page search focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('border-primary-mid');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('border-primary-mid');
+        });
+    </script>
+</body></html>

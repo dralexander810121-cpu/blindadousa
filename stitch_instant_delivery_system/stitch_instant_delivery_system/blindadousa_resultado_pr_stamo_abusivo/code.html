@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Escáner de Préstamos Predatorios | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e5",
+                        "surface-bright": "#f9faf6",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ffab69",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface": "#f9faf6",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-surface-variant": "#414844",
+                        "on-primary-container": "#86af99",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-mid": "#2D6A4F",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-fixed": "#271900",
+                        "warning": "#F77F00",
+                        "primary-light": "#40916C",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "gray": "#6B7280",
+                        "tertiary-container": "#503700",
+                        "surface-container-lowest": "#ffffff",
+                        "success": "#52B788",
+                        "danger": "#D62828",
+                        "surface-container": "#eeeeeb",
+                        "primary-fixed": "#c1ecd4",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-variant": "#e2e3e0",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "outline": "#717973",
+                        "on-surface": "#1a1c1a",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-container": "#d89b00",
+                        "secondary-fixed": "#ffdcc4",
+                        "inverse-primary": "#a5d0b9",
+                        "accent-dark": "#E76F51",
+                        "on-background": "#1a1c1a",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "background": "#f9faf6",
+                        "pale-green": "#D8F3DC",
+                        "tertiary": "#342300",
+                        "secondary": "#8e4e14",
+                        "inverse-surface": "#2f312f",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-secondary-container": "#783d01",
+                        "surface-dim": "#dadad7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline docked full-width top-0 z-50 flex justify-between items-center h-touch-target px-margin-mobile md:px-margin-desktop w-full fixed">
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">BLINDADOUSA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold overflow-hidden">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot avatar of a smiling Hispanic male financial advisor in a modern corporate setting with soft daylight and high-contrast professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwwfmiALnP84sU8XE6oBVI2OR8ME9-jHpsWVohAjq3ZvV3WQ9JXqo_fnluHLWpX8v6GfdW0QH5hMwJJBJWTIrhQgw-jbXDI0j2iyc7qhrqsyfhbliGnqnSAdHYKR0xUnkm2sB48yXhM4Przl_A7unDH7Ib1uRrYeVYSpsxyFPPxJXJ0ZbQZhBkUfIHBoVeOCCtabb71kFSCkJKK3fu6IDyHUj-R5rHxug-3lSaR6AnErIUwTMJcinw7lLzZwazuYHYqDCRHM9eR-vY"/>
+</div>
+</div>
+</header>
+<div class="flex pt-touch-target pb-16 md:pb-0 h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container docked left-0 h-full w-64 hidden md:flex flex-col py-stack-md px-4 space-y-2 shadow-sm border-r border-outline-variant">
+<div class="px-4 py-2 mb-4">
+<h2 class="font-display-lg text-display-lg text-primary leading-none">MI PANEL</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant hover:bg-surface-container-highest px-4 py-3 rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant hover:bg-surface-container-highest px-4 py-3 rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant hover:bg-surface-container-highest px-4 py-3 rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 translate-x-1" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant hover:bg-surface-container-highest px-4 py-3 rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2">
+<button class="w-full bg-primary-mid text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">smart_toy</span>
+<span>Hablar con IA</span>
+</button>
+<a class="flex items-center gap-stack-sm text-error px-4 py-3 rounded-lg hover:bg-error-container transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop py-stack-md bg-background custom-scrollbar">
+<!-- Header Section -->
+<header class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Escáner de Préstamos Predatorios</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">No dejes que te cobren de más. Analizamos tu contrato en segundos con el sistema "Semáforo" de BlindadoUSA.</p>
+</header>
+<!-- Scanner Tool Container -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-stack-md mb-stack-lg">
+<!-- Left: Form -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant sombra-verde">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary-mid">receipt_long</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Datos de tu Préstamo</h2>
+</div>
+<form class="space-y-4" id="scannerForm">
+<div>
+<label class="block font-label-sm text-label-sm mb-1 text-on-surface-variant">Monto del Préstamo ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md" id="loanAmount" placeholder="Ej: 5000" required="" type="number" value="500"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm mb-1 text-on-surface-variant">Tasa APR (%)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md" id="aprRate" placeholder="Ej: 24" required="" type="number" value="400"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm mb-1 text-on-surface-variant">Plazo (Meses)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md" id="loanTerm" placeholder="Ej: 36" required="" type="number" value="1"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm mb-1 text-on-surface-variant">Pago Mensual Sugerido ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md" id="monthlyPayment" placeholder="Ej: 250" required="" type="number" value="250"/>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold h-touch-target rounded-xl flex items-center justify-center gap-2 hover:brightness-95 transition-all active:scale-95 shadow-md mt-6" onclick="scanLoan()" type="button">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span>Escanear Préstamo Ahora</span>
+</button>
+</form>
+</div>
+<!-- Right: Results -->
+<div class="p-6 rounded-xl border border-outline-variant flex flex-col items-center justify-center min-h-[400px] bg-error-container/20" id="resultArea" style="border-color: #ba1a1a; border-width: 2px;">
+<div class="text-center hidden" id="emptyState">
+<span class="material-symbols-outlined text-6xl text-outline-variant mb-4">analytics</span>
+<h3 class="font-headline-md text-headline-md text-on-surface-variant">Listo para escanear</h3>
+<p class="text-on-surface-variant mt-2">Ingresa los datos a la izquierda para ver si tu préstamo es abusivo.</p>
+</div>
+<div class="w-full h-full flex flex-col items-center text-center" id="scannedState"><div class="px-6 py-2 rounded-full font-bold text-white mb-6 uppercase tracking-widest text-sm bg-error" id="verdictBadge">
+<span id="verdictText">MUY ABUSIVO</span>
+</div>
+<div class="mb-6 flex flex-col items-center">
+<span class="material-symbols-outlined text-error text-6xl mb-4 font-variation-fill">warning</span>
+<h3 class="font-display-lg text-display-lg text-error leading-none text-center">🔴 PRÉSTAMO MUY ABUSIVO</h3>
+</div>
+<p class="text-on-surface text-body-md mb-8 max-w-sm">
+    Este préstamo tiene una tasa del 400% APR. Estás pagando casi el doble de lo prestado en solo un mes. Esto es una trampa de deuda.
+</p>
+<div class="grid grid-cols-2 gap-4 w-full mb-8">
+<div class="bg-white p-4 rounded-xl border border-error/30">
+<p class="text-label-sm text-error font-bold">Costo de Interés</p>
+<p class="font-data-mono text-data-mono text-error font-bold">$166.67</p>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant">
+<p class="text-label-sm text-on-surface-variant">Costo Justo (15% APR)</p>
+<p class="font-data-mono text-data-mono text-success">$6.25</p>
+</div>
+</div>
+<div class="w-full bg-error p-6 rounded-xl mb-8">
+<p class="text-label-sm text-white font-bold mb-1 uppercase tracking-wider">Interés Excesivo Identificado</p>
+<div class="font-display-lg text-display-lg text-white font-bold">$160.42</div>
+<p class="text-sm text-white/90 mt-2">Estás pagando 26 veces más de lo que sería una tasa justa.</p>
+</div>
+<div class="w-full space-y-4">
+<button class="w-full bg-primary text-white font-bold h-touch-target rounded-xl flex items-center justify-center gap-2 hover:bg-primary-mid transition-all shadow-md">
+<span class="material-symbols-outlined">account_balance</span>
+<span>Ver alternativas de crédito justo</span>
+</button>
+<a class="block text-error font-bold underline text-center" href="#">
+        Generar carta de Cese y Desista
+    </a>
+</div></div>
+</div>
+</section>
+<!-- Educational Section: Tipos de Préstamos Peligrosos -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Tipos de Préstamos Peligrosos</h2>
+<span class="text-label-sm text-on-surface-variant">Conoce al enemigo</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Payday -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error text-3xl">money_off</span>
+<div class="flex text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+</div>
+<h3 class="font-label-sm text-label-sm text-on-surface mb-2">Payday Loans</h3>
+<p class="text-sm text-on-surface-variant">Pequeños préstamos con intereses de hasta 400%. Atrapan en ciclos de deuda infinitos.</p>
+</div>
+<!-- Title Loans -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-warning text-3xl">directions_car</span>
+<div class="flex text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">error</span>
+</div>
+</div>
+<h3 class="font-label-sm text-label-sm text-on-surface mb-2">Title Loans</h3>
+<p class="text-sm text-on-surface-variant">Pones tu auto como garantía. Si no pagas, te quitan tu transporte y tu libertad de moverte.</p>
+</div>
+<!-- Rent-to-own -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-warning transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-mid text-3xl">chair</span>
+<div class="flex text-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">error</span>
+</div>
+</div>
+<h3 class="font-label-sm text-label-sm text-on-surface mb-2">Rent-to-own</h3>
+<p class="text-sm text-on-surface-variant">Terminas pagando 3 o 4 veces el valor real de un mueble o electrodoméstico.</p>
+</div>
+<!-- Tax Refund -->
+<div class="bg-white p-5 rounded-xl border border-outline-variant hover:border-warning transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-light text-3xl">account_balance_wallet</span>
+<div class="flex text-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">error</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">error</span>
+</div>
+</div>
+<h3 class="font-label-sm text-label-sm text-on-surface mb-2">Tax Refund Loans</h3>
+<p class="text-sm text-on-surface-variant">Préstamos sobre tu reembolso. Tarifas ocultas que merman tu dinero ganado ante el IRS.</p>
+</div>
+</div>
+</section>
+<!-- Legal Rights & CTA -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-md pb-12">
+<!-- Rights Section -->
+<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Tus derechos (FDCPA)</h3>
+<div class="space-y-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<p class="text-body-md text-on-surface">No pueden llamarte después de las 9:00 PM ni antes de las 8:00 AM.</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<p class="text-body-md text-on-surface">Prohibido mentir sobre el monto real de tu deuda.</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<p class="text-body-md text-on-surface">No pueden contactarte en el trabajo si tu jefe lo prohíbe.</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<p class="text-body-md text-on-surface">Derecho a solicitar validación de la deuda por escrito.</p>
+</div>
+</div>
+</div>
+<!-- CTA AI Box -->
+<div class="bg-primary-container p-6 rounded-xl text-on-primary-container flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-white mb-2">¿Te están acosando?</h3>
+<p class="text-on-primary-container mb-6">Nuestra IA puede redactar una carta legal de "Cese y Desista" personalizada para detener las llamadas hoy mismo.</p>
+<button class="w-full md:w-auto bg-secondary-container text-on-secondary-container font-bold px-8 h-touch-target rounded-xl flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span>Generar Carta de Cese y Desista</span>
+</button>
+</div>
+<!-- Decorative Element -->
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[120px] opacity-10 rotate-12">gavel</span>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface dark:bg-inverse-surface shadow-lg md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">folder</span>
+<span class="font-label-sm">Docs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- AI Assistant FAB -->
+<button class="fixed bottom-20 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-primary-mid rounded-full text-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<script>
+        function scanLoan() {
+            const amount = parseFloat(document.getElementById('loanAmount').value);
+            const apr = parseFloat(document.getElementById('aprRate').value);
+            const term = parseFloat(document.getElementById('loanTerm').value);
+            const monthly = parseFloat(document.getElementById('monthlyPayment').value);
+
+            if (!amount || !apr || !term || !monthly) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            // Simple logic for demonstration
+            const totalPaid = monthly * term;
+            const overpay = totalPaid - amount;
+            
+            document.getElementById('emptyState').classList.add('hidden');
+            const resultArea = document.getElementById('resultArea');
+            const scannedState = document.getElementById('scannedState');
+            scannedState.classList.remove('hidden');
+            resultArea.classList.remove('border-dashed', 'bg-surface-container-low');
+            resultArea.classList.add('bg-white', 'sombra-verde');
+
+            const verdictText = document.getElementById('verdictText');
+            const verdictBadge = document.getElementById('verdictBadge');
+            const verdictHeadline = document.getElementById('verdictHeadline');
+            const overpayDisplay = document.getElementById('overpayDisplay');
+            const realAprDisplay = document.getElementById('realAprDisplay');
+            const offeredAprDisplay = document.getElementById('offeredAprDisplay');
+
+            offeredAprDisplay.innerText = apr + '%';
+            realAprDisplay.innerText = (apr * 1.15).toFixed(1) + '%'; // Simulation
+            overpayDisplay.innerText = '$' + overpay.toLocaleString('en-US', {minimumFractionDigits: 2});
+
+            if (apr > 36) {
+                verdictText.innerText = 'MUY ABUSIVO';
+                verdictHeadline.innerText = 'MUY ABUSIVO';
+                verdictBadge.className = 'px-6 py-2 rounded-full font-bold text-white mb-6 uppercase tracking-widest text-sm bg-error';
+            } else if (apr > 15) {
+                verdictText.innerText = 'ABUSIVO';
+                verdictHeadline.innerText = 'ABUSIVO';
+                verdictBadge.className = 'px-6 py-2 rounded-full font-bold text-white mb-6 uppercase tracking-widest text-sm bg-warning';
+            } else {
+                verdictText.innerText = 'RAZONABLE';
+                verdictHeadline.innerText = 'RAZONABLE';
+                verdictBadge.className = 'px-6 py-2 rounded-full font-bold text-white mb-6 uppercase tracking-widest text-sm bg-success';
+            }
+        }
+    </script>
+</body></html>

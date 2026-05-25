@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salud y Seguros - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-low": "#f3f4f1",
+                    "error": "#ba1a1a",
+                    "primary-light": "#40916C",
+                    "warning": "#F77F00",
+                    "surface-container": "#eeeeeb",
+                    "primary-mid": "#2D6A4F",
+                    "on-secondary-fixed": "#2f1400",
+                    "danger": "#D62828",
+                    "success": "#52B788",
+                    "on-tertiary-container": "#d89b00",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "on-primary-fixed": "#002114",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#271900",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1a",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "outline": "#717973",
+                    "surface-container-highest": "#e2e3e0",
+                    "dark": "#1A1A2E",
+                    "tertiary-container": "#503700",
+                    "on-primary-container": "#86af99",
+                    "surface-dim": "#dadad7",
+                    "gray": "#6B7280",
+                    "on-surface-variant": "#414844",
+                    "surface-tint": "#3f6653",
+                    "on-error": "#ffffff",
+                    "primary": "#012d1d",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb780",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9faf6",
+                    "secondary-container": "#ffab69",
+                    "secondary": "#8e4e14",
+                    "on-surface": "#1a1c1a",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e8e8e5",
+                    "surface-variant": "#e2e3e0",
+                    "pale-green": "#D8F3DC",
+                    "tertiary": "#342300",
+                    "surface-bright": "#f9faf6",
+                    "secondary-fixed": "#ffdcc4",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-fixed": "#ffdea9",
+                    "accent-dark": "#E76F51",
+                    "inverse-on-surface": "#f0f1ee",
+                    "inverse-surface": "#2f312f",
+                    "background": "#f9faf6",
+                    "primary-container": "#1b4332"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "touch-target": "48px",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #1B4332; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-40 w-full h-16 flex justify-between items-center px-margin-mobile md:px-margin-desktop bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined cursor-pointer" onclick="document.getElementById('mobile-nav').classList.toggle('-translate-x-full')">menu</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container uppercase tracking-wider">BlindadoUSA</h1>
+</div>
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 w-96">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md ml-2" placeholder="Buscar seguros o clínicas..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-2 bg-pale-green/30 rounded-lg cursor-pointer hover:bg-pale-green/50 transition-colors">
+<span class="material-symbols-outlined text-primary-mid">notifications</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 bg-pale-green/30 rounded-lg cursor-pointer hover:bg-pale-green/50 transition-colors">
+<span class="material-symbols-outlined text-primary-mid">settings</span>
+</div>
+<img alt="Foto de perfil del usuario" class="w-10 h-10 rounded-full border-2 border-primary-light" data-alt="A professional headshot of a middle-aged Hispanic man in business casual attire, smiling warmly against a soft-focus office background. The lighting is bright and natural, reflecting a clean and modern high-key aesthetic consistent with a trustworthy financial platform. The color palette uses subtle warm tones with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsrJVEg3323PvezfhWUaIy36cVqk6cYwnbRfCrwUUOlXKau9AkO1HbZpPessQF0HGSz3sVm70wMCAjK424oQEUUsztyZatdQEmxYOu7FBomnYcxkcEdgtrKIGM2iTCbjOJ6yXITpYtL2XRKRf5w778pU6SP_ZwuVFZShXTAchO9qqfxns-j6ulFyrr__FFDBLZQRqbF3T-Za91jVXFHzUaqL7rnIKRIjwITu_pzBnT7_-E7AloHL7WGZ3IV6aQbvtlEaFU30J1Ewn9"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="fixed left-0 top-0 h-screen w-72 hidden md:flex flex-col bg-surface-container py-6 border-r border-outline-variant z-50 overflow-y-auto">
+<div class="px-6 mb-8">
+<h2 class="font-display-lg text-headline-md text-primary-container">BlindadoUSA</h2>
+<p class="text-on-surface-variant font-label-sm">Tu Biblia Financiera</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-semibold">Panel Principal</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-semibold">Mi Crédito</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)]" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-semibold">Salud y Seguros</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-semibold">Impuestos ITIN</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="font-semibold">Ahorros</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-semibold">Inversiones</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-semibold">Vivienda</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-semibold">Legal</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-semibold">Educación</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-semibold">Trámites</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">business_center</span>
+<span class="font-semibold">Negocios</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-semibold">Comunidad</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pb-4">
+<button class="w-full h-[48px] bg-secondary-container text-on-secondary-container font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:brightness-95 transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-16 min-h-screen">
+<div class="p-margin-mobile md:p-margin-desktop space-y-stack-lg">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-stack-md">
+<div class="space-y-1">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase leading-none">Salud y Seguros</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Protege lo más importante. Accede a cobertura médica de calidad, opciones para ITIN y asistencia financiera sin importar tu estatus.</p>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-success/10 text-success rounded-full border border-success/20">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-label-sm">Perfil de Salud Completo</span>
+</div>
+</section>
+<!-- Security Banner -->
+<div class="bg-primary-container text-on-primary p-6 rounded-2xl flex flex-col md:flex-row items-center gap-6 sombra-verde">
+<div class="bg-primary-fixed/20 p-4 rounded-full">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-headline-md mb-1">Dato de Seguridad</h3>
+<p class="text-body-md opacity-90">Tu salud es lo primero. Buscar atención médica no afecta tu estatus migratorio. Los hospitales y clínicas en EE.UU. priorizan el cuidado por encima de todo.</p>
+</div>
+<button class="whitespace-nowrap px-6 py-3 bg-pale-green text-primary-container font-bold rounded-lg hover:bg-white transition-colors">
+                    Saber Más
+                </button>
+</div>
+<!-- Bento Grid: Insurance & Tools -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Buscador de Seguros (Bento Main) -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-3xl p-6 md:p-8 space-y-6">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-display-lg text-headline-md text-primary-mid uppercase tracking-wide">Buscador de Seguros Médicos</h3>
+<p class="text-on-surface-variant font-label-sm">Encuentra el plan que se ajusta a tu realidad financiera.</p>
+</div>
+<span class="material-symbols-outlined text-primary-light text-3xl">manage_search</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Marketplace -->
+<div class="group p-5 border border-outline-variant rounded-2xl hover:border-primary-mid transition-all cursor-pointer bg-surface">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold">POPULAR</span>
+<span class="material-symbols-outlined text-primary-mid">medication</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">Marketplace</h4>
+<p class="text-label-sm text-on-surface-variant mb-4 leading-relaxed">Obamacare con subsidios basados en ingresos. Ideal para W2.</p>
+<button class="w-full py-2 bg-primary-mid text-white rounded-lg group-hover:bg-primary-container transition-colors">Ver Planes</button>
+</div>
+<!-- Medicare -->
+<div class="group p-5 border border-outline-variant rounded-2xl hover:border-primary-mid transition-all cursor-pointer bg-surface">
+<div class="flex justify-between items-center mb-3 text-on-surface-variant">
+<span class="px-3 py-1 rounded-full text-xs font-bold"> </span>
+<span class="material-symbols-outlined">elderly</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">Medicare</h4>
+<p class="text-label-sm text-on-surface-variant mb-4 leading-relaxed">Para mayores de 65 años o personas con discapacidades específicas.</p>
+<button class="w-full py-2 border border-primary-mid text-primary-mid rounded-lg group-hover:bg-primary-mid group-hover:text-white transition-all">Más Info</button>
+</div>
+<!-- ITIN Friendly -->
+<div class="group p-5 border border-primary-mid/30 bg-pale-green/10 rounded-2xl hover:border-primary-mid transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-3">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold">EXCLUSIVO</span>
+<span class="material-symbols-outlined text-primary-mid">badge</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">Planes ITIN</h4>
+<p class="text-label-sm text-on-surface-variant mb-4 leading-relaxed">Seguros privados que aceptan ITIN. Sin barreras de estatus.</p>
+<button class="w-full py-2 bg-primary-container text-white rounded-lg transition-colors">Comparar</button>
+</div>
+</div>
+</div>
+<!-- Charity Care Tool (Bento Side) -->
+<div class="lg:col-span-4 bg-gradient-to-br from-primary-mid to-primary-container text-white rounded-3xl p-8 space-y-6 flex flex-col justify-between">
+<div class="space-y-4">
+<h3 class="font-display-lg text-headline-md uppercase tracking-wide">Asistencia Financiera</h3>
+<div class="flex items-center gap-3 bg-white/10 p-4 rounded-xl">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">youtube_giving</span>
+<p class="font-label-sm">Charity Care: Leyes que obligan a hospitales a reducir facturas.</p>
+</div>
+<p class="text-body-md opacity-80">Si ganas menos de un monto específico, el hospital puede perdonar hasta el 100% de tu deuda médica.</p>
+</div>
+<button class="w-full h-14 bg-accent-dark text-white font-bold rounded-xl flex items-center justify-center gap-2 shadow-lg active:scale-95 duration-200">
+                        SOLICITAR AYUDA
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Directory Section -->
+<section class="space-y-stack-md">
+<div class="flex justify-between items-end">
+<div>
+<h3 class="font-display-lg text-headline-md text-primary uppercase">Directorio de Clínicas Comunitarias</h3>
+<p class="text-body-md text-on-surface-variant">Clínicas de bajo costo en Texas para servicios primarios y preventivos.</p>
+</div>
+<button class="flex items-center gap-2 text-primary-mid font-bold hover:underline">
+                        Ver todas en el mapa
+                        <span class="material-symbols-outlined">open_in_new</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Clinic Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-32 bg-gray-200 relative overflow-hidden">
+<img alt="Clínica comunitaria moderna" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A clean, welcoming entrance of a modern community health clinic in Texas. The building has bright white walls with large windows and a clear 'Community Health' sign. The scene is bathed in bright daylight under a clear blue sky, evoking a sense of safety and professional care for the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0PsWdnIwoUE8ibgNwl02qcACqbTX74vmJ0h9wXAG4ec6ZttGHl9yAB52M2RAcPpYJKFjq-C4Vx7vCIJimqV9njlrE1UG7zn4AMDPKA6mnP-BFu3TYM43FR1GRAuPcpxBOLF4lRHCfwnwJI1qT0mGa5q0EuA-9DN51tOI5eFLcm1IUDyS9ud71Q2CJZvSHiDuPFMhINYheoO6OeDvEm9gF0VUYEKhUyNCx0m4jbuMMjCA8vYZ61u51Dsc9hZuVYdqg_SAylRCyQJ-"/>
+<div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded text-[10px] font-bold">ABIERTO</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="font-headline-md text-primary text-lg">Centro de Salud Latino</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Houston, TX
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">payments</span>
+                                Escala Móvil de Pagos
+                            </div>
+<button class="w-full py-2 bg-surface text-primary-mid border border-primary-mid rounded-lg font-bold hover:bg-pale-green transition-colors">Llamar Ahora</button>
+</div>
+</div>
+<!-- Clinic Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-32 bg-gray-200 relative overflow-hidden">
+<img alt="Interior de clínica médica" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="The sterile yet welcoming interior of a modern medical examination room. High-key lighting fills the space, highlighting clean equipment and a comfortable treatment chair. The color palette is dominated by whites and soft greens, creating a professional and trustworthy environment for healthcare services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgqWUUL93x4ZpeU03X6wlBAyn0cnHjRx_e_t9e1KzmJVKXQHOQvygUK4OKcAka_9I4LsTeHeUrrdeopsc8CTbZh_tSlrNSIh0b2xUAIZUjepmenhEFri_SqZN6FifDhWQY0V6t-P4l_UPtehPP1B_lH14RPpI5jXO1hGTiSaszb9z7-9y0TUG1LDd4FtC69UElN1YpeVJ1Voheo9Lcb10KA3-0cyTc2Y1bZOTuiN2_G1rgBRHpGG7r48eyHjzjTYSEKTcn2LmNKpV"/>
+<div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded text-[10px] font-bold">ABIERTO</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="font-headline-md text-primary text-lg">Clínica de la Esperanza</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Dallas, TX
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">translate</span>
+                                Personal Bilingüe
+                            </div>
+<button class="w-full py-2 bg-surface text-primary-mid border border-primary-mid rounded-lg font-bold hover:bg-pale-green transition-colors">Llamar Ahora</button>
+</div>
+</div>
+<!-- Clinic Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-32 bg-gray-200 relative overflow-hidden">
+<img alt="Fachada de hospital comunitario" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A modern hospital building facade with large glass panels reflecting a vibrant sunset. The architecture is sleek and corporate, conveying authority and high-quality medical services. The surrounding landscape is manicured, adding to the professional and secure atmosphere of the health facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIIhzSRHTyPpjineuOtJ5jdnwPrCpOZjips30W2SyaTLpfcDIlyhSIkiXQmXy2us9E6tqRXb9KGWgAuGJ9ee8yXsLGWb-iVrOxFatQXkijxd6q0yW1nq7DI2ly9jxwQ7b40shixm4cXqjGlcJwOcuTXdiDrnuvtDIh8kY5PvNrruggyujvB8ueKI1gDTJsJc8_Li_sz6vihyV9xiJPcFxXCDkj86rQsU91E3SaMtgby8kfemodPYQmtlJBJVBsKc5OaKy2sqGirfNl"/>
+<div class="absolute top-2 right-2 bg-warning text-white px-2 py-1 rounded text-[10px] font-bold">CERRADO</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="font-headline-md text-primary text-lg">Health For All</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Austin, TX
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">stethoscope</span>
+                                Medicina Preventiva
+                            </div>
+<button class="w-full py-2 bg-surface text-primary-mid border border-primary-mid rounded-lg font-bold hover:bg-pale-green transition-colors">Llamar Ahora</button>
+</div>
+</div>
+<!-- Clinic Card 4 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-2xl overflow-hidden hover:shadow-md transition-shadow group">
+<div class="h-32 bg-gray-200 relative overflow-hidden">
+<img alt="Consulta médica profesional" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A professional medical office setting where a doctor is interacting with a digital tablet. The scene is bright and airy, with soft shadows and a focused, calm atmosphere. The visual style is modern corporate, emphasizing technology and expertise in the healthcare field, using a palette of clinical whites and deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6P02qIDZ0mGn78gLjqxfB3-eOeuJh41g4EYH6sFotzTPkWJaRn48B0htS8k9HX_H2RgUeVGxHdWscytihL41dB1T0_jVA-ss6PwmvTjDdZwRKJ0zURoLnLoI6aOM-h3gvP1t35W1bLKbTiZLkyoYF9d6I6EeeSM_gyVSTPsxUjTKwtn7XWGVTFuVEcSLp3E00-D2hwpsmZiHCxFj1K3GJ13xt0I3kQ2mFFUX9QbwFF7aVcKBncFG8XnMIeKhCdxYOJH6mOfLy2Rgk"/>
+<div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded text-[10px] font-bold">ABIERTO</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="font-headline-md text-primary text-lg">San Antonio Comm.</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                San Antonio, TX
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined text-sm">child_care</span>
+                                Pediatría y Dental
+                            </div>
+<button class="w-full py-2 bg-surface text-primary-mid border border-primary-mid rounded-lg font-bold hover:bg-pale-green transition-colors">Llamar Ahora</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Status Semáforo Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-high p-6 rounded-2xl border-l-4 border-success flex items-start gap-4">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<h5 class="font-headline-md text-success text-base uppercase">Cobertura Activa</h5>
+<p class="text-label-sm text-on-surface-variant">Tu plan Marketplace está al día. Próximo pago: 15 de Oct.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-2xl border-l-4 border-warning flex items-start gap-4">
+<span class="material-symbols-outlined text-warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h5 class="font-headline-md text-warning text-base uppercase">Acción Requerida</h5>
+<p class="text-label-sm text-on-surface-variant">Sube tu prueba de ingresos para mantener el subsidio.</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-2xl border-l-4 border-danger flex items-start gap-4">
+<span class="material-symbols-outlined text-danger" style="font-variation-settings: 'FILL' 1;">error</span>
+<div>
+<h5 class="font-headline-md text-danger text-base uppercase">Deuda Detectada</h5>
+<p class="text-label-sm text-on-surface-variant">Tienes una factura de hospital pendiente. Usa Charity Care.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-8 mt-stack-lg border-t border-outline-variant bg-surface-container-lowest">
+<div class="flex flex-col items-center md:items-start gap-2 mb-4 md:mb-0">
+<span class="font-display-lg text-body-lg text-primary-container">BlindadoUSA</span>
+<p class="font-label-sm text-on-surface-variant">© 2024 BlindadoUSA. Protegiendo el futuro hispano.</p>
+</div>
+<nav class="flex gap-6">
+<a class="font-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Soporte</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Contacto</a>
+</nav>
+</footer>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 bg-gradient-to-tr from-primary-mid to-success text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform group relative">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+</span>
+<div class="absolute right-full mr-4 bg-primary-container text-white px-4 py-2 rounded-xl text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                ¿Necesitas ayuda con tus deudas médicas?
+            </div>
+</button>
+</div>
+<!-- Mobile Nav Overlay -->
+<div class="fixed inset-0 bg-black/50 z-[60] -translate-x-full transition-transform md:hidden" id="mobile-nav" onclick="this.classList.add('-translate-x-full')">
+<div class="bg-surface h-full w-4/5 p-6" onclick="event.stopPropagation()">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-display-lg text-headline-md text-primary-container">BlindadoUSA</h2>
+<span class="material-symbols-outlined cursor-pointer" onclick="document.getElementById('mobile-nav').classList.add('-translate-x-full')">close</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 rounded-lg bg-primary-container text-on-primary" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+                    Salud y Seguros
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Panel Principal
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+                    Mi Crédito
+                </a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                    Impuestos ITIN
+                </a>
+</nav>
+</div>
+</div>
+<script>
+        // Micro-interactions and simple state management
+        document.querySelectorAll('.active\\:scale-95').forEach(btn => {
+            btn.addEventListener('touchstart', () => btn.classList.add('scale-95'));
+            btn.addEventListener('touchend', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

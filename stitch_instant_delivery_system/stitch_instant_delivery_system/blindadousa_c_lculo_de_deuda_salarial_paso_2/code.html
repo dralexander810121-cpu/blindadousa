@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Deuda - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eeeeeb",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#783d01",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "secondary": "#8e4e14",
+                        "pale-green": "#D8F3DC",
+                        "on-secondary-fixed": "#2f1400",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9faf6",
+                        "warning": "#F77F00",
+                        "tertiary": "#342300",
+                        "on-primary-fixed": "#002114",
+                        "primary": "#012d1d",
+                        "on-tertiary-container": "#d89b00",
+                        "secondary-fixed": "#ffdcc4",
+                        "dark": "#1A1A2E",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-container": "#1b4332",
+                        "on-background": "#1a1c1a",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f312f",
+                        "outline": "#717973",
+                        "danger": "#D62828",
+                        "primary-mid": "#2D6A4F",
+                        "on-surface": "#1a1c1a",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-bright": "#f9faf6",
+                        "primary-fixed": "#c1ecd4",
+                        "on-surface-variant": "#414844",
+                        "secondary-container": "#ffab69",
+                        "tertiary-container": "#503700",
+                        "surface-dim": "#dadad7",
+                        "accent-dark": "#E76F51",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb780",
+                        "gray": "#6B7280",
+                        "on-primary-container": "#86af99",
+                        "surface-container-highest": "#e2e3e0",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-variant": "#e2e3e0",
+                        "outline-variant": "#c1c8c2",
+                        "success": "#52B788",
+                        "background": "#f9faf6",
+                        "primary-light": "#40916C"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- Top Navigation / Shell -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 flex items-center justify-between px-margin-mobile md:px-margin-desktop z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary text-3xl">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary">BlindadoUSA</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex flex-col items-end mr-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Miembro Premium</span>
+<span class="text-xs text-on-surface-variant italic">Protección Activa</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-pale-green font-bold">JD</div>
+</div>
+</header>
+<!-- Side Navigation Shell -->
+<nav class="hidden md:flex flex-col h-full py-6 px-4 bg-primary border-r border-primary-mid w-64 fixed left-0 top-0 overflow-y-auto z-50 shadow-md">
+<div class="mb-10 px-2">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-pale-green">BlindadoUSA</h2>
+<p class="text-xs text-pale-green/60 uppercase tracking-widest font-bold">Biblia Financiera</p>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Resumen</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-body-md text-body-md">Legal</span>
+</a>
+<!-- Other Nav Items collapsed for brevity in this specific flow screen -->
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md text-body-md">Deudas</span>
+</a>
+</div>
+<div class="mt-auto pt-6 border-t border-primary-mid">
+<button class="w-full bg-secondary-container text-on-secondary-fixed font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined">upgrade</span>
+                Actualizar Plan
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop md:ml-64">
+<!-- Progress Indicator -->
+<section class="max-w-4xl mx-auto mb-stack-lg">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">RECLAMO POR ROBO DE SALARIO</h2>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-bold text-xs">PASO 2 DE 4</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-success w-1/4 border-r border-background"></div>
+<div class="h-full bg-primary-mid w-1/4"></div>
+<div class="h-full bg-surface-container-highest w-1/4"></div>
+<div class="h-full bg-surface-container-highest w-1/4"></div>
+</div>
+<p class="mt-4 font-display-lg-mobile text-display-lg-mobile text-primary opacity-50">CÁLCULO DE DEUDA</p>
+</section>
+<!-- Calculator Bento Grid -->
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Inputs -->
+<div class="lg:col-span-7 space-y-gutter">
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-mid p-2 bg-pale-green rounded-lg">schedule</span>
+<h3 class="font-headline-md text-primary">Horas de Trabajo</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase">Monto por Hora ($)</label>
+<input class="w-full h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-xl font-data-mono px-4" id="hourly_rate" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase">Horas Regulares Deudadas</label>
+<input class="w-full h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-xl font-data-mono px-4" id="reg_hours" placeholder="0" type="number"/>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-dashed border-outline-variant">
+<div class="flex items-center justify-between mb-2">
+<label class="font-label-sm text-primary font-bold uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-warning">warning</span>
+                                Horas Extra (Overtime)
+                            </label>
+<span class="text-xs bg-warning/10 text-warning px-2 py-0.5 rounded font-bold">1.5x TASA LEGAL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="text-xs text-on-surface-variant">Pago por hora OT proyectado</label>
+<div class="w-full h-touch-target rounded-lg bg-surface-container flex items-center px-4 font-data-mono text-primary-mid" id="ot_rate_display">$0.00</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs text-on-surface-variant">Horas Extra Deudadas (&gt;40h/sem)</label>
+<input class="w-full h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-xl font-data-mono px-4" id="ot_hours" placeholder="0" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-mid p-2 bg-pale-green rounded-lg">payments</span>
+<h3 class="font-headline-md text-primary">Otros Conceptos</h3>
+</div>
+<div class="space-y-stack-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase">Comisiones / Bonos</label>
+<input class="w-full h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-xl font-data-mono px-4" id="commissions" placeholder="0.00" type="number"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-on-surface-variant uppercase">Deducciones Ilegales</label>
+<input class="w-full h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-xl font-data-mono px-4 text-danger" id="deductions" placeholder="0.00" type="number"/>
+<p class="text-[10px] text-on-surface-variant italic">Uniformes, herramientas, multas inventadas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Results & Education -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Total Display -->
+<div class="bg-primary text-pale-green p-8 rounded-2xl shadow-xl shadow-primary/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+</div>
+<div class="relative z-10">
+<span class="font-label-sm text-pale-green/70 uppercase tracking-widest">Total Deuda Estimada</span>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-display-lg text-display-lg">$</span>
+<span class="font-display-lg text-display-lg" id="total_debt">0.00</span>
+</div>
+<div class="mt-6 space-y-3 pt-6 border-t border-pale-green/20">
+<div class="flex justify-between text-sm">
+<span>Salario Base:</span>
+<span class="font-data-mono" id="breakdown_base">$0.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span>Overtime (Premium):</span>
+<span class="font-data-mono" id="breakdown_ot">$0.00</span>
+</div>
+<div class="flex justify-between text-sm text-warning font-bold">
+<span>Recuperables Totales:</span>
+<span class="font-data-mono" id="breakdown_others">$0.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pedagogical Explanation -->
+<div class="bg-pale-green/30 p-6 rounded-xl border border-primary-mid/20">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-mid mt-1">school</span>
+<div>
+<h4 class="font-headline-md text-primary-mid text-lg mb-2">¿Por qué este monto?</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Según la ley federal **FLSA**, si trabajas más de 40 horas a la semana, tu empleador debe pagarte el **1.5 veces** tu tarifa normal por cada hora extra. No importa si te pagan "bajo la mesa" o con ITIN; tus derechos son los mismos. 
+                                <br/><br/>
+                                En BlindadoUSA calculamos la deuda base más las protecciones por herramientas o uniformes que te cobraron injustamente.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Trust Badge Card -->
+<div class="bg-white p-4 rounded-xl border border-outline-variant flex items-center gap-4">
+<div class="bg-primary-mid/10 p-2 rounded-full">
+<img alt="Protección Blindada Shield" class="w-12 h-12" data-alt="A high-contrast vector illustration of a metallic emerald shield with a stylized Latin cross and golden financial scales. The lighting is dramatic and cinematic, creating a sense of absolute security and legal authority. The color palette is dominated by deep forest greens and shimmering pale golds, conveying a corporate yet empathetic brand identity for a financial protection service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCGkBekzXGdeQ1VzCyVn36-OuKnrrJebdSPiQ4XB4Kn-n7_Qm6nJI42DdJiSgJTPVmGDnVfVp8OZLzIK8_PkfmTKORejtHdg2kfn2eVn9YjxhF85CLQPVFhPsHZuP24xYzIuQeiIvd3yReZDtTDV61bVAdjq2rmDEkTfkY1FVZgx8JiKp9eGypAmcfF7WN3jgGvv35nYtFStM4gI83HIX0903WoNqrlLdYlB2a8qNiOYqLV-Z4QEAKXYMnTx1JEUa9Woif70B0dt38"/>
+</div>
+<div>
+<p class="font-bold text-primary text-sm uppercase">Protección Blindada</p>
+<p class="text-xs text-on-surface-variant">Tus datos están encriptados y protegidos por leyes federales de privacidad laboral.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Actions -->
+<footer class="fixed bottom-0 left-0 right-0 md:left-64 bg-surface-bright border-t border-outline-variant px-margin-mobile py-4 flex flex-col md:flex-row gap-4 items-center justify-between z-40">
+<button class="w-full md:w-auto px-10 h-touch-target rounded-full border-2 border-primary-mid text-primary-mid font-bold hover:bg-pale-green transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                Anterior
+            </button>
+<button class="w-full md:w-auto px-12 h-touch-target rounded-full bg-warning text-primary font-extrabold text-lg hover:scale-105 transition-all shadow-lg flex items-center justify-center gap-2">
+                Siguiente: Generar Reclamo
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-8 z-50 flex flex-col items-end gap-2 group">
+<div class="hidden group-hover:block bg-white shadow-xl p-4 rounded-2xl border border-outline-variant mb-2 max-w-[200px]">
+<p class="text-xs font-bold text-primary">¿Tienes dudas sobre tus horas? ¡Pregúntame!</p>
+</div>
+<button class="bg-primary-mid text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+</div>
+<script>
+        const inputs = ['hourly_rate', 'reg_hours', 'ot_hours', 'commissions', 'deductions'];
+        const elements = {};
+        
+        inputs.forEach(id => {
+            elements[id] = document.getElementById(id);
+            elements[id].addEventListener('input', calculate);
+        });
+
+        const totalDisplay = document.getElementById('total_debt');
+        const otRateDisplay = document.getElementById('ot_rate_display');
+        const breakdownBase = document.getElementById('breakdown_base');
+        const breakdownOt = document.getElementById('breakdown_ot');
+        const breakdownOthers = document.getElementById('breakdown_others');
+
+        function calculate() {
+            const rate = parseFloat(elements.hourly_rate.value) || 0;
+            const regHours = parseFloat(elements.reg_hours.value) || 0;
+            const otHours = parseFloat(elements.ot_hours.value) || 0;
+            const comms = parseFloat(elements.commissions.value) || 0;
+            const deductions = parseFloat(elements.deductions.value) || 0;
+
+            const otRate = rate * 1.5;
+            otRateDisplay.innerText = `$${otRate.toFixed(2)}`;
+
+            const baseTotal = rate * regHours;
+            const otTotal = otRate * otHours;
+            const othersTotal = comms + deductions;
+
+            const total = baseTotal + otTotal + othersTotal;
+
+            // Update UI with smooth counter logic or just direct values
+            totalDisplay.innerText = total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            breakdownBase.innerText = `$${baseTotal.toFixed(2)}`;
+            breakdownOt.innerText = `$${otTotal.toFixed(2)}`;
+            breakdownOthers.innerText = `$${othersTotal.toFixed(2)}`;
+
+            // Visual feedback for non-zero values
+            if (total > 0) {
+                totalDisplay.classList.add('text-success');
+                totalDisplay.classList.remove('text-pale-green');
+            } else {
+                totalDisplay.classList.remove('text-success');
+                totalDisplay.classList.add('text-pale-green');
+            }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mis Cartas Legales | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        .glass-header {
+            background: rgba(249, 250, 246, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e3e0",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "dark": "#1A1A2E",
+                        "primary-mid": "#2D6A4F",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-container": "#783d01",
+                        "tertiary-container": "#503700",
+                        "surface-container": "#eeeeeb",
+                        "on-primary-fixed": "#002114",
+                        "danger": "#D62828",
+                        "secondary": "#8e4e14",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "inverse-surface": "#2f312f",
+                        "pale-green": "#D8F3DC",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dadad7",
+                        "surface-bright": "#f9faf6",
+                        "surface-container-high": "#e8e8e5",
+                        "surface": "#f9faf6",
+                        "on-secondary": "#ffffff",
+                        "primary-light": "#40916C",
+                        "on-tertiary-fixed": "#271900",
+                        "gray": "#6B7280",
+                        "primary-container": "#1b4332",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-surface-variant": "#414844",
+                        "on-secondary-fixed": "#2f1400",
+                        "warning": "#F77F00",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-fixed": "#ffdcc4",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-low": "#f3f4f1",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1ee",
+                        "outline": "#717973",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#ffab69",
+                        "background": "#f9faf6",
+                        "primary": "#012d1d",
+                        "on-surface": "#1a1c1a",
+                        "surface-container-highest": "#e2e3e0",
+                        "success": "#52B788",
+                        "tertiary": "#342300",
+                        "on-background": "#1a1c1a",
+                        "surface-tint": "#3f6653",
+                        "secondary-fixed-dim": "#ffb780",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c1c8c2",
+                        "accent-dark": "#E76F51",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar (Desktop) -->
+<aside class="bg-surface-container-low dark:bg-surface-container shadow-sm docked left-0 h-full w-64 hidden md:flex flex-col py-stack-md px-4 space-y-2 z-40 fixed">
+<div class="mb-8 px-4">
+<h1 class="font-display-lg text-display-lg text-primary dark:text-primary-fixed-dim">BLINDADO</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Asesoría Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200 active:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-outline-variant">
+<button class="w-full bg-primary-mid text-white rounded-xl py-4 font-label-sm text-label-sm flex items-center justify-center gap-2 mb-4 hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                Hablar con IA
+            </button>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar (Mobile Only) -->
+<header class="bg-surface md:hidden flex justify-between items-center h-touch-target px-margin-mobile w-full fixed top-0 z-50 border-b border-outline-variant">
+<h2 class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary">BLINDADOUSA</h2>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 pt-touch-target md:pt-0 pb-24 md:pb-12 bg-surface">
+<!-- Hero Section with Background -->
+<section class="relative w-full h-64 md:h-80 flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A professional close-up of legal documents, a fountain pen, and a set of scales of justice resting on a high-quality mahogany desk. The lighting is soft and cinematic, highlighting the textures of the paper and the metallic gleam of the scale. The aesthetic is authoritative, clean, and corporate, using a palette of deep greens and soft whites to evoke trust and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBahBR9h269ppvw4oqKFQa8KpAUeU5LmjpUgmvb1p_jXAsgWDe_Oura1ae5VB2EE5MhDNkFs7rYZ-q51djsuUTcSNtPN8bJcr4L_732gAUvUJ3EW0pBDJI-uvPpHr_fiwXBILUo9_wdZwMpYkeIH8CIMtw178DxNzsJpjXnOMa0B_mN0H8wyMxdVDepMyu9wNX21eccgrPT1Z4ex9fQbvZipYKCSFsG868mNQK61lIhj2_8vFWNuEON8iZQCujtqvJz82pGBAVOVi99"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-headline-md text-headline-md text-on-primary mb-2">Mis Cartas Legales</h1>
+<p class="font-body-lg text-body-lg text-pale-green leading-snug">
+                    Documentos legales listos en español para proteger tus derechos. Solo llena los datos y descarga.
+                </p>
+</div>
+</section><div class="bg-surface-container-low border-y border-outline-variant py-4 px-margin-mobile md:px-margin-desktop mb-8"><div class="flex flex-wrap items-center justify-between gap-4 max-w-5xl mx-auto"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</span><p class="font-label-sm text-label-sm text-on-surface">Elige tu situación</p></div><div class="hidden md:block h-px w-12 bg-outline-variant"></div><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">2</span><p class="font-label-sm text-label-sm text-on-surface">Revisa la vista previa</p></div><div class="hidden md:block h-px w-12 bg-outline-variant"></div><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">3</span><p class="font-label-sm text-label-sm text-on-surface">Descarga tu PDF</p></div></div></div>
+<!-- Templates Grid Area -->
+<div class="px-margin-mobile md:px-margin-desktop -mt-8 relative z-20">
+<div class="space-y-stack-lg">
+<!-- Category: Renta/Vivienda -->
+<section>
+<div class="flex items-center gap-3 mb-gutter">
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Renta/Vivienda</h3><p class="mt-2 font-body-md text-body-md text-on-surface-variant italic max-w-2xl"><span class="material-symbols-outlined align-middle mr-1 text-primary-mid">info</span> Importancia: Estas cartas obligan legalmente al dueño a responder por reparaciones necesarias en tu hogar.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-primary-mid mb-2 block uppercase">Urgente</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Solicitud de Reparación Urgente</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Exige reparaciones esenciales en tu vivienda cuando el dueño no responde.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-secondary mb-2 block uppercase">Aviso</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Terminación de Contrato</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Notificación formal para terminar tu contrato de renta cumpliendo la ley.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+</div>
+</section>
+<!-- Category: Deudas/Cobradores -->
+<section>
+<div class="flex items-center gap-3 mb-gutter">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Deudas/Cobradores</h3><p class="mt-2 font-body-md text-body-md text-on-surface-variant italic max-w-2xl"><span class="material-symbols-outlined align-middle mr-1 text-secondary">info</span> ¿Para qué sirve? Detiene legalmente el acoso telefónico y te permite validar si la deuda es real antes de pagar.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-danger mb-2 block uppercase">Protección</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Cese de Acoso de Cobrador</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Carta de 'Cease and Desist' para detener llamadas y acoso de agencias de cobro.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-warning mb-2 block uppercase">Validación</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Disputa de Deuda</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Solicita evidencia legal de la deuda antes de realizar cualquier pago.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+</div>
+</section>
+<!-- Category: Salud/Charity Care -->
+<section>
+<div class="flex items-center gap-3 mb-gutter">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Salud/Charity Care</h3><p class="mt-2 font-body-md text-body-md text-on-surface-variant italic max-w-2xl"><span class="material-symbols-outlined align-middle mr-1 text-primary">info</span> Importancia: Muchos hospitales están obligados a reducir tu deuda si tus ingresos son bajos. Esta carta inicia ese proceso legal.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-success mb-2 block uppercase">Alivio</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Solicitud de Charity Care</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Aplica para la reducción o eliminación de facturas de hospital basadas en ingresos.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+</div>
+</section>
+<!-- Category: Empleo -->
+<section>
+<div class="flex items-center gap-3 mb-gutter">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Empleo</h3><p class="mt-2 font-body-md text-body-md text-on-surface-variant italic max-w-2xl"><span class="material-symbols-outlined align-middle mr-1 text-on-secondary-fixed-variant">info</span> ¿Para qué sirve? Protege tu derecho a recibir el pago por cada minuto trabajado, incluyendo horas extras.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde hover:scale-[1.02] transition-transform duration-200 flex flex-col h-full">
+<span class="font-label-sm text-label-sm text-on-secondary-fixed-variant mb-2 block uppercase">Derechos</span>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-3 leading-tight">Solicitud de Salarios No Pagados</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-1">Reclamo formal a un empleador que no ha pagado horas trabajadas o extras.</p>
+<div class="flex gap-3 mt-auto">
+<button class="flex-1 bg-surface-container-high text-on-surface font-label-sm text-label-sm py-3 rounded-lg hover:bg-surface-variant transition-colors">Vista Previa</button>
+<button class="flex-1 bg-primary text-on-primary font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary-mid transition-colors shadow-md">Generar PDF</button>
+</div>
+<div class="mt-4 flex flex-wrap gap-2"><span class="bg-surface-container-high px-2 py-1 rounded text-[12px] font-semibold text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> 2 min</span><span class="bg-success/10 px-2 py-1 rounded text-[12px] font-semibold text-success flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span> Muy fácil</span></div></div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface border-t border-outline-variant z-50 md:hidden shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder" style="font-variation-settings: 'FILL' 1;">folder</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-gradient-to-br from-primary-mid to-primary text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+</button>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.sombra-verde').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#1b4332';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = '#c1c8c2';
+            });
+        });
+
+        // Simple preview alert logic
+        document.querySelectorAll('button:contains("Vista Previa")').forEach(btn => {
+            btn.onclick = () => alert("Abriendo vista previa del documento...");
+        });
+    </script>
+</body></html>

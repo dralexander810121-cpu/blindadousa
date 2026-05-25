@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio Vida Hispana | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "success": "#52B788",
+                        "primary-fixed": "#c1ecd4",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9faf6",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "secondary-fixed-dim": "#ffb780",
+                        "inverse-surface": "#2f312f",
+                        "gray": "#6B7280",
+                        "primary-mid": "#2D6A4F",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "tertiary-container": "#503700",
+                        "accent-dark": "#E76F51",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-variant": "#e2e3e0",
+                        "error": "#ba1a1a",
+                        "primary": "#012d1d",
+                        "on-tertiary": "#ffffff",
+                        "danger": "#D62828",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface-dim": "#dadad7",
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e2e3e0",
+                        "tertiary": "#342300",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-container": "#783d01",
+                        "pale-green": "#D8F3DC",
+                        "on-error": "#ffffff",
+                        "secondary": "#8e4e14",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-surface": "#1a1c1a",
+                        "on-secondary": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdcc4",
+                        "surface-container": "#eeeeeb",
+                        "on-background": "#1a1c1a",
+                        "outline": "#717973",
+                        "on-tertiary-fixed": "#271900",
+                        "surface": "#f9faf6",
+                        "surface-container-high": "#e8e8e5",
+                        "background": "#f9faf6",
+                        "primary-container": "#1b4332",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-fixed": "#2f1400",
+                        "error-container": "#ffdad6",
+                        "warning": "#F77F00",
+                        "on-tertiary-container": "#d89b00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "outline-variant": "#c1c8c2",
+                        "primary-light": "#40916C",
+                        "inverse-primary": "#a5d0b9",
+                        "secondary-container": "#ffab69",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed": "#ffdea9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "touch-target": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -10px rgba(27, 67, 50, 0.2);
+        }
+        .gold-border {
+            border: 2px solid #ffba27;
+        }
+        .glass-header {
+            background: rgba(249, 250, 246, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-outline-variant h-16 flex items-center px-margin-mobile md:px-margin-desktop justify-between">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md md:text-display-lg text-primary-container uppercase tracking-wider">BlindadoUSA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-primary-container font-bold border-b-2 border-primary-container py-1" href="#">Directorio</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors py-1" href="#">Servicios</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors py-1" href="#">Comunidad</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-primary-fixed/20 p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-primary-fixed/20 p-2 rounded-full transition-colors">settings</span>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="Usuario" data-alt="A professional portrait of a confident Hispanic man in his late 30s, wearing a smart casual blazer, set against a blurred modern office background with warm sunset lighting. The image maintains a clean, high-contrast aesthetic consistent with a corporate financial platform, emphasizing trust and approachability through soft focus and professional color grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIRLTAEZIEtjlFmTys3YP5_IzYpJCR3kk2JElePP3jUd8QcoLJlEmyc3Kif1Z9Re8-JNryDQf0WU3xafOYrdGYQRe9NTttslmiZ-qx1nIN4Ilc5gT3k4RTF3aO8CTQlEcifYDC3YpUgbQw9Tzc_H2HA--Tf6nML7wV53limJ6EkI8KAmFgR3z3w6Qp5V-D8y3wfKSIcSq_d6RXWj46Dmji_CLjzHdk_JvH1K2-0dSUm5JGj4xu6mim0zJhPUuKxLKsr9FTFTC26SaJ"/>
+</div>
+</div>
+</div>
+<button class="md:hidden material-symbols-outlined text-primary-container">menu</button>
+</header>
+<!-- Side Navigation (Desktop) -->
+<aside class="fixed left-0 top-16 h-screen w-72 hidden md:flex flex-col bg-surface-container py-6 border-r border-outline-variant z-40">
+<div class="px-6 mb-8">
+<h2 class="font-display-lg text-headline-md text-primary-container">Vida Hispana</h2>
+<p class="text-on-surface-variant font-body-md">Tu Guía en EE.UU.</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto">
+<div class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-semibold">Panel Principal</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">restaurant</span>
+<span>Restaurantes</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">work</span>
+<span>Empleo</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Tiendas</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">school</span>
+<span>Educación</span>
+</div>
+</nav>
+<div class="p-4">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-72 mt-16 p-margin-mobile md:p-margin-desktop">
+<!-- Hero Search Section -->
+<section class="max-w-5xl mx-auto mb-stack-lg text-center md:text-left">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container mb-2">ENCUENTRA LO QUE NECESITAS</h1>
+<p class="font-body-lg text-on-surface-variant mb-8">El directorio más completo para la comunidad hispana en Estados Unidos.</p>
+<div class="relative max-w-2xl group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary-container group-focus-within:text-primary-light transition-colors">search</span>
+<input class="w-full pl-12 pr-4 h-14 rounded-xl border-2 border-outline-variant focus:border-primary-container focus:ring-0 font-body-md transition-all shadow-sm" placeholder="¿Qué estás buscando? (Ej: Pupusas en Miami, Trabajo en Chicago...)" type="text"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary-container text-on-primary px-6 rounded-lg font-bold hover:bg-primary-mid transition-colors hidden sm:block">Buscar</button>
+</div>
+</section>
+<!-- Main Categories Bento Grid -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<span class="w-8 h-1 bg-primary-container rounded-full"></span>
+                Categorías Principales
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Restaurants -->
+<div class="md:col-span-2 md:row-span-2 bg-primary-container text-on-primary p-8 rounded-2xl relative overflow-hidden group cursor-pointer transition-transform hover:-translate-y-1">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4 bg-primary-light/30 p-3 rounded-xl">restaurant</span>
+<h3 class="font-headline-md text-headline-md mb-2">Restaurantes</h3>
+<p class="text-primary-fixed mb-6 max-w-xs">Sabores de México, Colombia, Venezuela y toda Latinoamérica cerca de ti.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full text-sm transition-colors border border-white/20">Mexicana</span>
+<span class="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full text-sm transition-colors border border-white/20">Colombiana</span>
+<span class="bg-white/10 hover:bg-white/20 px-3 py-1 rounded-full text-sm transition-colors border border-white/20">Venezolana</span>
+</div>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+</div>
+<!-- Employment -->
+<div class="bg-white border-2 border-outline-variant p-6 rounded-2xl hover:border-success transition-all cursor-pointer group flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-success text-3xl mb-3">work</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Empleos</h3>
+<p class="text-on-surface-variant text-sm">Oportunidades que hablan tu idioma.</p>
+</div>
+<span class="text-success font-bold flex items-center gap-1 mt-4 group-hover:translate-x-2 transition-transform">Ver vacantes <span class="material-symbols-outlined">arrow_forward</span></span>
+</div>
+<!-- Shopping -->
+<div class="bg-white border-2 border-outline-variant p-6 rounded-2xl hover:border-primary-container transition-all cursor-pointer group flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary-container text-3xl mb-3">shopping_basket</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Tiendas</h3>
+<p class="text-on-surface-variant text-sm">Supermercados y productos latinos.</p>
+</div>
+<span class="text-primary-container font-bold flex items-center gap-1 mt-4 group-hover:translate-x-2 transition-transform">Explorar <span class="material-symbols-outlined">arrow_forward</span></span>
+</div>
+<!-- Education -->
+<div class="md:col-span-2 bg-pale-green p-6 rounded-2xl border-2 border-transparent hover:border-success transition-all cursor-pointer flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-success/20 p-4 rounded-xl">
+<span class="material-symbols-outlined text-success text-3xl">school</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary-container mb-1">Escuelas y Cursos</h3>
+<p class="text-on-surface-variant text-sm">Aprende inglés, oficios y trámites legales.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Premium Businesses Section -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="w-8 h-1 bg-tertiary-fixed-dim rounded-full"></span>
+                    Negocios Destacados
+                </h2>
+<a class="text-primary-container font-bold underline underline-offset-4" href="#">Ver todos</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Premium Card 1 -->
+<div class="bg-white rounded-2xl overflow-hidden gold-border sombra-verde relative transition-all hover:scale-[1.02]">
+<div class="absolute top-4 left-4 z-10 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> Premium
+                    </div>
+<div class="h-48 overflow-hidden">
+<img alt="Restaurante" data-alt="A high-end Latin American restaurant interior with warm ambient lighting, elegant wooden furniture, and vibrant artisanal decor. The scene features a beautifully plated traditional dish in the foreground, captured with shallow depth of field. The overall aesthetic is upscale and welcoming, utilizing a palette of deep greens and golden highlights consistent with the BlindadoUSA premium branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo-GgtI6MYxP9Hi3sl43dAGP_gZvVfMXu1AdDH8zNyerWxvUxJlU4lmHfwcKDWHadHDKVdEvuHdsmytDu3ObXDjEMTdABnTVgsMAn6fSCyzB5IpUlZul7oOFtdphuAGu4QKW3wLqJko1pdquegDRt52IUhq5a3Kfc1vCX2yt1zE1cYV6tsWiIQ5DS8vy-TMoFTCnIr8pvXoISw0DjporcUDmLUQLpo2rgHkjq3mSSF9fgtiIDdqVCLytQwmB5GdjiXFOO_ows-jEvp"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">La Hacienda Grill</h4>
+<div class="flex items-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Auténtica comida mexicana con ingredientes importados. El corazón de México en Florida.</p>
+<div class="flex items-center gap-2 text-sm text-primary-container font-semibold">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Miami, FL</span>
+</div>
+</div>
+</div>
+<!-- Premium Card 2 -->
+<div class="bg-white rounded-2xl overflow-hidden gold-border sombra-verde relative transition-all hover:scale-[1.02]">
+<div class="absolute top-4 left-4 z-10 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> Premium
+                    </div>
+<div class="h-48 overflow-hidden">
+<img alt="Supermercado" data-alt="A clean and vibrant Hispanic supermarket aisle filled with colorful tropical fruits and authentic imported Latin brands. The lighting is bright and professional, highlighting the freshness of the produce. The image reflects a modern, community-focused shopping environment with high-contrast colors and a sense of abundance and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl25ROzkdvebN9aioBFxcFg9lI2nNgw0x7x0fDxTAmb8ypRISMvo9X_rx4jQZcAlUx6Y3JdG3ZcOveXaehGkLAcfQ4XU_eo4adGZKavtAmhApVW7f9_0cyQicvnh5XGkbvjMlRHt6Zt-nZ5nqXbZejVWQgL93UJou170ltOvT9hJzPBXjQVidOcK-HUur4edGLXlXwVfVacttsWkz-CRX4cjHwn4cnljonCwxYgLxWqFydnrsGo7KrX16Yj3dtX6ClyIgZ7j61QBee"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">Super Latino Plus</h4>
+<div class="flex items-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Todo lo que extrañas de tu tierra en un solo lugar. Envíos de dinero y remesas disponibles.</p>
+<div class="flex items-center gap-2 text-sm text-primary-container font-semibold">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Houston, TX</span>
+</div>
+</div>
+</div>
+<!-- Premium Card 3 -->
+<div class="bg-white rounded-2xl overflow-hidden gold-border sombra-verde relative transition-all hover:scale-[1.02]">
+<div class="absolute top-4 left-4 z-10 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> Premium
+                    </div>
+<div class="h-48 overflow-hidden">
+<img alt="Oficina Legal" data-alt="A professional and modern office space featuring a diverse group of people collaborating around a table. The atmosphere is serious yet hopeful, with high-key lighting and minimalist furniture. The visual style emphasizes clarity, professionalism, and community advocacy, perfectly matching the corporate financial bible aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGyW0VRe9wGkW2LIVpYhz0hRNcgRc8pkLPHEftN9AULQxaUA5tFjwb6JwtIQmRqRk4USsVkk1BIhj0Rgfj8tZX1bmevN4BvSiGKyBHaiDbXybyyT-LaTW87oDnZkd7hyM4xvBXATtjlaM9o8l4P31M97YBTeW51cfNpHuI5De-JzyYJYYZSISYk7wd5sizeOPGPVg6aRSt1r02e3a-fuYFs8cDhVIrmPFyThOZEZPu87c1NSlxLqAtNAeBZt0_VpTvZ9ryWyMjZndQ"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface">Legalidad Hispana</h4>
+<div class="flex items-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold ml-1">5.0</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm mb-4">Especialistas en ITIN, trámites laborales y asesoría financiera para inmigrantes.</p>
+<div class="flex items-center gap-2 text-sm text-primary-container font-semibold">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Chicago, IL</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner: Register Business -->
+<section class="mb-stack-lg">
+<div class="bg-primary-container rounded-3xl overflow-hidden p-8 md:p-12 relative flex flex-col md:flex-row items-center gap-8 sombra-verde">
+<div class="flex-1 text-center md:text-left relative z-10">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md text-on-primary mb-4">¿TIENES UN NEGOCIO?</h2>
+<p class="text-primary-fixed font-body-lg mb-8 max-w-xl">Aumenta tus ventas y llega a miles de clientes potenciales en la comunidad hispana. Regístrate hoy en nuestro directorio premium.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+<button class="bg-secondary-container text-on-secondary-container font-bold py-4 px-10 rounded-xl hover:scale-105 transition-transform shadow-lg min-h-[48px]">Registrar mi Negocio</button>
+<button class="border-2 border-primary-fixed text-primary-fixed font-bold py-4 px-10 rounded-xl hover:bg-white/10 transition-colors min-h-[48px]">Ver Planes</button>
+</div>
+</div>
+<div class="w-full md:w-1/3 flex justify-center">
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 rotate-3">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-success"></div>
+<div class="h-4 w-24 bg-white/20 rounded"></div>
+</div>
+<div class="space-y-2">
+<div class="h-2 w-full bg-white/20 rounded"></div>
+<div class="h-2 w-3/4 bg-white/20 rounded"></div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="h-8 w-16 bg-tertiary-fixed rounded"></div>
+<span class="material-symbols-outlined text-tertiary-fixed">verified</span>
+</div>
+</div>
+</div>
+<!-- Abstract Background Shapes -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary-light/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-20 -bottom-20 w-64 h-64 bg-success/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="md:ml-72 bg-surface-container-lowest border-t border-outline-variant py-12 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-4 max-w-sm">
+<span class="font-display-lg text-headline-md text-primary-container uppercase">BlindadoUSA</span>
+<p class="text-on-surface-variant text-label-sm">
+                    © 2024 BlindadoUSA. Protegiendo el futuro hispano. La guía financiera y de vida más confiable para nuestra comunidad en los Estados Unidos.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">chat</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div>
+<h4 class="font-bold text-primary-container mb-4">Directorio</h4>
+<ul class="space-y-2 text-on-surface-variant text-label-sm">
+<li><a class="hover:text-primary-container transition-colors" href="#">Restaurantes</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Empleo</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Tiendas</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Educación</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary-container mb-4">Legal</h4>
+<ul class="space-y-2 text-on-surface-variant text-label-sm">
+<li><a class="hover:text-primary-container transition-colors" href="#">Privacidad</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Términos</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Legalidad</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-primary-container mb-4">Soporte</h4>
+<ul class="space-y-2 text-on-surface-variant text-label-sm">
+<li><a class="hover:text-primary-container transition-colors" href="#">Soporte</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Contacto</a></li>
+<li><a class="hover:text-primary-container transition-colors" href="#">Publicidad</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant text-center">
+<p class="text-on-surface-variant text-xs font-mono">APP_VERSION: 2.1.4_PROD | LATAM_REGION_US_SOUTH</p>
+</div>
+</footer>
+<!-- Floating AI Assistant Button -->
+<div class="fixed bottom-6 right-6 z-50 group">
+<div class="absolute bottom-full right-0 mb-4 scale-0 group-hover:scale-100 transition-transform origin-bottom-right">
+<div class="bg-white shadow-xl rounded-2xl p-4 w-64 border border-outline-variant">
+<p class="text-sm font-bold text-primary-container mb-1">¿Necesitas ayuda?</p>
+<p class="text-xs text-on-surface-variant">Pregúntame sobre restaurantes, trámites de ITIN o cómo buscar empleo.</p>
+</div>
+</div>
+<button class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary-mid to-primary-container text-on-primary flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</div>
+<!-- Mobile Navigation Bar (Bottom) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-outline-variant flex items-center justify-around z-50">
+<button class="flex flex-col items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px]">Buscar</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px]">Favoritos</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        // Micro-interactions and simple state management
+        document.querySelectorAll('.cursor-pointer').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Potential for more complex animations
+            });
+        });
+
+        // Search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('sombra-verde');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('sombra-verde');
+        });
+    </script>
+</body></html>

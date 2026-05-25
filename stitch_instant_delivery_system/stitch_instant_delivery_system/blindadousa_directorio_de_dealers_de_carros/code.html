@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Dealers Verificados | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#783d01",
+                        "tertiary-container": "#503700",
+                        "on-secondary-fixed": "#2f1400",
+                        "secondary": "#8e4e14",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-variant": "#e2e3e0",
+                        "outline": "#717973",
+                        "tertiary": "#342300",
+                        "danger": "#D62828",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#ffb780",
+                        "surface-bright": "#f9faf6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c8c2",
+                        "surface": "#f9faf6",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-tertiary-fixed": "#271900",
+                        "primary-mid": "#2D6A4F",
+                        "on-background": "#1a1c1a",
+                        "tertiary-fixed": "#ffdea9",
+                        "surface-tint": "#3f6653",
+                        "accent-dark": "#E76F51",
+                        "on-surface-variant": "#414844",
+                        "dark": "#1A1A2E",
+                        "primary-fixed": "#c1ecd4",
+                        "on-primary-fixed": "#002114",
+                        "on-surface": "#1a1c1a",
+                        "on-error": "#ffffff",
+                        "warning": "#F77F00",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary-container": "#ffab69",
+                        "surface-container": "#eeeeeb",
+                        "primary-container": "#1b4332",
+                        "pale-green": "#D8F3DC",
+                        "inverse-surface": "#2f312f",
+                        "on-tertiary-container": "#d89b00",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dadad7",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "gray": "#6B7280",
+                        "primary": "#012d1d",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e2e3e0",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f4f1",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-light": "#40916C",
+                        "inverse-primary": "#a5d0b9",
+                        "success": "#52B788",
+                        "background": "#f9faf6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "touch-target": "48px",
+                        "margin-mobile": "1.25rem",
+                        "gutter": "1rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -12px rgba(27, 67, 50, 0.15);
+        }
+        .gold-border {
+            border: 2px solid #F4A261;
+            position: relative;
+        }
+        .gold-border::after {
+            content: "PREMIUM";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #F4A261;
+            color: #1a1c1a;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- SIDEBAR NAVIGATION (Desktop Only) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 flex-col z-40 bg-surface dark:bg-surface-dim border-r border-outline-variant">
+<div class="p-6">
+<h1 class="font-display-lg text-display-lg text-primary-mid tracking-tight leading-none mb-8">BIBLIA FINANCIERA</h1>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span>Comprar Auto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Remesas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">work</span>
+<span>Derechos Laborales</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Impuestos</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 px-4 py-2">
+<div class="h-10 w-10 rounded-full bg-primary-mid flex items-center justify-center text-white font-bold">JD</div>
+<div>
+<p class="text-sm font-bold">Mi Cuenta</p>
+<p class="text-xs text-success flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        Estatus: Seguro
+                    </p>
+</div>
+</div>
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:brightness-95 transition-all text-sm">
+                Obtener Asesoría
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-primary-mid text-sm" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span>Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error text-sm" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<main class="lg:ml-64 min-h-screen">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-30 bg-surface-container-lowest border-b border-outline-variant px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary-mid text-sm" placeholder="Buscar dealer o marca..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<!-- HERO SECTION -->
+<section class="p-margin-mobile md:p-margin-desktop space-y-stack-md">
+<div class="max-w-5xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">
+                    DIRECTORIO DE <span class="text-primary-mid">DEALERS VERIFICADOS</span>
+</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mt-4">
+                    Compre su próximo vehículo con total confianza. Estos concesionarios han sido auditados por nuestro equipo para garantizar transparencia en precios, aceptación de ITIN y atención 100% en español.
+                </p>
+</div>
+<!-- SEARCH & FILTERS -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">¿Qué buscas?</label>
+<input class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary-mid focus:ring-1 focus:ring-primary-mid" placeholder="Ej: Toyota, Ford..." type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Estado</label>
+<select class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-primary-mid focus:ring-1 focus:ring-primary-mid bg-white">
+<option>Todos los estados</option>
+<option>Florida</option>
+<option>Texas</option>
+<option>California</option>
+<option>Georgia</option>
+</select>
+</div>
+<div class="md:col-span-1 lg:col-span-2 flex flex-wrap gap-4 items-end">
+<div class="flex-1 min-w-[150px] space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Filtros Especiales</label>
+<div class="flex gap-2">
+<button class="flex-1 h-12 px-4 rounded-lg border border-primary-mid bg-pale-green text-primary-mid font-bold text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">id_card</span> Acepta ITIN
+                                </button>
+<button class="flex-1 h-12 px-4 rounded-lg border border-outline-variant hover:bg-surface-container text-on-surface-variant text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">translate</span> Habla Español
+                                </button>
+</div>
+</div>
+<button class="h-12 px-8 bg-primary-mid text-white font-bold rounded-lg hover:bg-primary-light transition-colors whitespace-nowrap">
+                            BUSCAR DEALERS
+                        </button>
+</div>
+</div>
+</div>
+<!-- PRICE GUARANTEE SIGNAL -->
+<div class="flex items-center gap-4 p-4 bg-pale-green/30 border border-success/20 rounded-lg">
+<span class="material-symbols-outlined text-success text-4xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<h4 class="font-bold text-primary">Sello de Precio Justo Garantizado</h4>
+<p class="text-sm text-on-surface-variant">Cada dealer con este sello se compromete a no cobrar cargos ocultos y a respetar el precio anunciado para nuestra comunidad.</p>
+</div>
+</div>
+<!-- DEALER GRID -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- PREMIUM DEALER 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 gold-border sombra-verde flex flex-col h-full group">
+<div class="flex justify-between items-start mb-4">
+<div class="h-16 w-32 bg-white flex items-center justify-center rounded overflow-hidden p-2">
+<img alt="Logo Dealer" class="h-full object-contain" data-alt="A clean, professional corporate logo for a high-end car dealership named 'Elite Motors'. The logo is minimalist with strong geometric lines, using a primary color palette of deep forest green and charcoal gray. It is presented against a crisp, studio-lit white background, evoking trust, professionalism, and a modern financial institution aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEZwapIQSB86uSeNBvwUxGWR1jSmrHJnr7Llgh2BI_9UDP1sJmXL7NR028oGPqHzTKtey2sSuXo7ZOq9zjpQMfgjJgGV78vfQX2eJED7l5rqRajTkDG5L9qGb4HJuOVTNsIF02Z9LdOhw9RJ3OlglB8t8sgVu-dV2RTVD_boRouj5WY-VYcSbtLAxwTr0p8P35wTCQO9E8RWTRE789BNGyy-UucZ8n12pAt3YffOk_tWsI7xWm4Z24AId1C4e9asbUZWHrpY41hhFr"/>
+</div>
+<div class="bg-success/10 text-success text-[10px] font-bold px-2 py-1 rounded border border-success/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFICADO
+                        </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Elite Motors Houston</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> 4500 Gulf Fwy, Houston, TX
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">translate</span> ESPAÑOL
+                        </span>
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">id_card</span> ITIN OK
+                        </span>
+<span class="px-2 py-1 bg-pale-green text-primary-mid rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">payments</span> $0 DOWN
+                        </span>
+</div>
+<div class="mt-auto space-y-2">
+<button class="w-full py-3 bg-primary-mid text-white font-bold rounded-lg hover:bg-primary-light transition-colors flex items-center justify-center gap-2">
+                            VER INVENTARIO
+                        </button>
+<button class="w-full py-3 border border-outline-variant font-bold rounded-lg hover:bg-surface-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> LLAMAR AHORA
+                        </button>
+</div>
+</div>
+<!-- PREMIUM DEALER 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 gold-border sombra-verde flex flex-col h-full group">
+<div class="flex justify-between items-start mb-4">
+<div class="h-16 w-32 bg-white flex items-center justify-center rounded overflow-hidden p-2">
+<img alt="Logo Dealer" class="h-full object-contain" data-alt="A sophisticated emblem for a car dealership called 'Prestigio Autos', featuring a stylized shield and an elegant font. The color scheme is dominated by emerald green and subtle gold accents. The lighting is soft and professional, making the logo pop against a neutral light grey background, reflecting authority and empathetic customer service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgi_XWpaGkdHUPXmO-WGjRy7lTHUYGMT0A_VmoV-FolnUWbVUHB6e_sSISOFwlAPK6LofCkjGzDzvPjWVNoy_T2nrQ6LxQOsX5hjCKJrTDwKYgpf2HXRWO55ac3DCLtzAthuTgsNgko6788Rq8kjmJ6HH-adKEkhszN11kuF-0qUqRfjAzWHcHvtnhOOTfASqpXynvkJuHMA1YJ9YBjRJCoPZs6-e_lfHtgN7PkRTIAWdDRl4clyD5HBSLvsL-bB2lnjValMiJm7v7"/>
+</div>
+<div class="bg-success/10 text-success text-[10px] font-bold px-2 py-1 rounded border border-success/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> VERIFICADO
+                        </div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Miami Car House</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> 1200 NW 36th St, Miami, FL
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">translate</span> ESPAÑOL
+                        </span>
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">id_card</span> ITIN OK
+                        </span>
+<span class="px-2 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded text-[11px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> TOP RATED
+                        </span>
+</div>
+<div class="mt-auto space-y-2">
+<button class="w-full py-3 bg-primary-mid text-white font-bold rounded-lg hover:bg-primary-light transition-colors flex items-center justify-center gap-2">
+                            VER INVENTARIO
+                        </button>
+<button class="w-full py-3 border border-outline-variant font-bold rounded-lg hover:bg-surface-container transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> LLAMAR AHORA
+                        </button>
+</div>
+</div>
+<!-- STANDARD DEALER 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-24 bg-surface-container-low flex items-center justify-center rounded p-1">
+<img alt="Logo Dealer" class="h-full object-contain grayscale opacity-70" data-alt="A clean and modern typography-based logo for a car dealership. The design is minimalist, using a bold sans-serif font in a deep green shade. It communicates reliability and accessibility. The logo is centered on a pure white background with bright, even lighting, maintaining a corporate and high-contrast professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_FMxBKm-RgkbYxOnUjnhGuVXRFkq7bZdzZfrQR1obDY7b9UtAIJM8yNq5nZAACwYtjFtQYM8w4cDfHvL0mRUEdBN28lFohoOY3zMuljUA_ROfuEix7e4XnFdZie0Jeg6Wc_k01Dugnx0qI9m8mLA4XdcUhbQCs64BgNbytVc1diW-v6uevtSJv_b7eqPzBVgZU47kWSFmZLA_LUS5hD77GDdEK6G9ci-OWt0v7IcZdjI5vqeZkl7wKRP1gTT5tcuJoQiS6CZPlxOr"/>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Orlando Auto Sales</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Orlando, FL
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold">ESPAÑOL</span>
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold">ITIN OK</span>
+</div>
+<div class="mt-auto space-y-2">
+<button class="w-full py-2 bg-surface-container-highest text-primary font-bold rounded-lg hover:bg-outline-variant transition-colors">
+                            Ver Perfil
+                        </button>
+</div>
+</div>
+<!-- STANDARD DEALER 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-24 bg-surface-container-low flex items-center justify-center rounded p-1">
+<img alt="Logo Dealer" class="h-full object-contain grayscale opacity-70" data-alt="A sleek, automotive-inspired logo with a minimalist tire tread motif and modern lettering. The colors are navy blue and silver, suggesting speed and quality. The logo is displayed in a bright, modern studio setting on a high-contrast white background, emphasizing its authoritative and trustworthy brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApDWQ8ARZvrTtS-w9MwwGgJvRdlmRyUomQgOmteMcFgBV1kQDb16jgslK3ehdKay4u1Gsvf5y6nk46kbQuQA6xM7rPqbZF-_VXVHokk09OhELHtNg7oV_s0agyBJvSKiH5HDWdZRXPB98irrAFIVzuEyZhyFZun9vJio_K--8R3KwzPFWtRQewg4YNHhDTspjB4HTzEOSSKT__LQS7x6bB77LsC_5FtpC7eLEYsUKHiczA7WnuuHW6U6C7jg24EG1RPGkLUpPP0R9u"/>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Texas Auto Group</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Dallas, TX
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold">ESPAÑOL</span>
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold">ITIN OK</span>
+</div>
+<div class="mt-auto space-y-2">
+<button class="w-full py-2 bg-surface-container-highest text-primary font-bold rounded-lg hover:bg-outline-variant transition-colors">
+                            Ver Perfil
+                        </button>
+</div>
+</div>
+<!-- STANDARD DEALER 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant flex flex-col h-full hover:shadow-lg transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-24 bg-surface-container-low flex items-center justify-center rounded p-1">
+<img alt="Logo Dealer" class="h-full object-contain grayscale opacity-70" data-alt="A modern automotive logo featuring an abstract road path curving upwards. The style is flat design with high-contrast forest green and black colors. It sits on a bright white background, conveying progress and reliable financial assistance in the car buying process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4XfbCak6_xoKxf2DeERs3gfgr9EIEaP-Drz9cyywaR_U0b11aod9vJuoZB4KMDla_9iObKeg2pvns8W4L4l79M_nS069MT6P7doOC6mmFnEKMoZmCezOhdH5H3jOviDq_XI6BKBykxJ-FFtQXGER4fsMTu_SUEdjZ-Ewl443XyQHtGG6AM1xuYoZLcJ0IFqdUWJuHksPz6tfJMloZ45jQHqxa644IalsidkejmRXDtTqdwEh3PYgVr63Z5uBxcx6CM96IPl3rWt0g"/>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Atlanta Wheels</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Atlanta, GA
+                    </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2 py-1 bg-surface-container rounded text-[11px] font-bold">ESPAÑOL</span>
+</div>
+<div class="mt-auto space-y-2">
+<button class="w-full py-2 bg-surface-container-highest text-primary font-bold rounded-lg hover:bg-outline-variant transition-colors">
+                            Ver Perfil
+                        </button>
+</div>
+</div>
+</div>
+<!-- CTA BANNER -->
+<div class="relative overflow-hidden bg-primary-container rounded-2xl p-8 md:p-12 text-white">
+<div class="relative z-10 max-w-xl space-y-4">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-secondary-fixed leading-none">¿REPRESENTAS A UN DEALER?</h2>
+<p class="text-body-lg text-on-primary-container/80">
+                        Únete a la red más grande de concesionarios confiables para la comunidad hispana. Aumenta tus ventas conectando con clientes verificados que buscan tu ayuda.
+                    </p>
+<button class="mt-6 px-10 py-4 bg-secondary-container text-on-secondary-container font-extrabold rounded-lg hover:scale-105 transition-transform">
+                        ÚNETE A BLINDADOUSA
+                    </button>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-10 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'wght' 700;">handshake</span>
+</div>
+</div>
+</section>
+<!-- FOOTER INFO -->
+<footer class="p-margin-mobile md:p-margin-desktop bg-surface-container-low text-center space-y-2">
+<p class="text-on-surface-variant text-sm">© 2024 BIBLIA FINANCIERA - BlindadoUSA. Todos los derechos reservados.</p>
+<div class="flex justify-center gap-6 text-xs font-bold text-primary-mid uppercase tracking-widest">
+<a href="#">Privacidad</a>
+<a href="#">Términos</a>
+<a href="#">Soporte</a>
+</div>
+</footer>
+</main>
+<!-- FLOATING AI BUTTON -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center gap-4 group">
+<div class="bg-primary-container text-white px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold pointer-events-none shadow-lg">
+            ¿Necesitas ayuda con tu crédito?
+        </div>
+<button class="rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid text-on-primary shadow-md shadow-primary-container/20 hover:scale-110 hover:shadow-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+</div>
+<!-- MOBILE NAVIGATION (Hidden on Desktop) -->
+<div class="lg:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant h-16 flex items-center justify-around px-2 z-50">
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-primary-mid" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px] font-bold">Autos</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="text-[10px] font-bold">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Cuenta</span>
+</a>
+</div>
+<script>
+        // Simple micro-interaction for filter buttons
+        const filterButtons = document.querySelectorAll('.flex-1.h-12');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('bg-pale-green');
+                btn.classList.toggle('text-primary-mid');
+                btn.classList.toggle('border-primary-mid');
+                btn.classList.toggle('font-bold');
+            });
+        });
+
+        // Skeleton loading simulation on scroll
+        window.addEventListener('scroll', () => {
+            // Placeholder logic for infinite scroll or reveal animations
+        });
+    </script>
+</body></html>

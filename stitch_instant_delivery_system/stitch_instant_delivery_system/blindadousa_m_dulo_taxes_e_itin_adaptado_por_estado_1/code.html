@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb780",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-light": "#40916C",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "secondary-container": "#ffab69",
+                    "gray": "#6B7280",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#d89b00",
+                    "on-background": "#1a1c1a",
+                    "surface-container-low": "#f3f4f1",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f9faf6",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-error": "#ffffff",
+                    "primary": "#012d1d",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#1b4332",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "background": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "on-secondary-fixed": "#2f1400",
+                    "outline": "#717973",
+                    "inverse-on-surface": "#f0f1ee",
+                    "accent-dark": "#E76F51",
+                    "surface-tint": "#3f6653",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container": "#eeeeeb",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface": "#f9faf6",
+                    "on-surface": "#1a1c1a",
+                    "secondary-fixed": "#ffdcc4",
+                    "success": "#52B788",
+                    "dark": "#1A1A2E",
+                    "on-secondary-container": "#783d01",
+                    "secondary": "#8e4e14",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2f312f",
+                    "on-surface-variant": "#414844",
+                    "primary-mid": "#2D6A4F",
+                    "danger": "#D62828",
+                    "tertiary": "#342300",
+                    "outline-variant": "#c1c8c2",
+                    "inverse-primary": "#a5d0b9",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-container": "#503700",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-variant": "#e2e3e0",
+                    "surface-dim": "#dadad7",
+                    "on-primary-container": "#86af99",
+                    "warning": "#F77F00",
+                    "on-tertiary-fixed": "#271900",
+                    "surface-container-high": "#e8e8e5",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "gutter": "1rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #012d1d; }
+        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(193, 200, 194, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="bg-primary border-r border-primary-mid h-screen w-64 fixed left-0 top-0 overflow-y-auto flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-pale-green tracking-wider">BlindadoUSA</h1>
+<p class="text-pale-green/60 text-label-sm uppercase tracking-widest -mt-2">Biblia Financiera</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Nav Item: Resumen -->
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Resumen</span>
+</a>
+<!-- Nav Item: Crédito -->
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="font-body-md">Crédito</span>
+</a>
+<!-- Nav Item: Impuestos (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md">Impuestos</span>
+</a>
+<!-- More Nav Items from JSON -->
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-body-md">ITIN/SSN</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-body-md">Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-body-md">Inversiones</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md">Comunidad</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-mid/30">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-xl hover:scale-105 transition-transform active:scale-95">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-20 flex items-center justify-between px-margin-desktop bg-surface-bright border-b border-outline-variant z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<select class="bg-transparent border-none font-headline-md text-headline-md text-primary focus:ring-0 cursor-pointer">
+<option value="FL">Florida</option>
+<option value="TX">Texas</option>
+<option value="CA">California</option>
+<option value="NY">New York</option>
+</select>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar guías fiscales..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">settings</span>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border-2 border-primary-light">
+<img alt="Avatar del usuario" class="w-full h-full object-cover" data-alt="A professional headshot of a Hispanic male entrepreneur in his mid-30s, smiling confidently. He is wearing a clean, dark emerald green polo shirt that matches the corporate branding. The background is a soft-focus modern office with warm wooden accents and bright, natural sunlight filtering through a window, creating a trustworthy and accessible atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4XOLNP-mYnYD6uoo1H5yS15aAbuLfsYvhIA-ckzGbmZ2Xw9MaHOgJvAfPag5Wzy38Y_fgaaAUqNvdD7sFIAhDCe2cNjjYpH4u8cpe1bfsqoQ-4MciqIkzIm64zc4sPVH_zRITh-nbpjPgvBmNxWK6G3-WGEF_uQqslPgalNG1GfF5fRxm8WjBAS7b7TEEdNlWwyFD1vH6PT81T_WR-DohHa0F9ihC8_0_yzltNuLtQ2e0pZl-fmHPFjaQ3c90oYgAXdy5ZfLOQFfi"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-20 p-margin-desktop min-h-screen">
+<!-- Welcome & State Insights -->
+<section class="mb-stack-lg">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 glass-card p-8 rounded-3xl sombra-verde">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary leading-none mb-2">PANORAMA FISCAL: FLORIDA</h2>
+<p class="text-primary-mid font-body-lg">Beneficios locales para contribuyentes en el Estado del Sol.</p>
+</div>
+<div class="bg-success/10 text-success px-4 py-2 rounded-full flex items-center gap-2 border border-success/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm uppercase">Estado Optimizado</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant">
+<h4 class="font-headline-md text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-light">money_off</span>
+                                Sin Impuesto Estatal
+                            </h4>
+<p class="text-on-surface-variant text-body-md">Florida es uno de los pocos estados que <strong>no cobra impuesto sobre la renta individual</strong>. Esto significa que conservas más de tu salario bruto.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant">
+<h4 class="font-headline-md text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-light">home_work</span>
+                                Homestead Exemption
+                            </h4>
+<p class="text-on-surface-variant text-body-md">Si eres dueño de tu casa, puedes reducir hasta <strong>$50,000</strong> del valor tasado de tu propiedad para fines de impuestos territoriales.</p>
+</div>
+</div>
+</div>
+<!-- Semáforo: Financial Health -->
+<div class="glass-card p-8 rounded-3xl flex flex-col justify-between border-l-8 border-success shadow-sm">
+<div>
+<h3 class="text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Estado de Preparación</h3>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-success flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<span class="block text-success font-bold text-headline-md">LISTO</span>
+<p class="text-on-surface-variant text-body-md">Documentos actualizados.</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-success w-[85%]"></div>
+</div>
+<p class="text-body-md italic text-on-surface-variant">"Tu perfil fiscal en Florida está optimizado. Estás listo para reclamar el máximo reembolso federal."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Calculator & Credits Section -->
+<section class="mb-stack-lg grid grid-cols-1 xl:grid-cols-12 gap-gutter">
+<!-- Estimador Bento Card -->
+<div class="xl:col-span-8 bg-primary text-white p-10 rounded-[2rem] relative overflow-hidden flex flex-col justify-between min-h-[400px]">
+<div class="relative z-10">
+<h3 class="font-display-lg text-display-lg text-pale-green mb-2">CALCULADORA DE REEMBOLSO</h3>
+<p class="text-pale-green/70 font-body-lg max-w-md">Estima cuánto dinero podrías recibir este año basándote en tus ingresos y dependientes.</p>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 mt-8">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-label-sm text-pale-green/60 uppercase">Ingresos Anuales (Brutos)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-pale-green font-headline-md">$</span>
+<input class="w-full bg-primary-mid border-none text-white font-headline-md py-4 pl-10 rounded-xl focus:ring-2 focus:ring-secondary-container" type="number" value="45000"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm text-pale-green/60 uppercase">Número de Dependientes</label>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-lg bg-primary-mid border border-primary-light flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary-container transition-colors">0</button>
+<button class="w-12 h-12 rounded-lg bg-primary-mid border border-primary-light flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary-container transition-colors">1</button>
+<button class="w-12 h-12 rounded-lg bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center">2</button>
+<button class="w-12 h-12 rounded-lg bg-primary-mid border border-primary-light flex items-center justify-center hover:bg-secondary-container hover:text-on-secondary-container transition-colors">3+</button>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-2xl border border-primary-light flex flex-col items-center justify-center text-center">
+<span class="text-pale-green/60 text-label-sm uppercase tracking-widest mb-2">Reembolso Estimado</span>
+<div class="font-display-lg text-[80px] text-secondary-fixed-dim leading-none mb-4">
+                            $4,850
+                        </div>
+<p class="text-body-md text-pale-green/80">Basado en créditos EITC y Child Tax Credit.</p>
+<button class="mt-6 w-full py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl hover:shadow-lg transition-shadow">Ver Desglose Detallado</button>
+</div>
+</div>
+<!-- Abstract Decorative Pattern -->
+<div class="absolute right-[-100px] bottom-[-100px] w-80 h-80 bg-primary-light opacity-10 rounded-full blur-3xl"></div>
+<div class="absolute left-[-50px] top-[-50px] w-64 h-64 bg-secondary-container opacity-5 rounded-full blur-3xl"></div>
+</div>
+<!-- Tax Credits Side Cards -->
+<div class="xl:col-span-4 flex flex-col gap-gutter">
+<div class="p-6 bg-surface-bright border border-outline-variant rounded-3xl flex-1 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 bg-tertiary-container text-tertiary-fixed rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">child_care</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">Child Tax Credit</h4>
+<p class="text-body-md text-on-surface-variant">Hasta <strong>$2,000</strong> por hijo calificado menor de 17 años.</p>
+</div>
+<a class="text-primary-mid font-bold flex items-center gap-2 mt-4 hover:underline" href="#">
+                        ¿Cómo calificar? <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="p-6 bg-surface-bright border border-outline-variant rounded-3xl flex-1 flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 bg-primary-container text-pale-green rounded-xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">EITC (Crédito por Trabajo)</h4>
+<p class="text-body-md text-on-surface-variant">Un crédito reembolsable para trabajadores con ingresos bajos a moderados.</p>
+</div>
+<a class="text-primary-mid font-bold flex items-center gap-2 mt-4 hover:underline" href="#">
+                        Calcular mi EITC <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ITIN Guide Section -->
+<section class="mb-stack-lg">
+<h3 class="font-display-lg text-display-lg text-primary mb-8">GUÍA MAESTRA: NÚMERO ITIN</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- ITIN Card 1 -->
+<div class="group hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-surface-container rounded-3xl p-1 overflow-hidden">
+<img alt="ITIN Process" class="w-full h-48 object-cover rounded-t-2xl" data-alt="A macro shot of official-looking financial documents and an identification card on a clean, executive desk. A pair of elegant reading glasses and a high-quality fountain pen rest on the papers, suggesting a serious and organized application process. The lighting is bright and professional, utilizing the emerald and gold brand colors through subtle desk accessories and lighting tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHbgdcW5s8W3z6g6MNIlM5xU9LEJwbK4KXHntGb7245ym1ujw-vFlTvICUHTRxbIGxLpN0tIhhBO4HwC0-4FUJw2jCenZuDbYMus4ZA39w5Wz8bsfnnaP6HSxX2D0F58YeeuvREBwYL5NMo4_63xvOPxCPitb_V8eMRwoNygZeiPpoNGe83OiRD1Qiwhx5ImGZ9kbejlHDrvfdcUE7rb9O0VMd51COMvljjp86veJ3xjQIqTTFqpJO0o6g5OHgTtareph3nlstvKhl"/>
+<div class="p-6">
+<h5 class="font-headline-md text-primary mb-2">¿Qué es el ITIN?</h5>
+<p class="text-body-md text-on-surface-variant mb-4">El Número de Identificación Personal del Contribuyente para quienes no califican para un SSN.</p>
+<span class="text-primary-mid font-bold text-label-sm uppercase tracking-wider">Lectura de 3 min</span>
+</div>
+</div>
+</div>
+<!-- ITIN Card 2 -->
+<div class="group hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-surface-container rounded-3xl p-1 overflow-hidden">
+<img alt="Apply ITIN" class="w-full h-48 object-cover rounded-t-2xl" data-alt="An overhead flat-lay of a Form W-7 application for an ITIN number. Beside the form, there is a vibrant passport and a small succulent plant in a white ceramic pot, representing growth and identity. The aesthetic is clean, minimalist, and authoritative, with soft, high-key lighting that emphasizes clarity and ease of use." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAia3DHjPs45dBL0ryGHoGlwsMU0Tsux6-fO_oaBJ6nqnPjIchRXfnVDH6-c7ULKBrwcLsYaKu_DoZBC-0_AazsRV-VKywJnXpkK59jTnN6KOCyE7OkrlWcNGc4gcpu5CCIVHSovaeTm-eN5iNhvVWNK87qXDiOVXtlWwMs3C9uHXnuZnFBi4SA_9sP2I0a-Lx7NSv1ZpX06WpxyFcy2Ged1MZonxwk8EEe4ugsSbrcrLYQm8u_0ONvQ6xLO24HJ_N-5SFoGmNwwSpY"/>
+<div class="p-6">
+<h5 class="font-headline-md text-primary mb-2">Cómo Solicitarlo</h5>
+<p class="text-body-md text-on-surface-variant mb-4">Paso a paso para llenar el Formulario W-7 y enviar tus documentos de identidad de forma segura.</p>
+<span class="text-primary-mid font-bold text-label-sm uppercase tracking-wider">Guía Visual</span>
+</div>
+</div>
+</div>
+<!-- ITIN Card 3 -->
+<div class="group hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-surface-container rounded-3xl p-1 overflow-hidden">
+<img alt="ITIN Benefits" class="w-full h-48 object-cover rounded-t-2xl" data-alt="A diverse group of smiling Hispanic people in a bright, modern community center, looking at a digital tablet together. The scene conveys empowerment and financial education. The environment is airy and welcoming, with the emerald green and pale gold color palette integrated through interior design elements and soft ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFT0YBsBisY3Gn64s-qOGhH6PVErgjnq6LyfoXlvqMRBbISczMlO3vhAWc7GOk3fGWNIEAZldt-NynyegNQKJCWEnuBjsF7Yxm_xYmikDNSMul6VzDKU_eZGKicNSxzbFt8ichMeKxFT7iJOCPR6oIy4JWytkFBsOEN_XFcDMpaaQtXbKjyMrUmWcfsihZ4LaDmFTM90S6aNy_V7koqnBJen-FG-CSf73bHRpeoluZpgSOrFc1IEd6ilDwYz7Z9sirmMGfVg3R6pid"/>
+<div class="p-6">
+<h5 class="font-headline-md text-primary mb-2">Beneficios del ITIN</h5>
+<p class="text-body-md text-on-surface-variant mb-4">Desde abrir cuentas bancarias hasta construir un historial crediticio sólido en los EE.UU.</p>
+<span class="text-primary-mid font-bold text-label-sm uppercase tracking-wider">Video Explicativo</span>
+</div>
+</div>
+</div>
+<!-- ITIN Card 4 -->
+<div class="group hover:-translate-y-2 transition-transform duration-300">
+<div class="bg-surface-container rounded-3xl p-1 overflow-hidden">
+<img alt="ITIN Renewal" class="w-full h-48 object-cover rounded-t-2xl" data-alt="A close-up of a calendar with the date April 15th circled in a soft green ink. Next to it sits a smartphone showing a notification for a tax deadline. The style is crisp and modern, focusing on organization and preparedness. The lighting is warm and natural, suggesting a peaceful, controlled financial environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5kQp2i6pQH4rFiKmnxVDqK1QA7fK9HrStk0nIfpdeW3VkkpxeY_Nj4d9c85eVeeY9vDTl9mBNo8m_7-sGCRpyYqaALO4EfaKwQlmhBI6qdI0yQ34LGUJcdPriVCn_0o7wOrhOoqYp32a9rFjDxAyQnG3F84S8KL2MVtFOyO_BIErbUI2TwzskV7kFA1oywqr8hPDb3VqX8fe0y2aCj3jk6B6z6SvL20kRIR3sBisU1CWgsuIXLpVTjQalfFBcjZhLC0FrV-eoB5f"/>
+<div class="p-6">
+<h5 class="font-headline-md text-primary mb-2">Renovación ITIN</h5>
+<p class="text-body-md text-on-surface-variant mb-4">No dejes que expire. Aprende cuándo y cómo renovar tu número para evitar retrasos en tus impuestos.</p>
+<span class="text-primary-mid font-bold text-label-sm uppercase tracking-wider">Lista de Cotejo</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-secondary-fixed text-on-secondary-fixed p-12 rounded-[3rem] text-center max-w-4xl mx-auto mb-stack-lg border border-secondary-container sombra-verde">
+<h2 class="font-display-lg text-display-lg mb-4">¿NECESITAS AYUDA PROFESIONAL?</h2>
+<p class="text-body-lg mb-8 max-w-2xl mx-auto">Nuestros expertos certificados por el IRS pueden revisar tu declaración y asegurar que no dejes dinero sobre la mesa.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-white font-bold px-10 py-4 rounded-full text-headline-md hover:scale-105 transition-transform">Agendar Cita Gratis</button>
+<button class="bg-transparent border-2 border-primary text-primary font-bold px-10 py-4 rounded-full text-headline-md hover:bg-primary/10 transition-colors">Hablar con Asistente</button>
+</div>
+</section>
+</main>
+<!-- FloatingAIButton -->
+<button class="fixed bottom-8 right-8 z-50 bg-primary-mid text-on-primary rounded-full h-16 w-16 flex items-center justify-center shadow-lg shadow-primary-container/40 hover:scale-110 hover:shadow-xl transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<span class="absolute right-full mr-4 bg-white text-primary px-4 py-2 rounded-xl whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none font-bold">
+            ¿Dudas sobre tus Taxes?
+        </span>
+</button>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple state change simulation
+        const stateSelector = document.querySelector('select');
+        stateSelector.addEventListener('change', (e) => {
+            const state = e.target.value;
+            const heroTitle = document.querySelector('h2.font-display-lg');
+            heroTitle.innerText = `PANORAMA FISCAL: ${state === 'FL' ? 'FLORIDA' : state === 'TX' ? 'TEXAS' : state === 'CA' ? 'CALIFORNIA' : 'NEW YORK'}`;
+            
+            // Add a subtle flash effect
+            document.querySelector('main').style.opacity = '0.5';
+            setTimeout(() => {
+                document.querySelector('main').style.opacity = '1';
+                document.querySelector('main').style.transition = 'opacity 0.3s ease';
+            }, 100);
+        });
+
+        // Numeric animation for the calculator result
+        const calcInputs = document.querySelectorAll('input[type="number"]');
+        const resultDisplay = document.querySelector('.font-display-lg.text-\\[80px\\]');
+        
+        calcInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const base = parseInt(input.value) || 0;
+                const simulatedResult = Math.floor(base * 0.107) + 500;
+                resultDisplay.innerText = `$${simulatedResult.toLocaleString()}`;
+            });
+        });
+    </script>
+</body></html>

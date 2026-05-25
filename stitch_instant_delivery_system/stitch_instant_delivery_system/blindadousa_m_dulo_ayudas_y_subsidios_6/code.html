@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayudas y Subsidios | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(193, 200, 194, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002114",
+                    "surface-container-high": "#e8e8e5",
+                    "on-secondary": "#ffffff",
+                    "primary": "#012d1d",
+                    "primary-container": "#1b4332",
+                    "tertiary": "#342300",
+                    "tertiary-container": "#503700",
+                    "secondary-fixed": "#ffdcc4",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface-bright": "#f9faf6",
+                    "danger": "#D62828",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#414844",
+                    "on-background": "#1a1c1a",
+                    "surface-container-low": "#f3f4f1",
+                    "on-error": "#ffffff",
+                    "primary-light": "#40916C",
+                    "background": "#f9faf6",
+                    "on-secondary-container": "#783d01",
+                    "primary-fixed": "#c1ecd4",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-secondary-fixed": "#2f1400",
+                    "success": "#52B788",
+                    "secondary-container": "#ffab69",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-tertiary-fixed": "#271900",
+                    "surface": "#f9faf6",
+                    "on-primary-container": "#86af99",
+                    "secondary": "#8e4e14",
+                    "surface-variant": "#e2e3e0",
+                    "surface-container": "#eeeeeb",
+                    "surface-tint": "#3f6653",
+                    "outline": "#717973",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary-container": "#d89b00",
+                    "inverse-surface": "#2f312f",
+                    "inverse-on-surface": "#f0f1ee",
+                    "accent-dark": "#E76F51",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "primary-mid": "#2D6A4F",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-surface": "#1a1c1a",
+                    "on-error-container": "#93000a",
+                    "gray": "#6B7280",
+                    "outline-variant": "#c1c8c2",
+                    "dark": "#1A1A2E",
+                    "surface-dim": "#dadad7",
+                    "error-container": "#ffdad6",
+                    "warning": "#F77F00",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffdea9",
+                    "primary-fixed-dim": "#a5d0b9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface-bright text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Anchor (As defined in JSON) -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 flex items-center justify-between px-margin-mobile md:px-margin-desktop z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary" onclick="toggleMobileNav()">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">BlindadoUSA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md ml-2 w-48" placeholder="Buscar programas..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-sm hidden md:block">Miembro Premium</button>
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<img alt="Avatar del usuario" class="w-10 h-10 rounded-full object-cover" data-alt="A professional studio headshot of a Hispanic male in his 40s with a warm, confident expression. He is wearing a clean, modern dark green polo shirt. The background is a soft, out-of-focus modern office environment with warm morning light streaming through windows, creating a clean and professional look that aligns with high-end corporate accessibility design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMbvyJJxaHxVQbChkpDQOK5Cfjei4t2jNqyC27jfKdEPo-svvme2KNX1l-_MER415jOUvNjriMtSX-MGcbjnuL15SfRObNabuUQhWqwq_0h7vwoO3b8Tib-AwL23iu36XlcF9YFktDdoeOvwpD9AmmoGUUG3-mYCej9bvkODZIBVMAGS39uF6eLMto5LNNw1DlfICwriINp9V5re5lZlzvdIerU6wCySUrzmRPZWV9d-_mf1i606vHsL2_TDOtbIvN5Rrnbx44wV9P"/>
+</div>
+</header>
+<!-- Side Navigation Anchor (As defined in JSON) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-primary border-r border-primary-mid py-6 px-4 z-50" id="sidebar">
+<div class="mb-8 px-2">
+<span class="font-display-lg-mobile text-display-lg-mobile text-pale-green">BlindadoUSA</span>
+<p class="text-pale-green/60 text-label-sm -mt-1 uppercase tracking-widest">Biblia Financiera</p>
+</div>
+<div class="flex flex-col gap-1 flex-grow">
+<!-- Labels from JSON with Active State Mapping -->
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Resumen
+            </a>
+<a class="flex items-center gap-3 p-3 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span> Ayudas y Subsidios
+            </a>
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span> Crédito
+            </a>
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Presupuesto
+            </a>
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="savings">savings</span> Ahorros
+            </a>
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span> Impuestos
+            </a>
+<a class="flex items-center gap-3 p-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Comunidad
+            </a>
+</div>
+<div class="mt-auto pt-6 border-t border-primary-mid">
+<button class="w-full bg-secondary-container text-on-secondary-fixed font-bold py-3 rounded-xl transition-all active:scale-95">Actualizar Plan</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-20 px-margin-mobile md:pl-[18.5rem] md:pr-margin-desktop">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<div class="max-w-4xl">
+<h2 class="font-display-lg text-primary mb-2">Ayudas y Subsidios</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                    Programas del gobierno que te ayudan a pagar comida, salud y servicios. 
+                    <span class="font-bold text-primary">Solicitar estas ayudas NO siempre afecta tu estatus migratorio.</span>
+</p>
+</div>
+</section>
+<!-- Semaforo: Critical Alert -->
+<section class="mb-stack-lg">
+<div class="bg-white border-2 border-success/30 rounded-2xl p-6 sombra-verde relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-success/5 rounded-full -mr-16 -mt-16"></div>
+<div class="flex flex-col md:flex-row gap-6 items-start">
+<div class="w-16 h-16 rounded-full bg-success/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-success text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="px-3 py-1 bg-success text-white font-bold rounded-full text-sm uppercase tracking-wider">Seguro (Verde)</span>
+<h3 class="font-headline-md text-primary">Estatus: Carga Pública 2026</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-4">
+                            La mayoría de estas ayudas <span class="font-bold text-on-surface underline decoration-success decoration-2">NO cuentan</span> para la Carga Pública. Bajo las reglas actuales, usar beneficios de salud o comida no te impide arreglar tus papeles. Aquí te decimos cuáles son seguras para tu familia.
+                        </p>
+<div class="flex gap-4">
+<span class="flex items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span> SNAP es Seguro
+                            </span>
+<span class="flex items-center gap-2 text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span> Medicaid Niños es Seguro
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Filter Chips -->
+<section class="mb-stack-md">
+<h4 class="font-label-sm text-outline mb-4 uppercase tracking-widest">¿Qué ayuda necesitas hoy?</h4>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 bg-primary-mid text-white rounded-full font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">restaurant</span> Comida (SNAP/WIC)
+                </button>
+<button class="px-6 py-3 bg-white border border-outline-variant text-on-surface-variant rounded-full font-bold hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">medical_services</span> Salud (Medicaid)
+                </button>
+<button class="px-6 py-3 bg-white border border-outline-variant text-on-surface-variant rounded-full font-bold hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">home</span> Vivienda (Sección 8)
+                </button>
+<button class="px-6 py-3 bg-white border border-outline-variant text-on-surface-variant rounded-full font-bold hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">payments</span> Dinero (EITC)
+                </button>
+<button class="px-6 py-3 bg-white border border-outline-variant text-on-surface-variant rounded-full font-bold hover:bg-surface-container transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">child_care</span> Niños (Head Start)
+                </button>
+</div>
+</section>
+<!-- Benefits Grid (Bento Style cards) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-stack-lg">
+<!-- Card 1: SNAP -->
+<div class="bg-white rounded-3xl p-8 border border-outline-variant flex flex-col h-full hover:border-primary-light transition-colors relative group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 bg-pale-green rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-mid text-3xl">shopping_cart</span>
+</div>
+<span class="px-3 py-1 bg-success/10 text-success text-xs font-bold rounded-lg border border-success/20">Seguro / No es Carga Pública</span>
+</div>
+<h3 class="font-headline-md text-primary mb-2">SNAP (Cupones de Alimentos)</h3>
+<p class="text-on-surface-variant mb-6 text-body-md">Ayuda mensual para comprar comida saludable en supermercados y tiendas autorizadas.</p>
+<div class="bg-surface-container-low rounded-2xl p-5 mb-8 flex-grow">
+<h4 class="font-label-sm text-primary uppercase mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">info</span> ¿Quién califica?
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Familias con ingresos bajos.
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Residentes legales (con 5 años de estatus).
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Ciudadanos estadounidenses (incluyendo tus hijos).
+                        </li>
+</ul>
+</div>
+<button class="w-full bg-secondary text-white font-bold py-4 rounded-xl shadow-md hover:bg-secondary/90 transition-all flex items-center justify-center gap-2">
+                    Cómo Aplicar (Guía Paso a Paso)
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2: Medicaid -->
+<div class="bg-white rounded-3xl p-8 border border-outline-variant flex flex-col h-full hover:border-primary-light transition-colors relative group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 bg-pale-green rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-mid text-3xl">health_and_safety</span>
+</div>
+<span class="px-3 py-1 bg-success/10 text-success text-xs font-bold rounded-lg border border-success/20">Seguro / No es Carga Pública</span>
+</div>
+<h3 class="font-headline-md text-primary mb-2">Medicaid / CHIP</h3>
+<p class="text-on-surface-variant mb-6 text-body-md">Seguro médico gratuito o de bajo costo para niños, embarazadas y adultos elegibles.</p>
+<div class="bg-surface-container-low rounded-2xl p-5 mb-8 flex-grow">
+<h4 class="font-label-sm text-primary uppercase mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">info</span> ¿Quién califica?
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Niños (independientemente del estatus en algunos estados).
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Mujeres embarazadas (Emergencia Medicaid).
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Personas con discapacidades.
+                        </li>
+</ul>
+</div>
+<button class="w-full bg-secondary text-white font-bold py-4 rounded-xl shadow-md hover:bg-secondary/90 transition-all flex items-center justify-center gap-2">
+                    Cómo Aplicar (Guía Paso a Paso)
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3: LIHEAP -->
+<div class="bg-white rounded-3xl p-8 border border-outline-variant flex flex-col h-full hover:border-primary-light transition-colors relative group">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 bg-pale-green rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-mid text-3xl">bolt</span>
+</div>
+<span class="px-3 py-1 bg-success/10 text-success text-xs font-bold rounded-lg border border-success/20">Seguro / No es Carga Pública</span>
+</div>
+<h3 class="font-headline-md text-primary mb-2">LIHEAP (Ayuda de Energía)</h3>
+<p class="text-on-surface-variant mb-6 text-body-md">Asistencia económica para pagar tus recibos de luz, calefacción o reparaciones de energía.</p>
+<div class="bg-surface-container-low rounded-2xl p-5 mb-8 flex-grow">
+<h4 class="font-label-sm text-primary uppercase mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">info</span> ¿Quién califica?
+                    </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Hogares con ingresos limitados.
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> Prioridad a ancianos y familias con niños.
+                        </li>
+<li class="flex items-start gap-2 text-on-surface-variant text-sm">
+<span class="text-success mt-1">•</span> No requiere ser ciudadano para aplicar por tus hijos.
+                        </li>
+</ul>
+</div>
+<button class="w-full bg-secondary text-white font-bold py-4 rounded-xl shadow-md hover:bg-secondary/90 transition-all flex items-center justify-center gap-2">
+                    Cómo Aplicar (Guía Paso a Paso)
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Resources Section -->
+<section class="bg-primary-container rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-light/10 blur-3xl rounded-full -mr-32 -mt-32"></div>
+<div class="relative z-10">
+<h3 class="font-headline-md mb-6">Recursos y Enlaces Oficiales</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<a class="flex items-center justify-between p-6 bg-primary rounded-2xl border border-primary-light/20 hover:bg-primary-mid transition-all" href="https://www.benefits.gov" target="_blank">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-bold">Benefits.gov</p>
+<p class="text-xs text-on-primary-container">Buscador oficial del gobierno</p>
+</div>
+</div>
+<span class="material-symbols-outlined">open_in_new</span>
+</a>
+<a class="flex items-center justify-between p-6 bg-primary rounded-2xl border border-primary-light/20 hover:bg-primary-mid transition-all" href="#" target="_blank">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div>
+<p class="font-bold">Texas Health &amp; Human Services</p>
+<p class="text-xs text-on-primary-container">Aplicaciones locales (TX)</p>
+</div>
+</div>
+<span class="material-symbols-outlined">open_in_new</span>
+</a>
+</div>
+<p class="mt-8 text-sm text-pale-green/60 text-center italic">
+                    BlindadoUSA no es una agencia de gobierno. Somos una guía educativa para ayudarte a navegar el sistema.
+                </p>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant Anchor -->
+<button class="fixed bottom-8 right-8 z-50 rounded-full h-14 w-auto px-6 bg-primary-mid text-on-primary shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all flex items-center gap-3 active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm">Asistente Blindado</span>
+</button>
+<!-- Mobile Navigation Layer (Hidden by default) -->
+<div class="fixed inset-0 bg-primary/95 z-[60] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300 md:hidden" id="mobile-nav">
+<button class="absolute top-8 right-8 text-pale-green" onclick="toggleMobileNav()">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<span class="font-display-lg text-pale-green">BlindadoUSA</span>
+<nav class="flex flex-col items-center gap-6">
+<a class="text-2xl text-pale-green font-bold" href="#">Resumen</a>
+<a class="text-2xl text-secondary-container font-bold" href="#">Ayudas y Subsidios</a>
+<a class="text-2xl text-pale-green" href="#">Crédito</a>
+<a class="text-2xl text-pale-green" href="#">Presupuesto</a>
+<a class="text-2xl text-pale-green" href="#">Comunidad</a>
+</nav>
+</div>
+<script>
+        function toggleMobileNav() {
+            const nav = document.getElementById('mobile-nav');
+            if (nav.classList.contains('translate-x-full')) {
+                nav.classList.remove('translate-x-full');
+            } else {
+                nav.classList.add('translate-x-full');
+            }
+        }
+
+        // Simple atmospheric interaction
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

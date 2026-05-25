@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA - Módulo Comprar Carro (Texas Edition)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #2D6A4F;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .arc-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9faf6",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "primary-mid": "#2D6A4F",
+                    "on-background": "#1a1c1a",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "surface-container-high": "#e8e8e5",
+                    "outline": "#717973",
+                    "surface-variant": "#e2e3e0",
+                    "secondary": "#8e4e14",
+                    "on-secondary-container": "#783d01",
+                    "tertiary-container": "#503700",
+                    "on-secondary-fixed": "#2f1400",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-bright": "#f9faf6",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#342300",
+                    "danger": "#D62828",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-on-surface": "#f0f1ee",
+                    "gray": "#6B7280",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary": "#012d1d",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary-container": "#d89b00",
+                    "inverse-surface": "#2f312f",
+                    "background": "#f9faf6",
+                    "success": "#52B788",
+                    "inverse-primary": "#a5d0b9",
+                    "primary-light": "#40916C",
+                    "on-surface": "#1a1c1a",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "on-surface-variant": "#414844",
+                    "primary-fixed": "#c1ecd4",
+                    "dark": "#1A1A2E",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-tint": "#3f6653",
+                    "accent-dark": "#E76F51",
+                    "primary-container": "#1b4332",
+                    "surface-container": "#eeeeeb",
+                    "secondary-container": "#ffab69",
+                    "secondary-fixed": "#ffdcc4",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "warning": "#F77F00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 flex justify-between items-center h-touch-target px-margin-mobile w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary flex items-center gap-2">BLINDADOUSA <span class="text-secondary font-label-sm text-sm tracking-normal uppercase border border-secondary rounded px-2 py-0.5 ml-2 hidden sm:inline-block">Texas Edition</span></span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-2 rounded-full transition-colors">search</button>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-2 rounded-full transition-colors">notifications</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a Hispanic man in his late 30s, smiling warmly with a clean-shaven face and neatly groomed hair. He is wearing a crisp white dress shirt against a soft, blurred office background. The lighting is bright and natural, reflecting a modern light-mode UI aesthetic with clean, authoritative, and trustworthy vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpx2_zAFHmO8uTcOr4gXGl4zLFFb9yUhVsnOYq9OlWGmdiZ8riSGcMM_bnr5i8A-kR3PLQ630a1_rurY5bylkXabPKgJT5JiLsHsWNmu6gW1VD1bCqgwjXzmHsv9p972JZ-BrR9MEydDBCQ7XM_xJoBJELKrwQoOEtxk_DsDD1vfydp5HyFx2YYo9il6NPU0sCknHSpCqZKKYRiRnyIaOSGhboZ08s3XnsAGIHqNmRFML1cdBH0BoyfaI9td93nAItMQOiWxrnia4"/>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="docked left-0 h-screen w-64 hidden md:flex flex-col bg-surface-container-low py-stack-md px-4 space-y-2 fixed top-0 pt-20">
+<div class="px-4 mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary">Mi Panel</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera TX</p>
+</div>
+<nav class="flex-1 flex flex-col space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-outline-variant">
+<button class="w-full bg-primary-mid text-white font-label-sm py-3 rounded-xl mb-4 hover:opacity-90 transition-opacity">Hablar con IA</button>
+<a class="flex items-center gap-stack-sm text-error px-4 py-3 hover:bg-error-container rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 pt-20 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="mb-stack-lg mt-8">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-8 md:p-12 text-white">
+<div class="relative z-10 max-w-2xl">
+<span class="text-secondary-container font-label-sm uppercase tracking-widest mb-2 block">Guía Financiera Exclusiva</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4">MI PRÓXIMO CARRO EN TEXAS</h1>
+<p class="font-body-lg text-body-lg text-pale-green mb-8">La guía para que no pagues de más en los dealers de Houston, Dallas o San Antonio. Tasas reales, trucos de negociación y calculadoras exactas para la comunidad hispana en Texas.</p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-secondary-container text-primary font-headline-md px-8 py-4 rounded-xl hover:scale-105 transition-transform text-center min-w-[200px]" href="#calculadora">Calcular Pago</a>
+<a class="border border-pale-green text-pale-green font-headline-md px-8 py-4 rounded-xl hover:bg-white/10 transition-colors text-center min-w-[200px]" href="#dealer">Ver Trucos Dealer</a>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<img class="h-full w-full object-cover" data-alt="A side profile of a luxury SUV being driven through a modern metropolitan city at sunset. The warm golden light reflects off the polished dark green paint of the vehicle, emphasizing its sleek lines and high-end finish. The image conveys a sense of achievement and financial stability within a professional, sophisticated environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqcRp1gy9z36Y__ylYv-kmSqbK6kdWRbFxrL08a-viQ0BGq5wtam3-JRuwdmZa24TNkK6FbtrjZ_GYcffm4rA0uDmMKiYqiXe36zYu_Hl6Qd1h-3FWBRppjQ-W8ZPIZppDJelPoMKHCxcbPvdy7a3sZKKD_kDk16T82nAI9jIX5eiNSXTAZHjKdYhw9WZ2d_MOxnZYss74sXC85ba-oH83zZtJjG0yl1coORW_tqLRgBDYE7ShX3RdePG2sthuHATt3FuUx0FvBeSP"/>
+</div>
+</div>
+</section>
+<!-- Calculator Section -->
+<section class="mb-stack-lg" id="calculadora">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sliders Side -->
+<div class="lg:col-span-7 bg-white p-8 rounded-xl sombra-verde border border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">calculate</span>
+                            Calculadora de Presupuesto (TX)
+                        </h2>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-label-sm text-on-surface-variant">Precio del Vehículo (Antes de 6.25% TX Tax)</label>
+<span class="font-data-mono text-data-mono text-primary-mid">$<span id="price-val">35,000</span></span>
+</div>
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer" id="price-range" max="80000" min="5000" step="500" type="range" value="35000"/>
+</div>
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-label-sm text-on-surface-variant">Puntaje de Crédito (Score)</label>
+<span class="font-data-mono text-data-mono text-primary-mid" id="score-val">720</span>
+</div>
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer" id="score-range" max="850" min="300" step="1" type="range" value="720"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="font-label-sm text-on-surface-variant mb-2 block">Pago Inicial (Down Payment)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="down-payment" type="number" value="7000"/>
+</div>
+<div>
+<label class="font-label-sm text-on-surface-variant mb-2 block">Valor Trade-in (Ahorra taxes en TX)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="trade-in" type="number" value="0"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-on-surface-variant mb-4 block">Ingreso Mensual Neto (En TX no hay State Income Tax)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="monthly-income" type="number" value="5000"/>
+</div>
+</div>
+</div>
+<!-- Results Side -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- Dynamic Monthly Payment -->
+<div class="bg-primary text-white p-8 rounded-xl flex flex-col justify-center items-center text-center">
+<span class="font-label-sm text-pale-green mb-2 uppercase">Pago Mensual Estimado (Incl. TTL)*</span>
+<div class="font-display-lg-mobile text-6xl text-secondary-fixed mb-2">$<span id="monthly-payment">584</span></div>
+<p class="font-label-sm opacity-80">Tasa APR Estimada: <span id="apr-val">5.9</span>%</p>
+<p class="text-xs text-outline-variant mt-2">*Incluye estimado de 6.25% impuesto estatal y registro de Texas.</p>
+</div>
+<!-- 20/4/10 Rule -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant">
+<h3 class="font-label-sm text-primary mb-4 uppercase tracking-wider">Regla de Oro: 20/4/10</h3>
+<div class="space-y-4">
+<!-- 20% Down -->
+<div class="flex items-center justify-between p-3 bg-white rounded-lg border border-outline-variant" id="rule-down">
+<div class="flex items-center gap-2">
+<span class="status-dot w-3 h-3 rounded-full bg-success"></span>
+<span class="font-body-md">20% Down Payment</span>
+</div>
+<span class="material-symbols-outlined text-success">check_circle</span>
+</div>
+<!-- 4 Years -->
+<div class="flex items-center justify-between p-3 bg-white rounded-lg border border-outline-variant" id="rule-years">
+<div class="flex items-center gap-2">
+<span class="status-dot w-3 h-3 rounded-full bg-success"></span>
+<span class="font-body-md">Máximo 4 Años (48m)</span>
+</div>
+<span class="material-symbols-outlined text-success">check_circle</span>
+</div>
+<!-- 10% Income -->
+<div class="flex items-center justify-between p-3 bg-white rounded-lg border border-outline-variant" id="rule-income">
+<div class="flex items-center gap-2">
+<span class="status-dot w-3 h-3 rounded-full bg-warning"></span>
+<span class="font-body-md">10% de tus Ingresos</span>
+</div>
+<span class="material-symbols-outlined text-warning">warning</span>
+</div>
+</div>
+<p class="mt-4 text-[12px] text-on-surface-variant italic leading-tight">
+                                Seguir esta regla garantiza que tu carro no sea una "cárcel financiera".
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rates Table -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-6">Tasas de Interés Promedio en Texas</h2>
+<div class="overflow-x-auto rounded-xl border border-outline-variant">
+<table class="w-full text-left bg-white">
+<thead class="bg-surface-container text-on-surface font-label-sm">
+<tr>
+<th class="p-4 border-b">Rango de Crédito</th>
+<th class="p-4 border-b">Calificación</th>
+<th class="p-4 border-b">APR Estimado (Nuevo)</th>
+<th class="p-4 border-b">APR Estimado (Usado)</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="hover:bg-pale-green/20 transition-colors">
+<td class="p-4 border-b">800 - 850</td>
+<td class="p-4 border-b"><span class="px-2 py-1 bg-success/10 text-success rounded text-xs font-bold uppercase">Excelente</span></td>
+<td class="p-4 border-b font-data-mono">4.5% - 5.1%</td>
+<td class="p-4 border-b font-data-mono">5.5% - 6.2%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 transition-colors">
+<td class="p-4 border-b">740 - 799</td>
+<td class="p-4 border-b"><span class="px-2 py-1 bg-success/10 text-success rounded text-xs font-bold uppercase">Muy Bueno</span></td>
+<td class="p-4 border-b font-data-mono">5.2% - 6.0%</td>
+<td class="p-4 border-b font-data-mono">6.5% - 7.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 transition-colors bg-surface-container-low">
+<td class="p-4 border-b">670 - 739</td>
+<td class="p-4 border-b"><span class="px-2 py-1 bg-warning/10 text-warning rounded text-xs font-bold uppercase">Promedio</span></td>
+<td class="p-4 border-b font-data-mono">6.1% - 9.5%</td>
+<td class="p-4 border-b font-data-mono">9.0% - 11.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 transition-colors">
+<td class="p-4 border-b">580 - 669</td>
+<td class="p-4 border-b"><span class="px-2 py-1 bg-danger/10 text-danger rounded text-xs font-bold uppercase">Bajo</span></td>
+<td class="p-4 border-b font-data-mono">10.0% - 14.5%</td>
+<td class="p-4 border-b font-data-mono">15.0% - 19.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 transition-colors">
+<td class="p-4 border-b">300 - 579</td>
+<td class="p-4 border-b"><span class="px-2 py-1 bg-danger/10 text-danger rounded text-xs font-bold uppercase">Pobre</span></td>
+<td class="p-4 border-b font-data-mono">14.5% +</td>
+<td class="p-4 border-b font-data-mono">21.0% +</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Dealer Protection -->
+<section class="mb-stack-lg" id="dealer">
+<div class="bg-error-container/20 p-8 rounded-xl border border-error/20 mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-danger mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+                        Lo que el Dealer NO puede hacer
+                    </h2>
+<p class="font-body-md text-on-surface-variant mb-8">Conoce tus derechos. El dealer es un experto en negociación, tú debes ser un experto en protección legal en Texas.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">Esconder el Interés</h3>
+<p class="text-sm text-on-surface-variant">Ellos se enfocan en "cuánto puedes pagar al mes". Tu respuesta: <strong>"Hablemos del precio total y el APR, no del pago mensual."</strong></p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">Seguros "Obligatorios"</h3>
+<p class="text-sm text-on-surface-variant">GAP Insurance o Vin Etching NO son obligatorios por ley. Tu respuesta: <strong>"Remueva eso del contrato, yo elegiré mis propios seguros."</strong></p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">El Robo del Trade-in</h3>
+<p class="text-sm text-on-surface-variant">Te dan poco por tu carro viejo para "compensar" el descuento del nuevo. Tu respuesta: <strong>"Negociemos el precio del carro nuevo primero."</strong></p>
+</div>
+<!-- Card 4 (Replaced for Lemon Law) -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">Ignorar la Ley Limón de Texas</h3>
+<p class="text-sm text-on-surface-variant">La <strong>Texas Lemon Law</strong> te protege si compras un vehículo nuevo con defectos graves. Si el dealer no puede arreglarlo en intentos razonables, tienes derecho a reemplazo o reembolso.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">El Depósito "No-Reembolsable"</h3>
+<p class="text-sm text-on-surface-variant">Si no has firmado el contrato final, tu depósito suele ser reembolsable por ley. Exige un recibo escrito.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white p-6 rounded-xl border-l-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2">El "Yo-Yo Financing"</h3>
+<p class="text-sm text-on-surface-variant">Te llaman días después diciendo que el banco no aprobó y debes pagar más. <strong>No entregues el carro sin hablar con un abogado en Texas.</strong></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pre-Qualify CTA -->
+<section class="mb-stack-lg">
+<div class="bg-pale-green p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-primary-mid">
+<div class="max-w-xl">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">¿Quieres la tasa más baja en Texas?</h2>
+<p class="font-body-md text-primary-container">Las <strong>Credit Unions de Texas</strong> ofrecen mejores intereses que el Dealer. Pre-califica con nosotros y llega al dealer con el cheque en la mano.</p>
+</div>
+<button class="bg-primary text-white font-headline-md px-10 py-5 rounded-xl hover:bg-primary-mid transition-all shadow-lg whitespace-nowrap">
+                        Precalifica Ahora
+                    </button>
+</div>
+</section>
+<!-- Glossary -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-6">Glosario del Carro (Texas)</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1">APR</span>
+<p class="text-[13px] text-on-surface-variant">Tasa de Interés Anual. Es el costo real de pedir prestado el dinero.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1">GAP Insurance</span>
+<p class="text-[13px] text-on-surface-variant">Seguro que paga la diferencia si chocas el carro y debes más de lo que vale.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1">Trade-in (Tax Credit)</span>
+<p class="text-[13px] text-on-surface-variant">Vender tu carro actual al dealer. En Texas, el valor de tu trade-in se deduce del precio de venta antes de calcular los impuestos, ahorrándote dinero.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1">TTL (Tax, Title, License)</span>
+<p class="text-[13px] text-on-surface-variant">Impuesto estatal (6.25%), Título y Registro en Texas. Añade aproximadamente un 7-8% al precio del vehículo.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-[10px]">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 px-4" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-[10px]">Calculadoras</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-[10px]">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-primary-mid text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<script>
+        const priceRange = document.getElementById('price-range');
+        const scoreRange = document.getElementById('score-range');
+        const downPaymentInput = document.getElementById('down-payment');
+        const tradeInInput = document.getElementById('trade-in');
+        const incomeInput = document.getElementById('monthly-income');
+
+        const priceVal = document.getElementById('price-val');
+        const scoreVal = document.getElementById('score-val');
+        const aprValDisplay = document.getElementById('apr-val');
+        const monthlyPaymentDisplay = document.getElementById('monthly-payment');
+
+        const ruleDown = document.getElementById('rule-down');
+        const ruleIncome = document.getElementById('rule-income');
+
+        function updateCalculator() {
+            const basePrice = parseFloat(priceRange.value);
+            const score = parseFloat(scoreRange.value);
+            const down = parseFloat(downPaymentInput.value) || 0;
+            const trade = parseFloat(tradeInInput.value) || 0;
+            const income = parseFloat(incomeInput.value) || 1;
+
+            priceVal.innerText = basePrice.toLocaleString();
+            scoreVal.innerText = score;
+
+            // Simple APR logic based on score
+            let apr = 20;
+            if (score >= 800) apr = 4.5;
+            else if (score >= 740) apr = 5.5;
+            else if (score >= 670) apr = 7.5;
+            else if (score >= 580) apr = 14.5;
+            else apr = 21.0;
+
+            aprValDisplay.innerText = apr;
+
+            // Texas TTL Estimation: 6.25% tax on (Price - TradeIn) + roughly $150 title/fees
+            const taxableAmount = Math.max(0, basePrice - trade);
+            const txTax = taxableAmount * 0.0625;
+            const txFees = 150;
+            const totalPrice = basePrice + txTax + txFees;
+
+            // Calculate Monthly Payment (Fixed 48 months for 20/4/10 rule simulation)
+            const loanAmount = totalPrice - down - trade;
+            const monthlyRate = (apr / 100) / 12;
+            const n = 48; // 4 years
+            
+            let monthlyPayment = 0;
+            if (loanAmount > 0) {
+                monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+            }
+
+            monthlyPaymentDisplay.innerText = Math.round(monthlyPayment).toLocaleString();
+
+            // 20/4/10 Rule Checks (Based on total price with TTL)
+            // 20% Down
+            const is20Down = down >= (totalPrice * 0.2);
+            updateRuleStatus(ruleDown, is20Down);
+
+            // 10% Income
+            const is10Income = monthlyPayment <= (income * 0.1);
+            updateRuleStatus(ruleIncome, is10Income);
+        }
+
+        function updateRuleStatus(element, isValid) {
+            const dot = element.querySelector('.status-dot');
+            const icon = element.querySelector('.material-symbols-outlined');
+            
+            if (isValid) {
+                dot.className = 'status-dot w-3 h-3 rounded-full bg-success';
+                icon.innerText = 'check_circle';
+                icon.className = 'material-symbols-outlined text-success';
+            } else {
+                dot.className = 'status-dot w-3 h-3 rounded-full bg-danger';
+                icon.innerText = 'cancel';
+                icon.className = 'material-symbols-outlined text-danger';
+            }
+        }
+
+        [priceRange, scoreRange, downPaymentInput, tradeInInput, incomeInput].forEach(el => {
+            el.addEventListener('input', updateCalculator);
+        });
+
+        // Initial Run
+        updateCalculator();
+    </script>
+</body></html>

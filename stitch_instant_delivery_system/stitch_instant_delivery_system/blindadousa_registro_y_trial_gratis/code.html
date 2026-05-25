@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registro - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#ffb780",
+                    "primary-light": "#40916C",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "pale-green": "#D8F3DC",
+                    "primary": "#012d1d",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e3e0",
+                    "tertiary": "#342300",
+                    "secondary-container": "#ffab69",
+                    "surface-container": "#eeeeeb",
+                    "outline": "#717973",
+                    "inverse-primary": "#a5d0b9",
+                    "outline-variant": "#c1c8c2",
+                    "surface-dim": "#dadad7",
+                    "on-surface-variant": "#414844",
+                    "primary-container": "#1b4332",
+                    "surface-container-low": "#f3f4f1",
+                    "surface-container-high": "#e8e8e5",
+                    "warning": "#F77F00",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-highest": "#e2e3e0",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "surface-bright": "#f9faf6",
+                    "dark": "#1A1A2E",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f312f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "success": "#52B788",
+                    "on-primary-container": "#86af99",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-background": "#1a1c1a",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-primary-fixed": "#002114",
+                    "error": "#ba1a1a",
+                    "primary-mid": "#2D6A4F",
+                    "accent-dark": "#E76F51",
+                    "on-secondary-fixed": "#2f1400",
+                    "surface": "#f9faf6",
+                    "tertiary-fixed": "#ffdea9",
+                    "secondary-fixed": "#ffdcc4",
+                    "surface-tint": "#3f6653",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-container": "#d89b00",
+                    "gray": "#6B7280",
+                    "danger": "#D62828",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "background": "#f9faf6",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-container": "#503700",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .bg-mesh {
+            background-color: #f9faf6;
+            background-image: radial-gradient(at 0% 0%, rgba(216, 243, 220, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(255, 171, 105, 0.1) 0px, transparent 50%);
+        }
+        /* Mobile adjustment for form height */
+        @media (max-width: 768px) {
+            .min-h-adjust { min-height: calc(100vh - 64px); }
+        }
+    </style>
+</head>
+<body class="bg-mesh font-body-md text-on-surface">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-surface dark:bg-surface-dim flex justify-between items-center px-margin-mobile h-touch-target w-full z-50 docked full-width top-0 sticky">
+<div class="text-headline-md-mobile font-headline-md font-bold text-primary dark:text-primary-fixed">
+            BlindadoUSA
+        </div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:bg-surface-container-low transition-colors p-2 rounded-full">
+                help_outline
+            </button>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-md md:py-stack-lg min-h-adjust flex flex-col lg:flex-row gap-gutter lg:gap-stack-lg items-center lg:items-start">
+<!-- Form Section -->
+<div class="w-full lg:w-1/2 order-2 lg:order-1">
+<div class="bg-surface-container-lowest p-6 md:p-8 rounded-xl border border-outline-variant/30 sombra-verde">
+<div class="mb-stack-md text-center lg:text-left">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase tracking-tight">
+                        EMPIEZA TU PROTECCIÓN HOY
+                    </h1>
+<div class="mt-2 flex items-center justify-center lg:justify-start gap-2 bg-pale-green text-primary-mid px-4 py-2 rounded-lg inline-flex">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-body-lg text-body-lg font-bold">3 días de acceso completo gratis. Sin tarjeta.</p>
+</div>
+</div>
+<form class="space-y-4" id="signupForm">
+<!-- Nombre Completo -->
+<div class="flex flex-col gap-1">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="fullName">Nombre completo</label>
+<input class="h-[56px] px-4 rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-body-md bg-surface-bright transition-all" id="fullName" placeholder="Ej. Juan Pérez" required="" type="text"/>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-1">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="email">Correo electrónico</label>
+<input class="h-[56px] px-4 rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-body-md bg-surface-bright transition-all" id="email" placeholder="tu@email.com" required="" type="email"/>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-1 relative">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="password">Crear contraseña</label>
+<input class="h-[56px] px-4 rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 text-body-md bg-surface-bright transition-all" id="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<!-- Checkbox -->
+<div class="flex items-start gap-3 py-2">
+<input class="w-6 h-6 rounded border-2 border-primary-mid text-primary-mid focus:ring-offset-0 focus:ring-primary-light mt-0.5" id="terms" required="" type="checkbox"/>
+<label class="text-label-sm font-label-sm text-on-surface-variant leading-tight cursor-pointer" for="terms">
+                            Acepto los <a class="text-primary-mid underline font-bold" href="#">términos y condiciones</a> y la política de privacidad.
+                        </label>
+</div>
+<!-- Main Button -->
+<button class="w-full h-touch-target bg-[#F4A261] text-dark font-headline-md text-headline-md rounded-lg shadow-lg hover:bg-secondary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide" type="submit">
+                        ACTIVAR MI PRUEBA GRATIS
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<div class="mt-6 pt-6 border-t border-outline-variant text-center">
+<p class="text-body-md text-on-surface-variant">
+                        ¿Ya tengo cuenta? 
+                        <a class="text-primary-mid font-bold hover:underline" href="#">Iniciar sesión</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Benefits Sidebar -->
+<div class="w-full lg:w-1/2 order-1 lg:order-2">
+<div class="space-y-6">
+<div class="bg-primary-container p-6 rounded-xl text-white sombra-verde relative overflow-hidden group">
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md text-primary-fixed mb-4">Beneficios de estar Blindado</h2>
+<div class="space-y-4">
+<!-- Benefit 1 -->
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+<div class="w-12 h-12 bg-primary-mid rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-pale-green">grid_view</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Acceso Total</p>
+<p class="font-body-md text-body-md text-on-primary-container">13 módulos de herramientas financieras y legales.</p>
+</div>
+</div>
+<!-- Benefit 2 -->
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+<div class="w-12 h-12 bg-primary-mid rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-pale-green" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Soporte 24/7</p>
+<p class="font-body-md text-body-md text-on-primary-container">Asistente de Inteligencia Artificial para todas tus dudas.</p>
+</div>
+</div>
+<!-- Benefit 3 -->
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+<div class="w-12 h-12 bg-primary-mid rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-pale-green">fact_check</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider">Directorio VIP</p>
+<p class="font-body-md text-body-md text-on-primary-container">Contactos verificados de expertos en la comunidad.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary-light/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700"></div>
+</div>
+<!-- Trust Section -->
+<div class="flex flex-col items-center lg:items-start p-4">
+<div class="flex -space-x-2 mb-2">
+<div class="w-10 h-10 rounded-full border-2 border-background bg-slate-300 flex items-center justify-center overflow-hidden">
+<img alt="Usuario" data-alt="A close-up portrait of a smiling Hispanic professional man in his 40s, wearing a business casual shirt. He is outdoors in a bright, modern city environment with soft, warm afternoon lighting. The image conveys trust and success, using a clean corporate photography style with a shallow depth of field to focus on the person's welcoming expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKpnW2Tlj4rijnWhVaXzrOMNcOCphWS7D7AfyUJpjAVCXq0UVIUt7w29JY9Aes_OL_sS0vWlBWhB4l-ZrS5Izp3eGrnznxjtk86Bke0HfAX8pOmo6NY4WkQpSboAOlp_mm3XIEpt5vJJLwUQ4_aWm_ctSa2meRK1d2n3OCcN49vq9gGUKI6gsN5WHDEqpZ1qLeUQetfODQ7uFLYKwBboe96H5D7wjY3KG5hngq3iy62oD6_Pmaincf1JE1nlpRqjvVn1zuhimW-Nck"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-background bg-slate-300 flex items-center justify-center overflow-hidden">
+<img alt="Usuario" data-alt="A professional Hispanic woman in her 30s smiling warmly at the camera. She has a polished, confident look, wearing a professional blazer. The background is a blurred high-end office lobby with soft neutral colors and natural daylight coming through large windows. The overall aesthetic is bright, corporate, and highly professional, emphasizing approachability and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOT4KChNnQU9vzxtfe5Q7DEq78d4LPAnxd_axmyZ2WjJLx8KbNkYdODSHV9GEnl4hYbIralZHKCjESo8h6ZHzxzOMurHQ4xnphrvl1mGGR55M46vEDGCoteSIbath50xbWsK32pVd6jsEY42YrbAYQz1vvTyMLocIvPHNKd--6TfoiLUaBnzkSXxzhjbR8zNhEYNItMOzW3TV3gf2PUIC4Ng_YbmlmuVi5LAM2nTPG5DcgeX_KSzU4Dg9moSQ_Af-7ErnYFRuFbZ3"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-background bg-slate-300 flex items-center justify-center overflow-hidden">
+<img alt="Usuario" data-alt="A high-resolution headshot of a middle-aged Hispanic man with a friendly, authoritative gaze. He is dressed in a crisp white shirt against a soft-focus architectural background of a modern library. The lighting is balanced and clean, evoking a sense of knowledge and community advocacy. The style is modern corporate portraiture with a focus on high contrast and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1nkDwBcPUfhm9QCZhtWojt0guQ4W7reS2UXiI_LWckUPxC1B4LULOjsyVm5nqEaIJnrb7KWhwGABaDAEz-QrDpvqtVIJNZIiQESkNzVNC2GAVAOY0tnmFrsMUfZ9rVK1SHrrRzv3P-VFQ7b8HB55RwsoIxPrpMp9Sim0bE9wOFQtgvIx12c8viuiZIPg8KAOZY2XCLudhONg66WtCFqVdemHgRhV5Dx17-0Q43a5GlZtdXdcLtFq-lwMmC7GgY0Pr0X_Ai7w9aN3g"/>
+</div>
+</div>
+<p class="text-on-surface-variant font-body-md text-center lg:text-left">
+                        Únete a más de <span class="font-bold text-primary">5,000 latinos</span> protegiendo su futuro financiero en EE.UU.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-[60]">
+<button class="w-16 h-16 bg-gradient-to-br from-primary-mid to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center group relative hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<!-- Tooltip -->
+<div class="absolute right-20 top-1/2 -translate-y-1/2 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-lg text-label-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
+                ¿Necesitas ayuda con tu registro?
+            </div>
+</button>
+</div>
+<!-- Scripts for simple interactions -->
+<script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            // Interaction feedback
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> ACTIVANDO...';
+            btn.classList.add('opacity-80', 'scale-95');
+            
+            setTimeout(() => {
+                alert('¡Prueba activada con éxito! Redirigiendo a tu dashboard...');
+                btn.innerHTML = originalContent;
+                btn.classList.remove('opacity-80', 'scale-95');
+            }, 1500);
+        });
+
+        // Add visual feedback to inputs
+        const inputs = document.querySelectorAll('input:not([type="checkbox"])');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.add('text-primary-mid');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').classList.remove('text-primary-mid');
+            });
+        });
+    </script>
+</body></html>

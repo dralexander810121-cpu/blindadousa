@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Derechos Laborales en Texas - BlindadoTX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "secondary-fixed": "#ffdcc4",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary": "#012d1d",
+                        "tertiary": "#342300",
+                        "on-primary": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#c1ecd4",
+                        "primary-container": "#1b4332",
+                        "secondary-container": "#ffab69",
+                        "tertiary-container": "#503700",
+                        "on-tertiary-fixed": "#271900",
+                        "gray": "#6B7280",
+                        "on-primary-fixed": "#002114",
+                        "on-background": "#1a1c1a",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "accent-dark": "#E76F51",
+                        "success": "#52B788",
+                        "outline": "#717973",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "pale-green": "#D8F3DC",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-surface": "#1a1c1a",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "surface-tint": "#3f6653",
+                        "surface-variant": "#e2e3e0",
+                        "primary-light": "#40916C",
+                        "surface-container": "#eeeeeb",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "danger": "#D62828",
+                        "surface": "#f9faf6",
+                        "error": "#ba1a1a",
+                        "warning": "#F77F00",
+                        "on-error-container": "#93000a",
+                        "secondary": "#8e4e14",
+                        "primary-mid": "#2D6A4F",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-bright": "#f9faf6",
+                        "surface-dim": "#dadad7",
+                        "on-secondary-fixed": "#2f1400",
+                        "surface-container-high": "#e8e8e5",
+                        "on-secondary-container": "#783d01",
+                        "background": "#f9faf6",
+                        "inverse-surface": "#2f312f",
+                        "secondary-fixed-dim": "#ffb780"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-md": "1.5rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "touch-target": "48px",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "3rem",
+                        "gutter": "1rem"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Bebas Neue"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "0.02em", fontWeight: "400" }],
+                        "display-lg-mobile": ["40px", { lineHeight: "1.1", fontWeight: "400" }],
+                        "data-mono": ["20px", { lineHeight: "1.0", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "label-sm": ["14px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pt-[60px] pb-[70px] md:pt-[70px] md:pl-64 md:pb-0">
+<!-- TopAppBar (Web & Mobile Hybrid Setup) -->
+<header class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-[60px] md:h-[70px] bg-surface dark:bg-inverse-surface shadow-sm md:hidden">
+<div class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary dark:text-primary-fixed tracking-tight">
+            BlindadoTX
+        </div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full z-50 flex-col py-stack-md bg-surface-container-low dark:bg-surface-container-highest border-r border-outline-variant w-64">
+<div class="px-6 mb-8">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed tracking-tight">
+                BlindadoTX
+            </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Guía Financiera y Legal</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-6 py-3 font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span> Resumen
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">credit_score</span> Crédito
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">home</span> Vivienda
+            </a>
+<a class="flex items-center gap-3 px-6 py-3 font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">medical_services</span> Salud
+            </a>
+<!-- Active State: Legal -->
+<a class="flex items-center gap-3 px-6 py-3 font-body-md text-body-md text-primary dark:text-primary-fixed font-bold border-r-4 border-primary bg-primary-container/5 hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span> Legal
+            </a>
+</div>
+<div class="px-6 mt-auto">
+<button class="w-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm h-touch-target rounded-lg flex items-center justify-center gap-2 mb-6">
+                Obtener Ayuda
+            </button>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 py-2 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span> Configuración
+                </a>
+<a class="flex items-center gap-3 py-2 font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span> Cerrar Sesión
+                </a>
+</div>
+</div>
+</nav>
+<!-- BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 md:hidden bg-surface dark:bg-inverse-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 transition-transform active:bg-surface-container-highest p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm mt-1 text-[10px]">Resumen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 transition-transform active:bg-surface-container-highest p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm text-label-sm mt-1 text-[10px]">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 transition-transform active:bg-surface-container-highest p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1 text-[10px]">Vivienda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant scale-95 transition-transform active:bg-surface-container-highest p-2 rounded-lg" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-sm text-label-sm mt-1 text-[10px]">Salud</span>
+</a>
+<!-- Active State: Legal -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-3 py-1 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-label-sm text-label-sm mt-1 text-[10px] font-bold">Legal</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-stack-md md:py-stack-lg">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">
+                Derechos Laborales en Texas
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Protege tu salario y tu dignidad. Información clara y directa sobre tus derechos en el lugar de trabajo, sin importar tu estatus migratorio.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Traffic Light: Current Status (Takes up full width on mobile, 4 cols on desktop) -->
+<div class="md:col-span-4 bg-surface-container-low rounded-xl p-6 border border-outline-variant flex flex-col justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-warning">warning</span> Alerta SB 4
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface mb-6">
+                        La ley SB 4 aumenta el riesgo de perfilamiento. Sin embargo, tus derechos laborales básicos (salario mínimo, pago de horas extras) <strong>no cambian</strong>.
+                    </p>
+</div>
+<!-- Semáforo Component -->
+<div class="bg-surface rounded-lg p-4 border-l-4 border-warning flex items-start gap-3">
+<span class="material-symbols-outlined text-warning mt-1" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div>
+<span class="font-label-sm text-label-sm text-warning font-bold block">PRECAUCIÓN</span>
+<span class="font-body-md text-body-md text-on-surface text-sm">Mantén un registro propio de tus horas trabajadas. No confíes solo en el patrón.</span>
+</div>
+</div>
+</div>
+<!-- Wage Theft Calculator (Takes up full width on mobile, 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm relative overflow-hidden">
+<!-- Subtle green shadow decoration -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined">calculate</span> Calculadora de Robo de Salario
+                </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Estima cuánto dinero te deben por horas extras no pagadas o salarios por debajo del mínimo ($7.25/hr en TX).</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Horas trabajadas (semana)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant bg-surface px-4 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Ej. 50" type="number"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Pago recibido ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant bg-surface px-4 font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" placeholder="Ej. 300" type="number"/>
+</div>
+</div>
+<div class="bg-surface-container rounded-lg p-4 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cantidad Estimada Adeudada:</span>
+<span class="font-data-mono text-data-mono text-danger font-bold text-2xl">$0.00</span>
+</div>
+<button class="bg-primary text-on-primary h-touch-target px-6 rounded-lg font-label-sm text-label-sm hover:bg-primary-light transition-colors">
+                        Calcular
+                    </button>
+</div>
+</div>
+<!-- Know Your Rights Cards (Full width, spans 12 cols) -->
+<div class="md:col-span-12 mt-stack-sm">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Conoce tus Derechos</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl p-5 border border-outline-variant hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary-light mb-3 text-3xl">timer</span>
+<h3 class="font-label-sm text-label-sm text-primary mb-2 text-lg">Descansos y Comidas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                            Texas <strong>no exige</strong> por ley que los empleadores den descansos para comer o descansar. Sin embargo, si te dan un descanso corto (menos de 20 min), debe ser pagado.
+                        </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl p-5 border border-outline-variant hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary-light mb-3 text-3xl">payments</span>
+<h3 class="font-label-sm text-label-sm text-primary mb-2 text-lg">Horas Extras (Overtime)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                            Si trabajas más de 40 horas en una semana, te deben pagar <strong>tiempo y medio</strong> (1.5x tu salario regular) por cada hora extra, sin importar si te pagan por día o por hora.
+                        </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl p-5 border border-outline-variant hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary-light mb-3 text-3xl">health_and_safety</span>
+<h3 class="font-label-sm text-label-sm text-primary mb-2 text-lg">Lesiones en el Trabajo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">
+                            Tienes derecho a reportar lesiones laborales sin represalias. Texas no obliga a todas las empresas a tener seguro de compensación (Workers' Comp), pero aún puedes demandar si hay negligencia.
+                        </p>
+</div>
+</div>
+</div>
+<!-- TWC Guide (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-6 border border-outline-variant mt-stack-sm">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Cómo presentar un reclamo en TWC</h2>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm flex-shrink-0">1</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary">Reúne evidencia</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Recibos de pago, mensajes de texto con el patrón, fotos de tu registro de horas.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm flex-shrink-0">2</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary">El Límite de Tiempo (180 días)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Tienes exactamente 180 días desde la fecha en que tu salario debió ser pagado para presentar el reclamo ante la Texas Workforce Commission.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm flex-shrink-0">3</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-primary">Llena el formulario</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Puedes hacerlo en línea o por correo. No necesitas un número de Seguro Social para presentar un reclamo de sueldo.</p>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full md:w-auto border-2 border-primary text-primary h-touch-target px-6 rounded-lg font-label-sm text-label-sm hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2">
+                    Descargar Formulario TWC <span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<!-- Emergency Contact (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 bg-danger/10 rounded-xl p-6 border border-danger/20 flex flex-col justify-center items-center text-center mt-stack-sm">
+<span class="material-symbols-outlined text-danger text-5xl mb-4">emergency</span>
+<h2 class="font-headline-md text-headline-md text-danger mb-2">¿Emergencia Legal?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 text-sm">
+                    Si enfrentas amenazas de deportación por exigir tu salario, o si has sido despedido injustamente hoy.
+                </p>
+<button class="w-full bg-danger text-on-error h-touch-target rounded-lg font-label-sm text-label-sm hover:bg-danger/90 transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">call</span> Contactar Abogado Ahora
+                </button>
+</div>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-20 right-4 md:bottom-8 md:right-8 w-14 h-14 bg-gradient-to-br from-primary-mid to-primary rounded-full shadow-lg flex items-center justify-center text-on-primary hover:scale-105 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</body></html>

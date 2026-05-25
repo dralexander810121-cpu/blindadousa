@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-container-highest": "#e2e3e0",
+                        "warning": "#F77F00",
+                        "pale-green": "#D8F3DC",
+                        "primary-container": "#1b4332",
+                        "gray": "#6B7280",
+                        "on-secondary-fixed": "#2f1400",
+                        "error-container": "#ffdad6",
+                        "primary-mid": "#2D6A4F",
+                        "inverse-surface": "#2f312f",
+                        "secondary": "#8e4e14",
+                        "secondary-fixed": "#ffdcc4",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-secondary-container": "#783d01",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "primary": "#012d1d",
+                        "surface-tint": "#3f6653",
+                        "secondary-container": "#ffab69",
+                        "surface-variant": "#e2e3e0",
+                        "surface-bright": "#f9faf6",
+                        "dark": "#1A1A2E",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-high": "#e8e8e5",
+                        "on-primary": "#ffffff",
+                        "success": "#52B788",
+                        "surface": "#f9faf6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "tertiary-container": "#503700",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed": "#c1ecd4",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-tertiary": "#ffffff",
+                        "background": "#f9faf6",
+                        "danger": "#D62828",
+                        "surface-container": "#eeeeeb",
+                        "accent-dark": "#E76F51",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1ee",
+                        "surface-dim": "#dadad7",
+                        "error": "#ba1a1a",
+                        "tertiary": "#342300",
+                        "primary-light": "#40916C",
+                        "outline": "#717973",
+                        "inverse-primary": "#a5d0b9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "3rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: #D8F3DC;
+            z-index: -1;
+        }
+        @media (max-width: 768px) {
+            .step-connector::after {
+                left: 24px;
+                top: 50%;
+                width: 2px;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-pale-green selection:text-primary">
+<!-- Sidebar Navigation (Shared Component Logic) -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto py-6 border-r border-outline-variant bg-surface-container w-72 hidden md:flex flex-col z-50">
+<div class="px-6 mb-8">
+<h1 class="font-display-lg text-headline-md text-primary-container uppercase">BlindadoUSA</h1>
+<p class="text-on-surface-variant font-body-md">Tu Biblia Financiera</p>
+</div>
+<nav class="flex-1">
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md font-semibold">Panel Principal</span>
+</div>
+<div class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)] cursor-pointer">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-body-md font-semibold">Mi Primera Cuenta</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-body-md font-semibold">Mi Crédito</span>
+</div>
+<!-- More tabs from JSON as needed -->
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 min-h-screen">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full h-16 px-margin-mobile md:px-margin-desktop bg-surface border-b border-outline-variant sticky top-0 z-40 shadow-sm">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2"><span class="material-symbols-outlined">menu</span></button>
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container uppercase tracking-wider">BlindadoUSA</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer p-2 hover:bg-primary-fixed/20 rounded-full">notifications</span>
+<img alt="Usuario" class="w-10 h-10 rounded-full border-2 border-primary-light" data-alt="A professional headshot of a smiling Hispanic male business professional in his late 30s, wearing a clean white shirt. The background is a soft-focus modern office environment with warm natural light and plants. The overall aesthetic is trustworthy, clean, and high-contrast, matching the corporate modern UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg2ZKEzoc8LskmhYSSVzF1LF8T7ZJmwxHzNP8gZD1EWYLDwCfUv3AwkD1OyIQtFJgiBZaxsiNGXWG_AwGNSH12sJYnVpYHQtQoqVDIvxy2oAZZBUxCIH3dOFmDrqfxIPf8rXJiWUEDiTHR5Y2RWmeJElCs0K9ej-b5XC7Lhfhc8hrRY1bkqouA-jT1AGRFqjUKZ_OKXjh8DNRnkcCRk51KCiCXhhIWl455HIikolb99vgOPhA2p1wWkDDovQmvsAMiEH0gtyCHaGpM"/>
+</div>
+</header>
+<div class="px-margin-mobile md:px-margin-desktop py-stack-lg max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container mb-2">MI PRIMERA CUENTA</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">No necesitas un Seguro Social para tener una cuenta de banco segura en USA. Blindamos tu camino hacia la libertad financiera.</p>
+</section>
+<!-- NO SSN Indicator -->
+<section class="bg-surface-container-highest rounded-xl p-8 mb-stack-lg flex flex-col md:flex-row items-center gap-8 border-l-8 border-success sombra-verde">
+<div class="text-center md:text-left flex-1">
+<h3 class="font-headline-md text-primary mb-2">¿Necesito SSN para abrir cuenta?</h3>
+<p class="text-body-md text-on-surface-variant">Muchos bancos aceptan el número <strong>ITIN</strong> o tu <strong>Pasaporte vigente</strong>. No dejes que la falta de un Seguro Social te impida proteger tus ahorros.</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-display-lg text-8xl text-success leading-none">NO</span>
+<span class="font-label-sm uppercase tracking-widest text-on-surface-variant">Es Obligatorio</span>
+</div>
+</section>
+<!-- Step by Step Guide -->
+<section class="mb-stack-lg">
+<div class="flex items-center gap-2 mb-stack-md">
+<span class="material-symbols-outlined text-primary-light">format_list_numbered</span>
+<h3 class="font-headline-md text-primary">Tu Camino en 5 Pasos</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-6 rounded-xl relative z-10 border border-outline-variant hover:border-primary-mid transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4">1</div>
+<h4 class="font-bold text-primary mb-2">Documentos</h4>
+<p class="text-label-sm text-on-surface-variant">Reúne tu ITIN, Pasaporte o Matrícula Consular.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-6 rounded-xl relative z-10 border border-outline-variant hover:border-primary-mid transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4">2</div>
+<h4 class="font-bold text-primary mb-2">Elige Banco</h4>
+<p class="text-label-sm text-on-surface-variant">Compara bancos "Amigos del Inmigrante" aquí abajo.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-6 rounded-xl relative z-10 border border-outline-variant hover:border-primary-mid transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4">3</div>
+<h4 class="font-bold text-primary mb-2">Visita</h4>
+<p class="text-label-sm text-on-surface-variant">Acude a una sucursal física. Es más seguro para ITIN.</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-low p-6 rounded-xl relative z-10 border border-outline-variant hover:border-primary-mid transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4">4</div>
+<h4 class="font-bold text-primary mb-2">Depósito</h4>
+<p class="text-label-sm text-on-surface-variant">Abre con un monto mínimo (desde $25 USD).</p>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface-container-low p-6 rounded-xl relative z-10 border border-outline-variant hover:border-primary-mid transition-colors">
+<div class="w-12 h-12 bg-primary-container text-on-primary rounded-full flex items-center justify-center font-bold text-xl mb-4">5</div>
+<h4 class="font-bold text-primary mb-2">Configura</h4>
+<p class="text-label-sm text-on-surface-variant">Baja la App del banco y monitorea tu dinero.</p>
+</div>
+</div>
+</section>
+<!-- Bank Directory -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-stack-md">
+<div>
+<h3 class="font-headline-md text-primary">Bancos Recomendados</h3>
+<p class="text-body-md text-on-surface-variant">Instituciones con procesos claros para no-ciudadanos.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
+                        Ver todos <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Bank Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col h-full">
+<div class="mb-4 h-12 flex items-center">
+<span class="font-display-lg text-primary-light text-2xl">CHASE</span>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<span class="text-label-sm font-semibold">ITIN / Pasaporte</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">payments</span>
+<span class="text-label-sm">Depósito: $25 min.</span>
+</div>
+</div>
+<button class="w-full bg-pale-green text-primary font-bold py-3 rounded-lg hover:bg-primary-container hover:text-on-primary transition-all">Saber Cómo</button>
+</div>
+<!-- Bank Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col h-full">
+<div class="mb-4 h-12 flex items-center">
+<span class="font-display-lg text-danger text-2xl">WELLS FARGO</span>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<span class="text-label-sm font-semibold">Matrícula Consular</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">payments</span>
+<span class="text-label-sm">Depósito: $50 min.</span>
+</div>
+</div>
+<button class="w-full bg-pale-green text-primary font-bold py-3 rounded-lg hover:bg-primary-container hover:text-on-primary transition-all">Saber Cómo</button>
+</div>
+<!-- Bank Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col h-full">
+<div class="mb-4 h-12 flex items-center">
+<span class="font-display-lg text-secondary text-2xl">B OF A</span>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<span class="text-label-sm font-semibold">ITIN Aceptado</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">payments</span>
+<span class="text-label-sm">Depósito: $100 min.</span>
+</div>
+</div>
+<button class="w-full bg-pale-green text-primary font-bold py-3 rounded-lg hover:bg-primary-container hover:text-on-primary transition-all">Saber Cómo</button>
+</div>
+<!-- Bank Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col h-full">
+<div class="mb-4 h-12 flex items-center">
+<span class="font-display-lg text-primary text-2xl">CREDIT UNIONS</span>
+</div>
+<div class="space-y-3 mb-6 flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<span class="text-label-sm font-semibold">ID Extranjera</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm">payments</span>
+<span class="text-label-sm">Depósito: $5 min.</span>
+</div>
+</div>
+<button class="w-full bg-pale-green text-primary font-bold py-3 rounded-lg hover:bg-primary-container hover:text-on-primary transition-all">Saber Cómo</button>
+</div>
+</div>
+</section>
+<!-- Checking vs Savings Comparison -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-lg">
+<div class="bg-white p-8 rounded-2xl border border-outline-variant relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-primary">Checking (Corriente)</h4>
+<span class="material-symbols-outlined text-4xl text-primary-light">account_balance_wallet</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">Es como tu **Billetera Digital**. Úsala para tus gastos diarios, pagar renta y recibir tu cheque de pago.</p>
+<div class="flex items-center gap-2 text-primary font-bold uppercase text-xs">
+<span class="bg-pale-green px-2 py-1 rounded">Tarjeta de Débito</span>
+<span class="bg-pale-green px-2 py-1 rounded">Retiros Ilimitados</span>
+</div>
+</div>
+<div class="bg-white p-8 rounded-2xl border border-outline-variant relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline-md text-secondary">Savings (Ahorros)</h4>
+<span class="material-symbols-outlined text-4xl text-secondary-container">savings</span>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4">Es como tu **Alcancía Segura**. Úsala para guardar dinero que no vas a tocar, ganando un poco de interés.</p>
+<div class="flex items-center gap-2 text-secondary font-bold uppercase text-xs">
+<span class="bg-secondary-fixed px-2 py-1 rounded">Gana Intereses</span>
+<span class="bg-secondary-fixed px-2 py-1 rounded">Fondo de Emergencia</span>
+</div>
+</div>
+</section>
+<!-- Security Banner -->
+<section class="bg-primary text-on-primary p-6 rounded-xl flex items-center justify-center gap-4 mb-stack-lg">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+<p class="font-body-lg text-center">Tu dinero está protegido por el <strong>FDIC</strong> hasta $250,000 en bancos regulados.</p>
+</section>
+<!-- AI & CTA Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 bg-gradient-to-br from-primary-container to-primary-mid p-8 rounded-2xl text-on-primary flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md mb-2">¿Dudas con los requisitos?</h3>
+<p class="text-body-md mb-6 opacity-90">Nuestro asistente AI conoce las políticas de cada banco para inmigrantes. Pregunta lo que necesites ahora mismo.</p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container font-bold py-4 px-8 rounded-lg w-fit flex items-center gap-3 hover:scale-105 transition-transform active:scale-95 shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                        Pregunta a Blindado
+                    </button>
+</div>
+<div class="bg-surface-container-high p-8 rounded-2xl border border-outline flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-primary-fixed-dim rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+</div>
+<h4 class="font-headline-md text-primary mb-2">Cerca de Ti</h4>
+<p class="text-body-md text-on-surface-variant mb-6">Encuentra sucursales que hablen español en tu área.</p>
+<button class="w-full bg-primary text-on-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2">
+                        Buscar Bancos en mi Ciudad
+                    </button>
+</div>
+</section>
+</div>
+<!-- Footer (Shared Component Logic) -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant bg-surface-container-lowest mt-stack-lg">
+<div class="mb-4 md:mb-0">
+<span class="font-display-lg text-body-lg text-primary-container">BlindadoUSA</span>
+<p class="font-label-sm text-on-surface-variant">© 2024 BlindadoUSA. Protegiendo el futuro hispano.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant font-label-sm hover:text-primary-light transition-colors" href="#">Privacidad</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary-light transition-colors" href="#">Términos</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary-light transition-colors" href="#">Soporte</a>
+<a class="text-on-surface-variant font-label-sm hover:text-primary-light transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</main>
+<!-- Floating AI Assistant Button -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 rounded-full bg-gradient-to-tr from-primary-container to-primary-mid text-on-primary shadow-xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group relative">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<div class="absolute bottom-full right-0 mb-4 bg-primary text-on-primary text-xs py-2 px-4 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">¿Cómo te ayudo hoy?</div>
+</button>
+</div>
+</body></html>

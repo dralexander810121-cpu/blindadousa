@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mi Primera Cuenta Bancaria | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "dark": "#1A1A2E",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb780",
+                    "gray": "#6B7280",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "warning": "#F77F00",
+                    "outline": "#717973",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "surface": "#f9faf6",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-container": "#503700",
+                    "surface-tint": "#3f6653",
+                    "on-error-container": "#93000a",
+                    "primary": "#012d1d",
+                    "on-tertiary-fixed": "#271900",
+                    "surface-container-high": "#e8e8e5",
+                    "surface-variant": "#e2e3e0",
+                    "primary-light": "#40916C",
+                    "outline-variant": "#c1c8c2",
+                    "on-surface": "#1a1c1a",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "primary-mid": "#2D6A4F",
+                    "surface-bright": "#f9faf6",
+                    "on-primary-fixed": "#002114",
+                    "inverse-on-surface": "#f0f1ee",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeeeeb",
+                    "on-background": "#1a1c1a",
+                    "on-error": "#ffffff",
+                    "accent-dark": "#E76F51",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#86af99",
+                    "danger": "#D62828",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-container": "#d89b00",
+                    "success": "#52B788",
+                    "pale-green": "#D8F3DC",
+                    "on-surface-variant": "#414844",
+                    "secondary-container": "#ffab69",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-highest": "#e2e3e0",
+                    "secondary-fixed": "#ffdcc4",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-container": "#783d01",
+                    "background": "#f9faf6",
+                    "tertiary": "#342300",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "primary-container": "#1b4332"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 1.75rem;
+            left: 2rem;
+            right: -1rem;
+            height: 2px;
+            background: #c1c8c2;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .step-line::after { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest h-16 px-4 md:px-10 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</button>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex sticky top-16 h-[calc(100vh-64px)] w-64 flex-col bg-surface border-r border-outline-variant p-4">
+<div class="mb-8">
+<p class="font-headline-md text-headline-md text-primary-mid px-4">Mi Cuenta</p>
+<p class="text-body-md text-on-surface-variant px-4">Estatus: Seguro</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span>Bancos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Comprar Casa</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant space-y-2">
+<button class="w-full bg-primary-mid text-on-primary py-3 rounded-lg font-bold hover:bg-primary transition-colors">Obtener Asesoría</button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Ajustes</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-6xl mx-auto p-gutter md:p-margin-desktop space-y-stack-lg pb-32">
+<!-- Hero Section -->
+<section class="space-y-stack-sm text-center md:text-left">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase leading-none">
+                    TU DINERO SEGURO:<br/>MI PRIMERA CUENTA BANCARIA
+                </h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">
+                    Rompe las barreras y empieza a construir tu futuro financiero en USA. Tener un banco es el primer paso para proteger tus ahorros.
+                </p>
+</section>
+<!-- SSN Denial Affirmation (SÍ Section) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-pale-green/30 p-8 rounded-xl border border-success/20">
+<div class="md:col-span-4 text-center md:text-right">
+<p class="text-on-surface-variant font-bold uppercase tracking-widest text-sm mb-2">¿Puedo abrir cuenta sin SSN?</p>
+<span class="text-[120px] font-display-lg leading-none text-success block">SÍ</span>
+</div>
+<div class="md:col-span-8 space-y-4">
+<h3 class="font-headline-md text-headline-md text-primary">El Seguro Social no es obligatorio.</h3>
+<p class="text-body-lg">
+                        En Estados Unidos, la mayoría de los bancos aceptan el <strong class="text-primary-mid">Número ITIN</strong> o incluso solo tu <strong class="text-primary-mid">Pasaporte vigente</strong> de tu país de origen. 
+                    </p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-primary-mid">id_card</span>
+<span class="font-bold">ITIN OK</span>
+</div>
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-primary-mid">public</span>
+<span class="font-bold">Pasaporte OK</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Process Steps -->
+<section class="space-y-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">timeline</span> Proceso de 4 Pasos
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center text-center p-6 bg-white rounded-xl sombra-verde step-line">
+<div class="w-14 h-14 bg-primary-mid text-on-primary rounded-full flex items-center justify-center mb-4 font-display-lg text-2xl">1</div>
+<span class="material-symbols-outlined text-primary-mid mb-2">account_balance</span>
+<h4 class="font-bold text-primary">Elegir Banco</h4>
+<p class="text-sm text-on-surface-variant">Busca uno cerca de tu casa o trabajo.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center text-center p-6 bg-white rounded-xl sombra-verde step-line">
+<div class="w-14 h-14 bg-primary-mid text-on-primary rounded-full flex items-center justify-center mb-4 font-display-lg text-2xl">2</div>
+<span class="material-symbols-outlined text-primary-mid mb-2">description</span>
+<h4 class="font-bold text-primary">Documentos</h4>
+<p class="text-sm text-on-surface-variant">Lleva tu ID y comprobante de domicilio.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center text-center p-6 bg-white rounded-xl sombra-verde step-line">
+<div class="w-14 h-14 bg-primary-mid text-on-primary rounded-full flex items-center justify-center mb-4 font-display-lg text-2xl">3</div>
+<span class="material-symbols-outlined text-primary-mid mb-2">store</span>
+<h4 class="font-bold text-primary">La Sucursal</h4>
+<p class="text-sm text-on-surface-variant">Pide hablar con un ejecutivo (muchos hablan español).</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center text-center p-6 bg-white rounded-xl sombra-verde">
+<div class="w-14 h-14 bg-primary-mid text-on-primary rounded-full flex items-center justify-center mb-4 font-display-lg text-2xl">4</div>
+<span class="material-symbols-outlined text-primary-mid mb-2">credit_score</span>
+<h4 class="font-bold text-primary">Activar</h4>
+<p class="text-sm text-on-surface-variant">Usa tu tarjeta en el cajero para activarla.</p>
+</div>
+</div>
+</section>
+<!-- Accounts Comparison -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Spending -->
+<div class="p-8 border-2 border-primary-light/20 rounded-2xl bg-white relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-9xl">payments</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-3 bg-pale-green rounded-lg">
+<span class="material-symbols-outlined text-primary-mid">shopping_cart</span>
+</div>
+<div>
+<h3 class="font-bold text-xl text-primary">Cuenta de Cheques</h3>
+<p class="text-sm text-on-surface-variant uppercase tracking-tighter">Para Gastar (Gasto)</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>Para pagar la renta, luz y comida.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>Viene con una tarjeta de débito.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>Puedes sacar dinero del cajero (ATM).</span>
+</li>
+</ul>
+</div>
+<!-- Saving -->
+<div class="p-8 border-2 border-primary-mid/20 rounded-2xl bg-white relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-9xl">savings</span>
+</div>
+<div class="flex items-center gap-3 mb-6">
+<div class="p-3 bg-primary-mid rounded-lg">
+<span class="material-symbols-outlined text-on-primary">shield_with_heart</span>
+</div>
+<div>
+<h3 class="font-bold text-xl text-primary">Cuenta de Ahorros</h3>
+<p class="text-sm text-on-surface-variant uppercase tracking-tighter">Para Guardar (Guardar)</p>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>Dinero intocable para emergencias.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>El banco te paga un poquito por guardarlo.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-success text-sm mt-1">check_circle</span>
+<span>Menos acceso diario para evitar tentaciones.</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- ITIN Friendly Banks Directory -->
+<section class="space-y-stack-md">
+<div class="flex items-end justify-between">
+<h2 class="font-headline-md text-headline-md text-primary">Bancos 'ITIN-Friendly' Destacados</h2>
+<span class="text-primary-mid font-bold text-sm hidden md:block">Actualizado: Oct 2023</span>
+</div>
+<div class="bg-pale-green p-6 rounded-xl border border-primary-mid/20 mb-8">
+<h3 class="font-display-lg text-2xl text-primary mb-4 uppercase">Requisitos Generales</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">check_circle</span>
+<span class="text-sm font-bold">Pasaporte Vigente</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">check_circle</span>
+<span class="text-sm font-bold">ITIN o SSN (si tiene)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">check_circle</span>
+<span class="text-sm font-bold">Prueba de Domicilio</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">check_circle</span>
+<span class="text-sm font-bold">Depósito Inicial ($25 - $50)</span>
+</div>
+</div>
+</div><div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Bank Card 1 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-6 hover:border-primary-mid transition-all sombra-verde">
+<div class="h-12 w-full flex items-center mb-6">
+<img alt="Chase Logo" class="h-8 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABK-rCsgbp3esGDBXNUgZzi1kL_fq7auT00angK9qCRKPNL66U2VfJZ80x6fWjat31aeAXhkGnzNInx0bRdjQuou4TQjzjn86QoN_pqB2txBM5u_G3EgTmTetClR45WaAGYZgI38s00kmxfTYgkzPq_IdIAO3-m801wqWUxOHmTCMKcK7AzZ5sUwaHrFpxr8si4MHUjeqNUUfAhRy026ca38GTY8m9_Bs-1WcWBunJrIU9gBkShZSXxlf_9O6cWh4uAAvFRKjnH6YA"/>
+</div>
+<div class="space-y-4"><div class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded text-xs font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified</span> ACEPTA ITIN
+</div>
+<h4 class="font-bold text-lg">Chase Bank</h4>
+<div class="space-y-2 py-2">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Documentos Necesarios:</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-base">check</span> 2 formas de ID
+    </li>
+<li class="flex items-center gap-2 text-xs text-on-surface-variant pl-6">
+      • Pasaporte y Matrícula Consular
+    </li>
+</ul>
+</div>
+<button class="w-full border border-primary-mid text-primary-mid py-2 rounded-lg font-bold group-hover:bg-primary-mid group-hover:text-white transition-colors">Ubicar Sucursal</button></div>
+</div>
+<!-- Bank Card 2 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-6 hover:border-primary-mid transition-all sombra-verde">
+<div class="h-12 w-full flex items-center mb-6">
+<img alt="BoA Logo" class="h-8 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChdGxm_8UGiG9sVD37hSd3VeimXQOZeGI0fDefB5sMwVrb1CRp2Dqmmxurxc8h_EA8eqpiHAwVVtOt-b3mbOlaI54SHZHIm5ZXXpIHQG5UlllcYpQgeQUP2PCoepZ6zH8i0JIf7D_2nNxdkaqjqbCAutRqCYGuiXDZEWBdNXyohgrifQmpnsgkNGnJkfQuwa9wigN3bG2lRjWrvxiQsK2JyTbqcGsLzhtuO6qlI5v-qbAhoGYCV6hMkMci0c3xqsh-wXqxrV9xdg1b"/>
+</div>
+<div class="space-y-4"><div class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded text-xs font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified</span> ACEPTA ITIN
+</div>
+<h4 class="font-bold text-lg">Bank of America</h4>
+<div class="space-y-2 py-2">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Documentos Necesarios:</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-base">check</span> Pasaporte vigente
+    </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-base">check</span> Comprobante de domicilio
+    </li>
+</ul>
+</div>
+<button class="w-full border border-primary-mid text-primary-mid py-2 rounded-lg font-bold group-hover:bg-primary-mid group-hover:text-white transition-colors">Ubicar Sucursal</button></div>
+</div>
+<!-- Bank Card 3 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-6 hover:border-primary-mid transition-all sombra-verde">
+<div class="h-12 w-full flex items-center mb-6">
+<img alt="Wells Fargo Logo" class="h-8 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6edkwNguL9Tug2e7z36xuTvCaSsS0adpt-4CVe4YmFxRnHEz9ez_56KzIF2jvsAo6DhQ3P6-DGHX-Um8Nyd4NuLIi-RPn9YSow8Z_F-nLdlcQBWn9f9Q4D1NHLQkAVbEv2ySuPFtkSj7VfVQYKc6XhXAyAL2GS3fjyGDQRVE9rhe_unGCidTtzjov-1feO72yIta5vGPk_MLaNUaSqOsnR_zvKx0-8BQ2yQUdBcnOy4sMRFqu4KrccR07CrYPHJvCbihCsFWVgSL6"/>
+</div>
+<div class="space-y-4"><div class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded text-xs font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified</span> ACEPTA ITIN
+</div>
+<h4 class="font-bold text-lg">Wells Fargo</h4>
+<div class="space-y-2 py-2">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Documentos Necesarios:</p>
+<ul class="space-y-1">
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-base">check</span> ITIN
+    </li>
+<li class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-success text-base">check</span> Recibo de servicios
+    </li>
+</ul>
+</div>
+<button class="w-full border border-primary-mid text-primary-mid py-2 rounded-lg font-bold group-hover:bg-primary-mid group-hover:text-white transition-colors">Ubicar Sucursal</button></div>
+</div>
+</div>
+</section>
+<!-- Security Tips (Consejos de Seguridad) -->
+<section class="bg-dark text-white p-8 md:p-12 rounded-3xl space-y-8">
+<div class="text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-pale-green">Consejos de Seguridad</h2>
+<p class="text-surface-variant">Cuida tu dinero y evita cobros injustos.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex gap-4">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-mid rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">money_off</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Evita Comisiones</h4>
+<p class="text-sm text-surface-variant">Pregunta: "¿Cómo evito el cobro mensual?". Casi todos los bancos te lo perdonan si depositas tu sueldo automáticamente (Direct Deposit).</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-mid rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">atm</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Cajeros Automáticos</h4>
+<p class="text-sm text-surface-variant">Usa solo los cajeros de TU banco. Si usas otros, te pueden cobrar de $2 a $5 por cada retiro.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-mid rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">vpn_key</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Tu PIN es Secreto</h4>
+<p class="text-sm text-surface-variant">Nunca anotes tu clave (PIN) detrás de la tarjeta ni la compartas por teléfono. El banco NUNCA te pedirá tu clave.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex-shrink-0 bg-primary-mid rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">cell_tower</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Alertas en el Celular</h4>
+<p class="text-sm text-surface-variant">Activa los avisos por mensaje de texto. Si alguien gasta tu dinero, te avisarán al instante.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating AI Button Shell -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
+<div class="hidden bg-white p-4 rounded-2xl shadow-xl border border-outline-variant max-w-[250px] mb-2 animate-bounce" id="ai-bubble">
+<p class="text-sm font-bold text-primary">¿Dudas con los requisitos del ITIN?</p>
+<p class="text-xs text-on-surface-variant">¡Pregúntame ahora!</p>
+</div>
+<button class="rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid text-on-primary shadow-md shadow-primary-container/20 hover:scale-110 hover:shadow-lg transition-transform active:scale-95" onclick="toggleAIBubble()">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant h-16 flex items-center justify-around z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-mid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="text-[10px] font-bold">Bancos</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold">Remesas</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</button>
+</nav>
+<script>
+        function toggleAIBubble() {
+            const bubble = document.getElementById('ai-bubble');
+            bubble.classList.toggle('hidden');
+        }
+
+        // Show bubble after 3 seconds
+        setTimeout(() => {
+            const bubble = document.getElementById('ai-bubble');
+            if(bubble.classList.contains('hidden')) {
+                bubble.classList.remove('hidden');
+            }
+        }, 3000);
+    </script>
+</body></html>

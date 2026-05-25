@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Seguros Médicos | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "pale-green": "#D8F3DC",
+                        "primary-mid": "#2D6A4F",
+                        "inverse-surface": "#2f312f",
+                        "success": "#52B788",
+                        "surface": "#f9faf6",
+                        "on-surface": "#1a1c1a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#ffb780",
+                        "inverse-on-surface": "#f0f1ee",
+                        "danger": "#D62828",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#503700",
+                        "on-tertiary-fixed": "#271900",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#d89b00",
+                        "on-background": "#1a1c1a",
+                        "tertiary": "#342300",
+                        "secondary": "#8e4e14",
+                        "outline": "#717973",
+                        "background": "#f9faf6",
+                        "on-secondary-fixed": "#2f1400",
+                        "primary": "#012d1d",
+                        "surface-container-highest": "#e2e3e0",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "gray": "#6B7280",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-dim": "#dadad7",
+                        "surface-tint": "#3f6653",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "primary-container": "#1b4332",
+                        "surface-container": "#eeeeeb",
+                        "on-primary-fixed": "#002114",
+                        "on-primary-container": "#86af99",
+                        "secondary-container": "#ffab69",
+                        "error-container": "#ffdad6",
+                        "accent-dark": "#E76F51",
+                        "dark": "#1A1A2E",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-light": "#40916C",
+                        "secondary-fixed": "#ffdcc4",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#f9faf6",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-low": "#f3f4f1",
+                        "on-secondary-container": "#783d01",
+                        "outline-variant": "#c1c8c2",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "warning": "#F77F00",
+                        "surface-variant": "#e2e3e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "gutter": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-md": "1.5rem",
+                        "touch-target": "48px",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        .gold-border {
+            border: 2px solid #ffba27;
+            position: relative;
+        }
+        .gold-badge {
+            background-color: #ffba27;
+            color: #271900;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full bg-surface z-50 border-b border-outline-variant flex justify-between items-center px-margin-desktop h-touch-target">
+<div class="flex items-center gap-stack-md">
+<span class="text-headline-md font-headline-md font-extrabold text-primary-mid tracking-tight">BlindadoUSA</span>
+</div>
+<!-- Search Bar -->
+<div class="hidden md:flex flex-1 max-w-xl mx-stack-lg relative">
+<input class="w-full h-10 px-10 rounded-full border border-outline-variant bg-surface-container-low focus:ring-2 focus:ring-primary-mid focus:border-transparent outline-none transition-all" placeholder="Buscar seguros, agencias o clínicas..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="p-2 rounded-full hover:bg-pale-green/20 transition-colors">
+<span class="material-symbols-outlined text-primary-mid">account_circle</span>
+</button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 pt-touch-target">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-outline-variant hidden lg:flex flex-col py-stack-md z-40 mt-touch-target">
+<div class="px-6 mb-stack-lg">
+<p class="text-body-lg font-body-lg text-primary-mid">BlindadoUSA</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Tu Biblia Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-label-sm font-label-sm">Crédito</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Vivienda</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-label-sm font-label-sm">Salud</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-label-sm font-label-sm">Seguros</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="text-label-sm font-label-sm">Legal</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="text-label-sm font-label-sm">Ahorro</span>
+</a>
+</nav>
+<div class="border-t border-outline-variant pt-stack-md px-2 space-y-1">
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="text-label-sm font-label-sm">Soporte</span>
+</a>
+<a class="flex items-center gap-3 py-2 px-4 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-label-sm font-label-sm">Ajustes</span>
+</a>
+<div class="mt-stack-md px-2">
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg text-label-sm hover:opacity-90 transition-opacity active:scale-95 duration-200">
+                        Asesoría Gratis
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight mb-2">Directorio de Seguros Médicos</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">Encuentra cobertura de salud que hable tu idioma y acepte ITIN. Protege a tu familia con expertos que entienden tus necesidades.</p>
+</section>
+<!-- Quick Filters -->
+<section class="mb-stack-md overflow-x-auto hide-scrollbar -mx-margin-mobile px-margin-mobile">
+<div class="flex gap-stack-sm pb-2">
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-primary-mid bg-pale-green text-primary-mid font-bold text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Acepta ITIN
+                    </button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:border-primary-mid hover:text-primary-mid transition-colors text-label-sm">
+                        Habla Español
+                    </button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:border-primary-mid hover:text-primary-mid transition-colors text-label-sm">
+                        Seguro Dental
+                    </button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:border-primary-mid hover:text-primary-mid transition-colors text-label-sm">
+                        Marketplace / Obamacare
+                    </button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:border-primary-mid hover:text-primary-mid transition-colors text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">tune</span>
+                        Filtros
+                    </button>
+</div>
+</section>
+<!-- Directory Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter mb-stack-lg">
+<!-- Card 1: Featured -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden gold-border sombra-verde flex flex-col h-full border-2">
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-1 items-end">
+<span class="gold-badge text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">star</span> Destacado
+                        </span>
+<span class="bg-primary-mid text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider">Verificado ✓</span>
+</div>
+<img alt="Agency Logo" class="w-full h-48 object-cover" data-alt="A professional and bright health insurance agency office in Houston, featuring a diverse team of smiling consultants helping a Hispanic family. The setting is modern and clean with soft daylight streaming through large windows, creating an atmosphere of trust and accessibility. The color palette uses deep greens and warm oranges to align with the brand's corporate yet empathetic identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP5oZBP6k5IGoXjqvvvBsE9uy7wQzUOwMsduKBERSAwAa9fVFf4g1IYoYHCkJrl8TC0FcdtD08GQivz4m15hUoDhuUSA5wdAHm7cZvMZvLf23MATaM8MBVBDWia7JAQUkktk3fXktvZCpxFjVz02U4eHZKWCBtUZFDRfemUOwJ_krC-A7-d_gA7W1zhHC3HAwt72y756ZfuqMVcR1JlHgVV3085WmVZp2xwj729QG8EWfWZrSZBDOAkih5eaKvrn2eX8tvj6taa6dU"/>
+<div class="p-5 flex flex-col flex-1">
+<div class="mb-4">
+<span class="text-label-sm font-label-sm text-primary-light uppercase">Agencia de Seguros</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">Seguros Houston Elite</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm font-label-sm">Houston, TX</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid text-[11px] font-bold px-2 py-0.5 rounded">Acepta ITIN</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Español</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Obamacare</span>
+</div>
+<div class="mt-auto flex flex-col gap-3">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">call</span>
+<span class="font-data-mono text-data-mono">(832) 555-0123</span>
+</div>
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:opacity-90 transition-opacity">
+                                Ver Detalles
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2: Featured -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden gold-border sombra-verde flex flex-col h-full border-2">
+<div class="absolute top-3 right-3 z-10 flex flex-col gap-1 items-end">
+<span class="gold-badge text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">star</span> Destacado
+                        </span>
+</div>
+<img alt="Health Center" class="w-full h-48 object-cover" data-alt="An inviting and clean medical clinic entrance with a friendly receptionist greeting patients in a warm, high-key lighting environment. The interior design is modern with minimalist furniture and a welcoming Hispanic community vibe. The overall atmosphere is professional, empathetic, and highly accessible, reflecting a 'Financial Bible' for health services. Subtle corporate green accents are visible throughout the decor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAvinUORRDTeLoq55CdPZrtJYPblJq8rpYqdS-pE4APys9HWkkccqajMXuzQF79-zRoOsACY3ZFn16jm-PN3YEkIvGRABYBlsaagAhHVSWZfTJro7CGC7Rg9_8K29grpHYvD8-Cpez1vLYHZbV2FLqDfp0VzE0VWFnGapyUnBYbJ_ttuf6QTcqL4sJE0jZkdT5A224Je65AeQCm3lDl4hGRcIYpfq8fz3bQzrdqDs9D3yunYUNXJiHEnecGIKIrVugehhIHQqiHeUF"/>
+<div class="p-5 flex flex-col flex-1">
+<div class="mb-4">
+<span class="text-label-sm font-label-sm text-primary-light uppercase">Centro de Salud</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">Salud Hispana Florida</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm font-label-sm">Miami, FL</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid text-[11px] font-bold px-2 py-0.5 rounded">Acepta ITIN</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Atención 24/7</span>
+</div>
+<div class="mt-auto flex flex-col gap-3">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">call</span>
+<span class="font-data-mono text-data-mono">(305) 555-0987</span>
+</div>
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:opacity-90 transition-opacity">
+                                Llamar Ahora
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3: Regular -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant flex flex-col h-full hover:shadow-md transition-shadow">
+<img alt="Consultant" class="w-full h-48 object-cover" data-alt="A close-up portrait of a professional Hispanic insurance agent in a smart corporate attire, smiling confidently in a modern office setting. Behind them, a blurred view of a city skyline at sunset creates a warm and hopeful mood. The lighting is soft and flattering, emphasizing a person-to-person connection. The visual style is clean and corporate, utilizing the brand's green and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZazEAuLCDg4URsUsWMer80mxkWvseXo_agVw4tQh6WESBNlidmMzNu0iK1YO0rfIkdyUZwtyXomfir888wZ7Wl12guacuI6dleHnfSmbjNUM3UYhl0mkq3A3geW9GwvCDALAt_K1PdUtnNj8OmfabShQME8McBMIMsleJ3EyQkuBeuE6VvWZE6tMRPYOO3CigIf_cQw8gES19WtMNsvsTbrtXMLFEc6bzmyOgA_K0ctkx_pa0kAx9351bb_NkiLUAfKOuzBklmHeq"/>
+<div class="p-5 flex flex-col flex-1">
+<div class="mb-4">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Consultor Independiente</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">García Insurance Group</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm font-label-sm">Chicago, IL</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Seguro Dental</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Bilingüe</span>
+</div>
+<div class="mt-auto flex flex-col gap-3">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">call</span>
+<span class="font-data-mono text-data-mono">(312) 555-4422</span>
+</div>
+<button class="w-full h-touch-target border border-primary-mid text-primary-mid font-bold rounded-lg hover:bg-pale-green/10 transition-colors">
+                                Ver Detalles
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4: Regular -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant flex flex-col h-full hover:shadow-md transition-shadow">
+<img alt="Insurance Agency" class="w-full h-48 object-cover" data-alt="An artistic shot of a family hands holding a small paper house and a shield, symbolizing protection and security. The lighting is warm and golden, evoking a sense of safety and home. The background is a clean, out-of-focus suburban environment. The image is high-contrast and professional, strictly following the BlindadoUSA aesthetic of trust and community advocacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2hFdbOMbQ_apB7QeHl0nDEizTApDMuFPVGmLVWQcy2n5RgxGGsgT9RZWsSVD7CaiKzULzdTLMNXbRhduAgqQRk0JWTCjlFsIAr6vtYZCHEdMKuSlvb5rTv0ZTr5tzhBAcZm05_gL-d1caIkZ69Zj4AbRMLNM6xzTrpfY6RluSDBKxMG9aq8NgXofgwx2b-gSJyNCJUyg16JLF-Jj1ZG7dkKa755Rr0vXAOgCZ37eNghbINF7089UF-miuwccUPV-9Zgc24HPc3QBu"/>
+<div class="p-5 flex flex-col flex-1">
+<div class="mb-4">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Agencia Nacional</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">Seguros Unidos USA</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-sm font-label-sm">Phoenix, AZ</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-pale-green text-primary-mid text-[11px] font-bold px-2 py-0.5 rounded">Acepta ITIN</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-bold px-2 py-0.5 rounded">Seguro de Vida</span>
+</div>
+<div class="mt-auto flex flex-col gap-3">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">call</span>
+<span class="font-data-mono text-data-mono">(602) 555-8899</span>
+</div>
+<button class="w-full h-touch-target border border-primary-mid text-primary-mid font-bold rounded-lg hover:bg-pale-green/10 transition-colors">
+                                Ver Detalles
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="bg-primary-container rounded-2xl p-8 md:p-12 text-on-primary-container relative overflow-hidden flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<!-- Subtle pattern overlay -->
+<div class="w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+</div>
+<div class="relative z-10 flex-1 text-center md:text-left">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-md text-pale-green mb-4 leading-tight">¿Eres un agente de seguros?</h2>
+<p class="text-body-lg font-body-lg opacity-90 max-w-lg">Registra tu agencia en nuestro directorio y llega a miles de familias hispanas que buscan expertos como tú. Únete a la red financiera más grande.</p>
+</div>
+<div class="relative z-10">
+<button class="px-8 h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:scale-105 transition-transform shadow-lg whitespace-nowrap">
+                        Registrar mi Agencia
+                    </button>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full bg-primary text-on-primary py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter border-t border-primary-mid">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="text-body-lg font-headline-md text-pale-green">BlindadoUSA</span>
+<p class="text-label-sm font-label-sm opacity-80 text-center md:text-left max-w-xs">© 2024 BlindadoUSA - Tu Futuro Protegido. La Biblia Financiera para la comunidad Hispana.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+<a class="text-pale-green opacity-80 hover:text-on-primary transition-opacity text-label-sm font-label-sm" href="#">Términos y Condiciones</a>
+<a class="text-pale-green opacity-80 hover:text-on-primary transition-opacity text-label-sm font-label-sm" href="#">Política de Privacidad</a>
+<a class="text-pale-green opacity-80 hover:text-on-primary transition-opacity text-label-sm font-label-sm" href="#">Soporte Técnico</a>
+<a class="text-pale-green opacity-80 hover:text-on-primary transition-opacity text-label-sm font-label-sm" href="#">Contacto</a>
+</nav>
+</footer>
+<!-- AI Assistant Floating Button -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 bg-gradient-to-br from-primary-mid to-primary-light text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<!-- Tooltip -->
+<span class="absolute right-16 bg-dark text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-outline/20">
+                ¿Necesitas ayuda con tu seguro?
+            </span>
+</button>
+</div>
+<script>
+        // Micro-interactions and simple effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hover effect on cards
+            const cards = document.querySelectorAll('.rounded-xl');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    if(!card.classList.contains('gold-border')) {
+                        card.style.borderColor = '#40916C';
+                    }
+                });
+                card.addEventListener('mouseleave', () => {
+                    if(!card.classList.contains('gold-border')) {
+                        card.style.borderColor = '#c1c8c2';
+                    }
+                });
+            });
+
+            // Active chip toggle
+            const chips = document.querySelectorAll('button.whitespace-nowrap');
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    // This is just for demonstration
+                    if(chip.innerText.includes('Filtros')) return;
+                    
+                    const isActive = chip.classList.contains('bg-pale-green');
+                    if(isActive) {
+                        chip.classList.remove('bg-pale-green', 'border-primary-mid', 'text-primary-mid', 'font-bold');
+                        chip.classList.add('bg-surface-container-lowest', 'border-outline-variant', 'text-on-surface-variant');
+                        const icon = chip.querySelector('.material-symbols-outlined');
+                        if(icon) icon.remove();
+                    } else {
+                        chip.classList.add('bg-pale-green', 'border-primary-mid', 'text-primary-mid', 'font-bold');
+                        chip.classList.remove('bg-surface-container-lowest', 'border-outline-variant', 'text-on-surface-variant');
+                        if(!chip.querySelector('.material-symbols-outlined')) {
+                           const icon = document.createElement('span');
+                           icon.className = 'material-symbols-outlined text-sm';
+                           icon.style.fontVariationSettings = "'FILL' 1";
+                           icon.innerText = 'check_circle';
+                           chip.prepend(icon);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body></html>

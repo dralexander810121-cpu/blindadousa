@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Clínicas Comunitarias | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#ffab69",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-dim": "#dadad7",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdea9",
+                        "pale-green": "#D8F3DC",
+                        "gray": "#6B7280",
+                        "secondary-fixed-dim": "#ffb780",
+                        "primary-light": "#40916C",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "success": "#52B788",
+                        "on-secondary-fixed": "#2f1400",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1ee",
+                        "secondary": "#8e4e14",
+                        "primary-container": "#1b4332",
+                        "primary-mid": "#2D6A4F",
+                        "on-background": "#1a1c1a",
+                        "on-tertiary-container": "#d89b00",
+                        "background": "#f9faf6",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container-highest": "#e2e3e0",
+                        "tertiary-container": "#503700",
+                        "surface-container-low": "#f3f4f1",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9faf6",
+                        "primary-fixed": "#c1ecd4",
+                        "inverse-surface": "#2f312f",
+                        "surface-tint": "#3f6653",
+                        "on-surface-variant": "#414844",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1a",
+                        "accent-dark": "#E76F51",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#342300",
+                        "on-primary-fixed": "#002114",
+                        "primary": "#012d1d",
+                        "outline-variant": "#c1c8c2",
+                        "on-primary-container": "#86af99",
+                        "dark": "#1A1A2E",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "outline": "#717973",
+                        "surface-container": "#eeeeeb",
+                        "surface-bright": "#f9faf6",
+                        "danger": "#D62828",
+                        "secondary-fixed": "#ffdcc4",
+                        "on-tertiary-fixed": "#271900",
+                        "warning": "#F77F00",
+                        "inverse-primary": "#a5d0b9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-display-lg text-primary-mid dark:text-primary-fixed-dim tracking-tight">BlindadoUSA</span>
+</div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2" href="#">Inicio</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors px-3 py-2" href="#">Salud</a>
+<a class="text-primary-mid font-bold border-b-4 border-secondary-container px-3 py-2" href="#">Directorio</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary cursor-pointer">help</span>
+</div>
+</nav>
+<!-- SideNavBar Shell (Desktop) -->
+<aside class="hidden md:flex flex-col h-screen py-stack-md px-4 overflow-y-auto bg-surface-container dark:bg-surface-container-highest w-72 left-0 top-0 fixed mt-touch-target shadow-lg dark:shadow-none">
+<div class="mb-stack-lg px-4">
+<h2 class="font-display-lg text-primary-mid text-2xl">BlindadoUSA</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Educación y Protección</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-sm text-label-sm">Salud</span>
+</a>
+<a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-lg p-4 font-bold" href="#">
+<span class="material-symbols-outlined">import_contacts</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</a>
+<button class="mt-stack-md bg-secondary-container text-on-secondary-container font-bold py-4 rounded-xl shadow-md active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">smart_toy</span>
+                Consultar IA
+            </button>
+</div>
+<div class="mt-auto flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Configuración</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-touch-target min-h-screen">
+<!-- Hero Banner -->
+<section class="relative bg-primary-container text-on-primary min-h-[350px] flex flex-col justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-20">
+<img alt="Comunidad Latina Saludable" class="w-full h-full object-cover" data-alt="A warm and high-contrast scene featuring a diverse group of Hispanic families and healthcare professionals interacting in a modern community clinic. The lighting is soft and natural, emphasizing a mood of trust and accessibility. The style is clean and corporate, utilizing the primary green and earthy tones of the brand palette to convey a sense of medical authority and community warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChd9V4rCHc3fcp4qjfPp_9CejsNbaP2EIGFuuxwKCebrCU6xGAhxWQ4ZGBsAPmj7i2FEW8T05lZQ75GAskWrQC0HHpqf49tAC78jYJd0l_tuHqLJ8_Vo8oGfayrOdDmrfD52n3W4M4dK3CgCjy1sIY0BoKUzvv_Cv0s80uUCxBC4vVOd9FvI7vwLjXySeDqljCJJH-ZEUfocgdEVdVkAPISXg3OVeNyJ6CdxuDe8LGBWHByajXfB1vWwhVkqmPOsefAxtY6mB1lHiJ"/>
+</div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm text-on-primary">
+                    SALUD A TU ALCANCE: CLÍNICAS COMUNITARIAS
+                </h1>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl">
+                    Tu estatus legal o falta de seguro médico no son un obstáculo. Estas clínicas te atienden aunque no tengas documentos o dinero suficiente. La salud es tu derecho.
+                </p>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="px-margin-mobile md:px-margin-desktop -mt-8 relative z-20">
+<div class="bg-surface border border-outline-variant rounded-xl p-6 sombra-verde flex flex-col md:flex-row gap-4 items-end">
+<div class="w-full md:flex-1">
+<label class="block font-label-sm text-label-sm mb-2 text-on-surface-variant">Ubicación (Ciudad o Estado)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline">location_on</span>
+<input class="w-full pl-10 pr-4 h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid outline-none transition-all" placeholder="Ej: Houston, TX" type="text"/>
+</div>
+</div>
+<div class="w-full md:w-64">
+<label class="block font-label-sm text-label-sm mb-2 text-on-surface-variant">Tipo de Servicio</label>
+<select class="w-full px-4 h-touch-target rounded-lg border-2 border-outline-variant focus:border-primary-mid outline-none bg-surface-container-lowest transition-all">
+<option>General (Física)</option>
+<option>Dental</option>
+<option>Salud Mental</option>
+<option>Pediatría</option>
+</select>
+</div>
+<button class="w-full md:w-auto px-8 h-touch-target bg-primary-mid text-on-primary font-bold rounded-lg shadow-lg hover:bg-primary-light transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                    Buscar Clínica
+                </button>
+</div>
+</section>
+<!-- Content Grid (Cards & Educational Panel) -->
+<div class="px-margin-mobile md:px-margin-desktop py-stack-lg grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- List of Clinics -->
+<div class="lg:col-span-8 flex flex-col gap-stack-md">
+<div class="flex justify-between items-center mb-stack-sm">
+<h3 class="font-headline-md text-headline-md">Clínicas encontradas (3)</h3>
+<span class="text-primary-mid font-bold flex items-center gap-1">
+<span class="material-symbols-outlined">tune</span> Filtrar
+                    </span>
+</div>
+<!-- Clinic Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary-mid mb-2">Clínica San Lucas - Houston</h4>
+<div class="flex flex-col gap-1 text-on-surface-variant mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">map</span> 1234 Main St, Houston, TX 77002</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">phone</span> (713) 555-0199</p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-pale-green text-primary-mid font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span> Hablan Español
+                            </span>
+<span class="px-3 py-1 bg-pale-green text-primary-mid font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">id_card</span> Aceptan ITIN
+                            </span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">payments</span> Escala de Pagos
+                            </span>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center gap-3 md:w-48 border-t md:border-t-0 md:border-l border-outline-variant pt-4 md:pt-0 md:pl-6">
+<a class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-lg text-center shadow-sm hover:brightness-95 active:scale-95 transition-all" href="tel:7135550199">
+                            Llamar para Cita
+                        </a>
+<button class="w-full text-primary-mid font-label-sm hover:underline flex items-center justify-center gap-1">
+<span class="material-symbols-outlined">directions</span> Ver Mapa
+                        </button>
+</div>
+</article>
+<!-- Clinic Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary-mid mb-2">Centro Médico Comunitario Esperanza</h4>
+<div class="flex flex-col gap-1 text-on-surface-variant mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">map</span> 987 Esperanza Blvd, Houston, TX 77036</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">phone</span> (713) 555-0155</p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-pale-green text-primary-mid font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span> Hablan Español
+                            </span>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">payments</span> Escala de Pagos
+                            </span>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center gap-3 md:w-48 border-t md:border-t-0 md:border-l border-outline-variant pt-4 md:pt-0 md:pl-6">
+<a class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-lg text-center shadow-sm hover:brightness-95 active:scale-95 transition-all" href="tel:7135550155">
+                            Llamar para Cita
+                        </a>
+<button class="w-full text-primary-mid font-label-sm hover:underline flex items-center justify-center gap-1">
+<span class="material-symbols-outlined">directions</span> Ver Mapa
+                        </button>
+</div>
+</article>
+<!-- Clinic Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="flex-grow">
+<h4 class="font-headline-md text-headline-md text-primary-mid mb-2">Red de Salud Unida (Dental y General)</h4>
+<div class="flex flex-col gap-1 text-on-surface-variant mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">map</span> 542 Wellness Dr, Pasadena, TX 77501</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-outline">phone</span> (713) 555-0122</p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-pale-green text-primary-mid font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span> Hablan Español
+                            </span>
+<span class="px-3 py-1 bg-pale-green text-primary-mid font-label-sm text-xs rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">id_card</span> Aceptan ITIN
+                            </span>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center gap-3 md:w-48 border-t md:border-t-0 md:border-l border-outline-variant pt-4 md:pt-0 md:pl-6">
+<a class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-lg text-center shadow-sm hover:brightness-95 active:scale-95 transition-all" href="tel:7135550122">
+                            Llamar para Cita
+                        </a>
+<button class="w-full text-primary-mid font-label-sm hover:underline flex items-center justify-center gap-1">
+<span class="material-symbols-outlined">directions</span> Ver Mapa
+                        </button>
+</div>
+</article>
+</div>
+<!-- Side Educational Panel -->
+<aside class="lg:col-span-4 flex flex-col gap-stack-md">
+<!-- Sliding Scale Explanation -->
+<section class="bg-primary-mid text-on-primary p-6 rounded-2xl sombra-verde">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary-container text-4xl">savings</span>
+<h3 class="font-headline-md text-headline-md">¿Qué es la "Escala de Pagos"?</h3>
+</div>
+<p class="font-body-md text-pale-green mb-4">
+                        Es un sistema justo: <strong>Pagas según lo que ganas.</strong>
+</p>
+<div class="bg-primary-container p-4 rounded-xl border border-primary-light/30">
+<p class="font-label-sm text-label-sm italic text-on-primary-container">
+                            "Imagina que vas a comprar una manzana. Si tienes mucho dinero, pagas el precio normal. Si tienes poco, te cobran solo unos centavos. Lo importante es que todos coman."
+                        </p>
+</div>
+</section>
+<!-- Rights Panel -->
+<section class="bg-surface-container border-2 border-primary-mid rounded-2xl p-6">
+<h3 class="font-headline-md text-headline-md text-primary-mid mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">gavel</span> Tus Derechos
+                    </h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">translate</span>
+<div>
+<p class="font-bold">Intérprete Gratis</p>
+<p class="text-on-surface-variant text-sm">Por ley, el hospital debe darte alguien que hable español sin costo.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">privacy_tip</span>
+<div>
+<p class="font-bold">Privacidad Total</p>
+<p class="text-on-surface-variant text-sm">Tus datos médicos no se comparten con migración. Estás seguro.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">emergency</span>
+<div>
+<p class="font-bold">Emergencias</p>
+<p class="text-on-surface-variant text-sm">Nadie puede negarte atención de emergencia por no tener dinero.</p>
+</div>
+</li>
+</ul>
+</section>
+<!-- Helpful Image -->
+<div class="rounded-2xl overflow-hidden h-48 relative">
+<img alt="Doctora latina amable" class="w-full h-full object-cover" data-alt="A close-up portrait of a kind Hispanic female physician smiling warmly in a bright, modern medical office. She is wearing a clean white lab coat and a stethoscope, symbolizing trust and expertise. The background is softly blurred to maintain focus on her empathetic expression. The lighting is high-key and professional, reinforcing the brand's authoritative yet accessible identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc6WfSJ_RiogiEIXMV5oi1DkNHAeRYWUYtet2AtE8jHGeqiGQL_0S0fzJyNIlxm-U_0FgOX2QzDZP5eQrO_0bKmnH4tzJoyE2Zq_xONMWBcT-_vhfJWIjSa207vEWl0AD5KKmiO7NcGXBmuy80-ldLIZANZmdfDrxDj6md3HVnsWOvHlKn2oj9luCtrLhxcB_20WKu9WUqYcnE5pDtX_vC6bLneINFP6MZcWyNP-S_yaveaYIeBxOJRAdNtgMebls_cIVDBj3L3NN9"/>
+</div>
+</aside>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-primary-mid to-primary-container text-on-primary rounded-full shadow-2xl flex items-center justify-center z-[100] active:scale-90 transition-transform hover:rotate-12" id="ai-assistant">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-secondary-container rounded-full border-2 border-background animate-pulse"></div>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center h-touch-target z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-mid font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">import_contacts</span>
+<span class="text-[10px] font-label-sm">Directorio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px] font-label-sm">Salud</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-label-sm">Ajustes</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for the AI Assistant
+        const assistant = document.getElementById('ai-assistant');
+        assistant.addEventListener('click', () => {
+            alert('El Asistente Blindado está procesando tu consulta de salud. ¡Pronto recibirás ayuda personalizada!');
+        });
+
+        // Simple scale effect on scroll for cards
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('article').forEach(card => {
+            card.classList.add('transition-all', 'duration-500', 'opacity-0', 'translate-y-10');
+            observer.observe(card);
+        });
+    </script>
+</body></html>

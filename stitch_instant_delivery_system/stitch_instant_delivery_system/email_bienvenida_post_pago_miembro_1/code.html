@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>¡Ya estás Blindado de por vida! 🎉</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-secondary-fixed": "#2f1400",
+                      "on-tertiary-container": "#d89b00",
+                      "surface-container-low": "#f3f4f1",
+                      "on-primary-container": "#86af99",
+                      "on-primary-fixed": "#002114",
+                      "primary-fixed": "#c1ecd4",
+                      "on-surface-variant": "#414844",
+                      "secondary-fixed": "#ffdcc4",
+                      "inverse-surface": "#2f312f",
+                      "inverse-on-surface": "#f0f1ee",
+                      "danger": "#D62828",
+                      "on-surface": "#1a1c1a",
+                      "primary-light": "#40916C",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "pale-green": "#D8F3DC",
+                      "on-tertiary-fixed": "#271900",
+                      "accent-dark": "#E76F51",
+                      "on-secondary-container": "#783d01",
+                      "warning": "#F77F00",
+                      "outline-variant": "#c1c8c2",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e2e3e0",
+                      "on-background": "#1a1c1a",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "surface-container": "#eeeeeb",
+                      "primary-container": "#1b4332",
+                      "tertiary": "#342300",
+                      "surface-bright": "#f9faf6",
+                      "secondary-fixed-dim": "#ffb780",
+                      "surface-container-lowest": "#ffffff",
+                      "primary": "#012d1d",
+                      "outline": "#717973",
+                      "dark": "#1A1A2E",
+                      "background": "#f9faf6",
+                      "tertiary-fixed": "#ffdea9",
+                      "on-secondary": "#ffffff",
+                      "success": "#52B788",
+                      "secondary-container": "#ffab69",
+                      "surface-tint": "#3f6653",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#a5d0b9",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#503700",
+                      "surface-container-highest": "#e2e3e0",
+                      "surface": "#f9faf6",
+                      "gray": "#6B7280",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "secondary": "#8e4e14",
+                      "surface-dim": "#dadad7",
+                      "primary-mid": "#2D6A4F"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "48px",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "3rem",
+                      "margin-desktop": "2.5rem",
+                      "gutter": "1rem",
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1.25rem"
+              },
+              "fontFamily": {
+                      "display-lg": ["Bebas Neue"],
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center h-touch-target px-margin-mobile md:px-margin-desktop">
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary">
+            BLINDADOUSA
+        </div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+</div>
+</header>
+<main class="pt-24 pb-12 px-margin-mobile flex flex-col items-center max-w-4xl mx-auto min-h-screen relative overflow-hidden">
+<!-- Animated Background Elements -->
+<canvas class="confetti-canvas" id="confetti"></canvas>
+<!-- Celebration Hero Section -->
+<div class="w-full mb-stack-lg text-center relative z-10">
+<div class="inline-flex items-center justify-center bg-tertiary-fixed-dim p-4 rounded-full mb-6 sombra-verde animate-bounce">
+<span class="material-symbols-outlined text-tertiary text-4xl" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg uppercase text-primary mb-2">
+                ¡Felicidades, [Nombre]!
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">
+                Ya eres un miembro oficial de BlindadoUSA. Tu acceso es para siempre, sin suscripciones mensuales.
+            </p>
+</div>
+<!-- Success Message Card -->
+<section class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl p-6 md:p-8 mb-stack-md sombra-verde relative z-10 overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10 rotate-12">
+<span class="material-symbols-outlined text-9xl text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex flex-col gap-6 items-center text-center">
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Tu Membresía Vitalicia</span>
+<h2 class="font-headline-md text-headline-md text-primary">Estado: Activo</h2>
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-pale-green text-primary-mid rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Protección Permanente
+                    </div>
+</div>
+<!-- Referral Section -->
+<div class="w-full bg-surface-container-low rounded-lg p-6 border-2 border-dashed border-primary-fixed-dim">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4 uppercase">Tu código personal:</p>
+<div class="bg-surface-container-highest px-6 py-4 rounded-lg flex items-center justify-between mb-4">
+<span class="font-data-mono text-data-mono text-primary tracking-widest">[CÓDIGO]</span>
+<button class="text-primary hover:text-primary-mid transition-colors flex items-center gap-1" onclick="navigator.clipboard.writeText('[CÓDIGO]')">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 italic">
+                        "Comparte este código con tus amigos. Ellos pagan $15 y tú nos ayudas a crecer."
+                    </p>
+<a class="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-label-sm text-label-sm h-touch-target px-8 rounded-lg hover:opacity-90 transition-all active:scale-95 shadow-md" href="https://wa.me/?text=¡Hola! Te comparto mi código de BlindadoUSA para que protejas tus finanzas por solo $15 de por vida: [CÓDIGO]">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                        COMPARTIR EN WHATSAPP
+                    </a>
+</div>
+</div>
+</section>
+<!-- Main CTA -->
+<div class="w-full max-w-md mx-auto relative z-10">
+<a class="flex items-center justify-center w-full h-touch-target bg-primary-container text-on-primary font-headline-md text-headline-md rounded-xl shadow-lg hover:bg-primary-mid transition-all active:scale-95 group" href="#">
+                ENTRAR A MI DASHBOARD
+                <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<p class="text-center mt-4 font-label-sm text-label-sm text-on-surface-variant opacity-70">
+                Acceso instantáneo a todas tus herramientas financieras.
+            </p>
+</div>
+<!-- Visual Decorative Image -->
+<div class="mt-stack-lg w-full rounded-2xl overflow-hidden shadow-2xl relative">
+<img alt="Celebración Familiar" class="w-full h-64 md:h-96 object-cover" data-alt="A vibrant celebratory lifestyle scene showing a happy Hispanic family in a modern brightly lit home celebrating financial freedom. The lighting is warm and golden with subtle green accents reflecting the brand identity. The image has a high-end corporate photography style with soft depth of field and sharp focus on genuine emotions. The overall mood is aspirational, secure, and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlM3jbrC00hB06witoNl8J0lRJhamGwcP64APa4Rt16nE4lQSmFIs6H0TT0GzMdZ8tTHVYr71kPlLcZ_dTNPTyI9SS-cYkxum0QtDSA_wfuKU3_yERikRGgItcpsAswFxMuqUArfYneMpv2m5t4UwQf6uQ_jyZbFs8lz7drj8rF8m08wnfVzp89U8SZ_UAfrpWV2zHPp3c7RvfXFJT9LVxkdbLQd2RdecBX7rBW-jGrPmYh_ZgbZgtp4CLTE9JXTCnpPjq08Lmigbk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-6">
+<p class="text-white font-headline-md text-headline-md">Tu futuro financiero comienza hoy.</p>
+</div>
+</div>
+</main>
+<!-- Success Floating AI Assistant -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-primary-mid to-primary-container text-white rounded-full flex items-center justify-center shadow-xl z-[60] hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<script>
+        // Simple Confetti Micro-interaction
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const confetti = [];
+        const colors = ['#52B788', '#FFB703', '#2D6A4F', '#D8F3DC', '#FFEA00'];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 8 + 4;
+                this.speed = Math.random() * 3 + 2;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 5 - 2.5;
+            }
+
+            update() {
+                this.y += this.speed;
+                this.rotation += this.rotationSpeed;
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) {
+            confetti.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confetti.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body></html>

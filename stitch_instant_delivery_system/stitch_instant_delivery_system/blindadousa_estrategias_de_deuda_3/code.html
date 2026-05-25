@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estrategias de Deuda | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#f9faf6",
+                    "surface-tint": "#3f6653",
+                    "pale-green": "#D8F3DC",
+                    "tertiary-fixed": "#ffdea9",
+                    "warning": "#F77F00",
+                    "surface-container-low": "#f3f4f1",
+                    "on-background": "#1a1c1a",
+                    "danger": "#D62828",
+                    "on-primary-fixed": "#002114",
+                    "on-surface": "#1a1c1a",
+                    "on-secondary-fixed": "#2f1400",
+                    "primary": "#012d1d",
+                    "primary-container": "#1b4332",
+                    "tertiary-container": "#503700",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "secondary-container": "#ffab69",
+                    "secondary-fixed": "#ffdcc4",
+                    "surface-variant": "#e2e3e0",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "background": "#f9faf6",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "error-container": "#ffdad6",
+                    "success": "#52B788",
+                    "outline-variant": "#c1c8c2",
+                    "accent-dark": "#E76F51",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-tertiary-container": "#d89b00",
+                    "secondary": "#8e4e14",
+                    "primary-light": "#40916C",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed": "#c1ecd4",
+                    "error": "#ba1a1a",
+                    "gray": "#6B7280",
+                    "tertiary": "#342300",
+                    "primary-mid": "#2D6A4F",
+                    "surface-dim": "#dadad7",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-surface-variant": "#414844",
+                    "outline": "#717973",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e8e8e5",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eeeeeb",
+                    "dark": "#1A1A2E",
+                    "surface": "#f9faf6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-primary-container": "#86af99"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -10px rgba(27, 67, 50, 0.15);
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-primary h-screen w-64 fixed left-0 top-0 overflow-y-auto shadow-md flex flex-col py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-pale-green leading-none">BlindadoUSA</h1>
+<p class="font-label-sm text-label-sm text-pale-green/60 tracking-widest uppercase">Biblia Financiera</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Navigation Items -->
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Resumen</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Deudas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="savings">savings</span>
+<span>Ahorros</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Impuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Inversiones</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Seguros</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 font-body-md text-body-md text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Legal</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-mid">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-20 bg-surface-bright border-b border-outline-variant flex items-center justify-between px-margin-desktop z-40">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-primary">Estrategias de Deuda</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md px-2 w-64" placeholder="Buscar trámites..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger rounded-full"></span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Avatar del usuario" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXnsDgCV3I3NJSyl5qDELX2Cddfbp2S6XSHc5BBYHNh-fshWPWLd7F9jcRft35C5NH4k1DvD2fdVG0bzXJbtjFo72fZN7xGf8YLIzoMo4_7-WwMFKPUv5V39Zhwkg1XDOEiyL5IpuLF_sH_q59QdExyuMJKV_9ocYMv4s1672BUXhkpHJanS-Irzy28AtE9ILt1kKtWSS1ikZYaXPrHFvQlxnWy0hooGsKGzBB-Q7Rx8WfcXCpH6PrHuXDo7cEg7H-kOwoLl_LqZOq"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 pb-24 px-margin-desktop bg-surface-bright min-h-screen">
+<div class="max-w-6xl mx-auto space-y-stack-lg mt-8">
+<!-- Resumen de Deuda & Semáforo -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant sombra-verde">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Resumen de Estrés Financiero</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Análisis basado en tu relación Deuda/Ingreso (DTI)</p>
+</div>
+<div class="bg-danger/10 text-danger px-4 py-1 rounded-full font-bold text-label-sm border border-danger/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+                            Nivel Crítico
+                        </div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-10">
+<!-- Semáforo Visualization -->
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#e2e3e0" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="45" stroke="#D62828" stroke-dasharray="282.7" stroke-dashoffset="141.3" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-data-mono text-[32px] text-danger">50%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">DTI Actual</span>
+</div>
+</div>
+<div class="flex-grow space-y-4">
+<div class="flex items-start gap-4 bg-error-container/30 p-4 rounded-lg border-l-4 border-danger">
+<span class="material-symbols-outlined text-danger mt-1" data-icon="emergency">emergency</span>
+<div>
+<p class="font-body-lg text-body-lg text-on-error-container font-bold">Estado: Rojo (Peligro)</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Tus deudas consumen la mitad de lo que ganas. Esto significa que cualquier emergencia podría dejarte sin dinero para renta o comida.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-3 rounded-lg">
+<p class="text-label-sm text-on-surface-variant">Deuda Total</p>
+<p class="font-data-mono text-headline-md text-primary">$42,500</p>
+</div>
+<div class="bg-surface-container p-3 rounded-lg">
+<p class="text-label-sm text-on-surface-variant">Pago Mensual</p>
+<p class="font-data-mono text-headline-md text-secondary">$1,250</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fast Action Card -->
+<div class="bg-primary-container text-white p-8 rounded-xl flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-pale-green">¿Te sientes ahogado?</h3>
+<p class="font-body-md text-body-md text-pale-green/80 mt-4 leading-relaxed">
+                            Podemos ayudarte a negociar con los bancos hoy mismo. No esperes a que las llamadas de cobro empiecen.
+                        </p>
+</div>
+<button class="mt-8 bg-secondary-container text-on-secondary-container font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-secondary-fixed transition-all">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                        Ver Defensa Legal
+                    </button>
+</div>
+</section>
+<!-- Calculadora de Estrategia -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="calculate">calculate</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Simulador de Libertad Financiera</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-stack-sm">
+<label class="font-label-sm text-on-surface-variant block">Deuda Total Acumulada</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full h-touch-target pl-8 pr-4 bg-surface rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 font-data-mono" type="number" value="42500"/>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<label class="font-label-sm text-on-surface-variant block">Ingreso Mensual (Limpios)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full h-touch-target pl-8 pr-4 bg-surface rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 font-data-mono" type="number" value="2500"/>
+</div>
+</div>
+<div class="space-y-stack-sm">
+<label class="font-label-sm text-on-surface-variant block">Gastos Fijos (Renta, Comida)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full h-touch-target pl-8 pr-4 bg-surface rounded-lg border-2 border-outline-variant focus:border-primary-mid focus:ring-0 font-data-mono" type="number" value="1800"/>
+</div>
+</div>
+</div>
+<div class="mt-10 p-6 bg-pale-green/30 rounded-xl border border-primary-fixed flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary-mid text-[32px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<p class="font-body-lg text-body-lg text-primary max-w-md">
+                            Con tu presupuesto actual, te tomaría <strong>34 meses</strong> salir de deudas sin ayuda.
+                        </p>
+</div>
+<button class="bg-primary-mid text-white px-8 py-3 rounded-xl font-bold hover:bg-primary transition-colors">
+                        Recalcular con Blindado
+                    </button>
+</div>
+</section>
+<!-- Métodos de Pago: Nivel 5to Grado -->
+<section>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Dos Caminos para Ganar:</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Bola de Nieve -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant relative overflow-hidden group hover:border-primary-mid transition-all">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-pale-green/20 rounded-full blur-3xl group-hover:bg-primary-fixed/30 transition-colors"></div>
+<div class="relative">
+<span class="material-symbols-outlined text-primary-light text-5xl mb-4" data-icon="ac_unit">ac_unit</span>
+<h4 class="font-headline-md text-headline-md text-primary">La Bola de Nieve</h4>
+<p class="font-label-sm text-label-sm text-primary-mid uppercase tracking-widest mt-1">Efecto Psicológico</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 leading-relaxed">
+<strong>Nivel 5to Grado:</strong> Pagas primero la deuda más chiquita (ej: una tarjeta de $300). Cuando la terminas, te sientes feliz y usas ese dinero para pagar la siguiente.
+                            </p>
+<div class="mt-6 space-y-2">
+<div class="flex justify-between text-label-sm font-bold">
+<span>Victoria Rápida</span>
+<span class="text-success">¡Excelente!</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-success h-full w-[90%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Avalancha -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant relative overflow-hidden group hover:border-accent-dark transition-all">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-accent-dark/5 rounded-full blur-3xl group-hover:bg-accent-dark/10 transition-colors"></div>
+<div class="relative">
+<span class="material-symbols-outlined text-accent-dark text-5xl mb-4" data-icon="tsunami">tsunami</span>
+<h4 class="font-headline-md text-headline-md text-primary">La Avalancha</h4>
+<p class="font-label-sm text-label-sm text-accent-dark uppercase tracking-widest mt-1">Ahorro de Dinero</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 leading-relaxed">
+<strong>Nivel 5to Grado:</strong> Pagas primero la deuda que tiene el interés más caro (la que te roba más dinero cada mes). Es la forma más rápida y barata de ganar.
+                            </p>
+<div class="mt-6 space-y-2">
+<div class="flex justify-between text-label-sm font-bold">
+<span>Ahorro Total</span>
+<span class="text-accent-dark">Máximo</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-accent-dark h-full w-[100%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hardship Plan & AI Letter Generator -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-stretch">
+<!-- Hardship Explanation -->
+<div class="bg-surface-container-high p-8 rounded-xl">
+<h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid" data-icon="help_center">help_center</span>
+                        ¿Qué es un Plan Hardship?
+                    </h3>
+<div class="mt-6 space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p>Es un acuerdo especial con el banco cuando tienes problemas reales para pagar (perdiste el trabajo, te enfermaste, etc.).</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Te bajan el interés temporalmente.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Eliminan los cargos por pagos tarde.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success mt-1" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Protegen tu crédito mientras te recuperas.</span>
+</li>
+</ul>
+<p class="pt-4 italic">No es un perdón de deuda, es un "respiro" para que no te ahogues.</p>
+</div>
+</div>
+<!-- AI Generator Card -->
+<div class="bg-white p-8 rounded-xl border-2 border-dashed border-primary-fixed flex flex-col items-center text-center justify-center">
+<img alt="Ilustración de documento legal" class="w-48 mb-6" data-alt="A stylized professional illustration of a legal document with a golden seal being generated by digital light beams. The style is clean, modern, and corporate, using a palette of deep greens and soft whites. The lighting is bright and optimistic, conveying trust and legal authority in a financial context. High quality vector art aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYRkdPNMBQphLr9LqR2bHW4VzzsZ9Gt5o9zhOgQmIRMKqMrtpHzHs72OJkrhqUXm3zgG4axRoOYqK7LCulgUQDUGPVg1didGHbvnOsg0J50cqzWcRU5JCn7eeXSuBYOunQL9reTE5E7T9sJWf3SMRcbfeaD_CofgFrnZMdWr2uxbr3hjbyrEdKdnxpUTkFvVSZhHHUaqIk0azX4yxzXMAd1Tk_qu9L5fSYk-UhAyyARPpiH8jIAnJoF4TtqpVneUTGeuhCn3q-vDG6"/>
+<h3 class="font-headline-md text-headline-md text-primary">Generar Carta de Dificultad</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 mb-8">Nuestra IA redacta la carta legal perfecta explicando tu situación al banco en términos que ellos aceptan.</p>
+<button class="w-full bg-secondary text-on-secondary font-bold py-4 rounded-xl flex items-center justify-center gap-3 hover:opacity-90 active:scale-95 transition-all sombra-verde">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                        Crear Carta con IA Ahora
+                    </button>
+<p class="text-label-sm text-outline mt-4">Listo para imprimir o enviar por email.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-8 right-8 z-50 bg-primary-mid text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined text-[28px]" data-icon="smart_toy">smart_toy</span>
+<span class="absolute right-16 bg-primary-container text-pale-green text-label-sm px-4 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Asistente Blindado
+        </span>
+</button>
+<script>
+        // Simple interactive logic for the calculator
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('change', () => {
+                // In a real app, this would trigger recalculations
+                console.log('Calculating new strategy...');
+            });
+        });
+
+        // Hover animations and micro-interactions
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

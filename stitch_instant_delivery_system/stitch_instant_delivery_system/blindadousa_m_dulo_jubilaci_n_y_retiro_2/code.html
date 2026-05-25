@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jubilación y Retiro | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e2e3e0",
+                        "on-error": "#ffffff",
+                        "background": "#f9faf6",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-variant": "#e2e3e0",
+                        "inverse-surface": "#2f312f",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary-container": "#ffab69",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-container": "#d89b00",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "accent-dark": "#E76F51",
+                        "success": "#52B788",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-container": "#783d01",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1a",
+                        "danger": "#D62828",
+                        "warning": "#F77F00",
+                        "surface-container-low": "#f3f4f1",
+                        "tertiary-fixed": "#ffdea9",
+                        "pale-green": "#D8F3DC",
+                        "surface-tint": "#3f6653",
+                        "surface-bright": "#f9faf6",
+                        "tertiary-container": "#503700",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-surface": "#1a1c1a",
+                        "on-primary-fixed": "#002114",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-primary-container": "#86af99",
+                        "surface": "#f9faf6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container": "#eeeeeb",
+                        "dark": "#1A1A2E",
+                        "surface-dim": "#dadad7",
+                        "primary-mid": "#2D6A4F",
+                        "tertiary": "#342300",
+                        "gray": "#6B7280",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary": "#8e4e14",
+                        "primary-light": "#40916C",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-container-high": "#e8e8e5",
+                        "on-primary": "#ffffff",
+                        "outline": "#717973",
+                        "on-surface-variant": "#414844",
+                        "inverse-on-surface": "#f0f1ee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .shadow-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        input[type="range"] {
+            accent-color: #2D6A4F;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background fixed top-0 z-50 w-full border-b border-outline-variant dark:border-outline flex justify-between items-center h-touch-target px-margin-mobile md:px-margin-desktop">
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">BLINDADOUSA</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">search</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img alt="Avatar" data-alt="A professional headshot of a middle-aged Hispanic man smiling warmly, wearing a crisp white shirt. The background is a soft-focus office interior with warm wooden tones and natural daylight, reflecting a corporate yet approachable financial advisor aesthetic. The lighting is bright and high-key, maintaining a clean and trustworthy visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANDCiFcVkHpUc3qAQFr0fyms9o3Y6h97zq5GRHKAbDQdcLNsC4Ay349MItBvsS-KvKr5CJONdX3BOU65Lsf4vqoA30LEZCpAaCk4rxPxJB7Qucz1DYuWCInSzQOSu-KN81FCJNatGAJ6wtGoiXSIUD4cAbrv_tQBeb7_yfebJqTz_-0CpXDxVj8tMLv_wy6pjwmkax8rRU_tLRplS8j2lZxX7BysS8ybbrTPUvhpCQUv5ZiUI-aZQopkUWK5HtsAykZv7WYQ9S0L3W"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-touch-target">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low dark:bg-surface-container fixed left-0 h-full w-64 hidden md:flex flex-col py-stack-md px-4 space-y-2 shadow-sm z-40">
+<div class="mb-8 px-4">
+<p class="font-display-lg text-display-lg text-primary dark:text-primary-fixed-dim leading-none">Mi Panel</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm">Historial</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 translate-x-1 transition-transform duration-200 font-bold" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm">Soporte</span>
+</a>
+</nav>
+<button class="mt-auto bg-primary-mid text-on-primary rounded-xl px-4 py-3 font-bold flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined">smart_toy</span>
+                Hablar con IA
+            </button>
+<div class="border-t border-outline-variant pt-4">
+<a class="flex items-center gap-stack-sm text-danger px-4 py-3 hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 px-margin-mobile md:px-margin-desktop py-stack-md pb-32">
+<!-- Hero Section -->
+<section class="relative overflow-hidden rounded-3xl bg-primary text-white p-8 md:p-12 mb-stack-lg shadow-verde min-h-[300px] flex items-center">
+<div class="relative z-10 max-w-2xl">
+<span class="bg-accent-dark text-on-primary px-3 py-1 rounded-full font-label-sm uppercase tracking-widest mb-4 inline-block">Realidad Hispana</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">8 DE CADA 10 HISPANOS MILLENNIALS NO TIENE NADA AHORRADO.</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-8">Tú puedes ser la excepción. El retiro no es una edad, es un número en tu cuenta.</p>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform active:scale-95">Empieza Hoy</button>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-20 pointer-events-none">
+<div class="absolute inset-0 bg-gradient-to-l from-primary-light to-transparent"></div>
+<img alt="Financial Future" class="w-full h-full object-cover mix-blend-overlay" data-alt="A stylized, artistic visual of golden coins growing into a lush green tree under a sunrise. The image uses a cinematic lighting style with deep forest greens and glowing amber highlights. The aesthetic is clean, corporate, and aspirational, symbolizing long-term financial growth and stability in a modern digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEt8cxnitKimIVvRRCTGqtTevBFzeZn1NHVnMWru_56T5teE5xWpO37ErwrUebNwcK0GI4xe1mUVys0_Rh8aUFtNqFh8Osti-Epd1g7CEc5_vj39tgQuAEdjGJ72BT0TbfqzFIqHFBbHqIxwOXWYKkm5P9XQkuIxWhvOYppfdxeOcrLkox0yeMf8Fb6ynmIqzZzTFps17iQFV6pNRyCOnPDXA7rcGoWKnIkUs7AjQOpsyO4SZPToRvG-Y4Qk-RIbnC_41LO9BYeDgn"/>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Calculator Section -->
+<div class="lg:col-span-8 bg-white p-8 rounded-3xl border border-outline-variant shadow-sm space-y-8">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-mid text-4xl">savings</span>
+<h3 class="font-headline-md text-headline-md text-primary">Calculadora de Libertad Financiera</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<label class="flex justify-between font-label-sm mb-2"><span>Edad Actual</span> <span class="font-data-mono text-primary-mid" id="val-age">25</span></label>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" max="65" min="18" oninput="document.getElementById('val-age').innerText = this.value; updateCalc();" type="range" value="25"/>
+</div>
+<div>
+<label class="flex justify-between font-label-sm mb-2"><span>Edad de Retiro</span> <span class="font-data-mono text-primary-mid" id="val-retire">65</span></label>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" max="75" min="50" oninput="document.getElementById('val-retire').innerText = this.value; updateCalc();" type="range" value="65"/>
+</div>
+<div>
+<label class="flex justify-between font-label-sm mb-2"><span>Ahorro Mensual ($)</span> <span class="font-data-mono text-primary-mid" id="val-monthly">200</span></label>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" max="2000" min="10" oninput="document.getElementById('val-monthly').innerText = this.value; updateCalc();" step="10" type="range" value="200"/>
+</div>
+</div>
+<div class="bg-primary-container text-on-primary-container p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+<p class="font-label-sm uppercase tracking-widest opacity-80 mb-2">Tendrás al jubilarte</p>
+<p class="font-display-lg text-4xl md:text-6xl text-on-primary mb-2" id="total-savings">$542,301</p>
+<p class="font-body-md text-sm">Basado en un retorno anual del 7%</p>
+<div class="mt-6 w-full bg-white/10 h-32 rounded-lg relative overflow-hidden flex items-end px-2 gap-1" id="chart-container">
+<!-- JS will inject bars here -->
+</div>
+</div>
+</div>
+</div>
+<!-- Acorns CTA -->
+<div class="lg:col-span-4 bg-pale-green p-8 rounded-3xl border border-primary/10 shadow-verde flex flex-col items-center text-center">
+<img alt="Acorns" class="w-20 h-20 rounded-2xl mb-6 shadow-md" data-alt="A macro photograph of fresh green acorns resting on a mossy forest floor, with soft dappled sunlight filtering through the canopy. The image has a crisp, natural focus with a shallow depth of field, symbolizing organic growth and the brand identity of micro-investing. The colors are vibrant greens and earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdut2koEUUI8r9dB73p6kN_l3YgrOesYboNdq7zWxw4XPmG2BxFRMMx57kKF-21LLGl-Z76MdQQB4QS2uaNMuV8Eaj3ESEo2X9YuAUZ9ofGJfjX0hX-RdP_anYnif14VWg5gjbW764h6mGb43H4jqFICC4ZpMSX91gdv4vaGEXyTaH3gZ_3TQ7zJYyvIW_5mmd2DUXRpSPs8FsYszrwrqHbNlFXz1hUY405vtTXuXKuiEpLeFxPlS0fyfo7KwW55kKMaUTSDHHcXhs"/>
+<h3 class="font-headline-md text-headline-md text-primary-mid mb-2">Comienza con $5</h3>
+<p class="font-body-md mb-6">Invierte tu "vuelto" automáticamente con Acorns. La forma más fácil para que los hispanos den su primer paso.</p>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary-mid transition-colors">Abrir cuenta en 3 min</button>
+<p class="font-label-sm text-on-surface-variant mt-4">Aliado Verificado de BlindadoUSA</p>
+</div>
+</div>
+<!-- Education Cards Section -->
+<section class="mt-stack-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-8 text-center">Tus 3 Herramientas Maestras</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- 401k -->
+<div class="bg-white border border-outline-variant p-6 rounded-3xl hover:border-primary-mid transition-colors group">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center text-primary-mid mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined filled-icon">business</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2">401(k)</h4>
+<p class="font-label-sm text-success mb-4 flex items-center gap-1"><span class="material-symbols-outlined text-sm">add_circle</span> El Dinero "Regalado"</p>
+<p class="font-body-md text-on-surface-variant">Si tu empresa ofrece "Matching", es un aumento de sueldo inmediato. No dejarlo en la mesa es la regla #1.</p>
+</div>
+<!-- Trad IRA -->
+<div class="bg-white border border-outline-variant p-6 rounded-3xl hover:border-primary-mid transition-colors group">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center text-primary-mid mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined filled-icon">account_balance</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2">IRA Tradicional</h4>
+<p class="font-label-sm text-warning mb-4 flex items-center gap-1"><span class="material-symbols-outlined text-sm">remove_circle</span> Paga Menos Taxes Hoy</p>
+<p class="font-body-md text-on-surface-variant">Ideal si ganas mucho hoy y quieres reducir tus impuestos ahora mismo. Pagas taxes cuando retires el dinero.</p>
+</div>
+<!-- Roth IRA -->
+<div class="bg-white border border-outline-variant p-6 rounded-3xl hover:border-primary-mid transition-colors group">
+<div class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center text-primary-mid mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined filled-icon">verified_user</span>
+</div>
+<h4 class="font-headline-md text-xl mb-2">Roth IRA</h4>
+<p class="font-label-sm text-success mb-4 flex items-center gap-1"><span class="material-symbols-outlined text-sm">verified</span> Libre de Taxes para Siempre</p>
+<p class="font-body-md text-on-surface-variant">Nuestra favorita. Pagas taxes hoy, pero todo lo que crezca será 100% tuyo al retirarte. Sin pagarle un centavo al IRS.</p>
+</div>
+</div>
+</section>
+<!-- Comparison Section -->
+<section class="mt-stack-lg bg-surface-container-low rounded-3xl p-8 border border-outline-variant">
+<div class="max-w-3xl mx-auto text-center mb-12">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">El Costo de Esperar</h3>
+<p class="font-body-lg text-on-surface-variant">Mira la diferencia de ahorrar los mismos $200 mensuales empezando solo 10 años después.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<!-- Starting at 25 -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-success">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-sm uppercase font-bold text-success">Empezando a los 25</span>
+<span class="font-data-mono text-xl text-primary">$542,301</span>
+</div>
+<div class="w-full bg-surface-container-highest h-4 rounded-full overflow-hidden">
+<div class="bg-success h-full w-full"></div>
+</div>
+<p class="mt-4 font-body-md text-sm italic">"El interés compuesto trabaja para ti por 40 años."</p>
+</div>
+<!-- Starting at 35 -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-danger">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-sm uppercase font-bold text-danger">Empezando a los 35</span>
+<span class="font-data-mono text-xl text-primary">$254,120</span>
+</div>
+<div class="w-full bg-surface-container-highest h-4 rounded-full overflow-hidden">
+<div class="bg-danger h-full w-[47%]"></div>
+</div>
+<p class="mt-4 font-body-md text-sm italic">"Perder 10 años te costó más de la mitad de tu futuro."</p>
+</div>
+</div>
+<div class="mt-12 bg-primary-container text-on-primary-container p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h4 class="font-headline-md text-on-primary mb-1">¿No sabes por dónde empezar?</h4>
+<p class="font-body-md">Habla con nuestra IA experta en leyes financieras de USA.</p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold whitespace-nowrap hover:scale-105 transition-transform">Consultar Gratis</button>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe bg-surface border-t border-outline-variant md:hidden z-50 shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 scale-90" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm">Retiro</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-16 h-16 bg-gradient-to-br from-primary-mid to-primary text-white rounded-full shadow-lg flex items-center justify-center z-50 hover:scale-110 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<span class="absolute -top-12 right-0 bg-white text-primary text-xs font-bold px-3 py-1 rounded-lg border border-primary/20 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">¿Preguntas sobre tu 401k?</span>
+</button>
+<script>
+        function updateCalc() {
+            const age = parseInt(document.getElementById('val-age').innerText);
+            const retire = parseInt(document.getElementById('val-retire').innerText);
+            const monthly = parseInt(document.getElementById('val-monthly').innerText);
+            
+            const years = retire - age;
+            if (years <= 0) return;
+
+            const r = 0.07 / 12; // 7% annual interest
+            const n = years * 12;
+            
+            // FV = P * [((1 + r)^n - 1) / r]
+            const futureValue = monthly * ((Math.pow(1 + r, n) - 1) / r);
+            
+            document.getElementById('total-savings').innerText = '$' + Math.round(futureValue).toLocaleString();
+
+            // Update mini chart
+            const container = document.getElementById('chart-container');
+            container.innerHTML = '';
+            const steps = 15;
+            for(let i=1; i<=steps; i++) {
+                const stepYears = (years / steps) * i;
+                const stepVal = monthly * ((Math.pow(1 + r, stepYears * 12) - 1) / r);
+                const height = (stepVal / futureValue) * 100;
+                const bar = document.createElement('div');
+                bar.className = 'bg-primary-fixed-dim/40 w-full rounded-t-sm transition-all duration-500';
+                bar.style.height = height + '%';
+                container.appendChild(bar);
+            }
+        }
+
+        // Initialize
+        updateCalc();
+    </script>
+</body></html>

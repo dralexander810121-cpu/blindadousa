@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Comprar Carro | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeeb",
+                    "primary-light": "#40916C",
+                    "tertiary-fixed": "#ffdea9",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "surface-bright": "#f9faf6",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-surface-variant": "#414844",
+                    "tertiary": "#342300",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c8c2",
+                    "primary-fixed": "#c1ecd4",
+                    "outline": "#717973",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadad7",
+                    "on-surface": "#1a1c1a",
+                    "on-tertiary-container": "#d89b00",
+                    "surface": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "primary-container": "#1b4332",
+                    "on-secondary-container": "#783d01",
+                    "danger": "#D62828",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-container": "#86af99",
+                    "dark": "#1A1A2E",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-tint": "#3f6653",
+                    "background": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "error-container": "#ffdad6",
+                    "warning": "#F77F00",
+                    "primary-mid": "#2D6A4F",
+                    "tertiary-container": "#503700",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ffab69",
+                    "primary": "#012d1d",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "inverse-surface": "#2f312f",
+                    "inverse-primary": "#a5d0b9",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "surface-container-highest": "#e2e3e0",
+                    "error": "#ba1a1a",
+                    "secondary": "#8e4e14",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-background": "#1a1c1a",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "gray": "#6B7280",
+                    "surface-variant": "#e2e3e0",
+                    "success": "#52B788",
+                    "on-tertiary-fixed": "#271900",
+                    "accent-dark": "#E76F51",
+                    "inverse-on-surface": "#f0f1ee",
+                    "secondary-fixed": "#ffdcc4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #D8F3DC;
+            border-radius: 5px;
+            background-image: linear-gradient(#1b4332, #1b4332);
+            background-repeat: no-repeat;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #1b4332;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto py-6 border-r border-outline-variant dark:border-outline bg-surface-container dark:bg-surface-container-low docked left-0 h-screen w-72 hidden md:flex flex-col z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div>
+<h1 class="font-display-lg text-headline-md text-primary-container dark:text-primary-fixed leading-none">BlindadoUSA</h1>
+<p class="text-label-sm text-on-surface-variant font-semibold">Tu Biblia Financiera</p>
+</div>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span> Panel Principal
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">credit_score</span> Mi Crédito
+            </a>
+<a class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)] font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined filled-icon">directions_car</span> Comprar Carro
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">home</span> Vivienda
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">receipt_long</span> Impuestos ITIN
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">savings</span> Ahorros
+            </a>
+<a class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all font-body-md font-semibold" href="#">
+<span class="material-symbols-outlined">gavel</span> Legal
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined filled-icon">smart_toy</span> Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-72 min-h-screen pb-20">
+<!-- Top Header Mobile/Desktop -->
+<header class="flex justify-between items-center w-full h-16 px-margin-mobile md:px-margin-desktop bg-surface sticky top-0 z-40 border-b border-outline-variant">
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary-container text-3xl">menu</span>
+</div>
+<div class="flex-1 md:flex-none md:ml-0 text-center md:text-left">
+<span class="font-display-lg text-display-lg-mobile md:text-headline-md text-primary-container uppercase tracking-wider md:hidden">BlindadoUSA</span>
+<span class="hidden md:block font-body-lg font-bold text-primary-container">Módulo: Comprar Carro</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-pale-green/30 p-2 rounded-full cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Foto de perfil del usuario" data-alt="A professional headshot of a Hispanic male in a corporate setting, with soft studio lighting and a neutral blurred background. The individual wears a clean business casual outfit, conveying trust and financial stability, perfectly matching a high-end banking application aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD22Q2HJ13jX5gFMEmSaRQkcCWb5rVGOt8jNI1I0NWgCNTkyUdlXAw28CCczFuMv8lAPdDKDrUij8J5J18sun8nXaPoTeXlftaDYDSnaQzZ-aOa5nlFR4TVI4K8CyLBrQLH2c3w7Ek7M4aMVMkN7nFkd4dl3y3XpmTCoMny62QAleLnQE6NqxewLAT2Rk3x9Kn3g2BMlYAc6D09aFG_dhCwWEX1w1IQ3Zr1OzT7vto4nVBGzT7M0FU4jNRbBxM9c1ShWMw7tEWAA4zT"/>
+</div>
+</div>
+</header>
+<div class="px-margin-mobile md:px-margin-desktop pt-8">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container uppercase leading-tight">Comprar Carro</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mt-2">
+                    Tu guía táctica para dominar al dealer. No compres con emoción, compra con datos. Aquí te enseñamos a proteger tu bolsillo en el concesionario.
+                </p>
+</section>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Calculator (Bento Style) -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Calculadora 20/4/10 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl">calculate</span>
+</div>
+<h3 class="font-headline-md text-primary-container mb-2">Calculadora de Presupuesto Real</h3>
+<p class="text-label-sm text-on-surface-variant mb-6 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">info</span> 
+                            Usamos la regla <span class="font-bold">20/4/10</span>: 20% down, 4 años, 10% de tu ingreso.
+                        </p>
+<div class="space-y-6">
+<!-- Input: Ingreso Mensual (Simulado para cálculo) -->
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-semibold text-primary">Tus Ingresos Mensuales (Netos)</label>
+<span class="font-data-mono text-primary-container">$3,500</span>
+</div>
+<input class="w-full h-2 bg-pale-green rounded-lg cursor-pointer accent-primary-container" max="10000" min="1000" step="100" type="range" value="3500"/>
+</div>
+<!-- Input: Precio del Auto -->
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-semibold text-primary">Precio del Auto</label>
+<span class="font-data-mono text-primary-container">$28,000</span>
+</div>
+<input class="w-full h-2 bg-pale-green rounded-lg cursor-pointer accent-primary-container" max="80000" min="5000" step="500" type="range" value="28000"/>
+</div>
+<!-- Input: Down Payment -->
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-semibold text-primary">Pago Inicial (Down Payment)</label>
+<span class="font-data-mono text-primary-container">$5,600 (20%)</span>
+</div>
+<input class="w-full h-2 bg-pale-green rounded-lg cursor-pointer accent-primary-container" max="20000" min="0" step="500" type="range" value="5600"/>
+</div>
+</div>
+<!-- Semáforo Result -->
+<div class="mt-8 p-6 rounded-xl border-2 border-success bg-success/5 flex flex-col md:flex-row items-center gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-3 h-3 rounded-full bg-success"></div>
+<span class="text-label-sm font-bold uppercase tracking-wider text-success">ESTADO: SALUDABLE</span>
+</div>
+<p class="text-body-md text-primary font-medium">Pago Mensual Estimado: <span class="font-data-mono text-2xl">$345</span></p>
+<p class="text-label-sm text-on-surface-variant mt-1">Este pago representa el <span class="font-bold">9.8%</span> de tus ingresos. Estás dentro del límite seguro.</p>
+</div>
+<div class="flex flex-col gap-2 w-full md:w-auto">
+<button class="bg-primary-container text-on-primary py-3 px-6 rounded-lg font-bold text-sm hover:scale-105 transition-transform active:scale-95 whitespace-nowrap">
+                                    Ver Detalle del Préstamo
+                                </button>
+</div>
+</div>
+</div>
+<!-- Lo que el dealer no quiere que sepas -->
+<div class="space-y-4">
+<h3 class="font-headline-md text-primary-container">Tácticas de Supervivencia</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-high p-5 rounded-xl border-l-4 border-warning">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-warning">warning</span>
+<h4 class="font-bold text-primary">Negocia el PRECIO TOTAL</h4>
+</div>
+<p class="text-label-sm text-on-surface-variant">Nunca digas cuánto puedes pagar al mes. Si lo haces, el dealer inflará el plazo para meterte cargos extras ocultos.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-high p-5 rounded-xl border-l-4 border-primary-mid">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary-mid">account_balance</span>
+<h4 class="font-bold text-primary">Trae tu propio banco</h4>
+</div>
+<p class="text-label-sm text-on-surface-variant">Llega con una pre-aprobación de tu Credit Union o Banco. Obliga al dealer a mejorar esa tasa o quédate con la tuya.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-high p-5 rounded-xl border-l-4 border-error">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-error">dangerous</span>
+<h4 class="font-bold text-primary">Evita el "Add-on"</h4>
+</div>
+<p class="text-label-sm text-on-surface-variant">Protection packages, VIN etching o GAP insurance del dealer suelen ser 3 veces más caros que por fuera.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-high p-5 rounded-xl border-l-4 border-secondary-container">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-secondary-container">timer</span>
+<h4 class="font-bold text-primary">Camina hacia la puerta</h4>
+</div>
+<p class="text-label-sm text-on-surface-variant">Tu poder más grande es irte. No te sientas obligado a firmar. Hay miles de carros más esperando.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: APR Table & Tools -->
+<div class="lg:col-span-5 space-y-8">
+<!-- APR Table -->
+<div class="bg-primary-container text-on-primary rounded-xl p-6 shadow-lg sombra-verde">
+<h3 class="font-headline-md mb-4">Interés (APR) Estimado</h3>
+<p class="text-label-sm text-on-primary-container mb-6 italic">Basado en el mercado actual para autos nuevos (2024).</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div>
+<p class="font-bold text-white">Excelente (740+)</p>
+<p class="text-xs text-on-primary-container">Poder de negociación total</p>
+</div>
+<span class="font-data-mono text-xl text-success">5.2% - 6.0%</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div>
+<p class="font-bold text-white">Bueno (670-739)</p>
+<p class="text-xs text-on-primary-container">Tasa competitiva</p>
+</div>
+<span class="font-data-mono text-xl text-pale-green">6.5% - 7.5%</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div>
+<p class="font-bold text-white">Regular (580-669)</p>
+<p class="text-xs text-on-primary-container">Posibles limitaciones</p>
+</div>
+<span class="font-data-mono text-xl text-warning">9.0% - 12.5%</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white/5 rounded-lg border border-white/10">
+<div>
+<p class="font-bold text-white">Pobre (&lt; 580)</p>
+<p class="text-xs text-on-primary-container">Requiere Co-signer</p>
+</div>
+<span class="font-data-mono text-xl text-danger">15% - 22%</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-on-primary-container text-on-primary-container rounded-lg font-bold hover:bg-white/10 transition-colors">
+                            ¿Cómo subir mi Score rápido?
+                        </button>
+</div>
+<!-- Ayuda Rápida -->
+<div class="bg-surface-container p-6 rounded-xl space-y-4">
+<h4 class="font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined">support_agent</span> Directorio de Ayuda
+                        </h4>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 bg-surface rounded-lg hover:shadow-md transition-shadow group">
+<span class="font-semibold text-primary">Ver Dealers Verificados</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface rounded-lg hover:shadow-md transition-shadow group">
+<span class="font-semibold text-primary">Revisar Contrato (IA)</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">description</span>
+</button>
+</div>
+</div>
+<!-- Glosario Rápido -->
+<div class="p-6 rounded-xl border border-outline-variant">
+<h4 class="font-bold text-primary mb-4">Glosario de Combate</h4>
+<div class="space-y-4">
+<div>
+<h5 class="text-sm font-bold text-primary-mid uppercase">Gap Insurance</h5>
+<p class="text-xs text-on-surface-variant">Seguro que paga la diferencia entre lo que debes y lo que vale el auto si tienes un accidente total.</p>
+</div>
+<hr class="border-outline-variant"/>
+<div>
+<h5 class="text-sm font-bold text-primary-mid uppercase">Trade-in</h5>
+<p class="text-xs text-on-surface-variant">Dar tu auto viejo como parte de pago. ¡Ojo! El dealer siempre te dará menos de lo que vale en el mercado.</p>
+</div>
+<hr class="border-outline-variant"/>
+<div>
+<h5 class="text-sm font-bold text-primary-mid uppercase">Out-the-door (OTD)</h5>
+<p class="text-xs text-on-surface-variant">El precio final real incluyendo impuestos y fees. Esta es la única cifra que importa.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Section CTA -->
+<section class="mt-stack-lg p-8 rounded-3xl bg-secondary-container flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl text-center md:text-left">
+<h3 class="font-display-lg text-display-lg-mobile text-on-secondary-container">¿Listo para ir al Dealer?</h3>
+<p class="text-body-md text-on-secondary-container font-medium">Lleva nuestro PDF "Checklist Anti-Dealer" impreso y no dejes que te confundan con números complejos.</p>
+</div>
+<button class="bg-primary-container text-on-primary px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all w-full md:w-auto">
+                    Descargar Guía de Negociación
+                </button>
+</section>
+</div>
+<!-- Site Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop mt-stack-lg py-8 border-t border-outline-variant">
+<div class="mb-4 md:mb-0">
+<span class="font-display-lg text-body-lg text-primary-container uppercase">BlindadoUSA</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">© 2024 BlindadoUSA. Protegiendo el futuro hispano.</p>
+</div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Soporte</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary-light transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</main>
+<!-- Floating AI Assistant Button (Persistent) -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 rounded-full bg-primary-container text-on-primary shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform group relative">
+<span class="material-symbols-outlined text-3xl filled-icon">smart_toy</span>
+<div class="absolute right-full mr-4 bg-white px-4 py-2 rounded-lg shadow-xl border border-outline-variant hidden group-hover:block whitespace-nowrap">
+<p class="text-sm font-bold text-primary">¿Dudas con el APR? Pregúntame.</p>
+</div>
+</button>
+</div>
+<!-- Micro-interaction for range inputs -->
+<script>
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            input.addEventListener('input', function() {
+                const min = this.min;
+                const max = this.max;
+                const val = this.value;
+                this.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%';
+            });
+            // Init background size
+            input.dispatchEvent(new Event('input'));
+        });
+    </script>
+</body></html>

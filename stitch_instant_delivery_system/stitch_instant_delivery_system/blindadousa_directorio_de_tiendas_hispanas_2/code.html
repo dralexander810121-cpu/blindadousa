@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Tiendas Hispanas | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c1c8c2; border-radius: 10px; }
+        .tap-highlight-transparent { -webkit-tap-highlight-color: transparent; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-fixed": "#2f1400",
+                        "secondary-fixed": "#ffdcc4",
+                        "gray": "#6B7280",
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "pale-green": "#D8F3DC",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "on-primary-fixed": "#002114",
+                        "surface-tint": "#3f6653",
+                        "background": "#f9faf6",
+                        "surface-dim": "#dadad7",
+                        "on-background": "#1a1c1a",
+                        "on-tertiary-fixed": "#271900",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-mid": "#2D6A4F",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary": "#8e4e14",
+                        "surface-container-low": "#f3f4f1",
+                        "primary-light": "#40916C",
+                        "secondary-fixed-dim": "#ffb780",
+                        "inverse-surface": "#2f312f",
+                        "on-surface": "#1a1c1a",
+                        "outline": "#717973",
+                        "success": "#52B788",
+                        "dark": "#1A1A2E",
+                        "on-secondary-container": "#783d01",
+                        "secondary-container": "#ffab69",
+                        "tertiary-fixed": "#ffdea9",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#503700",
+                        "on-secondary": "#ffffff",
+                        "accent-dark": "#E76F51",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-bright": "#f9faf6",
+                        "primary-container": "#1b4332",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-variant": "#e2e3e0",
+                        "primary-fixed": "#c1ecd4",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeeeeb",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "inverse-primary": "#a5d0b9",
+                        "surface": "#f9faf6",
+                        "primary": "#012d1d",
+                        "on-tertiary": "#ffffff",
+                        "warning": "#F77F00",
+                        "on-primary-container": "#86af99",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#342300",
+                        "danger": "#D62828"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1.25rem",
+                        "stack-lg": "3rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "touch-target": "48px",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b border-outline-variant z-40 flex justify-between items-center h-touch-target px-margin-mobile md:px-margin-desktop">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">BlindadoUSA</h1>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-1 rounded-lg" href="#">Directorios</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-1 rounded-lg" href="#">Blog</a>
+<a class="text-primary font-bold border-b-2 border-primary" href="#">Tiendas</a>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col bg-surface-container border-r border-outline-variant p-gutter gap-stack-md z-50 pt-20">
+<div class="mb-4">
+<h2 class="font-headline-md text-primary px-2">Mi Blindaje</h2>
+<p class="text-label-sm text-primary-mid px-2">Estatus: Seguro</p>
+</div>
+<nav class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm">Crédito</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container rounded-lg font-bold transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-sm">Directorio</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm">Legal</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm">Impuestos</span>
+</a>
+</nav>
+<button class="bg-primary-mid text-on-primary font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 mb-4 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+                Obtener Ayuda AI
+            </button>
+<div class="flex flex-col gap-1 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm">Configuración</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-variant rounded-lg text-danger" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow md:ml-64 pb-24 md:pb-12 px-margin-mobile md:px-margin-desktop min-h-screen">
+<!-- Hero & Search Section -->
+<section class="py-stack-md flex flex-col gap-stack-sm">
+<div class="flex justify-between items-end gap-4">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary uppercase">Tiendas Hispanas</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Apoya a los negocios de nuestra comunidad. Encuentra tiendas que hablan tu idioma y aceptan tus formas de pago.</p>
+</div>
+<div class="hidden lg:flex items-center bg-surface-container p-1 rounded-full border border-outline-variant">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">grid_view</span> Lista
+                        </button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-full font-bold flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined">map</span> Mapa
+                        </button>
+</div>
+</div>
+<!-- Search Bar & Filters -->
+<div class="mt-8 bg-surface-container-lowest p-gutter rounded-xl sombra-verde border border-outline-variant flex flex-col gap-4">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary-mid">search</span>
+<input class="w-full h-touch-target pl-12 pr-4 rounded-lg border-outline-variant focus:border-primary-mid focus:ring-1 focus:ring-primary-mid text-body-md bg-white" placeholder="¿Qué estás buscando hoy?" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-label-sm text-primary font-bold">Categoría</label>
+<select class="h-touch-target rounded-lg border-outline-variant text-body-md bg-white">
+<option>Todas las categorías</option>
+<option>Supermercados</option>
+<option>Carnicerías</option>
+<option>Panaderías</option>
+<option>Tiendas de Ropa</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-sm text-primary font-bold">Ciudad</label>
+<select class="h-touch-target rounded-lg border-outline-variant text-body-md bg-white">
+<option>Miami, FL</option>
+<option>Los Angeles, CA</option>
+<option>Houston, TX</option>
+<option>Chicago, IL</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-label-sm text-primary font-bold">Acepta ITIN/EBT</label>
+<div class="flex h-touch-target bg-surface-container p-1 rounded-lg">
+<button class="flex-1 rounded-md text-label-sm bg-white shadow-sm text-primary">Todos</button>
+<button class="flex-1 rounded-md text-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors">Solo EBT</button>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full h-touch-target bg-primary-mid text-on-primary font-bold rounded-lg hover:bg-primary-container transition-all active:scale-95">
+                                Aplicar Filtros
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Grid of Business Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 py-gutter">
+<!-- Card 1 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary-mid transition-all sombra-verde">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vibrant, high-contrast interior of a traditional Hispanic supermarket, featuring colorful stacks of fresh tropical fruits like mangoes and papayas. The lighting is bright and modern, creating a professional retail atmosphere. The scene is clean, organized, and emphasizes fresh produce under warm, inviting gallery-style spotlights. Deep green brand accents are visible in the signage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWlbPvqPhqmI1Ra02eNxnWKCEmZwWYcX27PZIgFehMajQl4tSB8M6vHaCRllYcYF1IhPoeNT__yrGYfTxjC6xDVeqttuDmRBZcnxrqHFJrQrI6fs-XQvj4VFSf_27SEkwQowJHgz45cXnQn92yjxKTrO6TmNjiiM8f4e3uzRKbN5fB9JooltMeOIshmGJEmL_PQUW8SQxoKV5_OLoK6iIqozbBTBF9Uj4ksU88Xdor9E8TAt9IVwa0avkBZ0nv519XcCfuKMICZegV"/>
+<div class="absolute top-4 left-4 bg-primary-mid text-white text-label-sm px-3 py-1 rounded-full">Supermercado</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-1 rounded-full flex items-center justify-center text-primary-mid shadow-sm">
+<span class="material-symbols-outlined filled-icon">verified</span>
+</div>
+</div>
+<div class="p-5 flex-grow flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-primary">La Hacienda Market</h3>
+<span class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> 1.2 mi
+                            </span>
+</div>
+<p class="text-body-md text-on-surface-variant">1234 Calle Principal, Miami, FL 33101</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-pale-green text-primary-mid text-label-sm px-2 py-1 rounded border border-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">translate</span> Habla Español
+                            </span>
+<span class="bg-secondary-container text-on-secondary-container text-label-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">credit_card</span> Acepta EBT
+                            </span>
+</div>
+<button class="mt-4 w-full h-touch-target bg-surface-container hover:bg-primary-mid hover:text-white text-primary-mid font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+                            Ver Detalles
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary-mid transition-all sombra-verde">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A detailed close-up of a traditional Hispanic carnicería counter, showcasing premium cuts of meat arranged neatly on stainless steel displays. The setting is impeccably clean and modern, illuminated by bright daylight coming from a large storefront window. The aesthetic is professional and high-contrast, emphasizing freshness and quality craftsmanship in a local boutique market setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMmKX_49uJA4NYi0CXkLXdeo5OLAASN2l9LbgV0ge7WnjSukI-SwxqxBf0qg8bt3pYzypXPZfRhCFQ84gsZ1Kay_S4mE70ga2twoEl7lZhK3gDVh2rFjB-Jiwab_LcJyIePbD7nnPzsU4-FqD8THK-UbSxGcj5IpgLbZceNi21HkhX5zTVEfRPMk1oRAV3AEoOifnsKfUHWdAohfclizToLSwH1JOnwJde8rv-BHlGLTjbwuFnqWBpr1kBpOZkRkycd1HV1MdS7xkG"/>
+<div class="absolute top-4 left-4 bg-primary-mid text-white text-label-sm px-3 py-1 rounded-full">Carnicería</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-1 rounded-full flex items-center justify-center text-primary-mid shadow-sm">
+<span class="material-symbols-outlined filled-icon">verified</span>
+</div>
+</div>
+<div class="p-5 flex-grow flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-primary">Carnicería El Toro</h3>
+<span class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> 2.5 mi
+                            </span>
+</div>
+<p class="text-body-md text-on-surface-variant">456 Broadway Ave, Miami, FL 33130</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-pale-green text-primary-mid text-label-sm px-2 py-1 rounded border border-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">translate</span> Habla Español
+                            </span>
+<span class="bg-surface-container-high text-on-surface-variant text-label-sm px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">wallet</span> Acepta ITIN
+                            </span>
+</div>
+<button class="mt-4 w-full h-touch-target bg-surface-container hover:bg-primary-mid hover:text-white text-primary-mid font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+                            Ver Detalles
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary-mid transition-all sombra-verde">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A warm, inviting panadería interior filled with golden-brown artisanal breads and sweet pastries like conchas and bolillos arranged on wooden shelves. The atmosphere is cozy yet modern, featuring soft morning light that highlights the textures of the baked goods. The visual style is high-end and artisanal, using a clean palette of natural wood and white marble, with subtle green plant accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_bxJ-Ohov9bC4fXU8CqXUR4OgjxOwFpNBvOS48PfzMCZxFZvz9Vr5P1MFuc2oLiCDMCnwN-BegkI834qpR3EawZUcDFrwVFhKFNoQfBHQUKtd-UIsy-_FnnzWdY9-YqOZGd7uihbjgAPENA5VSaVwRf0vt6EJbW5XtYhy406v5g8zenv9NLHlzvKYI6hxXMt94sN-YALEfpdmApJezDOfdSQqYkjgqvpXAOghpQHWqTdGEH79qlMjcX-AIUjtzMZlBwUoGFMkMDwi"/>
+<div class="absolute top-4 left-4 bg-primary-mid text-white text-label-sm px-3 py-1 rounded-full">Panadería</div>
+</div>
+<div class="p-5 flex-grow flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-primary">Pan Dulce &amp; Más</h3>
+<span class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> 0.8 mi
+                            </span>
+</div>
+<p class="text-body-md text-on-surface-variant">789 Little Havana Way, Miami, FL 33135</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-pale-green text-primary-mid text-label-sm px-2 py-1 rounded border border-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">translate</span> Habla Español
+                            </span>
+</div>
+<button class="mt-4 w-full h-touch-target bg-surface-container hover:bg-primary-mid hover:text-white text-primary-mid font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+                            Ver Detalles
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden flex flex-col group hover:border-primary-mid transition-all sombra-verde">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An elegant, modern clothing boutique specializing in Hispanic traditional and contemporary fashion. The shop features bright, high-key lighting and a minimalist design with white walls and sleek metal racks. Colorful textiles and high-fashion garments are displayed as focal points. The mood is sophisticated and corporate, aligning with a high-end commercial retail space for a growing professional community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYtYpE90N5tZUkOtPcYzmQqKDzu5uhLZN5pLK72pD0-czo9-2XKCwDBQGRm_DC93pAjEcJWSOQQkD52mCF49cAf17mwi2keE8DhJcL_uMpArknZoCnNZ6XAFMrNeEtcVhsHEhI2VF3z9bQWbJBlXIWqiDwwD4Cl8MsHJoXNrLJ4Q85DLk6_mYKZnJdtnWl03E8yxQFqRMtHvASp2psC3YbeQxsvlaYFonJSOo0zKcqgonm6DV0WAud7yVMAqxjxOfmdFF7Pek0QIk9"/>
+<div class="absolute top-4 left-4 bg-primary-mid text-white text-label-sm px-3 py-1 rounded-full">Ropa</div>
+</div>
+<div class="p-5 flex-grow flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-primary">Moda Latina</h3>
+<span class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> 4.1 mi
+                            </span>
+</div>
+<p class="text-body-md text-on-surface-variant">321 Flagler St, Miami, FL 33130</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-pale-green text-primary-mid text-label-sm px-2 py-1 rounded border border-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">translate</span> Habla Español
+                            </span>
+</div>
+<button class="mt-4 w-full h-touch-target bg-surface-container hover:bg-primary-mid hover:text-white text-primary-mid font-bold rounded-lg transition-colors flex items-center justify-center gap-2">
+                            Ver Detalles
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Promo Banner -->
+<section class="mt-stack-lg bg-primary-container text-on-primary-container p-8 md:p-12 rounded-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="z-10 text-center md:text-left flex flex-col gap-4">
+<h3 class="font-display-lg text-secondary-container leading-none uppercase">¿Eres dueño de una tienda?</h3>
+<p class="text-body-lg text-primary-fixed max-w-xl">Haz que tu negocio aparezca aquí y llega a miles de clientes locales que buscan servicios en español. Únete a la red financiera más grande para hispanos.</p>
+<div>
+<button class="bg-secondary-container text-on-secondary-container font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform active:scale-95 text-body-md">
+                            Asociarme ahora
+                        </button>
+</div>
+</div>
+<div class="hidden lg:block z-10 opacity-80">
+<span class="material-symbols-outlined text-[120px]">storefront</span>
+</div>
+<!-- Abstract Pattern Background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -mr-20 -mt-20"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-white rounded-full -ml-10 -mb-10"></div>
+</div>
+</section>
+<!-- SEO Content / Community Section -->
+<section class="py-stack-lg border-t border-outline-variant mt-stack-lg">
+<h4 class="font-headline-md text-primary mb-6">Por qué usar nuestro directorio</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h5 class="font-bold text-primary">Verificación Real</h5>
+<p class="text-on-surface-variant text-body-md">Solo listamos negocios verificados físicamente por nuestro equipo para garantizar seguridad y confianza.</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h5 class="font-bold text-primary">Inclusión Financiera</h5>
+<p class="text-on-surface-variant text-body-md">Filtra tiendas que aceptan ITIN, EBT y otros métodos de pago locales para facilitar tu día a día.</p>
+</div>
+<div class="flex flex-col gap-3">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<h5 class="font-bold text-primary">Idioma y Cultura</h5>
+<p class="text-on-surface-variant text-body-md">Conéctate con comerciantes que entienden tus necesidades y hablan tu idioma nativo con orgullo.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-safe bg-surface-container-lowest border-t border-outline-variant shadow-[0_-4px_6px_-1px_rgba(27,67,50,0.1)] md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined filled-icon">storefront</span>
+<span class="font-label-sm">Tiendas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">policy</span>
+<span class="font-label-sm">Legal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50 group">
+<div class="absolute bottom-full right-0 mb-4 scale-0 group-hover:scale-100 transition-all origin-bottom-right bg-white p-4 rounded-2xl shadow-xl border border-outline-variant w-64">
+<p class="text-label-sm text-primary font-bold mb-1">AI Blindado</p>
+<p class="text-body-md text-on-surface-variant">¿Buscas una tienda específica o ayuda con pagos EBT?</p>
+</div>
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-mid to-primary-container text-on-primary flex items-center justify-center shadow-lg hover:shadow-primary-mid/20 transition-shadow">
+<span class="material-symbols-outlined text-[32px] filled-icon">smart_toy</span>
+</button>
+</div>
+<script>
+        // Simple View Toggle Micro-interaction
+        document.querySelectorAll('.flex.items-center.bg-surface-container button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // This would trigger map logic in a real app
+                const isMap = btn.textContent.includes('Mapa');
+                if(isMap) {
+                    alert('Cargando vista de mapa...');
+                }
+            });
+        });
+
+        // Add visual feedback to interactive cards
+        document.querySelectorAll('.bg-white.border.border-outline-variant').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-primary-mid/10');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-primary-mid/10');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.15), 0 4px 6px -4px rgba(27, 67, 50, 0.1);
+        }
+        .option-card:hover .icon-container {
+            transform: scale(1.1);
+            transition: transform 0.2s ease;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f0f1ee",
+                        "surface-container-high": "#e8e8e5",
+                        "primary-mid": "#2D6A4F",
+                        "primary": "#012d1d",
+                        "error-container": "#ffdad6",
+                        "gray": "#6B7280",
+                        "inverse-surface": "#2f312f",
+                        "primary-fixed": "#c1ecd4",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#503700",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-surface-variant": "#414844",
+                        "on-error-container": "#93000a",
+                        "warning": "#F77F00",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-container-low": "#f3f4f1",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#d89b00",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c1c8c2",
+                        "on-background": "#1a1c1a",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9faf6",
+                        "on-primary-container": "#86af99",
+                        "on-tertiary-fixed": "#271900",
+                        "on-error": "#ffffff",
+                        "accent-dark": "#E76F51",
+                        "surface-dim": "#dadad7",
+                        "secondary-container": "#ffab69",
+                        "secondary-fixed": "#ffdcc4",
+                        "primary-container": "#1b4332",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "on-surface": "#1a1c1a",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-fixed-dim": "#ffb780",
+                        "dark": "#1A1A2E",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "tertiary": "#342300",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-secondary-container": "#783d01",
+                        "surface-bright": "#f9faf6",
+                        "background": "#f9faf6",
+                        "surface-variant": "#e2e3e0",
+                        "secondary": "#8e4e14",
+                        "success": "#52B788",
+                        "surface-container": "#eeeeeb",
+                        "danger": "#D62828",
+                        "surface-container-highest": "#e2e3e0",
+                        "primary-light": "#40916C",
+                        "surface-container-lowest": "#ffffff",
+                        "pale-green": "#D8F3DC",
+                        "outline": "#717973"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "gutter": "1rem",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar Content -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full z-50 fixed top-0 left-0">
+<div class="text-headline-md font-display-lg text-primary-mid dark:text-success uppercase tracking-wider">
+            BlindadoUSA
+        </div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="help_outline">help_outline</span>
+</div>
+</header>
+<main class="flex-1 mt-16 px-margin-mobile md:px-margin-desktop py-stack-lg max-w-4xl mx-auto w-full">
+<!-- Progress Bar Section -->
+<div class="mb-stack-lg">
+<div class="flex justify-between items-end mb-stack-sm">
+<span class="text-label-sm font-label-sm text-primary-mid uppercase tracking-widest">Paso 5 de 5</span>
+<span class="text-data-mono font-data-mono text-primary">100%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-success h-full w-full transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<!-- Header Section -->
+<section class="mb-stack-lg text-center md:text-left">
+<h1 class="text-headline-md-mobile md:text-headline-md font-headline-md text-primary mb-stack-sm">
+                Último paso, Juan
+            </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+                ¿Cuál es tu mayor preocupación ahora mismo?
+            </p>
+</section>
+<!-- Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-stack-lg">
+<!-- Option 1: Mi crédito -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Mi crédito</span>
+</button>
+<!-- Option 2: Comprar casa -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Comprar casa</span>
+</button>
+<!-- Option 3: Comprar carro -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Comprar carro</span>
+</button>
+<!-- Option 4: Mandar remesas -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Mandar remesas</span>
+</button>
+<!-- Option 5: Mis taxes -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Mis taxes</span>
+</button>
+<!-- Option 6: Mis derechos -->
+<button class="option-card group flex items-center p-4 min-h-[80px] bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-mid hover:bg-pale-green transition-all text-left" onclick="selectOption(this)">
+<div class="icon-container w-12 h-12 flex items-center justify-center bg-primary-container rounded-lg text-on-primary-container mr-4">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+</div>
+<span class="text-body-lg font-body-lg text-primary">Mis derechos</span>
+</button>
+</div>
+<!-- Final Call to Action -->
+<div class="sticky bottom-8 md:relative md:bottom-0 bg-background/80 backdrop-blur-md pt-4">
+<button class="w-full bg-secondary-container text-on-secondary-container h-touch-target font-headline-md rounded-xl sombra-verde active:scale-95 transition-transform duration-150 uppercase tracking-wide">
+                Ir a mi Panel Personalizado
+            </button>
+<p class="text-center text-label-sm font-label-sm text-on-surface-variant mt-4 opacity-70">
+                Al continuar, generaremos una estrategia basada en tus metas.
+            </p>
+</div>
+</main>
+<!-- Contextual Decorative Image -->
+<div class="hidden lg:block fixed right-0 bottom-0 w-1/3 h-full -z-10 opacity-10">
+<img alt="Financial growth visualization" class="w-full h-full object-cover" data-alt="A professional and corporate style close-up of financial charts and legal documents on a sleek white desk. The lighting is bright and high-key, creating a clean light-mode aesthetic. Subtle green accents from the charts harmonize with a palette of deep forest greens and soft greys. The mood is authoritative and serious, reflecting the brand's position as a financial advocate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEJxKMu61NnbrU_kYakXPp9I1ge6a4ZyeU7qDBUxHJ1QanhwVGQjQmtobROjQfK2fADbTsg9m2-J8f6HXU2j6Lljl2974IXu4TAKEapA4PLhL0umF78H-STaaaY9tJUxMMGD4A0poT1mDLGilfXzgjdFsDfj4PXg9ZhWucR8YvInW8fRb6K9ZrjjUY7O5dA7QRXCdoRjeYvQf1Y0lLYtQVDsY7WnBF5D4_3gjpDNX2LKMSh7Vjs8hvSUzen1d0lw9YrCUztLiocj20"/>
+</div>
+<!-- AI Assistant Floating Button -->
+<button class="fixed bottom-24 right-4 md:right-margin-desktop w-14 h-14 bg-primary-mid text-on-primary rounded-full shadow-lg flex items-center justify-center z-40 transition-transform hover:scale-110">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+<!-- Script for interaction -->
+<script>
+        function selectOption(element) {
+            // Remove active classes from all
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('border-primary-mid', 'bg-pale-green', 'ring-2', 'ring-primary-mid');
+            });
+            // Add active classes to selected
+            element.classList.add('border-primary-mid', 'bg-pale-green', 'ring-2', 'ring-primary-mid');
+        }
+    </script>
+</body></html>

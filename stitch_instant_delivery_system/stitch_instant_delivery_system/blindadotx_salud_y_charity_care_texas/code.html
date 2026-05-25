@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salud y Charity Care (Texas) - BlindadoTX</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "secondary-fixed": "#ffdcc4",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdea9",
+                    "primary": "#012d1d",
+                    "tertiary": "#342300",
+                    "on-primary": "#ffffff",
+                    "dark": "#1A1A2E",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#c1ecd4",
+                    "primary-container": "#1b4332",
+                    "secondary-container": "#ffab69",
+                    "tertiary-container": "#503700",
+                    "on-tertiary-fixed": "#271900",
+                    "gray": "#6B7280",
+                    "on-primary-fixed": "#002114",
+                    "on-background": "#1a1c1a",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "accent-dark": "#E76F51",
+                    "success": "#52B788",
+                    "outline": "#717973",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "pale-green": "#D8F3DC",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-surface": "#1a1c1a",
+                    "on-primary-container": "#86af99",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c8c2",
+                    "surface-tint": "#3f6653",
+                    "surface-variant": "#e2e3e0",
+                    "primary-light": "#40916C",
+                    "surface-container": "#eeeeeb",
+                    "on-surface-variant": "#414844",
+                    "on-tertiary-container": "#d89b00",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "danger": "#D62828",
+                    "surface": "#f9faf6",
+                    "error": "#ba1a1a",
+                    "warning": "#F77F00",
+                    "on-error-container": "#93000a",
+                    "secondary": "#8e4e14",
+                    "primary-mid": "#2D6A4F",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-bright": "#f9faf6",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-fixed": "#2f1400",
+                    "surface-container-high": "#e8e8e5",
+                    "on-secondary-container": "#783d01",
+                    "background": "#f9faf6",
+                    "inverse-surface": "#2f312f",
+                    "secondary-fixed-dim": "#ffb780"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "stack-sm": "0.5rem",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem"
+            },
+            "fontFamily": {
+                    "display-lg": [
+                            "Bebas Neue"
+                    ],
+                    "display-lg-mobile": [
+                            "Bebas Neue"
+                    ],
+                    "data-mono": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "data-mono": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen font-sans antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<nav class="fixed top-0 left-0 w-full z-40 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-surface dark:bg-inverse-surface shadow-sm md:w-[calc(100%-16rem)] md:left-64 transition-all">
+<div class="font-display-lg-mobile text-display-lg-mobile font-bold text-primary dark:text-primary-fixed md:hidden">
+            BlindadoTX
+        </div>
+<!-- Spacer for desktop to align right actions -->
+<div class="hidden md:block flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="w-touch-target h-touch-target flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors active:scale-95 text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-50 flex-col py-stack-md bg-surface-container-low dark:bg-surface-container-highest border-r border-outline-variant w-64 transition-all duration-200 ease-in-out flat no shadows">
+<div class="px-gutter mb-stack-lg">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed font-bold leading-none">BlindadoTX</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Guía Financiera y Legal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Resumen
+            </a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+                Crédito
+            </a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+                Vivienda
+            </a>
+<!-- ACTIVE: Salud -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-primary dark:text-primary-fixed font-bold border-r-4 border-primary bg-primary-container/5 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                Salud
+            </a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+                Legal
+            </a>
+</nav>
+<div class="px-4 mt-auto mb-4">
+<button class="w-full h-touch-target bg-[#F4A261] text-dark font-label-sm text-label-sm font-bold rounded-full hover:opacity-90 transition-opacity flex items-center justify-center shadow-sm">
+                Obtener Ayuda
+            </button>
+</div>
+<div class="px-2 border-t border-outline-variant pt-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-primary-container/10 dark:hover:bg-primary-fixed/10 font-body-md text-body-md transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Cerrar Sesión
+            </a>
+</div>
+</aside>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-inverse-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant w-16 h-12 active:bg-surface-container-highest scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-sm text-[10px] leading-none">Resumen</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant w-16 h-12 active:bg-surface-container-highest scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">credit_score</span>
+<span class="font-label-sm text-[10px] leading-none">Crédito</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant w-16 h-12 active:bg-surface-container-highest scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-[10px] leading-none">Vivienda</span>
+</a>
+<!-- ACTIVE: Salud -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-3 py-1 w-20 h-14 scale-95 transition-transform shadow-sm" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="font-label-sm text-[11px] leading-none font-bold">Salud</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant w-16 h-12 active:bg-surface-container-highest scale-95 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined mb-1">gavel</span>
+<span class="font-label-sm text-[10px] leading-none">Legal</span>
+</a>
+</nav>
+<!-- Main Canvas -->
+<main class="pt-[60px] pb-[80px] md:pl-64 md:pb-0 min-h-screen">
+<div class="p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto space-y-stack-lg">
+<!-- Hero Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-6">
+<div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary">Salud y Charity Care (Texas)</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl">Tu salud no debe ser una carga financiera. Descubre opciones de asistencia en hospitales y clínicas de bajo costo en tu área.</p>
+</div>
+<!-- Semáforo Status Component -->
+<div class="flex items-center gap-3 p-4 bg-pale-green rounded-xl border border-success/30 shadow-[0_4px_14px_0_rgba(82,183,136,0.15)] shrink-0">
+<span class="material-symbols-outlined text-success text-4xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Estado de Cobertura</p>
+<p class="font-headline-md text-headline-md text-success font-bold">Óptimo</p>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Scanner & Guide (col-span-8) -->
+<div class="md:col-span-8 space-y-gutter">
+<!-- Eligibility Scanner Card -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/20 rounded-bl-full -z-10"></div>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Escáner de Elegibilidad (Texas)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Verifica si calificas para asistencia financiera hospitalaria (Charity Care).</p>
+</div>
+</div>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">Ingreso Anual Estimado ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant bg-surface focus:ring-primary focus:border-primary px-4 font-data-mono text-data-mono" placeholder="Ej. 35000" type="number"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-1">Tamaño del Hogar</label>
+<select class="w-full h-touch-target rounded-lg border-outline-variant bg-surface focus:ring-primary focus:border-primary px-4 font-body-md text-body-md">
+<option>1 persona</option>
+<option>2 personas</option>
+<option>3 personas</option>
+<option>4+ personas</option>
+</select>
+</div>
+</div>
+<div class="pt-4">
+<label class="flex items-center gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors">
+<input class="w-6 h-6 text-primary border-outline rounded focus:ring-primary" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">No tengo seguro médico o mi deducible es muy alto.</span>
+</label>
+</div>
+<button class="w-full h-touch-target mt-4 bg-primary text-on-primary font-label-sm text-label-sm font-bold rounded-lg hover:bg-primary-light transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined">search</span>
+                                Escanear Programas
+                            </button>
+</form>
+</section>
+<!-- Charity Care Guide Card -->
+<section class="bg-surface-container-low rounded-xl border border-outline-variant p-6 shadow-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_library</span>
+                            Guía de Sistemas de Salud
+                        </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Información específica sobre los programas de asistencia en los principales hospitales de Texas.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Parkland -->
+<div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface group-hover:text-primary transition-colors">Parkland Health (Dallas)</h4>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">arrow_forward</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Programa Parkland Financial Assistance (PFA) para residentes del condado de Dallas.</p>
+</div>
+<!-- Memorial Hermann -->
+<div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant hover:shadow-md transition-shadow cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-label-sm text-label-sm font-bold text-on-surface group-hover:text-primary transition-colors">Memorial Hermann (Houston)</h4>
+<span class="material-symbols-outlined text-outline group-hover:text-primary">arrow_forward</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Descuentos basados en ingresos (Financial Assistance Policy) hasta el 400% del nivel de pobreza.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Map & Directory (col-span-4) -->
+<div class="md:col-span-4 space-y-gutter">
+<!-- Emergency Map -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm flex flex-col h-full">
+<div class="p-4 border-b border-outline-variant bg-surface flex items-center justify-between">
+<h3 class="font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-danger" style="font-variation-settings: 'FILL' 1;">emergency</span>
+                                Encontrar una Clínica
+                            </h3>
+<button class="text-primary hover:text-primary-light font-label-sm text-label-sm">Ver mapa completo</button>
+</div>
+<!-- Map Placeholder -->
+<div class="relative w-full h-48 bg-surface-dim">
+<img alt="Mapa interactivo mostrando ubicaciones de clínicas de bajo costo en el estado de Texas." class="w-full h-full object-cover opacity-80" data-location="Texas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUG5j7GWZtU6ro8jINUlZhmQAef2M59u1wAJsfsgkYhXM75y6067br0UO9GYTOOGd2n2N3WX-_WiaF6JigRWa2pm0SuMfKxklistJTBWqkMWPs2JkgZZ1POKhi35jh_ZXEm_T2tgoKdkbZARoeCKfiqWc7e5yzLttojorxeiI_YDxrJji2qW4QXd0z7M-ky3KNr2EdouFyhcgT6LD9vMXuVIqD7w49wgqCHBWBLpeTg6gVfQq833x53vLUNz-n4zsXJlA5tlJg72t"/>
+<!-- Fake Map Pin -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-danger">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<!-- Directory List -->
+<div class="p-0 flex-1 overflow-y-auto">
+<ul class="divide-y divide-outline-variant">
+<li class="p-4 hover:bg-surface-container-low transition-colors cursor-pointer flex gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-sm">local_hospital</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface font-bold">Clínica Comunitaria Esperanza</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">1.2 millas • Costo Basado en Ingresos</p>
+</div>
+</li>
+<li class="p-4 hover:bg-surface-container-low transition-colors cursor-pointer flex gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-sm">local_hospital</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface font-bold">Texas Health Action</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">3.5 millas • Pruebas Gratuitas/Bajo Costo</p>
+</div>
+</li>
+<li class="p-4 hover:bg-surface-container-low transition-colors cursor-pointer flex gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-sm">local_hospital</span>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface font-bold">Centro de Salud Familiar</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">5.0 millas • Acepta pacientes sin seguro</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-[100px] md:bottom-8 right-4 md:right-8 w-14 h-14 bg-gradient-to-br from-primary-mid to-primary rounded-full shadow-lg flex items-center justify-center text-on-primary hover:scale-105 transition-transform z-50 group">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="absolute right-16 bg-inverse-surface text-inverse-on-surface font-label-sm text-label-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Asistente Legal y Salud
+        </span>
+</button>
+</body></html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .gauge-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 50%;
+        }
+        .gauge-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes count-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-count {
+            animation: count-up 0.5s ease-out forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeeb",
+                        "on-primary-container": "#86af99",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-fixed": "#271900",
+                        "on-background": "#1a1c1a",
+                        "primary-container": "#1b4332",
+                        "on-secondary-fixed": "#2f1400",
+                        "tertiary-container": "#503700",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "primary-light": "#40916C",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "dark": "#1A1A2E",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-error": "#ffffff",
+                        "primary-mid": "#2D6A4F",
+                        "surface-container-high": "#e8e8e5",
+                        "secondary-fixed-dim": "#ffb780",
+                        "primary": "#012d1d",
+                        "surface-variant": "#e2e3e0",
+                        "on-primary": "#ffffff",
+                        "success": "#52B788",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-highest": "#e2e3e0",
+                        "pale-green": "#D8F3DC",
+                        "secondary-container": "#ffab69",
+                        "error": "#ba1a1a",
+                        "secondary": "#8e4e14",
+                        "outline": "#717973",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-bright": "#f9faf6",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-surface-variant": "#414844",
+                        "inverse-surface": "#2f312f",
+                        "secondary-fixed": "#ffdcc4",
+                        "surface-tint": "#3f6653",
+                        "on-surface": "#1a1c1a",
+                        "warning": "#F77F00",
+                        "surface": "#f9faf6",
+                        "surface-dim": "#dadad7",
+                        "outline-variant": "#c1c8c2",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "on-secondary-container": "#783d01",
+                        "accent-dark": "#E76F51",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9faf6",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary": "#342300",
+                        "gray": "#6B7280",
+                        "on-primary-fixed": "#002114",
+                        "tertiary-fixed": "#ffdea9",
+                        "danger": "#D62828"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1.25rem",
+                        "stack-sm": "0.5rem",
+                        "gutter": "1rem",
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center h-touch-target px-margin-mobile w-full">
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">BLINDADOUSA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high p-2 rounded-full transition-colors active:scale-95 duration-100" data-icon="search">search</button>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high p-2 rounded-full transition-colors active:scale-95 duration-100" data-icon="notifications">notifications</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional close-up headshot of a Hispanic financial advisor in a bright, modern office. The lighting is soft and natural, emphasizing a trustworthy and friendly expression. The background features a clean, minimalist workspace with subtle green plants, aligning with the brand's corporate yet empathetic color palette of whites and deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC9D_kSUTdaYvePxikIPDNVZK8wv9xhgQblnSDlYX6DbHeA9m2AYJXR2iRoXicYjFyzEEwMRvAL6Mp57iRUsMxzHtE7QqmEdqXYkCg1233gfxhumZNXm5pfn91jekZ_AVIdOIWcX522q4GxZ_fNQpRIv5nN4dtYuFi8jGTtn4uf_Tkyd43IUUSy29G8ITHRoZGrYD5uGSWU86j_4mtttfhXASPXM-JDdaw3SAz0m7W1HJWnJXZVUsH5_MpM53-8TGBRyDOT8PvKcrN"/>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="docked left-0 h-full w-64 hidden md:flex flex-col bg-surface-container-low dark:bg-surface-container shadow-sm py-stack-md px-4 space-y-2">
+<div class="px-4 mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Mi Panel</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 transition-transform active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-transform active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<button class="w-full bg-secondary-container text-on-secondary-container font-label-sm py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                    Hablar con IA
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop bg-background pb-24 md:pb-8">
+<div class="max-w-4xl mx-auto space-y-stack-lg">
+<!-- Hero Section: Simulator Intro -->
+<section class="space-y-4">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Simulador de Score</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Visualiza el futuro de tus finanzas. Experimenta con diferentes escenarios y descubre cómo tus decisiones de hoy impactan tu crédito mañana.</p>
+</section>
+<!-- Simulator Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Inputs & Scenarios -->
+<div class="lg:col-span-7 space-y-stack-md">
+<!-- AI Input "What if..." -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde">
+<label class="font-label-sm text-label-sm text-primary mb-3 block">ESCRIBE TU ESCENARIO</label>
+<div class="relative">
+<textarea class="w-full min-h-[120px] bg-surface-container-low border-2 border-outline-variant rounded-lg p-4 font-body-md text-body-md focus:border-primary-mid focus:ring-0 transition-all resize-none" id="ai-input" placeholder="¿Qué pasa si pago el 50% de mi tarjeta de crédito y abro una cuenta de ahorros?"></textarea>
+<button class="absolute bottom-3 right-3 bg-primary text-on-primary p-3 rounded-lg flex items-center gap-2 hover:bg-primary-mid transition-colors active:scale-95" onclick="simulateAction()">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="font-label-sm">Simular</span>
+</button>
+</div>
+</div>
+<!-- Rapid Presets Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<button class="flex items-center gap-3 p-4 bg-pale-green border border-primary-light rounded-xl hover:bg-primary-fixed transition-all text-left group" onclick="setScenario('pago todas al 10%', 45, '2 meses')">
+<span class="material-symbols-outlined text-primary-mid" data-icon="payments">payments</span>
+<div>
+<p class="font-label-sm text-primary leading-tight">Pago todas al 10%</p>
+<p class="text-[12px] text-primary-mid opacity-70">Reducción de utilización</p>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 bg-surface-container-highest border border-outline-variant rounded-xl hover:bg-surface-variant transition-all text-left" onclick="setScenario('nueva tarjeta', -15, '1 mes')">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="add_card">add_card</span>
+<div>
+<p class="font-label-sm text-on-surface leading-tight">Nueva tarjeta</p>
+<p class="text-[12px] text-on-surface-variant opacity-70">Impacto por indagación</p>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 bg-surface-container-highest border border-outline-variant rounded-xl hover:bg-surface-variant transition-all text-left" onclick="setScenario('pago deuda antigua', 62, '4 meses')">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="history_edu">history_edu</span>
+<div>
+<p class="font-label-sm text-on-surface leading-tight">Pago deuda antigua</p>
+<p class="text-[12px] text-on-surface-variant opacity-70">Eliminación de morosidad</p>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 bg-surface-container-highest border border-outline-variant rounded-xl hover:bg-surface-variant transition-all text-left" onclick="setScenario('aumento de límite', 28, '3 meses')">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="trending_up">trending_up</span>
+<div>
+<p class="font-label-sm text-on-surface leading-tight">Aumento de límite</p>
+<p class="text-[12px] text-on-surface-variant opacity-70">Más crédito disponible</p>
+</div>
+</button>
+</div>
+</div>
+<!-- Right Column: Visual Result -->
+<div class="lg:col-span-5">
+<div class="bg-dark text-white p-8 rounded-3xl sticky top-24 shadow-2xl overflow-hidden relative">
+<!-- Background Accent -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary-mid opacity-20 blur-[100px] rounded-full"></div>
+<h3 class="font-label-sm text-label-sm text-primary-fixed mb-8 uppercase tracking-widest">Resultado Proyectado</h3>
+<!-- Score Gauge -->
+<div class="gauge-container mb-6">
+<svg class="gauge-svg" viewbox="0 0 100 50">
+<path d="M 10 45 A 35 35 0 0 1 90 45" fill="none" opacity="0.2" stroke="#2D6A4F" stroke-linecap="round" stroke-width="8"></path>
+<path class="transition-all duration-1000 ease-out" d="M 10 45 A 35 35 0 0 1 90 45" fill="none" id="gauge-progress" stroke="#52B788" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-end pb-2">
+<span class="font-data-mono text-[56px] text-white leading-none" id="projected-score">640</span>
+<span class="font-label-sm text-primary-fixed-dim uppercase tracking-tighter">Puntos FICO</span>
+</div>
+</div>
+<!-- Score Comparison Metrics -->
+<div class="grid grid-cols-2 gap-4 mt-8 border-t border-white/10 pt-8">
+<div class="space-y-1">
+<p class="font-label-sm text-white/50 text-[12px]">CAMBIO ESTIMADO</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-success" data-icon="arrow_upward">arrow_upward</span>
+<span class="font-data-mono text-headline-md text-success" id="delta-points">+0</span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="font-label-sm text-white/50 text-[12px]">TIEMPO DE IMPACTO</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-warning" data-icon="schedule">schedule</span>
+<span class="font-data-mono text-headline-md text-white" id="impact-time">--</span>
+</div>
+</div>
+</div>
+<!-- Semáforo Status -->
+<div class="mt-8 p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4" id="status-card">
+<div class="w-3 h-12 rounded-full bg-warning mt-1"></div>
+<div>
+<p class="font-label-sm text-warning uppercase" id="status-label">Riesgo Moderado</p>
+<p class="font-body-md text-[14px] text-white/70 leading-tight" id="status-desc">Tu puntaje actual está en el rango promedio. La acción sugerida podría llevarte al rango 'Bueno'.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Education Module (The "Bible" aspect) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant space-y-3">
+<span class="material-symbols-outlined text-primary-mid text-4xl" data-icon="menu_book">menu_book</span>
+<h4 class="font-headline-md text-headline-md text-primary">Regla del 10%</h4>
+<p class="font-body-md text-on-surface-variant">Mantener tu utilización de crédito por debajo del 10% es la forma más rápida de subir puntos en 30 días.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant space-y-3">
+<span class="material-symbols-outlined text-primary-mid text-4xl" data-icon="verified_user">verified_user</span>
+<h4 class="font-headline-md text-headline-md text-primary">Antigüedad</h4>
+<p class="font-body-md text-on-surface-variant">No cierres cuentas viejas aunque no las uses. La edad de tu historial cuenta por el 15% de tu score total.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant space-y-3">
+<span class="material-symbols-outlined text-primary-mid text-4xl" data-icon="gavel">gavel</span>
+<h4 class="font-headline-md text-headline-md text-primary">Derechos FDCPA</h4>
+<p class="font-body-md text-on-surface-variant">Tienes derecho a disputar cualquier error en tu reporte. BlindadoUSA te ayuda a limpiar tu historial legalmente.</p>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface dark:bg-inverse-surface shadow-lg md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+<span class="font-label-sm text-label-sm">Docs</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 active:bg-surface-variant active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+</div>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-mid to-primary-light text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform group">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent">support_agent</span>
+<span class="absolute right-16 bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">¿Dudas con tu score?</span>
+</button>
+</div>
+<script>
+        const baseScore = 640;
+        let currentProjected = baseScore;
+
+        function setScenario(text, delta, time) {
+            document.getElementById('ai-input').value = text;
+            updateSimulation(delta, time);
+        }
+
+        function simulateAction() {
+            const input = document.getElementById('ai-input').value.toLowerCase();
+            // Simple logic for the demo
+            let delta = 15;
+            let time = "3 meses";
+
+            if (input.includes('pago') || input.includes('pagar')) delta = 35;
+            if (input.includes('deuda')) delta = 50;
+            if (input.includes('nueva') || input.includes('abrir')) {
+                delta = -10;
+                time = "1 mes";
+            }
+
+            updateSimulation(delta, time);
+        }
+
+        function updateSimulation(delta, time) {
+            const projectedElement = document.getElementById('projected-score');
+            const deltaElement = document.getElementById('delta-points');
+            const timeElement = document.getElementById('impact-time');
+            const gauge = document.getElementById('gauge-progress');
+            const statusLabel = document.getElementById('status-label');
+            const statusDesc = document.getElementById('status-desc');
+            const statusIndicator = document.querySelector('#status-card div:first-child');
+
+            const newScore = baseScore + delta;
+            
+            // Animate number
+            projectedElement.classList.remove('animate-count');
+            void projectedElement.offsetWidth; // trigger reflow
+            projectedElement.classList.add('animate-count');
+            projectedElement.innerText = newScore;
+
+            // Update delta
+            deltaElement.innerText = (delta >= 0 ? '+' : '') + delta;
+            deltaElement.className = `font-data-mono text-headline-md ${delta >= 0 ? 'text-success' : 'text-error'}`;
+            
+            // Update time
+            timeElement.innerText = time;
+
+            // Update Gauge (max 850 score)
+            const percentage = (newScore - 300) / (850 - 300);
+            const dashOffset = 125.6 * (1 - percentage);
+            gauge.style.strokeDashoffset = dashOffset;
+            
+            // Update Traffic Light Color
+            if (newScore > 700) {
+                gauge.style.stroke = "#52B788";
+                statusLabel.innerText = "Excelente Salud";
+                statusLabel.className = "font-label-sm text-success uppercase";
+                statusIndicator.className = "w-3 h-12 rounded-full bg-success mt-1";
+                statusDesc.innerText = "¡Felicidades! Con este puntaje tienes acceso a las mejores tasas del mercado hipotecario.";
+            } else if (newScore > 640) {
+                gauge.style.stroke = "#F77F00";
+                statusLabel.innerText = "Progreso Positivo";
+                statusLabel.className = "font-label-sm text-warning uppercase";
+                statusIndicator.className = "w-3 h-12 rounded-full bg-warning mt-1";
+                statusDesc.innerText = "Estás saliendo de la zona de riesgo. Mantén esta conducta por 3 meses más.";
+            } else {
+                gauge.style.stroke = "#ba1a1a";
+                statusLabel.innerText = "Atención Requerida";
+                statusLabel.className = "font-label-sm text-error uppercase";
+                statusIndicator.className = "w-3 h-12 rounded-full bg-error mt-1";
+                statusDesc.innerText = "Cuidado: esta acción impacta negativamente tu capacidad de crédito inmediata.";
+            }
+        }
+
+        // Init gauge
+        window.onload = () => updateSimulation(0, "Actual");
+    </script>
+</body></html>

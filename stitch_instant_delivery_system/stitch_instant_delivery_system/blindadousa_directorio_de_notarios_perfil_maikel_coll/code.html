@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Notarios Verificados | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-tint": "#3f6653",
+                    "accent-dark": "#E76F51",
+                    "dark": "#1A1A2E",
+                    "primary-fixed": "#c1ecd4",
+                    "on-surface-variant": "#414844",
+                    "on-primary-fixed": "#002114",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "warning": "#F77F00",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "secondary-fixed": "#ffdcc4",
+                    "secondary-container": "#ffab69",
+                    "surface-container": "#eeeeeb",
+                    "primary-container": "#1b4332",
+                    "inverse-surface": "#2f312f",
+                    "on-tertiary-container": "#d89b00",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#012d1d",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "gray": "#6B7280",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-on-surface": "#f0f1ee",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-secondary": "#ffffff",
+                    "primary-light": "#40916C",
+                    "inverse-primary": "#a5d0b9",
+                    "success": "#52B788",
+                    "background": "#f9faf6",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#503700",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-container": "#783d01",
+                    "secondary": "#8e4e14",
+                    "surface-variant": "#e2e3e0",
+                    "outline": "#717973",
+                    "surface-container-high": "#e8e8e5",
+                    "tertiary": "#342300",
+                    "danger": "#D62828",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffb780",
+                    "surface-bright": "#f9faf6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c1c8c2",
+                    "surface": "#f9faf6",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-tertiary-fixed": "#271900",
+                    "on-background": "#1a1c1a",
+                    "primary-mid": "#2D6A4F"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest border-b border-outline-variant h-16 px-gutter">
+<div class="flex items-center gap-4">
+<h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</h1>
+<nav class="hidden lg:flex items-center ml-8 gap-4 text-body-md">
+<span class="text-on-surface-variant flex items-center gap-1">Inicio <span class="material-symbols-outlined text-sm">chevron_right</span></span>
+<span class="text-on-surface-variant flex items-center gap-1">Directorio <span class="material-symbols-outlined text-sm">chevron_right</span></span>
+<span class="text-primary-mid font-bold">Notarios</span>
+</nav>
+</div>
+<div class="flex items-center gap-2">
+<div class="hidden md:flex bg-surface-container-low px-4 py-2 rounded-full items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Buscar..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</button>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full material-symbols-outlined text-on-surface-variant" data-icon="person">person</button>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex-col z-40 bg-surface border-r border-outline-variant p-4">
+<div class="mb-6 px-4">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider">Mi Cuenta</p>
+<div class="flex items-center gap-3 mt-2">
+<div class="h-10 w-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-mid font-bold">U</div>
+<div>
+<p class="font-body-md font-bold text-on-surface">Usuario</p>
+<p class="text-xs text-success flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-success"></span> Estatus: Seguro</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="">Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="">Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="">Comprar Auto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="">Remesas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="">Derechos Laborales</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="">Impuestos</span>
+</a>
+</nav>
+<button class="mt-4 mb-6 mx-2 py-3 bg-pale-green text-primary-mid font-bold rounded-lg hover:bg-primary-mid hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+                Obtener Asesoría
+            </button>
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 bg-background min-h-screen">
+<!-- Hero Section -->
+<section class="relative bg-primary-container text-on-primary py-16 px-gutter lg:px-margin-desktop overflow-hidden">
+<div class="relative z-10 max-w-4xl">
+<h2 class="font-display-lg text-display-lg-mobile lg:text-display-lg uppercase leading-none">DIRECTORIO DE <span class="text-secondary-container">ELITE PROFESIONAL</span></h2>
+<p class="mt-4 font-body-lg text-on-primary-container max-w-2xl">Acceda únicamente a profesionales con referencias excelentes de la comunidad hispana. Filtrado por calidad, no solo por ubicación.</p>
+</div>
+<!-- Background Pattern -->
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 0 L100 0 L100 100 Z" fill="currentColor"></path>
+</svg>
+</div>
+</section>
+<!-- Filter Bar Section -->
+<section class="bg-surface-container-low p-gutter lg:px-margin-desktop -mt-8 relative z-20 mx-4 lg:mx-10 rounded-xl shadow-lg border border-outline-variant">
+<div class="flex flex-col lg:flex-row gap-4 items-center">
+<div class="w-full lg:flex-1 relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid" placeholder="Buscar por nombre o servicio..." type="text"/>
+</div>
+<div class="w-full lg:w-48">
+<select class="w-full py-3 rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid">
+<option>Todos los Estados</option>
+<option>Florida</option>
+<option>Texas</option>
+<option>California</option>
+<option>Illinois</option>
+</select>
+</div>
+<button class="w-full lg:w-auto bg-primary-mid text-white px-8 py-3 rounded-lg font-bold hover:bg-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">filter_alt</span>
+                        Filtrar
+                    </button>
+</div>
+<div class="flex flex-wrap gap-2 mt-4"><div class="flex items-center gap-2 text-primary-mid font-bold"><span class="material-symbols-outlined text-sm">verified_user</span><span class="text-label-sm uppercase">Solo resultados con referencias verificadas de la comunidad</span></div></div>
+</section>
+<!-- Trust Banner (Semáforo Logic) -->
+<section class="px-gutter lg:px-margin-desktop py-stack-lg">
+<div class="bg-secondary-fixed text-on-secondary-fixed p-6 rounded-xl border-l-8 border-secondary flex flex-col md:flex-row items-start gap-6">
+<div class="bg-secondary p-3 rounded-full text-white">
+<span class="material-symbols-outlined text-3xl">gavel</span>
+</div>
+<div>
+<h3 class="font-headline-md mb-2">¡Ojo con el término "Notario"!</h3>
+<p class="font-body-md opacity-90">
+                            En los EE.UU., un <strong>Notario Público</strong> es un testigo oficial para firmas y no necesariamente un abogado, a diferencia de muchos países en Latinoamérica. No se deje engañar: verifique siempre los servicios que el notario está autorizado a realizar para evitar fraudes migratorios o legales.
+                        </p>
+</div>
+</div>
+</section>
+<!-- Notary Cards Grid -->
+<section class="px-gutter lg:px-margin-desktop pb-stack-lg">
+<div class="bento-grid"><div class="col-span-full bg-surface-container-lowest p-8 rounded-2xl border-2 border-primary-mid/30 sombra-verde flex flex-col md:flex-row gap-8 relative overflow-hidden"><div class="absolute top-0 right-0 bg-primary-mid text-white px-6 py-2 font-bold rounded-bl-2xl flex items-center gap-2"><span class="material-symbols-outlined text-sm">star</span> RECOMENDACIÓN DESTACADA</div><div class="flex-shrink-0"><img alt="Maikel Coll" class="w-48 h-48 rounded-2xl object-cover shadow-lg border-4 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_JxjVT3j66gZGyYDuxyZvPuMA7q4ShAwT7ZO-VYBJaZzS1ljJwhmlf2Cz22rqRxmXR0LtJTHozuugeplUFAJtYEAzp-OR9bwYNoDcEJ8f5AUxwXgWmnAEfjiV_F-rI7l_ABMH0fIULUkqLt3Py2SvOG29P1cGBHgqWN-vZkzEeug_KPdjPCBTPf9svACRTro_uqfW6jSLgau18GfoJCiCw-f9asIbfuZl3hD4rfNf6dwhfT3h2xFjPAE0SCkO8Ts-E3YqqmQr3e2G"/></div><div class="flex-1 flex flex-col"><div class="flex flex-wrap items-center gap-3 mb-2"><h4 class="text-4xl font-headline-md text-primary-mid">Maikel Coll</h4><div class="flex gap-2"><span class="bg-success text-white text-xs px-3 py-1 rounded-full font-bold uppercase flex items-center gap-1"><span class="material-symbols-outlined text-xs">check_circle</span> VERIFICADO</span><span class="bg-primary-container text-on-primary-container text-xs px-3 py-1 rounded-full font-bold uppercase flex items-center gap-1"><span class="material-symbols-outlined text-xs">translate</span> HABLA ESPAÑOL</span></div></div><p class="text-on-surface-variant flex items-center gap-1 mb-4"><span class="material-symbols-outlined text-sm">location_on</span> Houston, TX — Servicios de Notar  a e Inmigraci  n</p><p class="text-body-lg text-on-surface-variant mb-8 italic leading-relaxed">\"Especialista en Servicios de Notaría e Inmigración con amplia trayectoria. Notario Público comprometido con la comunidad de Houston, brindando trámites seguros, confiables y con atención personalizada para asegurar tu futuro.\"</p><div class="flex flex-col sm:flex-row gap-4 mt-auto"><button class="px-8 py-4 bg-secondary-container text-on-secondary-fixed font-bold rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-md flex items-center justify-center gap-2"><span class="material-symbols-outlined">contact_mail</span> Contactar Especialista Ahora</button><button class="px-8 py-4 border-2 border-primary-mid text-primary-mid font-bold rounded-xl hover:bg-pale-green transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined">visibility</span> Ver Credenciales y Referencias</button></div></div></div></div>
+</section>
+<!-- B2B Banner -->
+<section class="px-gutter lg:px-margin-desktop pb-24">
+<div class="bg-primary text-on-primary p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row justify-between items-center gap-8 relative overflow-hidden">
+<div class="relative z-10 text-center lg:text-left">
+<h3 class="font-display-lg text-display-lg-mobile lg:text-display-lg mb-2">¿Eres Notario Certificado?</h3>
+<p class="font-body-lg text-on-primary-container max-w-xl">
+                            Únete a la red de confianza más grande para la comunidad hispana. Aumenta tu visibilidad y ayuda a miles de personas a realizar sus trámites con seguridad.
+                        </p>
+</div>
+<button class="relative z-10 px-10 py-4 bg-secondary-container text-on-secondary-fixed font-bold text-lg rounded-xl hover:scale-105 transition-transform shadow-lg">
+                        Registrar mi Negocio
+                    </button>
+<!-- Background Accent -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary-mid opacity-20 rounded-full blur-3xl"></div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating AI Button -->
+<button class="fixed bottom-8 right-8 z-50 h-14 w-14 rounded-full bg-primary-mid text-on-primary flex items-center justify-center shadow-md shadow-primary-container/20 hover:scale-110 hover:shadow-lg transition-transform active:scale-95 group">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+<span class="absolute right-full mr-4 bg-dark text-white px-3 py-1.5 rounded-lg text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">¿En qué puedo ayudarte?</span>
+</button>
+<!-- Mobile Navigation (visible on md:hidden) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant h-16 flex items-center justify-around z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px]">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-mid font-bold">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[10px]">Directorio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px]">Remesas</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        // Simple micro-interaction for active state simulation
+        document.querySelectorAll('nav a, nav button').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(el.tagName === 'A') return;
+                e.preventDefault();
+            });
+        });
+    </script>
+</body></html>

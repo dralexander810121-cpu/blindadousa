@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Educación y Becas | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-variant": "#e2e3e0",
+                        "on-error-container": "#93000a",
+                        "primary": "#012d1d",
+                        "tertiary-container": "#503700",
+                        "surface-tint": "#3f6653",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#1a1c1a",
+                        "primary-light": "#40916C",
+                        "secondary-fixed-dim": "#ffb780",
+                        "gray": "#6B7280",
+                        "on-tertiary": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f312f",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-primary": "#ffffff",
+                        "outline": "#717973",
+                        "surface-container-low": "#f3f4f1",
+                        "surface": "#f9faf6",
+                        "warning": "#F77F00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "success": "#52B788",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-secondary-fixed": "#2f1400",
+                        "secondary": "#8e4e14",
+                        "on-primary-container": "#86af99",
+                        "danger": "#D62828",
+                        "primary-container": "#1b4332",
+                        "surface-dim": "#dadad7",
+                        "on-secondary-container": "#783d01",
+                        "secondary-fixed": "#ffdcc4",
+                        "tertiary": "#342300",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "background": "#f9faf6",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-highest": "#e2e3e0",
+                        "pale-green": "#D8F3DC",
+                        "secondary-container": "#ffab69",
+                        "on-surface-variant": "#414844",
+                        "surface-container": "#eeeeeb",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f9faf6",
+                        "primary-mid": "#2D6A4F",
+                        "on-primary-fixed": "#002114",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "inverse-primary": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "accent-dark": "#E76F51"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "margin-mobile": "1.25rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest border-b border-outline-variant px-gutter h-16">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined cursor-pointer" onclick="toggleMobileNav()">menu</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container-low px-4 py-2 rounded-full items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar escuelas..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-low rounded-full">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-low rounded-full">person</span>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-full w-64 flex-col z-40 bg-surface border-r border-outline-variant pt-20 pb-8 px-4 transition-transform duration-300" id="sideNav">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-white font-bold">JD</div>
+<div>
+<p class="font-bold text-on-surface">Mi Cuenta</p>
+<p class="text-xs text-on-surface-variant">Estatus: Seguro</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">credit_card</span>
+<span class="font-body-md">Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">home</span>
+<span class="font-body-md">Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">directions_car</span>
+<span class="font-body-md">Comprar Auto</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">payments</span>
+<span class="font-body-md">Remesas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">work</span>
+<span class="font-body-md">Derechos Laborales</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">receipt_long</span>
+<span class="font-body-md">Impuestos</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<button class="w-full bg-pale-green text-primary-mid font-bold py-3 rounded-lg mb-4 hover:bg-primary-mid hover:text-white transition-colors">
+                    Obtener Asesoría
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow lg:ml-64 p-margin-mobile md:p-margin-desktop bg-surface-bright min-h-screen">
+<!-- Hero Section & State Selector -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container mb-2">Educación y Becas</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Encuentra el camino hacia tu futuro profesional en Estados Unidos, adaptado a tu ubicación y situación migratoria.</p>
+</div>
+<div class="w-full md:w-auto">
+<label class="block text-label-sm mb-2 text-primary-mid">Selecciona tu Estado:</label>
+<select class="w-full md:w-64 h-touch-target rounded-lg border-outline bg-surface-container-lowest font-bold text-primary-container focus:ring-primary-mid">
+<option>California (CA)</option>
+<option>Florida (FL)</option>
+<option>Texas (TX)</option>
+<option>New York (NY)</option>
+<option>Illinois (IL)</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Semáforo de Acceso (State Specific) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-stack-lg">
+<div class="md:col-span-2 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col md:flex-row gap-6 items-center">
+<div class="text-center md:text-left">
+<div class="flex items-center gap-2 mb-2 justify-center md:justify-start">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">circle</span>
+<span class="font-bold text-success uppercase tracking-wider">Acceso Facilitado</span>
+</div>
+<h3 class="font-headline-md text-primary-container mb-2">Estatus en California</h3>
+<p class="text-body-md text-on-surface-variant">California permite el acceso a becas estatales (Cal Grant) y matrícula reducida para estudiantes sin estatus migratorio bajo la ley AB 540.</p>
+</div>
+<div class="flex-shrink-0 bg-pale-green p-4 rounded-full">
+<span class="material-symbols-outlined text-primary-mid text-[48px]">verified_user</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex flex-col justify-between">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-warning" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="font-bold">Nota de Alerta</p>
+</div>
+<p class="text-body-md text-on-surface-variant mb-4 italic">"Recuerda que las leyes estatales cambian. Siempre verifica antes de aplicar."</p>
+<button class="text-primary-mid font-bold flex items-center gap-2 hover:underline">
+                        Ver detalles legales <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Buscador de Escuelas (Bento Style) -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-md text-primary-container mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined">school</span> Buscador de Educación Local
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Technical School Finder -->
+<div class="md:col-span-8 bg-primary-container text-white p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="font-headline-md mb-4">Escuelas Técnicas y Oficios</h4>
+<p class="mb-6 opacity-90 max-w-md">Certificaciones rápidas en construcción, salud, y tecnología con alta demanda laboral.</p>
+<div class="flex flex-wrap gap-4">
+<button class="h-touch-target px-6 bg-secondary-container text-on-secondary-fixed font-bold rounded-lg hover:scale-105 transition-transform">Explorar Catálogo</button>
+<button class="h-touch-target px-6 border border-white/30 rounded-lg hover:bg-white/10 transition-colors">Mapa de Sedes</button>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-8 -right-8 text-[180px] opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-500">handyman</span>
+</div>
+<!-- ESL Search -->
+<div class="md:col-span-4 bg-surface-container-high p-6 rounded-2xl border border-outline-variant flex flex-col justify-between">
+<div>
+<h4 class="font-headline-md text-primary-mid mb-2">Cursos de Inglés (ESL)</h4>
+<p class="text-on-surface-variant mb-4">Clases gratuitas o de bajo costo cerca de ti.</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-center gap-2 text-sm"><span class="material-symbols-outlined text-primary-mid text-sm">check_circle</span> Niveles 1 al 5</li>
+<li class="flex items-center gap-2 text-sm"><span class="material-symbols-outlined text-primary-mid text-sm">check_circle</span> Horarios nocturnos</li>
+</ul>
+</div>
+<button class="w-full h-touch-target bg-primary-mid text-white font-bold rounded-lg">Encontrar Clases</button>
+</div>
+<!-- Universities -->
+<div class="md:col-span-12 bg-white p-6 rounded-2xl border border-outline-variant shadow-sm flex flex-col md:flex-row items-center gap-8">
+<div class="w-full md:w-1/3 h-48 rounded-xl bg-gray-200 overflow-hidden">
+<img alt="University Campus" class="w-full h-full object-cover" data-alt="A wide-angle professional photograph of a sun-drenched university campus courtyard during a bright morning. Students walk along clean paths surrounded by manicured green lawns and classic red-brick collegiate architecture. The scene captures an atmosphere of academic ambition and tranquility, styled with a modern corporate aesthetic and high-contrast clarity. The lighting is soft and warm, emphasizing the prestige and accessibility of higher education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdvVeq87-WMEZPNj3GP6tnzQTMFXc36OZfr_wDSUxAqn9-K6aux3bY2wxDAtbbOWH3SB_efDZLlBQUJ_GpKOZB5NLiPHCSxmX3a2vxct3M0aPSihCDIUZPnN-itKP6N_3wVOcrUBuztjoO7asYwXmIyRFGQ_LgfEmZwfcjcS1G3ur3GnI5isvb_O4wXrj-IF-BvmcKFRjg-wSeKZ5CfOBjZjtmMQ6WGRt2haAHMR11O0WyFGbehlHlwN_r3qVCmt2Yn4MIItwhy4GA"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-md text-primary-container mb-2">Universidades y Colleges</h4>
+<p class="text-body-md text-on-surface-variant mb-6">Accede a licenciaturas y posgrados. Te ayudamos a validar tus títulos de tu país de origen para que no empieces de cero.</p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<p class="font-data-mono text-primary-mid">24</p>
+<p class="text-xs uppercase font-bold text-on-surface-variant">Opciones locales</p>
+</div>
+<div class="p-4 bg-surface rounded-lg border border-outline-variant text-center">
+<p class="font-data-mono text-primary-mid">12</p>
+<p class="text-xs uppercase font-bold text-on-surface-variant">Convenios ITIN</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Becas Disponibles (Horizontal Scroll) -->
+<section class="mb-stack-lg">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-primary-container flex items-center gap-3">
+<span class="material-symbols-outlined">payments</span> Becas para Hispanos en California
+                    </h3>
+<button class="text-primary-mid font-bold hover:underline">Ver todas (128)</button>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-6 px-2 custom-scrollbar">
+<!-- Scholarship Card 1 -->
+<div class="min-w-[300px] bg-white p-6 rounded-xl border-l-4 border-l-primary-mid border border-outline-variant sombra-verde flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-pale-green text-primary-mid text-xs font-bold px-2 py-1 rounded">ESTATAL</span>
+<span class="material-symbols-outlined text-primary-mid">bookmark</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Beca DREAM Act de CA</h5>
+<p class="text-sm text-on-surface-variant mb-4 leading-relaxed">Para estudiantes indocumentados que cumplen con los requisitos de la AB 540.</p>
+</div>
+<div>
+<p class="font-data-mono text-primary-mid text-lg mb-2">Hasta $12,570/año</p>
+<button class="w-full py-2 bg-primary-mid text-white font-bold rounded hover:opacity-90">Aplicar Ahora</button>
+</div>
+</div>
+<!-- Scholarship Card 2 -->
+<div class="min-w-[300px] bg-white p-6 rounded-xl border-l-4 border-l-warning border border-outline-variant sombra-verde flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-orange-100 text-warning text-xs font-bold px-2 py-1 rounded">PRIVADA</span>
+<span class="material-symbols-outlined text-warning">star</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Fundación Herencia Hispana</h5>
+<p class="text-sm text-on-surface-variant mb-4 leading-relaxed">Premios para líderes comunitarios y estudiantes con alto rendimiento.</p>
+</div>
+<div>
+<p class="font-data-mono text-primary-mid text-lg mb-2">Hasta $5,000</p>
+<button class="w-full py-2 border border-primary-mid text-primary-mid font-bold rounded hover:bg-pale-green">Más Información</button>
+</div>
+</div>
+<!-- Scholarship Card 3 -->
+<div class="min-w-[300px] bg-white p-6 rounded-xl border-l-4 border-l-primary-mid border border-outline-variant sombra-verde flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-pale-green text-primary-mid text-xs font-bold px-2 py-1 rounded">LOCAL</span>
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+</div>
+<h5 class="font-bold text-on-surface mb-2">Beca "Futuro Brillante" LA</h5>
+<p class="text-sm text-on-surface-variant mb-4 leading-relaxed">Apoyo exclusivo para residentes del Condado de Los Ángeles.</p>
+</div>
+<div>
+<p class="font-data-mono text-primary-mid text-lg mb-2">Hasta $2,500/ciclo</p>
+<button class="w-full py-2 bg-primary-mid text-white font-bold rounded hover:opacity-90">Aplicar Ahora</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Enrollment Guide (Visual Stepper) -->
+<section class="mb-stack-lg bg-surface-container p-8 rounded-3xl border border-outline-variant">
+<h3 class="font-headline-md text-primary-container mb-8 text-center">Cómo Inscribir a tus Hijos en la Escuela</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+<!-- Step 1 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md z-10">1</div>
+<h6 class="font-bold mb-2">Prueba de Domicilio</h6>
+<p class="text-sm text-on-surface-variant">Factura de luz, gas o contrato de renta a tu nombre.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md z-10">2</div>
+<h6 class="font-bold mb-2">Registros de Vacunas</h6>
+<p class="text-sm text-on-surface-variant">Cartilla de vacunación traducida o actualizada en EE.UU.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md z-10">3</div>
+<h6 class="font-bold mb-2">Identificación</h6>
+<p class="text-sm text-on-surface-variant">Pasaporte de tu país o ID consular son válidos.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xl mb-4 shadow-md z-10">4</div>
+<h6 class="font-bold mb-2">Cita de Registro</h6>
+<p class="text-sm text-on-surface-variant">Acude al distrito escolar más cercano a tu casa.</p>
+</div>
+<!-- Connecting line (Desktop Only) -->
+<div class="hidden md:block absolute top-8 left-16 right-16 h-0.5 bg-outline-variant"></div>
+</div>
+<div class="mt-10 p-4 bg-white/50 rounded-lg border border-dashed border-primary-mid flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-mid">info_i</span>
+<p class="text-sm italic"><strong>Importante:</strong> Las escuelas públicas en EE.UU. NO pueden preguntarte por el estatus migratorio de tus hijos para inscribirlos.</p>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="bg-primary-container rounded-2xl p-8 md:p-12 text-center text-white sombra-verde relative overflow-hidden">
+<div class="relative z-10 max-w-2xl mx-auto">
+<h3 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">¿No sabes por dónde empezar?</h3>
+<p class="font-body-lg mb-8 opacity-90">Habla con un asesor educativo que hable tu idioma y te ayude a crear un plan de carrera en los Estados Unidos.</p>
+<button class="w-full md:w-auto min-w-[280px] h-touch-target px-10 bg-secondary-container text-on-secondary-fixed font-bold text-lg rounded-full hover:scale-105 transition-transform shadow-lg">
+                        Obtener Asesoría Personalizada
+                    </button>
+<p class="mt-4 text-xs opacity-70">Consulta gratuita de 15 minutos para nuevos usuarios.</p>
+</div>
+<!-- Abstract pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute -top-10 -left-10 w-40 h-40 rounded-full border-[20px] border-white"></div>
+<div class="absolute -bottom-10 -right-10 w-60 h-60 rounded-full border-[40px] border-white"></div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating AI Button Shell -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
+<div class="bg-white p-4 rounded-xl shadow-lg border border-outline-variant mb-2 max-w-[200px] animate-bounce">
+<p class="text-xs font-bold text-primary-mid">¡Hola! ¿Buscas becas?</p>
+</div>
+<div class="rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid text-white shadow-md shadow-primary-container/20 cursor-pointer hover:scale-110 hover:shadow-lg transition-transform active:scale-95 group relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="absolute right-16 bg-primary-mid text-white px-3 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">Asistente IA</span>
+</div>
+</div>
+<script>
+        function toggleMobileNav() {
+            const nav = document.getElementById('sideNav');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('inset-y-0');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('fixed');
+        }
+
+        // Add smooth interaction for scholarship cards
+        document.querySelectorAll('.sombra-verde').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.2s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Calculadora de Salario Justo - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e2e3e0",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "dark": "#1A1A2E",
+                        "primary-mid": "#2D6A4F",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-container": "#783d01",
+                        "tertiary-container": "#503700",
+                        "surface-container": "#eeeeeb",
+                        "on-primary-fixed": "#002114",
+                        "danger": "#D62828",
+                        "secondary": "#8e4e14",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "inverse-surface": "#2f312f",
+                        "pale-green": "#D8F3DC",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dadad7",
+                        "surface-bright": "#f9faf6",
+                        "surface-container-high": "#e8e8e5",
+                        "surface": "#f9faf6",
+                        "on-secondary": "#ffffff",
+                        "primary-light": "#40916C",
+                        "on-tertiary-fixed": "#271900",
+                        "gray": "#6B7280",
+                        "primary-container": "#1b4332",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-surface-variant": "#414844",
+                        "on-secondary-fixed": "#2f1400",
+                        "warning": "#F77F00",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-fixed": "#ffdcc4",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-low": "#f3f4f1",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1ee",
+                        "outline": "#717973",
+                        "on-primary-container": "#86af99",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#ffab69",
+                        "background": "#f9faf6",
+                        "primary": "#012d1d",
+                        "on-surface": "#1a1c1a",
+                        "surface-container-highest": "#e2e3e0",
+                        "success": "#52B788",
+                        "tertiary": "#342300",
+                        "on-background": "#1a1c1a",
+                        "surface-tint": "#3f6653",
+                        "secondary-fixed-dim": "#ffb780",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c1c8c2",
+                        "accent-dark": "#E76F51",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .semaforo-shadow-green { box-shadow: 0 10px 25px -5px rgba(82, 183, 136, 0.4); }
+        .semaforo-shadow-yellow { box-shadow: 0 10px 25px -5px rgba(247, 127, 0, 0.4); }
+        .semaforo-shadow-red { box-shadow: 0 10px 25px -5px rgba(214, 40, 40, 0.4); }
+        
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #e2e3e0;
+            border-radius: 5px;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #1B4332;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline docked full-width top-0 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target w-full z-50 fixed shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-display-lg text-primary-container dark:text-primary-fixed tracking-tight">BlindadoUSA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded" href="#">Inicio</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary px-2 py-1" href="#">Calculadora</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded" href="#">Derechos</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-screen overflow-y-auto pb-8 bg-surface-container-low dark:bg-on-background border-r border-outline-variant h-full w-64 fixed left-0 top-0 pt-20">
+<div class="px-4 py-2 opacity-50 font-label-sm text-label-sm uppercase tracking-wider mb-2">Módulos</div>
+<nav class="flex-grow">
+<div class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="credit_score">credit_score</span>
+<span>Crédito</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Vivienda</span>
+</div>
+<div class="bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 shadow-sm">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Salario Justo</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Legal</span>
+</div>
+<div class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Educación</span>
+</div>
+</nav>
+<div class="mt-auto px-4 py-4">
+<button class="w-full bg-warning text-primary font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-stack-lg relative rounded-3xl overflow-hidden min-h-[300px] flex items-center p-8 md:p-12">
+<div class="absolute inset-0 z-0">
+<img alt="Trabajadores Hispanos" class="w-full h-full object-cover" data-alt="A cinematic, high-quality photograph showing a diverse group of Hispanic workers in a bright, modern professional environment, including a woman in a lab coat and a man in a safety vest. The lighting is warm and optimistic, featuring soft sunbeams filtering through a window, creating a high-contrast corporate yet community-focused aesthetic. The color palette emphasizes professional greens and warm amber tones, reflecting a sense of empowerment and solidarity. The overall mood is serious, authoritative, and deeply empathetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUhhAC-QVddr4BxiMzAs0dVA8OX5QvktqwDePC9vPLIBcJM1VVJglF4zQIkknL80jj-asW8yYvsNXbTW6jQf89ODER3sB6ejB2ieqjgZ1Q3GoqF7xgSqbnZjI4r0EwPIPZKdjq4O--RXGTTuSb-PRp5v5qBlMrwBSQRG3EfL7Saq2PW-bLABp7oTtSWJmUngXEvUYoGXFjgD39RdkCtOLJ6gTTi7pFVbbMjc4oobGULlbBQ7zGMaVAPTU_eMql6lxrDB8eEfPjPMpz"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl text-on-primary">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Calculadora de Salario Justo</h1>
+<p class="font-body-lg text-body-lg opacity-90">Protege tu trabajo. Descubre si estás ganando lo que realmente mereces según tu ocupación, ciudad y experiencia en los Estados Unidos.</p>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Input Form Card -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant shadow-sm h-fit">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid" data-icon="calculate">calculate</span>
+                        Tus Datos
+                    </h2>
+<div class="space-y-6">
+<!-- Ocupación -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ocupación</label>
+<div class="relative">
+<select class="w-full h-touch-target bg-surface-container-low border-2 border-outline-variant rounded-xl px-4 appearance-none focus:border-primary-mid outline-none transition-all">
+<option>Construcción / Carpintería</option>
+<option>Limpieza / Janitorial</option>
+<option>Cocina / Restauración</option>
+<option>Cuidado de Salud</option>
+<option>Transporte / Logística</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Ciudad -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ciudad / Estado</label>
+<div class="relative">
+<select class="w-full h-touch-target bg-surface-container-low border-2 border-outline-variant rounded-xl px-4 appearance-none focus:border-primary-mid outline-none transition-all">
+<option>Houston, TX</option>
+<option>Miami, FL</option>
+<option>Los Angeles, CA</option>
+<option>Chicago, IL</option>
+<option>New York, NY</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" data-icon="location_on">location_on</span>
+</div>
+</div>
+<!-- Experiencia Slider -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Años de Experiencia</label>
+<span class="font-data-mono text-data-mono text-primary-mid bg-pale-green px-3 py-1 rounded-lg" id="exp-val">5 años</span>
+</div>
+<input class="accent-primary-mid" max="25" min="0" oninput="document.getElementById('exp-val').innerText = this.value + ' años'" type="range" value="5"/>
+</div>
+<!-- Salario Actual -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tu Salario Actual (por hora)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-primary">$</span>
+<input class="w-full h-touch-target bg-surface-container-low border-2 border-outline-variant rounded-xl pl-8 pr-4 focus:border-primary-mid outline-none transition-all font-data-mono" type="number" value="18"/>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary font-bold text-lg rounded-xl hover:bg-primary transition-all shadow-md active:scale-95">
+                            Calcular Salario Justo
+                        </button>
+</div>
+</div>
+<!-- Comparison Chart Placeholder -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant shadow-sm">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-4">Promedio Regional (Houston)</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-1/3 text-sm font-semibold">Mercado</div>
+<div class="flex-grow bg-surface-container h-8 rounded-full overflow-hidden">
+<div class="bg-primary-mid h-full w-[85%] flex items-center justify-end px-3 text-white text-xs font-bold">$22.50/hr</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-1/3 text-sm font-semibold">Tú</div>
+<div class="flex-grow bg-surface-container h-8 rounded-full overflow-hidden">
+<div class="bg-warning h-full w-[65%] flex items-center justify-end px-3 text-white text-xs font-bold">$18.00/hr</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Results Card (Semáforo) -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-8 md:p-12 rounded-3xl border-2 border-warning/30 semaforo-shadow-yellow h-full flex flex-col items-center justify-center text-center relative overflow-hidden">
+<!-- Decorative Background Icon -->
+<span class="material-symbols-outlined absolute -right-8 -top-8 text-[200px] opacity-5 text-warning pointer-events-none" data-icon="report_problem">report_problem</span>
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-warning/20 flex items-center justify-center mb-8 relative">
+<span class="material-symbols-outlined text-[64px] md:text-[96px] text-warning" data-icon="warning" data-weight="fill">warning</span>
+<div class="absolute inset-0 border-8 border-warning rounded-full border-t-transparent animate-spin duration-3000 opacity-20"></div>
+</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-warning mb-2">SALARIO BAJO</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-8">
+                        Estás ganando un <span class="font-bold text-dark">20% menos</span> que el promedio para un trabajador de construcción en Houston con 5 años de experiencia.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mb-12">
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Mínimo Justo</p>
+<p class="font-data-mono text-headline-md text-primary-mid">$21.75</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Mercado Top</p>
+<p class="font-data-mono text-headline-md text-primary-mid">$26.40</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Diferencia Anual</p>
+<p class="font-data-mono text-headline-md text-danger">-$9,360</p>
+</div>
+</div>
+<!-- Primary CTA -->
+<a class="group w-full md:w-auto px-12 h-touch-target bg-warning text-primary font-bold text-lg rounded-full flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transition-all" href="#">
+                        ¿Te pagan menos? Mira tus derechos laborales
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<p class="mt-6 text-sm text-on-surface-variant opacity-75">
+                        Basado en datos del Departamento de Trabajo y estadísticas locales actualizadas.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Educational Section -->
+<section class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-pale-green/30 p-6 rounded-2xl border border-primary-mid/20">
+<span class="material-symbols-outlined text-primary-mid mb-4 block text-3xl" data-icon="gavel">gavel</span>
+<h4 class="font-headline-md text-[20px] mb-2">Leyes de Salario Mínimo</h4>
+<p class="text-sm">Incluso si no tienes documentos, las leyes federales protegen tu derecho a recibir al menos el salario mínimo por cada hora trabajada.</p>
+</div>
+<div class="bg-pale-green/30 p-6 rounded-2xl border border-primary-mid/20">
+<span class="material-symbols-outlined text-primary-mid mb-4 block text-3xl" data-icon="more_time">more_time</span>
+<h4 class="font-headline-md text-[20px] mb-2">Pago de Overtime</h4>
+<p class="text-sm">Después de 40 horas a la semana, tu patrón debe pagarte 1.5 veces tu salario regular. No dejes que se queden con tu esfuerzo.</p>
+</div>
+<div class="bg-pale-green/30 p-6 rounded-2xl border border-primary-mid/20">
+<span class="material-symbols-outlined text-primary-mid mb-4 block text-3xl" data-icon="description">description</span>
+<h4 class="font-headline-md text-[20px] mb-2">Registra tus Horas</h4>
+<p class="text-sm">Lleva siempre un registro personal de tus horas. Una simple libreta puede ser tu mejor prueba legal si necesitas reclamar.</p>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-16 h-16 bg-gradient-to-br from-primary-mid to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent">support_agent</span>
+<span class="absolute right-full mr-4 bg-dark text-white px-4 py-2 rounded-xl text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">¿Dudas sobre tu pago?</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-surface dark:bg-on-background h-20 border-t border-outline-variant shadow-[0_-4px_10px_rgba(27,67,50,0.1)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold mt-1">Inicio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="credit_score">credit_score</span>
+<span class="text-[10px] font-semibold mt-1">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-pale-green dark:bg-primary-container/30 rounded-full p-2 h-12 w-12">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="text-[10px] font-semibold mt-1">Legal</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-semibold mt-1">Perfil</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions for the Salary Gauge
+        // This is a simple visual demo effect
+        document.querySelector('select').addEventListener('change', function() {
+            const resultsCard = document.querySelector('.lg:col-span-7 > div');
+            resultsCard.classList.add('opacity-50');
+            setTimeout(() => {
+                resultsCard.classList.remove('opacity-50');
+            }, 500);
+        });
+    </script>
+</body></html>

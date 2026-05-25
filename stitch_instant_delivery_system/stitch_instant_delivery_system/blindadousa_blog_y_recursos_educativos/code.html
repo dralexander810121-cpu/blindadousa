@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blog Educativo | BlindadoUSA - Tu Biblia Financiera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdcc4",
+                        "on-primary-container": "#86af99",
+                        "primary": "#012d1d",
+                        "background": "#f9faf6",
+                        "primary-container": "#1b4332",
+                        "danger": "#D62828",
+                        "secondary": "#8e4e14",
+                        "inverse-primary": "#a5d0b9",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "inverse-surface": "#2f312f",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#2f1400",
+                        "gray": "#6B7280",
+                        "on-surface-variant": "#414844",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-primary-fixed": "#002114",
+                        "accent-dark": "#E76F51",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-background": "#1a1c1a",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eeeeeb",
+                        "tertiary": "#342300",
+                        "primary-mid": "#2D6A4F",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9faf6",
+                        "tertiary-container": "#503700",
+                        "surface": "#f9faf6",
+                        "pale-green": "#D8F3DC",
+                        "dark": "#1A1A2E",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#783d01",
+                        "primary-fixed": "#c1ecd4",
+                        "outline": "#717973",
+                        "on-tertiary-container": "#d89b00",
+                        "on-tertiary-fixed": "#271900",
+                        "error-container": "#ffdad6",
+                        "primary-light": "#40916C",
+                        "success": "#52B788",
+                        "warning": "#F77F00",
+                        "surface-variant": "#e2e3e0",
+                        "secondary-fixed-dim": "#ffb780",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8e5",
+                        "tertiary-fixed": "#ffdea9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-dim": "#dadad7",
+                        "on-surface": "#1a1c1a",
+                        "surface-container-highest": "#e2e3e0",
+                        "outline-variant": "#c1c8c2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden custom-scrollbar">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background dark:bg-on-background shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary-mid dark:text-primary-fixed-dim">BlindadoUSA</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Precios</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1 hover:text-primary-light transition-colors" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex gap-4">
+<button class="hidden md:block text-on-surface-variant font-medium px-4 h-10 hover:text-primary-light transition-colors">Iniciar Sesión</button>
+<button class="bg-primary text-on-primary px-6 h-10 rounded-lg font-bold hover:bg-primary-mid transition-all active:scale-95 duration-150">Empieza Gratis</button>
+</div>
+</header>
+<main class="pt-24 pb-20">
+<!-- Hero Section: Featured Article -->
+<section class="px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden group cursor-pointer shadow-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated home office setting with a financial dashboard visible on a modern laptop screen. Soft natural morning light filters through large windows, creating a clean corporate aesthetic. The environment is decorated with minimalist green plants and premium leather accessories, emphasizing a professional yet accessible financial planning atmosphere in high-contrast light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgy06UHEAylbNjx7GVvWiBzjnZCgsL8q9-rK7T8JNgts6jg2932U0wbziKfco3IXcvYS8qlekua2morIWP5SwrKOYWCldskUEs0XnJy98PKECzICaTgGaLF2wwNVnWnJuSLzlxmq9fio-G0gArO3bx-pTh63xyLt8nKJC2MtLG7z4P6U4JWzcf7AuspnX8Woe_5DcVboDhg-IYAqS_sY3q_AP0EAeP7YVR4p5mRE6InwOpx3AmDG7TAQ5UqjXVOvInTmmjqV7TmGIP"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-12">
+<span class="inline-block bg-secondary-container text-on-secondary-container text-label-sm font-label-sm px-3 py-1 rounded-full mb-4 self-start">Destacado: Crédito</span>
+<h1 class="font-headline-md text-white text-3xl md:text-5xl mb-4 max-w-3xl leading-tight">Cómo reconstruir tu Crédito en USA siendo Inmigrante: La Guía Definitiva 2024</h1>
+<p class="text-white/90 text-body-lg max-w-2xl mb-6 hidden md:block">Descubre los pasos legales y financieros exactos para pasar de no tener historial a un Score superior a 700 en menos de 12 meses.</p>
+<div class="flex items-center gap-4 text-white/80 text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 8 min lectura</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_today</span> 14 Oct, 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content & Sidebar Grid -->
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Article Grid -->
+<div class="lg:col-span-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="font-headline-md text-headline-md text-primary">Últimas Publicaciones</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">grid_view</span></button>
+<button class="p-2 rounded-full border border-outline-variant hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">view_list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Article Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A modern residential neighborhood with pristine suburban homes under a clear blue sky. The lighting is bright and optimistic, reflecting the American dream of homeownership. The image is captured with a professional architectural photography style, using a clean color palette of soft whites and deep greens to align with the BlindadoUSA brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJsZ71bkn3Ecobq715Bom6dBXJddWztXfAXmQ_vRbYhs5INIdWw8kkjrqmbp1Hohjk5sqD2dwQsfbR3huRtfEhTv9dbYDt-hIytQARyxweisoRSA0OcbOCtbh_uPcOpvyfs2tVstF75puhIlEzq1Qn9yOJx5rbpTZeqLtfwUUf4o6TVsmKGdjk7zQReFB2LfP7acYxojcdGeG165erSBQmRkVNGYxw5GZdXwqQ575DbJjTL-4xGIOHj8c2GZyBmicGhOOuPAtj5RxO"/>
+<span class="absolute top-4 left-4 bg-pale-green text-primary-mid font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Vivienda</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl text-on-background mb-3 group-hover:text-primary-mid transition-colors">ITIN Mortgage: ¿Es posible comprar casa sin SSN?</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-3">Analizamos los requisitos actuales de los bancos para préstamos con ITIN y cómo prepararte para calificar.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-outline font-medium flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 6 min</span>
+<a class="text-primary-mid font-bold flex items-center gap-1 hover:translate-x-1 transition-transform" href="#">Leer más <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</article>
+<!-- Article Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A formal legal setting featuring a gavel resting on a wooden desk with law books in the background. The lighting is dignified and serious, employing deep mahogany tones and warm highlights. The aesthetic is corporate and authoritative, reinforcing the sense of legal protection and expertise provided by the BlindadoUSA platform for the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd0zUttafqZQJrMZtCzfVaATV8zD2zBT1rAXwjzToY9efBSZSnTswR0TsMc8UQ19_w5WsIWuJu1qEyJ-i2qnL8VQIfY_l4UYObQlYdzJq3uNypZN0XuXLThMPB8KxXDkw-S7b0uKodKLnvzvvrPhfYUgh2xO1aJhVunSfJ8j0wRPyktEtCA7w5xaaPjJNna51p5hUUsTWBUScv6GYMZDSKuGZ2ZizJBTYIaCcBG82wl3mUW1vEEJRZdclPFK_n-lNXCOp7z1lJDXrz"/>
+<span class="absolute top-4 left-4 bg-pale-green text-primary-mid font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Derechos</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl text-on-background mb-3 group-hover:text-primary-mid transition-colors">Tus derechos financieros ante agencias de cobranza</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-3">No permitas el acoso. Conoce la Ley de Prácticas Justas en el Cobro de Deudas (FDCPA) y cómo defenderte hoy mismo.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-outline font-medium flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 5 min</span>
+<a class="text-primary-mid font-bold flex items-center gap-1 hover:translate-x-1 transition-transform" href="#">Leer más <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</article>
+<!-- Article Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="A high-angle shot of a person organizing financial documents and tax forms on a clean white desk. The lighting is bright and clinically organized, conveying a sense of order and precision. The visual style is modern corporate, focusing on the clarity of financial information through a palette of primary green and soft neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB04WpV0oodvHINfk4ZXg6HhwtmGDY60n0IjSCILpyNDL1mA5M3Fz9B188BwoiOd1zUMUagF-7o5Jgzdfjl-U0HpPqMeb38rQd_eiC9NKdmqS7AbLooDATkn5cR_ISEgQUaczdl6YuzQaa8zpluL6ngqJh9Nzv1DQ9LibzMAXiPpU9hMGvLu0QjxVq8gecQvmI0xFrZN2XRlpRxNXaMGQlcvam5kNWkgCrjPfJcZlyJfLNzuht8V2yJicOGDNqcZKQLrc1IFWgXpzqZ"/>
+<span class="absolute top-4 left-4 bg-pale-green text-primary-mid font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Taxes</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl text-on-background mb-3 group-hover:text-primary-mid transition-colors">Errores comunes al declarar impuestos con ITIN</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-3">Evita auditorías y retrasos en tus reembolsos con esta lista de verificación esencial para la temporada de impuestos.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-outline font-medium flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 10 min</span>
+<a class="text-primary-mid font-bold flex items-center gap-1 hover:translate-x-1 transition-transform" href="#">Leer más <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</article>
+<!-- Article Card 4 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Close-up of a glass jar filled with coins and a small plant growing out of it, sitting on a wooden surface with a soft-focus background of a modern living room. The lighting is warm and nurturing, symbolizing growth and financial wellness. The style is empathetic and community-focused, aligning with the brand's mission to empower the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3vJwjaUPUb7J_3siduWWIews9l1pc8XRPqm2o5nUpvfaFMLcDQqZlRy3CmvFhsa9xNBOt8LuFSKPlhcV4-MDZ9BkPLe1cHAzN65k9ugU0C8PtbUXu7Y02-vWgZDqGN1d4-WaQ8FoAQbTRhkX5NwpcVgX5tQNyRHjBHFVqEcD2pWvV_EiGwkj_sDYQpMiLF9S4KB6KRn-LXt9b8ad5dgtq0eigQCZY7UYs6pAUnA5UKiRrZOcPgTCGWp5ukGe_DPf3fLghysACzNAd"/>
+<span class="absolute top-4 left-4 bg-pale-green text-primary-mid font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Crédito</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline-md text-xl text-on-background mb-3 group-hover:text-primary-mid transition-colors">Cómo eliminar reportes negativos de tu historial</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-3">Guía paso a paso para disputar errores y cuentas obsoletas que están bajando tu puntaje de crédito injustamente.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-xs text-outline font-medium flex items-center gap-1"><span class="material-symbols-outlined text-xs">timer</span> 7 min</span>
+<a class="text-primary-mid font-bold flex items-center gap-1 hover:translate-x-1 transition-transform" href="#">Leer más <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high font-medium">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high font-medium">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high font-medium">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container-high"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Search Box -->
+<div class="bg-surface-container border border-outline-variant p-6 rounded-xl">
+<h4 class="font-headline-md text-lg text-primary mb-4">Buscar en el Blog</h4>
+<div class="relative">
+<input class="w-full h-12 pl-12 pr-4 rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid bg-background text-on-surface" placeholder="Ej: Historial crediticio..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<!-- Popular Topics -->
+<div class="bg-surface-container border border-outline-variant p-6 rounded-xl">
+<h4 class="font-headline-md text-lg text-primary mb-4">Temas Populares</h4>
+<div class="flex flex-wrap gap-2">
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#CréditoUSA</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#ITIN</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#RealEstate</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#Ahorro</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#LeyesFinancieras</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#Inversión</a>
+<a class="bg-background border border-outline-variant px-4 py-2 rounded-full text-sm font-medium hover:bg-pale-green hover:border-primary-mid transition-all" href="#">#Seguros</a>
+</div>
+</div>
+<!-- Newsletter / Lead Magnet -->
+<div class="bg-primary-container text-on-primary-fixed p-8 rounded-xl relative overflow-hidden sombra-verde">
+<div class="relative z-10">
+<h4 class="font-headline-md text-white text-xl mb-3">La Biblia Financiera en tu Correo</h4>
+<p class="text-white/80 text-sm mb-6">Recibe semanalmente consejos prácticos para blindar tu economía en Estados Unidos.</p>
+<input class="w-full h-12 mb-3 rounded-lg border-none bg-white/10 text-white placeholder-white/50 focus:ring-2 focus:ring-pale-green" placeholder="Tu correo electrónico" type="email"/>
+<button class="w-full bg-secondary-container text-on-secondary-fixed font-bold h-12 rounded-lg hover:brightness-110 transition-all">Suscribirme Ahora</button>
+</div>
+<!-- Decorative background element -->
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">mark_email_read</span>
+</div>
+</div>
+<!-- Recent Posts Sidebar -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<h4 class="font-headline-md text-lg text-primary mb-6">Lo más leído</h4>
+<div class="space-y-6">
+<a class="flex gap-4 group" href="#">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of professional hands signing legal financial documents with a high-end pen. Soft bokeh background of an office workspace. Corporate, high-trust, and legal security atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRE3CVfJ26lswkqED_8m7I_XJl_tj6SwsG5V4dgUFNkcy09WD28uA6_ZoYRJ95TX6ZB0zMTshCJpLmr6-OTX-exJvuoAqvCm1JWVR0i3B9LRdWYzsFgsLduFlK1MOjXWlsBRhEZfIvD68tiv_07gjG-kv4xIexI_kz677_I-lQn_GlVr2BEFPc-pU_J3mGHuIvY_s9TiXSq-DJlLDXIFPLZBh4jEVFMkojK7r1F4lorH1oHbfR5bGZfPjyLPv7OLm1a21Nz-HYoJfx"/>
+</div>
+<div>
+<h5 class="font-bold text-sm text-on-background group-hover:text-primary-mid transition-colors line-clamp-2">5 Maneras de proteger tus activos legales</h5>
+<span class="text-xs text-outline">Hace 2 días</span>
+</div>
+</a>
+<a class="flex gap-4 group" href="#">
+<div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A modern smartphone displaying a credit score application with a green success status. Bright high-key lighting, modern interface focus, clean minimalist digital aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-7NpwJZd6k1PVQ0rxrnZaRLQCkfk24gEewZybbswEW5EL1uyDDKPNWl480-BqWwqCXN8wLzgfyV5-jmdKWf7MUHZ3Zp45Ie4N0K9soCZgrFwRiTifbmPiG6HE0RH9e30Vlra6ACPBQ2pyghRZw5O3Csi6-1aOu24obzzKkdfGAs1whpasSfKs_BpZyZ4lwNEdIRyCzod0wKmZnSqc71lkkI1ODcqleUvTFzsYuRHdzIilqbq2dAHZI8-jzaJqIxtVzChWqV5Bk-wH"/>
+</div>
+<div>
+<h5 class="font-bold text-sm text-on-background group-hover:text-primary-mid transition-colors line-clamp-2">Tarjetas de crédito aseguradas: Tu primer paso</h5>
+<span class="text-xs text-outline">Hace 5 días</span>
+</div>
+</a>
+</div>
+</div>
+</aside>
+</div>
+<!-- CTA Final Section -->
+<section class="mt-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="bg-primary rounded-2xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left relative overflow-hidden">
+<div class="z-10">
+<h2 class="font-display-lg text-white text-4xl md:text-5xl mb-4">¿QUIERES MÁS INFORMACIÓN?</h2>
+<p class="text-white/80 text-body-lg max-w-xl">Únete a la plataforma #1 de protección financiera para la comunidad hispana. Recibe asesoría, herramientas y el apoyo que necesitas para prosperar.</p>
+</div>
+<div class="z-10 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+<button class="bg-secondary-container text-on-secondary-fixed text-lg font-bold px-10 h-14 rounded-xl hover:scale-105 transition-transform shadow-xl">Únete a BlindadoUSA</button>
+<button class="border-2 border-white/30 text-white text-lg font-bold px-10 h-14 rounded-xl hover:bg-white/10 transition-colors">Hablar con un Asesor</button>
+</div>
+<!-- Abstract pattern overlay -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-mid/20 to-transparent pointer-events-none"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto bg-primary dark:bg-on-background">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-2">
+<span class="font-display-lg text-primary-fixed block mb-6">BlindadoUSA</span>
+<p class="text-primary-fixed-dim max-w-sm mb-6">Empoderando a la comunidad latina en Estados Unidos con las herramientas y el conocimiento legal para un futuro financiero sólido.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white hover:bg-primary-mid transition-colors" href="#">FB</a>
+<a class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white hover:bg-primary-mid transition-colors" href="#">IG</a>
+<a class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white hover:bg-primary-mid transition-colors" href="#">LI</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Enlaces Rápidos</h5>
+<ul class="space-y-4">
+<li><a class="text-primary-fixed-dim hover:text-white transition-colors" href="#">Directorio</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white transition-colors" href="#">Calculadoras</a></li>
+<li><a class="text-secondary-fixed font-bold underline" href="#">Blog</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white transition-colors" href="#">Ayuda</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-primary-fixed-dim hover:text-white underline" href="#">Privacidad</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline" href="#">Términos</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline" href="#">Contacto</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-primary-fixed-dim text-sm">© 2024 BlindadoUSA. Tu biblia financiera.</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-success text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-primary-fixed-dim text-xs">Transacciones Protegidas SSL de 256 bits</span>
+</div>
+</div>
+</footer>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-[60]">
+<button class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-mid to-primary-light text-white shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">smart_toy</span>
+<div class="absolute right-full mr-4 bg-white text-primary font-bold px-4 py-2 rounded-lg shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden md:block border border-outline-variant">
+                ¿En qué puedo ayudarte hoy?
+            </div>
+</button>
+</div>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high px-3 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high px-3 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-[10px] font-bold">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-bold">Blog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high px-3 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-[10px] font-bold">Seguros</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high px-3 py-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Perfil</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for article hover state enhancement
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

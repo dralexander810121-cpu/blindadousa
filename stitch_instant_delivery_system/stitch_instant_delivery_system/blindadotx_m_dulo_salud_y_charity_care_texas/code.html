@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#002114",
+                        "outline": "#717973",
+                        "gray": "#6B7280",
+                        "inverse-surface": "#2f312f",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c1c8c2",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface": "#f9faf6",
+                        "secondary-container": "#ffab69",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9faf6",
+                        "on-background": "#1a1c1a",
+                        "dark": "#1A1A2E",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "surface-container-highest": "#e2e3e0",
+                        "success": "#52B788",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#503700",
+                        "surface-dim": "#dadad7",
+                        "tertiary-fixed": "#ffdea9",
+                        "pale-green": "#D8F3DC",
+                        "surface-container": "#eeeeeb",
+                        "on-secondary-fixed": "#2f1400",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-light": "#40916C",
+                        "on-secondary-container": "#783d01",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#d89b00",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "on-surface": "#1a1c1a",
+                        "accent-dark": "#E76F51",
+                        "surface-tint": "#3f6653",
+                        "primary-container": "#1b4332",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "primary-fixed": "#c1ecd4",
+                        "inverse-primary": "#a5d0b9",
+                        "secondary-fixed": "#ffdcc4",
+                        "on-tertiary-fixed": "#271900",
+                        "warning": "#F77F00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "surface-variant": "#e2e3e0",
+                        "primary-mid": "#2D6A4F",
+                        "danger": "#D62828",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f1",
+                        "background": "#f9faf6",
+                        "on-primary-container": "#86af99",
+                        "secondary": "#8e4e14",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#ffb780",
+                        "tertiary": "#342300",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#012d1d",
+                        "surface-container-high": "#e8e8e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "touch-target": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -4px rgba(27, 67, 50, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest border-b border-outline-variant h-16 px-gutter lg:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined cursor-pointer text-primary-mid">menu</span>
+<h1 class="font-display-lg text-display-lg-mobile lg:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar ayuda legal..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary-mid cursor-pointer" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- Sidebar -->
+<aside class="hidden lg:flex flex-col w-64 h-[calc(100vh-64px)] fixed left-0 top-16 bg-surface border-r border-outline-variant p-4">
+<div class="flex items-center gap-3 mb-stack-lg">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Usuario" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0rX6FH8DZpfDEdxQYSZfOR6til8xtEJAEZ9UJfB72zweMH6uYUgQI3y1qBz922FcEvCCROEx5d9c6I3Qt__UYRiRHPNambvIXTUicTmQpzyGNYb1dLlBbOCEIZiHZLY48SCjh69MTEC5LHJxNdnPqiUvw3TCm9pL3B-vRTafC24r_FbFS_JLn7SnzvmyJDUGqknedURPP5QWgQu0fpd-6AW9qm8oyn1au6RMsj9OZ6WHnCyaXj6VD1x4Lrxp9pQoU5Mrdxsccvj4j"/>
+</div>
+<div>
+<p class="font-headline-md text-sm text-on-surface">Mi Cuenta</p>
+<p class="text-xs text-on-surface-variant">Estatus: Seguro</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="">Salud y Charity Care</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="">Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="">Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="">Derechos Laborales</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="">Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-danger hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-gutter lg:p-margin-desktop min-h-screen">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-stack-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Salud y Charity Care</h2>
+<p class="text-on-surface-variant">Proteja su bienestar y sus finanzas con herramientas legales gratuitas en Texas.</p>
+</div>
+<div class="inline-flex items-center gap-2 bg-primary-fixed px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary-mid text-sm" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm text-on-primary-fixed uppercase tracking-wider">Derecho Legal Protegido</span>
+</div>
+</div>
+<!-- Mi Estatus Summary Card -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant flex flex-col md:flex-row gap-6 items-center sombra-verde">
+<div class="relative w-48 h-24 overflow-hidden">
+<!-- Semi-circle Gauge -->
+<svg class="w-full h-full" viewbox="0 0 100 50">
+<path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#e2e3e0" stroke-linecap="round" stroke-width="12"></path>
+<path d="M 10 50 A 40 40 0 0 1 70 20" fill="none" stroke="#52B788" stroke-linecap="round" stroke-width="12"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-end pb-1">
+<span class="font-data-mono text-data-mono text-primary-mid">Optimo</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-headline-md text-primary mb-1">Mi Estatus de Salud</h3>
+<p class="text-on-surface-variant mb-4">Usted tiene cobertura básica activa y no registra deudas hospitalarias pendientes este mes.</p>
+<div class="flex flex-wrap gap-2 justify-center md:justify-start">
+<span class="bg-success/10 text-primary-mid px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-success"></span> Sin Deudas
+                                </span>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span> Clínicas Cerca
+                                </span>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary-mid text-on-primary p-6 rounded-xl relative overflow-hidden flex flex-col justify-between">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl opacity-10" data-icon="health_and_safety">health_and_safety</span>
+<p class="text-label-sm uppercase opacity-80">Próxima Cita</p>
+<div class="my-4">
+<p class="font-headline-md">14 de Octubre</p>
+<p class="text-pale-green">Chequeo Anual Preventivo</p>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-2 rounded-lg hover:scale-[1.02] transition-transform">Ver Detalles</button>
+</div>
+</div>
+</section>
+<!-- Escáner de Deuda Médica & Semáforo -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-stack-lg">
+<div class="lg:col-span-2 bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3 mb-stack-md">
+<div class="p-2 bg-pale-green rounded-lg">
+<span class="material-symbols-outlined text-primary-mid" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+<h3 class="font-headline-md text-primary">Calculadora de Perdón de Deuda (Charity Care)</h3>
+</div>
+<p class="text-on-surface-variant mb-6">Bajo leyes federales y de Texas (Cap. 311 del Código de Salud y Seguridad), los hospitales sin fines de lucro deben ofrecer atención gratuita o reducida. Verifique su elegibilidad para <strong>Charity Care</strong>.</p>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-sm text-on-surface-variant mb-1">Ingreso Mensual Familiar <span class="material-symbols-outlined text-xs align-middle cursor-help opacity-70" title="El ingreso bruto antes de impuestos de todas las personas que trabajan en tu hogar">info</span></label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-outline">$</span>
+<input class="w-full pl-8 py-3 border border-outline-variant rounded-lg focus:ring-primary-mid focus:border-primary-mid bg-surface-container-lowest" placeholder="Ej: 2500" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-label-sm text-on-surface-variant mb-1">Ingreso Mensual Familiar <span class="material-symbols-outlined text-xs align-middle cursor-help opacity-70" title="El ingreso bruto antes de impuestos de todas las personas que trabajan en tu hogar">info</span></label>
+<select class="w-full py-3 border border-outline-variant rounded-lg focus:ring-primary-mid focus:border-primary-mid bg-surface-container-lowest"><option disabled="" selected="">Número de personas</option>
+<option>1 Persona</option>
+<option>2 Personas</option>
+<option selected="">3 Personas</option>
+<option>4+ Personas</option>
+</select>
+</div>
+</div>
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg shadow-sm hover:shadow-md transition-all" type="button">Escanear Elegibilidad</button><div class="text-center mt-3"><a class="text-sm text-primary-mid hover:underline font-medium" href="#">¿Qué es el Charity Care? Ver explicación simple</a></div>
+</form>
+</div>
+<!-- Semáforo de Elegibilidad -->
+<div class="bg-surface p-gutter rounded-xl border border-outline-variant flex flex-col justify-between">
+<div>
+<h4 class="font-label-sm text-primary uppercase mb-4 tracking-widest">Semáforo de Ayuda</h4>
+<div class="space-y-4">
+<!-- Green State -->
+<div class="flex items-start gap-3 p-4 rounded-xl border-2 border-success bg-success/10 shadow-sm">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-bold text-success text-sm leading-none mb-1">ELEGIBLE (100%)</p>
+<p class="text-xs text-on-surface-variant font-medium">Facturas pueden ser eliminadas totalmente si gana menos del 200% del nivel de pobreza.</p>
+</div>
+</div>
+<!-- Yellow State -->
+<div class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant opacity-50">
+<span class="material-symbols-outlined text-warning" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<div>
+<p class="font-bold text-warning text-sm leading-none mb-1">DESCUENTO (50-80%)</p>
+<p class="text-xs text-on-surface-variant">Elegible para reducciones masivas de su deuda hospitalaria.</p>
+</div>
+</div>
+<!-- Red State -->
+<div class="flex items-start gap-3 p-3 rounded-lg border border-outline-variant opacity-50">
+<span class="material-symbols-outlined text-danger" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<p class="font-bold text-danger text-sm leading-none mb-1">REVISIÓN MANUAL</p>
+<p class="text-xs text-on-surface-variant">Sus ingresos superan el límite estándar, pero puede apelar por gastos excesivos.</p>
+<p class="text-[10px] text-danger mt-1 font-medium">No te rindas, existen planes de pago basados en tu capacidad real.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Guías de Defensa & Directorio -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg">
+<!-- Guías de Defensa -->
+<section>
+<h3 class="font-headline-md text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                        Guías de Defensa
+                    </h3>
+<div class="space-y-3">
+<div class="group bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center justify-between cursor-pointer hover:border-primary-mid transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-mid bg-pale-green p-2 rounded-lg" data-icon="translate">translate</span>
+<div>
+<p class="font-bold text-on-surface">Pedir intérprete gratis</p>
+<p class="text-xs text-on-surface-variant">Es un derecho federal bajo el Título VI.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="group bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center justify-between cursor-pointer hover:border-primary-mid transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-mid bg-pale-green p-2 rounded-lg" data-icon="emergency">emergency</span>
+<div>
+<p class="font-bold text-on-surface">Derechos en Emergencias</p>
+<p class="text-xs text-on-surface-variant">Ley EMTALA y protecciones contra facturas sorpresa en Texas.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="group bg-surface-container-lowest p-4 rounded-xl border border-outline-variant flex items-center justify-between cursor-pointer hover:border-primary-mid transition-all shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-mid bg-pale-green p-2 rounded-lg" data-icon="description">description</span>
+<div>
+<p class="font-bold text-on-surface">Aplicar a Charity Care en Texas</p>
+<p class="text-xs text-on-surface-variant">Plantillas para Memorial Hermann, Parkland y más.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Directorio de Salud -->
+<section>
+<h3 class="font-headline-md text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                        Directorio de Salud
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid mb-2" data-icon="location_on">location_on</span>
+<p class="font-bold text-on-surface">Clínicas y Redes del Condado</p>
+<p class="text-xs text-on-surface-variant mb-3">Acceda a Gold Card (Harris) o JPS Connection.</p>
+<span class="text-primary-mid text-xs font-bold flex items-center gap-1 group-hover:underline">Ver mapa <span class="material-symbols-outlined text-xs" data-icon="arrow_outward">arrow_outward</span></span>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid mb-2" data-icon="id_card">id_card</span>
+<p class="font-bold text-on-surface">Opciones sin Seguro Social</p>
+<p class="text-xs text-on-surface-variant mb-3">Clínicas FQHC y programas locales para residentes de Texas.</p>
+<span class="text-primary-mid text-xs font-bold flex items-center gap-1 group-hover:underline">Explorar planes <span class="material-symbols-outlined text-xs" data-icon="arrow_outward">arrow_outward</span></span>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:bg-surface-container-high transition-colors cursor-pointer group md:col-span-2">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-mid" data-icon="medication">medication</span>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Farmacias de Bajo Costo en Texas</p>
+<p class="text-xs text-on-surface-variant">Programas genéricos en H-E-B, Walmart y farmacias locales.</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Image Banner -->
+<section class="mt-stack-lg rounded-2xl overflow-hidden relative h-64 flex items-center px-gutter lg:px-margin-desktop">
+<img class="absolute inset-0 w-full h-full object-cover brightness-50" data-alt="A professional, comforting doctor-patient consultation scene in a bright, modern medical clinic. The setting uses a clean white and soft green color palette reflecting trust and accessibility. A Hispanic doctor is calmly explaining financial documents to a patient, emphasizing the humanitarian and legal aspect of health care in the United States. High-contrast, soft morning light fills the room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgIG1-TCeGzva96jGCJnKE5k73j4A5sbVfhL5SmbTUskHYPUbqMUagXDEkCZI3g8ozJ9Gx1G6mfb9ClyDOchgsdML9BoB15yKXY_xsSm2JkFOacv8SzfSRkbMWGu0OHJ9oCn8t53tEmnnorqoSM2An4clQFwjO3jtgyQvgEWUk5zsezUhvRCRhOFDL7mSybFosoAJtHj8Z7rqbMkEpvoB8axfl_bPGWj-Tx9xnV3XYwBcAEC_STwIaiwjXRM93RS_F46xRVZlkdmHT"/>
+<div class="relative z-10 max-w-xl">
+<h2 class="text-white font-headline-md text-2xl mb-2">Su salud no debe ser una carga financiera.</h2>
+<p class="text-pale-green mb-6">Educarse sobre sus derechos es el primer paso para proteger el patrimonio de su familia.</p>
+<button class="bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-pale-green transition-colors">Descargar Guía Completa (PDF)</button>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-8 right-8 z-50 h-14 w-14 rounded-full bg-primary-mid text-on-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform active:scale-95 group overflow-visible">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+<div class="absolute right-16 bg-white border border-outline-variant text-primary-mid px-4 py-2 rounded-lg whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity font-bold">
+            ¿Facturas médicas altas? Hablemos.
+        </div>
+</button>
+<!-- Mobile Bottom Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px]">Inicio</span>
+</button>
+<button class="flex flex-col items-center text-primary-mid font-bold">
+<span class="material-symbols-outlined" data-icon="medical_services" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span class="text-[10px]">Salud</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="text-[10px]">Crédito</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+<script>
+        // Simple interactivity for the scannner
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.innerText.includes('Escanear')) {
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Calculando...';
+                    btn.disabled = true;
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                        alert('Escaneo completado. Basado en sus datos, usted es 100% elegible para Charity Care.');
+                    }, 1500);
+                }
+            });
+        });
+    </script>
+</body></html>

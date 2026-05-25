@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Remesas 2026 | BlindadoUSA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e2e3e0",
+                    "on-background": "#1a1c1a",
+                    "on-surface": "#1a1c1a",
+                    "primary-light": "#40916C",
+                    "dark": "#1A1A2E",
+                    "on-error": "#ffffff",
+                    "warning": "#F77F00",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ffab69",
+                    "on-secondary-container": "#783d01",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb780",
+                    "surface-variant": "#e2e3e0",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-container": "#eeeeeb",
+                    "on-primary-fixed": "#002114",
+                    "error": "#ba1a1a",
+                    "background": "#f9faf6",
+                    "surface-container-low": "#f3f4f1",
+                    "outline-variant": "#c1c8c2",
+                    "pale-green": "#D8F3DC",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-tint": "#3f6653",
+                    "surface-bright": "#f9faf6",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-dim": "#dadad7",
+                    "success": "#52B788",
+                    "danger": "#D62828",
+                    "on-secondary-fixed": "#2f1400",
+                    "gray": "#6B7280",
+                    "on-primary-container": "#86af99",
+                    "outline": "#717973",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-primary": "#ffffff",
+                    "surface": "#f9faf6",
+                    "secondary": "#8e4e14",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e8e8e5",
+                    "tertiary-container": "#503700",
+                    "primary-container": "#1b4332",
+                    "tertiary": "#342300",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-mid": "#2D6A4F",
+                    "on-tertiary-container": "#d89b00",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "accent-dark": "#E76F51",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-fixed": "#ffdcc4",
+                    "on-surface-variant": "#414844",
+                    "primary": "#012d1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "3rem",
+                    "touch-target": "48px",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .green-shadow {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #1B4332;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 4px solid #D8F3DC;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-72 bg-surface-container border-r border-outline-variant hidden md:flex flex-col py-6 overflow-y-auto z-50">
+<div class="px-6 mb-8">
+<h1 class="font-display-lg text-headline-md text-primary-container uppercase">BlindadoUSA</h1>
+<p class="font-label-sm text-on-surface-variant">Tu Biblia Financiera</p>
+</div>
+<nav class="flex-1">
+<!-- Active Tab: Business Center (Closest match for Remesas/Finance) -->
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md font-semibold">Panel Principal</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-body-md font-semibold">Mi Crédito</span>
+</div>
+<div class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)]">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md font-semibold">Remesas 2026</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">savings</span>
+<span class="font-body-md font-semibold">Ahorros</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md font-semibold">Trámites</span>
+</div>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full h-touch-target bg-primary-container text-on-primary font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-72 min-h-screen">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full h-16 px-margin-desktop bg-surface border-b border-outline-variant sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden">menu</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 focus:ring-2 focus:ring-primary-container" placeholder="Buscar ayuda fiscal..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+<div class="w-10 h-10 rounded-full bg-primary-container border-2 border-primary-fixed overflow-hidden">
+<img alt="Foto de perfil del usuario" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged Hispanic businessman with a warm smile, wearing a dark green blazer over a white shirt. The background is a blurred corporate office setting with soft, high-key lighting, maintaining the modern financial aesthetic of the BlindadoUSA brand. The overall mood is trustworthy, professional, and accessible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCY3rwWIsH5n-MZu93mgCmc_AIkrSKrGpqsSIEko3mD7h9gYjPl8LUt-KzCN9K4Apzf-HqVUjK9SXNBAln67V90faWEZpdMRFJzooyaii6fuEoZsnx91YJHXIC1YWVNXtArvtflzFw40KVshHPT2l95_NWXbPUhrnFNYm8IPfuI2S_9lZc0lXvq83ycLQMi8vLOmRzz6S4HFRWv0k9947CZ3UduxIRSVUJqN3-YfwXLdmNDQNAvc3R99zN20tOjIwKKKLdoJCNWCOC"/>
+</div>
+</div>
+</header>
+<!-- Fiscal Alert Banner -->
+<section class="bg-error text-on-error py-4 px-margin-desktop flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h2 class="font-headline-md leading-tight uppercase">¡ALERTA! Nuevo Impuesto a Remesas 2026</h2>
+<p class="font-body-md opacity-90">A partir del 1 de enero de 2026, todas las transferencias de efectivo fuera de EE.UU. estarán sujetas a una retención fiscal obligatoria del 1.5%.</p>
+</div>
+</div>
+<button class="bg-on-error text-error font-bold px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all uppercase tracking-tight">Ver Ley</button>
+</section>
+<!-- Content Canvas -->
+<div class="p-margin-desktop space-y-stack-lg max-w-7xl mx-auto">
+<!-- Impact Calculator & Real Arrival Tool (Asymmetric Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Calculator Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant green-shadow">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary-container text-3xl">calculate</span>
+<h3 class="font-headline-md text-primary-container">Calculadora de Impacto 2026</h3>
+</div>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-body-lg text-primary-container">Cantidad Mensual Enviada</label>
+<span class="font-data-mono text-primary-mid text-2xl" id="amount-display">$800 USD</span>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer custom-slider" id="amount-slider" max="5000" min="100" step="100" type="range" value="800"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="h-touch-target border-2 border-primary-container bg-pale-green text-primary-container font-bold rounded-lg flex items-center justify-center gap-2" id="method-cash">
+<span class="material-symbols-outlined">payments</span> Efectivo
+                            </button>
+<button class="h-touch-target border-2 border-outline text-on-surface-variant font-bold rounded-lg flex items-center justify-center gap-2 hover:border-primary-container" id="method-bank">
+<span class="material-symbols-outlined">account_balance</span> Banco/App
+                            </button>
+</div>
+<div class="grid grid-cols-2 gap-gutter pt-6 border-t border-outline-variant">
+<div class="bg-error-container/20 p-4 rounded-lg">
+<p class="font-label-sm text-on-surface-variant uppercase">Impuesto Anual Estimado</p>
+<p class="font-data-mono text-danger text-3xl mt-1" id="tax-result">$144.00</p>
+</div>
+<div class="bg-success/10 p-4 rounded-lg">
+<p class="font-label-sm text-on-surface-variant uppercase">Ahorro con Blindado Plus</p>
+<p class="font-data-mono text-success text-3xl mt-1">$52.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Real Arrival Tool -->
+<div class="lg:col-span-5 bg-primary-container text-on-primary p-8 rounded-xl green-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">send_money</span>
+</div>
+<h3 class="font-headline-md mb-6 relative z-10">Herramienta "Llegada Real"</h3>
+<div class="space-y-6 relative z-10">
+<div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+<div class="flex justify-between items-center">
+<span>Envías desde USA</span>
+<span class="font-data-mono text-xl">$800.00</span>
+</div>
+</div>
+<div class="space-y-3 px-2">
+<div class="flex justify-between text-sm opacity-80">
+<span>Comisión de Envío (Promedio)</span>
+<span>-$4.99</span>
+</div>
+<div class="flex justify-between text-sm opacity-80">
+<span>Pérdida Tasa de Cambio</span>
+<span>-$12.30</span>
+</div>
+<div class="flex justify-between text-sm text-secondary-container font-bold">
+<span>Nuevo Impuesto 2026</span>
+<span>-$12.00</span>
+</div>
+</div>
+<div class="pt-6 border-t border-white/20">
+<p class="font-label-sm uppercase tracking-widest opacity-70 mb-1">Reciben en Destino (MXN)</p>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-secondary-container">$13,245.50</span>
+<span class="font-body-md mb-3 opacity-80">PESOS</span>
+</div>
+<p class="text-xs mt-4 italic opacity-60">*Basado en la tasa TRM de hoy - Actualizado hace 2 min.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Service Comparison Table -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden green-shadow">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-primary-container">Comparativa de Servicios de Remesas</h3>
+<span class="bg-pale-green text-primary-container px-3 py-1 rounded-full text-xs font-bold">MEJOR OPCIÓN: WISE</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-sm uppercase">
+<tr>
+<th class="px-6 py-4">Servicio</th>
+<th class="px-6 py-4">Comisión</th>
+<th class="px-6 py-4">Velocidad</th>
+<th class="px-6 py-4">¿Paga Impuesto 2026?</th>
+<th class="px-6 py-4">App en Español</th>
+<th class="px-6 py-4">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-pale-green/10">
+<td class="px-6 py-5 font-bold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-light flex items-center justify-center text-white text-xs">W</div>
+                                    Wise
+                                </td>
+<td class="px-6 py-5 text-success">$3.50</td>
+<td class="px-6 py-5">Instantáneo</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-success">
+<span class="material-symbols-outlined text-sm">check_circle</span> No (Digital)
+                                    </span>
+</td>
+<td class="px-6 py-5 text-success">Sí</td>
+<td class="px-6 py-5"><button class="text-primary-mid font-bold hover:underline">Usar Wise</button></td>
+</tr>
+<tr class="bg-pale-green/20">
+<td class="px-6 py-5 font-bold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-blue-600 flex items-center justify-center text-white text-xs">R</div>
+                                    Remitly
+                                </td>
+<td class="px-6 py-5 text-success">$3.99</td>
+<td class="px-6 py-5">1-3 días</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-success">
+<span class="material-symbols-outlined text-sm">check_circle</span> No (Digital)
+                                    </span>
+</td>
+<td class="px-6 py-5 text-success">Sí</td>
+<td class="px-6 py-5"><button class="bg-primary-container text-white px-4 py-2 rounded-lg text-sm">Recomendado</button></td>
+</tr>
+<tr>
+<td class="px-6 py-5 font-bold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-yellow-500 flex items-center justify-center text-white text-xs">WU</div>
+                                    Western Union
+                                </td>
+<td class="px-6 py-5 text-danger">$12.00</td>
+<td class="px-6 py-5">Varios días</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-danger">
+<span class="material-symbols-outlined text-sm">warning</span> Sí (Efectivo)
+                                    </span>
+</td>
+<td class="px-6 py-5 text-success">Sí</td>
+<td class="px-6 py-5"><button class="text-outline font-bold hover:underline">Ver más</button></td>
+</tr>
+<tr>
+<td class="px-6 py-5 font-bold flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-red-600 flex items-center justify-center text-white text-xs">MG</div>
+                                    MoneyGram
+                                </td>
+<td class="px-6 py-5 text-danger">$9.50</td>
+<td class="px-6 py-5">Variable</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-danger">
+<span class="material-symbols-outlined text-sm">warning</span> Sí (Efectivo)
+                                    </span>
+</td>
+<td class="px-6 py-5 text-success">Sí</td>
+<td class="px-6 py-5"><button class="text-outline font-bold hover:underline">Ver más</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Educational Cards (Bento Grid Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="group relative overflow-hidden rounded-xl h-64 border border-outline-variant green-shadow bg-dark text-white p-8 flex flex-col justify-end">
+<img alt="Legal strategies" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-500" data-alt="A clean, high-contrast overhead shot of a legal desk with a fountain pen resting on top of official financial documents. The lighting is focused and professional with deep greens and dark wooden textures in the background. The image exudes authority, seriousness, and legal protection, perfectly aligning with the BlindadoUSA 'Financial Bible' aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFPwcrRBJ3psQ6eHdJLFfCoBTNXV8it-nlh6KYM3F0htlhshuC76jUmuejjrr2taRyh5CQeO665Dc_ynbaef0Qq8tJ-Cal0t1vgrIwT5J5xSV3MNzoMMCUaS7TVNGQkDZDWn1mRiWlKfauoLQQkTXkt7rbfi6vYUkDzjB0PYypHqddNaHRSPQ6eUoBPcJrqMt22qt_3PFBJ8k-olUq6-zTDs2xEZsOyfyQwHTHZwo6rk6EafdqGffY7wWe6ywFiX2OLNBwYhw4YyEb"/>
+<div class="relative z-10">
+<span class="bg-success text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4 inline-block">Guía Legal</span>
+<h4 class="font-headline-md text-white mb-2">Cómo evitar el impuesto legalmente</h4>
+<p class="text-white/80 line-clamp-2">Descubre los 3 métodos bancarios que no califican como 'Envío de Efectivo' bajo la nueva ley 2026.</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl h-64 border border-outline-variant green-shadow bg-primary-container text-white p-8 flex flex-col justify-end">
+<img alt="Optimal timing" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-500" data-alt="A macro shot of a sophisticated analog clock face with dark green accents and metallic numbers. The lighting is artistic and dramatic, highlighting the precision of time. The overall style is high-end, modern corporate, symbolizing the 'best timing' for financial transactions and global currency movements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHAN_vBPR0NAnBlDVJsN0koCYEjC2FjateQvVFr3r-Umhyp2iYj2PA1_TlelG374SXaf50SOVNaPgMCpPgwIuGvuUQtOKGm8DJ4WbeBwpTULiV-qpLvNpMcWKqkUEEfgkrmW7gNOy1DHChtvGljlMZFKmt_GCTWwyUSoQrfGvf_hqVp9rZamOigd18DTOQxaLGyUsN31gtcSRURpP3rI30C4_46dJ5nEAIHVZ0_M-YryjzfgJNu62MbBUmAVGHj16jf6gE5FnKTPPh"/>
+<div class="relative z-10">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase mb-4 inline-block">Tips de Ahorro</span>
+<h4 class="font-headline-md text-white mb-2">Mejores días para enviar</h4>
+<p class="text-white/80 line-clamp-2">Analizamos 5 años de datos: enviar los martes antes de las 10 AM te ahorra un 2.4% adicional en la tasa de cambio.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-margin-desktop py-8 border-t border-outline-variant mt-stack-lg bg-surface-container-lowest">
+<div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+<span class="font-display-lg text-body-lg text-primary-container uppercase">BlindadoUSA</span>
+<p class="font-label-sm text-on-surface-variant">© 2024 BlindadoUSA. Protegiendo el futuro hispano.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-label-sm text-on-surface-variant hover:text-primary-mid transition-colors" href="#">Privacidad</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-mid transition-colors" href="#">Términos</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-mid transition-colors" href="#">Soporte</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary-mid transition-colors" href="#">Contacto</a>
+</div>
+</footer>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-mid to-primary-container text-on-primary shadow-2xl flex items-center justify-center group active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">smart_toy</span>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-danger rounded-full border-2 border-white animate-pulse"></div>
+</button>
+</div>
+<!-- Scripts for Micro-interactions -->
+<script>
+        const slider = document.getElementById('amount-slider');
+        const display = document.getElementById('amount-display');
+        const taxResult = document.getElementById('tax-result');
+        const cashBtn = document.getElementById('method-cash');
+        const bankBtn = document.getElementById('method-bank');
+        
+        let isCash = true;
+
+        function updateCalculations() {
+            const val = parseInt(slider.value);
+            display.innerText = `$${val} USD`;
+            
+            // 1.5% tax calculation
+            const monthlyTax = isCash ? val * 0.015 : 0;
+            const annualTax = monthlyTax * 12;
+            
+            taxResult.innerText = `$${annualTax.toFixed(2)}`;
+            
+            if (!isCash) {
+                taxResult.classList.replace('text-danger', 'text-success');
+                taxResult.innerText = "$0.00";
+            } else {
+                taxResult.classList.replace('text-success', 'text-danger');
+            }
+        }
+
+        slider.oninput = updateCalculations;
+
+        cashBtn.onclick = () => {
+            isCash = true;
+            cashBtn.classList.add('bg-pale-green', 'border-primary-container');
+            cashBtn.classList.remove('border-outline', 'text-on-surface-variant');
+            bankBtn.classList.add('border-outline', 'text-on-surface-variant');
+            bankBtn.classList.remove('bg-pale-green', 'border-primary-container');
+            updateCalculations();
+        };
+
+        bankBtn.onclick = () => {
+            isCash = false;
+            bankBtn.classList.add('bg-pale-green', 'border-primary-container');
+            bankBtn.classList.remove('border-outline', 'text-on-surface-variant');
+            cashBtn.classList.add('border-outline', 'text-on-surface-variant');
+            cashBtn.classList.remove('bg-pale-green', 'border-primary-container');
+            updateCalculations();
+        };
+
+        // Initialize
+        updateCalculations();
+    </script>
+</body></html>

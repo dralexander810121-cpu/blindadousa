@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA | Tu Biblia Financiera en EE.UU.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#342300",
+                    "secondary": "#8e4e14",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-container": "#783d01",
+                    "surface-dim": "#dadad7",
+                    "dark": "#1A1A2E",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "on-background": "#1a1c1a",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e3e0",
+                    "surface-tint": "#3f6653",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "outline": "#717973",
+                    "on-surface": "#1a1c1a",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-container": "#d89b00",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-primary": "#a5d0b9",
+                    "secondary-fixed": "#ffdcc4",
+                    "accent-dark": "#E76F51",
+                    "warning": "#F77F00",
+                    "primary-light": "#40916C",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "gray": "#6B7280",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#503700",
+                    "success": "#52B788",
+                    "danger": "#D62828",
+                    "surface-container": "#eeeeeb",
+                    "primary-fixed": "#c1ecd4",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f0f1ee",
+                    "primary-mid": "#2D6A4F",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-fixed-dim": "#ffb780",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-surface-variant": "#414844",
+                    "surface-bright": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ffab69",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface": "#f9faf6",
+                    "primary-container": "#1b4332",
+                    "primary": "#012d1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+      }
+      .sombra-verde {
+        box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #1B4332 0%, #40916C 100%);
+      }
+      .scroll-hide::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background dark:bg-on-background shadow-sm">
+<div class="font-display-lg-mobile text-display-lg-mobile text-primary-mid dark:text-primary-fixed-dim">
+            BlindadoUSA
+        </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Precios</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-primary-mid font-bold hover:text-primary-light transition-colors">Iniciar Sesión</button>
+<button class="bg-secondary-container text-on-secondary-container font-bold px-6 py-2 rounded-full active:scale-95 duration-150 shadow-sm">Empieza Gratis</button>
+</div>
+</nav>
+<main class="pt-touch-target">
+<!-- Hero Section -->
+<section class="hero-gradient relative overflow-hidden py-24 md:py-32 flex flex-col items-center justify-center text-center px-margin-mobile">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-stack-md max-w-5xl tracking-tight">
+                TODO LO QUE NECESITAS SABER PARA VIVIR BIEN EN USA
+            </h1>
+<p class="font-body-lg text-body-lg text-primary-fixed max-w-2xl mb-stack-lg">
+                La Biblia Financiera diseñada exclusivamente para la comunidad hispana. Domina el sistema desde el primer día y protege tu futuro.
+            </p>
+<div class="flex flex-col sm:flex-row gap-gutter w-full sm:w-auto">
+<button class="bg-secondary-container text-on-secondary-container font-bold text-lg px-8 py-4 rounded-xl min-h-touch-target shadow-lg hover:scale-105 transition-transform active:scale-95">
+                    EMPIEZA GRATIS — 3 DÍAS SIN TARJETA
+                </button>
+<button class="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white font-bold px-8 py-4 rounded-xl min-h-touch-target hover:bg-white/20 transition-all">
+                    Ver Directorio
+                </button>
+</div>
+<div class="mt-16 w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Dashboard Preview" class="w-full h-auto object-cover" data-alt="A clean and professional digital dashboard mockup of a financial application on a laptop screen. The environment is a bright, high-key modern home office with soft morning sunlight streaming through the window. The overall aesthetic is minimalist and corporate, utilizing a color palette of deep forest greens and soft mints to convey growth and security. The laptop sits on a polished light wood desk next to a small green plant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQBeEF0PXASTmlJxDN4RkSM0j64JIQIHik3SFA2Lsy1wRZ6l-bzjL_hUI7CjFn6P78808oEX7wXWO1T39RPZsw-Z3xUy3WSr-VyYOwQXzjvQyGvsZKUsGLMdjQrdZJhJqmLLdIg1hyXKausF9SEnmHIUB8Bxi4R4E5NlkqWe1GL5CjjaSbjKQJGM37NuQNFdNbAcZhbkKHmk8DFL0_1flDT1AybKcJxZx3zk0V3_KLnynSMMuu1dZ8RH2iYtg34Ew8tu9lhKtJXzQi"/>
+</div>
+</section>
+<!-- Problem Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="mb-stack-lg">
+<span class="text-secondary font-bold tracking-widest uppercase text-label-sm">Los Desafíos</span>
+<h2 class="font-headline-md text-headline-md mt-2">¿Por qué es tan difícil avanzar financieramente en USA?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="credit_score">credit_score</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Crédito Invisible</h3>
+<p class="text-on-surface-variant">Llegas al país con un historial intachable en tu tierra, pero aquí eres un fantasma financiero. Sin crédito, todo es más caro.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="home">home</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Barrera Inmobiliaria</h3>
+<p class="text-on-surface-variant">El sueño de la casa propia se vuelve pesadilla con requisitos confusos y tasas de interés que castigan al que no sabe.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="directions_car">directions_car</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Deudas de Auto</h3>
+<p class="text-on-surface-variant">Comprar un carro es una necesidad, pero terminar pagando el doble por falta de asesoría es un error común que vacía tus bolsillos.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="payments">payments</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Remesas Ineficientes</h3>
+<p class="text-on-surface-variant">Enviar dinero a casa no debería significar perder una fortuna en comisiones y tipos de cambio abusivos.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="work">work</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Explotación Laboral</h3>
+<p class="text-on-surface-variant">Sin conocer tus derechos, es fácil caer en empleos mal remunerados o condiciones injustas por miedo a tu estatus.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant hover:border-primary-mid transition-all">
+<span class="material-symbols-outlined text-error text-4xl mb-4" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="font-headline-md text-xl mb-2 text-primary">Impuestos y Multas</h3>
+<p class="text-on-surface-variant">El IRS da miedo, pero lo que realmente duele son las multas por no saber cómo declarar correctamente tus ingresos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section (The Grid) -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-white">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-stack-lg">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary-mid">Nuestra Solución Integral</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">13 módulos diseñados para blindar tu vida en los Estados Unidos.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+<!-- Module Items -->
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="credit_score">credit_score</span>
+<span class="font-label-sm mt-4 text-primary">Mi Crédito</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="house">house</span>
+<span class="font-label-sm mt-4 text-primary">Casa</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="directions_car">directions_car</span>
+<span class="font-label-sm mt-4 text-primary">Carro</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="send_money">send_money</span>
+<span class="font-label-sm mt-4 text-primary">Remesas</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group border-2 border-danger">
+<span class="material-symbols-outlined text-danger text-3xl group-hover:scale-110 transition-transform" data-icon="gavel">gavel</span>
+<span class="font-label-sm mt-4 text-primary">Préstamos Predatorios</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="font-label-sm mt-4 text-primary">Seguros</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="school">school</span>
+<span class="font-label-sm mt-4 text-primary">Educación</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="description">description</span>
+<span class="font-label-sm mt-4 text-primary">Documentación</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="medical_services">medical_services</span>
+<span class="font-label-sm mt-4 text-primary">Salud</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="account_balance">account_balance</span>
+<span class="font-label-sm mt-4 text-primary">Ahorros</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="badge">badge</span>
+<span class="font-label-sm mt-4 text-primary">Empleo</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-sm mt-4 text-primary">Impuestos</span>
+</div>
+<div class="bg-pale-green p-6 rounded-2xl flex flex-col items-center text-center hover:shadow-lg transition-all group">
+<span class="material-symbols-outlined text-primary-mid text-3xl group-hover:scale-110 transition-transform" data-icon="family_restroom">family_restroom</span>
+<span class="font-label-sm mt-4 text-primary">Familia</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Directory Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-stack-lg gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Directorio de Expertos Verificados</h2>
+<p class="text-on-surface-variant max-w-xl">Conéctate con profesionales que hablan tu idioma y entienden tu cultura. Sin engaños, solo resultados.</p>
+</div>
+<button class="text-primary-mid font-bold flex items-center gap-2 hover:underline">
+                        Ver todos los profesionales <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Expert 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<img alt="Abogado" class="w-full h-48 object-cover" data-alt="A professional corporate headshot of a Hispanic male lawyer in a sharp navy suit, smiling confidently. The background is a blurred high-end law office with warm lighting and bookshelves. The image feels authoritative and trustworthy, featuring a clean and professional look with a natural color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx3ROwIz-I_dUR9ryPPfUI80Vqj14ZGCjQ8Jd1bopPBaoeb15reybbido1H4iMdMVXbLp2STw8-Ln0yfkhU_Oeqjt5MLcF5d9apLQ24C8Bq9Ls6jie5NCDVDLBN5kat18Ek5aC8PSmc56P-CCab3E_kA2k2juGZfEiXDFXNHj8wLCmnzXxtNd-2OoFfRrsCNYKLs4n5781LA3MihyNKbLvm5RaBLM6vrZy6CofUrLsTQn-1_RI7ExsbSUM9oF3Md-H_48D1AIJ95p1"/>
+<div class="p-6">
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-2 py-1 rounded">Abogado</span>
+<h4 class="font-headline-md text-lg mt-2">Carlos Rodriguez</h4>
+<p class="text-sm text-on-surface-variant">Especialista en Inmigración y Laboral</p>
+<div class="flex items-center gap-1 mt-4 text-warning">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</div>
+</div>
+<!-- Expert 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<img alt="Realtor" class="w-full h-48 object-cover" data-alt="A professional portrait of a Hispanic female Realtor standing in front of a modern, luxury glass building in a city like Miami. She is wearing a professional beige blazer and has a welcoming smile. The lighting is bright and airy, reflecting a high-key, modern aesthetic with soft shadows and vibrant natural tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAutiVd4167vwQJbmG0sa0xK50sOiNAahUGZl9E-kvgArGIoQRo5MOk9015c68SXmF04w6bRp_xdPzpjC2xhsiG4hiTGFfb2w4D9cDSs-lPvRlgqvsbZjS7Cw4Uld1zNNDLSO9q8_d7cFrekMUn8qd-xklzjsGQzh8nqdhkkVAeoJQJBfBJkQMMjOyBjoOiDDHepMbD8dXG9R3Om4Yaz7P46ZXkOCNhKqWKAPnOgsvO3-NjAXCLtA1HNA18nRx6UbaUc4N5d0xCSeRc"/>
+<div class="p-6">
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-2 py-1 rounded">Realtor</span>
+<h4 class="font-headline-md text-lg mt-2">Elena Martínez</h4>
+<p class="text-sm text-on-surface-variant">Experta en Primeros Compradores</p>
+<div class="flex items-center gap-1 mt-4 text-warning">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">5.0</span>
+</div>
+</div>
+</div>
+<!-- Expert 3 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<img alt="Dealer" class="w-full h-48 object-cover" data-alt="A smiling Hispanic male car dealer standing in a bright, modern showroom with gleaming cars in the background. He is wearing a professional polo shirt with a logo. The scene is brightly lit with professional studio-style lighting, emphasizing clarity and trustworthiness in a corporate environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAll3usXAWbs2rqtW04GpGmVVClB0Kxf1OM9oDcl6jDoUlxp4tBb0TabVXJqqG0MYn1xG2JsDPUQjvP1PZvHYB1uSqs_beNNswmhtETiqKqw0itf7ldrvYPZ-yEQ3XiUm5jf5Fs5-AM-XKM1GxU4_QULx1Rr37dGb4itBypaayAN72nlVcB82nQAw_RF2cXbBYfMjbaoHvCli4DawGM64NvGEECdTNCPTlNpYDLde76wFvg4le7T9375UYeV_ZTfA-rH433P_d-zExi"/>
+<div class="p-6">
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-2 py-1 rounded">Auto Dealer</span>
+<h4 class="font-headline-md text-lg mt-2">Jorge Sanchez</h4>
+<p class="text-sm text-on-surface-variant">Financiamiento Justo ITIN/SSN</p>
+<div class="flex items-center gap-1 mt-4 text-warning">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.8</span>
+</div>
+</div>
+</div>
+<!-- Expert 4 -->
+<div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+<img alt="Banca" class="w-full h-48 object-cover" data-alt="A professional female Hispanic bank manager in a clean, minimalist banking office. She is wearing a modern formal suit and looks directly at the camera with a helpful and serious expression. The lighting is soft and corporate, with a palette dominated by white and soft blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFv2adgVu3HzgV1dEnBAfRpEl0Oc3e8-k2YqGC2TYl-VCNmoIlal5DSeiTM-7MHoFW_UZP3mwh8WMpJF-XprzysuYtdK7_7D-8NcuYvRXiUFsqhP5tDYhOenhxxhiUHhzCtXvVVZWTQzof3iu26k9pxJqc2Ji0No0IEzOR_9P5bK6hE9Ki1akY2fKpkebQCEVb30BwJGbKwZPYV2BaCHXo9JW-P14dCV9mlIclyIR8xS7CfbZCtJVTcgMXNvXtbZinJyFDgirVfOZq"/>
+<div class="p-6">
+<span class="bg-primary-fixed text-on-primary-fixed text-xs font-bold px-2 py-1 rounded">Banca</span>
+<h4 class="font-headline-md text-lg mt-2">Maria López</h4>
+<p class="text-sm text-on-surface-variant">Asesora de Cuentas de Inversión</p>
+<div class="flex items-center gap-1 mt-4 text-warning">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.7</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-headline-md text-headline-md mb-stack-md text-primary">Acceso Total a Tu Biblia Financiera</h2>
+<div class="bg-white rounded-3xl p-8 md:p-12 sombra-verde border-2 border-primary-mid relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary-mid text-white px-8 py-2 rotate-45 translate-x-8 translate-y-4 font-bold text-sm">
+                        OFERTA ÚNICA
+                    </div>
+<div class="mb-stack-lg">
+<span class="text-5xl font-display-lg text-primary-mid">$20</span>
+<p class="font-headline-md text-xl mt-2">De por vida</p>
+<p class="text-on-surface-variant mt-2 italic">Sin cuotas mensuales. Un solo pago, acceso para siempre.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-stack-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Curso Completo de Crédito</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Guía de Compra de Casa</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Estrategias de Auto</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Directorio Premium</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Calculadoras Financieras</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Manual de Impuestos</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Protección vs Estafas</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Soporte por Comunidad</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Actualizaciones Gratis</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md">Descargables y Plantillas</span>
+</div>
+</div>
+<div class="bg-pale-green p-4 rounded-xl mb-stack-lg">
+<p class="text-primary-mid font-bold">Usa el código <span class="text-secondary">AETHERIS</span> y paga solo <span class="text-2xl">$15</span></p>
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold text-xl py-6 rounded-2xl shadow-lg active:scale-95 transition-all">
+                        EMPIEZA MI BLINDAJE AHORA
+                    </button>
+<p class="mt-4 text-xs text-on-surface-variant">Garantía de satisfacción de 3 días o te devolvemos tu dinero.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-stack-lg px-margin-mobile overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-stack-lg">Historias de Éxito Reales</h2>
+<div class="flex gap-gutter overflow-x-auto scroll-hide pb-8">
+<!-- Testimonial 1 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-outline-variant">
+<div class="flex gap-1 text-warning mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-6">"Gracias a BlindadoUSA pude arreglar mi crédito en 6 meses y comprar mi primera casa. No sabía que era posible con ITIN."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim"></div>
+<div>
+<p class="font-bold">Ricardo G.</p>
+<p class="text-sm text-on-surface-variant">Propietario en Texas</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-outline-variant">
+<div class="flex gap-1 text-warning mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-6">"El directorio de profesionales me ahorró miles de dólares en trámites legales. Gente honesta que realmente ayuda."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim"></div>
+<div>
+<p class="font-bold">Sofía M.</p>
+<p class="text-sm text-on-surface-variant">Empresaria en Florida</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="min-w-[300px] md:min-w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-outline-variant">
+<div class="flex gap-1 text-warning mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-lg italic mb-6">"Lo que más me gustó es que explican todo en español simple. Entendí mis impuestos por primera vez en 10 años."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim"></div>
+<div>
+<p class="font-bold">Luis H.</p>
+<p class="text-sm text-on-surface-variant">Chef en California</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-center mb-stack-lg">Preguntas Frecuentes</h2>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Realmente es un solo pago?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Sí. BlindadoUSA no tiene suscripciones mensuales. Una vez que pagas tus $20 (o $15 con cupón), el acceso es tuyo para siempre, incluyendo todas las actualizaciones futuras.
+                        </div>
+</details>
+<!-- FAQ 2 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Puedo usarlo si no tengo Seguro Social?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Absolutamente. Tenemos módulos específicos sobre cómo construir crédito y comprar bienes con ITIN Number. Nuestra misión es la inclusión financiera de todos.
+                        </div>
+</details>
+<!-- FAQ 3 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Cómo accedo a los profesionales?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Dentro de la plataforma tendrás un directorio interactivo. Puedes contactarlos directamente por WhatsApp, teléfono o email. Nosotros verificamos que sean profesionales reales y con buena reputación.
+                        </div>
+</details>
+<!-- FAQ 4 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Qué pasa si no me gusta?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Ofrecemos una garantía de satisfacción de 3 días. Si sientes que el contenido no es para ti, nos escribes y te devolvemos el 100% de tu dinero sin preguntas.
+                        </div>
+</details>
+<!-- FAQ 5 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Es seguro poner mi información?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            BlindadoUSA utiliza encriptación de nivel bancario. No guardamos tus datos sensibles como números de cuenta. Tu privacidad es nuestra prioridad.
+                        </div>
+</details>
+<!-- FAQ 6 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Está disponible en inglés?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Actualmente, todo nuestro contenido está optimizado en español para servir mejor a nuestra comunidad principal, aunque estamos trabajando en una versión bilingüe.
+                        </div>
+</details>
+<!-- FAQ 7 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Necesito conocimientos financieros previos?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            No. Diseñamos todo el contenido con una filosofía de "Nivel 5to Grado". Explicamos términos complejos con palabras sencillas y ejemplos del día a día.
+                        </div>
+</details>
+<!-- FAQ 8 -->
+<details class="group bg-white border border-outline-variant rounded-xl overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer hover:bg-surface-container-low transition-colors list-none">
+<span class="font-bold text-lg">¿Cómo uso el código de descuento?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant">
+                            Al momento del checkout, verás un campo que dice "Código promocional". Escribe AETHERIS y dale a aplicar para ver el descuento reflejado inmediatamente.
+                        </div>
+</details>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto bg-primary dark:bg-on-background text-on-primary">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-sm">
+<div class="font-display-lg text-primary-fixed mb-4">BlindadoUSA</div>
+<p class="text-primary-fixed-dim">Empoderando a la comunidad hispana a través de la educación financiera y legal de alta calidad. Tu éxito es el éxito de todos.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div>
+<h5 class="font-bold mb-4">Recursos</h5>
+<ul class="space-y-2">
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Directorio</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Calculadoras</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-4">Empresa</h5>
+<ul class="space-y-2">
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Privacidad</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Términos</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Contacto</a></li>
+</ul>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<h5 class="font-bold mb-4">Soporte</h5>
+<ul class="space-y-2">
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Ayuda</a></li>
+<li><a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">FAQs</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-primary-fixed-dim">© 2024 BlindadoUSA. Tu biblia financiera.</p>
+<div class="flex gap-6">
+<a class="material-symbols-outlined text-primary-fixed-dim hover:text-white transition-colors" data-icon="facebook" href="#">facebook</a>
+<a class="material-symbols-outlined text-primary-fixed-dim hover:text-white transition-colors" data-icon="instagram" href="#">instagram</a>
+<a class="material-symbols-outlined text-primary-fixed-dim hover:text-white transition-colors" data-icon="youtube" href="#">youtube</a>
+</div>
+</div>
+</footer>
+<!-- FAB AI Assistant -->
+<button class="fixed bottom-6 right-6 w-16 h-16 bg-primary-mid rounded-full shadow-2xl flex items-center justify-center text-white z-50 hover:scale-110 active:scale-95 transition-transform group">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+<div class="absolute right-20 bg-white text-primary-mid px-4 py-2 rounded-lg font-bold text-sm shadow-lg border border-outline-variant opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            ¿Necesitas ayuda?
+        </div>
+</button>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.hover\\:shadow-lg').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

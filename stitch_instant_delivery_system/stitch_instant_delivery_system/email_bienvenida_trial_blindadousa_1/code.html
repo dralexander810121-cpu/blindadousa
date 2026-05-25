@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bienvenido a BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-container-low": "#f3f4f1",
+                        "on-primary-container": "#86af99",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed": "#c1ecd4",
+                        "on-surface-variant": "#414844",
+                        "secondary-fixed": "#ffdcc4",
+                        "inverse-surface": "#2f312f",
+                        "inverse-on-surface": "#f0f1ee",
+                        "danger": "#D62828",
+                        "on-surface": "#1a1c1a",
+                        "primary-light": "#40916C",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "pale-green": "#D8F3DC",
+                        "on-tertiary-fixed": "#271900",
+                        "accent-dark": "#E76F51",
+                        "on-secondary-container": "#783d01",
+                        "warning": "#F77F00",
+                        "outline-variant": "#c1c8c2",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e3e0",
+                        "on-background": "#1a1c1a",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-container": "#eeeeeb",
+                        "primary-container": "#1b4332",
+                        "tertiary": "#342300",
+                        "surface-bright": "#f9faf6",
+                        "secondary-fixed-dim": "#ffb780",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#012d1d",
+                        "outline": "#717973",
+                        "dark": "#1A1A2E",
+                        "background": "#f9faf6",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-secondary": "#ffffff",
+                        "success": "#52B788",
+                        "secondary-container": "#ffab69",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#503700",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface": "#f9faf6",
+                        "gray": "#6B7280",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container-high": "#e8e8e5",
+                        "secondary": "#8e4e14",
+                        "surface-dim": "#dadad7",
+                        "primary-mid": "#2D6A4F"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bebas Neue"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopAppBar Mockup for Email Container -->
+<header class="bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center h-touch-target px-margin-mobile w-full sticky top-0 z-50">
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">
+            BLINDADOUSA
+        </div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="material-symbols-outlined text-primary">search</span>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-margin-mobile py-stack-lg">
+<!-- Hero Section -->
+<section class="rounded-xl overflow-hidden mb-stack-md sombra-verde">
+<div class="relative h-64 w-full bg-primary-container">
+<img alt="Welcome Handshake" class="w-full h-full object-cover opacity-80 mix-blend-overlay" data-alt="A cinematic, professional close-up of a warm, firm handshake between two business individuals in a sunlit, modern office environment. The lighting is soft and golden, suggesting a successful partnership and trust. The background is slightly blurred with hints of glass and corporate greenery, maintaining a high-contrast clean aesthetic. The overall mood is authoritative yet deeply empathetic, aligned with a premium financial advisory brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLAQb_e2TEFx88uUjJo-DzzpR5QXcCUXJyMAhIvptvxjXYKQJfj1s7B2jz8nT33niRTMMawUt4DUEXh3KFLe8hDhB8-wT8k1cPyVzR2Go5-PPLHNT5_eyMIPmAtsFh8mao2qQYMt8BQpo6dq0v7c_R5-zFNVyTjY4MTu4uynCgf363vyXD9IWnEM1nphd8s1iuex7dNe6vTGlwsRsmolEdGHx2XGPDlFcO4MOeXQYqyVG_S79HvhIExNHPXGxvyRVAaKuPNV6cj68U"/>
+<div class="absolute inset-0 flex items-center justify-center p-8">
+<div class="text-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-primary mb-2">¡YA ESTÁS BLINDADO, [NOMBRE]!</h1>
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed px-4 py-1 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                            PRUEBA ACTIVA: 3 DÍAS
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Body Message -->
+<section class="bg-surface-container-low rounded-xl p-8 mb-stack-md border border-outline-variant">
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+                Tu cuenta de prueba por 3 días ha sido activada con éxito. Tienes acceso completo a todas nuestras herramientas para proteger y potenciar tu futuro financiero.
+            </p>
+<div class="space-y-4">
+<h3 class="font-label-sm text-label-sm text-primary-mid uppercase tracking-widest mb-4">Empieza por aquí:</h3>
+<!-- Bento-ish Grid for Action Items -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Item 1 -->
+<div class="flex items-center gap-4 bg-surface p-4 rounded-lg border border-outline-variant hover:border-primary-light transition-colors group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">1. Mi Crédito</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Consulta tu score actual y salud crediticia.</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary-mid transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center gap-4 bg-surface p-4 rounded-lg border border-outline-variant hover:border-primary-light transition-colors group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">2. Comprar Casa</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Calculadora hipotecaria y guía de compra.</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary-mid transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center gap-4 bg-surface p-4 rounded-lg border border-outline-variant hover:border-primary-light transition-colors group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">3. Derechos Laborales</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Guía rápida para proteger tu trabajo.</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-outline-variant group-hover:text-primary-mid transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="text-center py-stack-md">
+<button class="w-full bg-secondary-container text-on-secondary-fixed font-headline-md text-headline-md py-5 rounded-xl shadow-lg hover:scale-[1.02] active:scale-95 transition-all duration-200 uppercase tracking-wide">
+                IR A MI PANEL
+            </button>
+<div class="mt-stack-md flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">credit_card_off</span>
+                No necesitas tarjeta. Disfruta de tu seguridad financiera.
+            </div>
+</section>
+<!-- Simple Trust Bar -->
+<section class="mt-stack-lg border-t border-outline-variant pt-stack-md flex justify-around opacity-60 grayscale">
+<div class="text-center">
+<span class="material-symbols-outlined block mb-1">security</span>
+<span class="text-[10px] font-bold uppercase">Encriptado</span>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined block mb-1">support_agent</span>
+<span class="text-[10px] font-bold uppercase">Soporte 24/7</span>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined block mb-1">verified</span>
+<span class="text-[10px] font-bold uppercase">Oficial</span>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Mockup -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface dark:bg-inverse-surface shadow-lg md:hidden">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2">
+<span class="material-symbols-outlined">folder</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</div>
+</nav>
+<!-- Floating AI Assistant Placeholder -->
+<div class="fixed bottom-24 right-6 w-14 h-14 bg-gradient-to-br from-primary-mid to-primary-container rounded-full flex items-center justify-center text-on-primary shadow-xl cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+</body></html>

@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env*.local
+env-local.txt
+*.log
+.DS_Store
+.vercel
+.turbo
+next-env.d.ts
+.idea/
+.vscode/
+*.tsbuildinfo
+stitch_instant_delivery_system.zip

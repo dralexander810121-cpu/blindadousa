@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recordatorio BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glow-warning {
+            box-shadow: 0 0 20px rgba(247, 127, 0, 0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-container-low": "#f3f4f1",
+                        "on-primary-container": "#86af99",
+                        "on-primary-fixed": "#002114",
+                        "primary-fixed": "#c1ecd4",
+                        "on-surface-variant": "#414844",
+                        "secondary-fixed": "#ffdcc4",
+                        "inverse-surface": "#2f312f",
+                        "inverse-on-surface": "#f0f1ee",
+                        "danger": "#D62828",
+                        "on-surface": "#1a1c1a",
+                        "primary-light": "#40916C",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "pale-green": "#D8F3DC",
+                        "on-tertiary-fixed": "#271900",
+                        "accent-dark": "#E76F51",
+                        "on-secondary-container": "#783d01",
+                        "warning": "#F77F00",
+                        "outline-variant": "#c1c8c2",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e3e0",
+                        "on-background": "#1a1c1a",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-container": "#eeeeeb",
+                        "primary-container": "#1b4332",
+                        "tertiary": "#342300",
+                        "surface-bright": "#f9faf6",
+                        "secondary-fixed-dim": "#ffb780",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#012d1d",
+                        "outline": "#717973",
+                        "dark": "#1A1A2E",
+                        "background": "#f9faf6",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-secondary": "#ffffff",
+                        "success": "#52B788",
+                        "secondary-container": "#ffab69",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#503700",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface": "#f9faf6",
+                        "gray": "#6B7280",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container-high": "#e8e8e5",
+                        "secondary": "#8e4e14",
+                        "surface-dim": "#dadad7",
+                        "primary-mid": "#2D6A4F"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bebas Neue"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface-container-low min-h-screen font-body-md text-on-surface antialiased flex items-center justify-center p-4">
+<!-- Email Container -->
+<div class="max-w-[600px] w-full bg-surface-container-lowest overflow-hidden sombra-verde border border-outline-variant">
+<!-- Header -->
+<header class="flex justify-between items-center h-touch-target px-margin-mobile border-b border-outline-variant bg-surface">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary">BLINDADOUSA</span>
+<div class="flex gap-stack-sm text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="material-symbols-outlined">search</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-margin-mobile md:p-margin-desktop flex flex-col gap-stack-md">
+<!-- Urgency Banner -->
+<div class="bg-warning/10 border-l-4 border-warning p-4 rounded-r-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-warning" style="font-variation-settings: 'FILL' 1;">timer</span>
+<div>
+<p class="font-label-sm text-label-sm text-warning uppercase tracking-widest">Acceso a punto de expirar</p>
+<p class="font-body-md text-body-md text-on-surface">Tu prueba gratuita termina en 24 horas.</p>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="space-y-4 text-center md:text-left">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary uppercase leading-none">
+                    No te quedes fuera del sistema.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    Mañana vence tu acceso gratuito. Cientos de hispanos ya han descubierto cómo <span class="text-primary-mid font-bold">ahorrar miles</span> en su próximo carro o cómo <span class="text-primary-mid font-bold">subir su crédito 50 puntos</span>.
+                </p>
+</section>
+<!-- Semáforo (Traffic Light) Status Visual -->
+<div class="grid grid-cols-1 gap-2">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-pale-green border border-primary-light/20">
+<div class="w-4 h-4 rounded-full bg-success"></div>
+<p class="font-body-md text-body-md"><strong class="text-primary">Estatus:</strong> Tu reporte está listo para descarga hoy.</p>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-variant border border-outline-variant opacity-60">
+<div class="w-4 h-4 rounded-full bg-warning"></div>
+<p class="font-body-md text-body-md">Mañana: Acceso bloqueado.</p>
+</div>
+</div>
+<!-- Image/Visual Anchor -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden sombra-verde border border-outline-variant">
+<img alt="Financial Dashboard" class="w-full h-full object-cover" data-alt="A clean and professional digital financial dashboard displaying credit score gauges and financial growth charts. The interface features a sophisticated palette of deep forest greens and soft mint accents, reflecting a high-contrast corporate aesthetic. The background is a minimalist, modern office setting with soft, natural morning sunlight streaming in, creating a mood of clarity, trust, and Hispanic community advancement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx33v0FQZLG9KgycWLhwt_ywgxtq25vDczbLKB3eKIz4Gc3ju-_JCJNxRZmFwWZyS6CFTAIwBaWlMHIx1D3BXCTQcZWA2m4yOokN7aC3y8OwMmTv0YH4eurcSWjjl-Z-Ozl3L8M2aulFAJSRPQ3s5qWIH4jYDe1HOtxnRN6ugbVJRfYA-PPNPzt5h_gmdilhHKmIM_GzqzZsusl5U6CoY9z6xz9my8kghL45ihGddsMi5Q1QRAfJ-Celi60hCUrjfnxJG1dLOw3gb7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-on-primary font-label-sm text-label-sm">Protección Financiera Activa</span>
+</div>
+</div>
+<!-- Testimonial Card -->
+<div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant italic text-on-surface-variant relative">
+<span class="material-symbols-outlined text-primary-light opacity-20 absolute top-2 right-4 text-4xl">format_quote</span>
+<p class="font-body-md text-body-md relative z-10">
+                    "Gracias a BlindadoUSA supe que el dealer me estaba engañando."
+                </p>
+<div class="mt-4 flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-mid flex items-center justify-center text-on-primary font-bold text-xs">JR</div>
+<span class="font-label-sm text-label-sm not-italic font-bold text-primary">— Jose R.</span>
+</div>
+</div>
+<!-- Discount Box -->
+<div class="bg-dark p-6 rounded-2xl text-center space-y-2 border-2 border-warning/30 glow-warning">
+<p class="font-label-sm text-label-sm text-warning tracking-[0.2em] uppercase">Oferta Exclusiva</p>
+<p class="text-on-primary font-body-md text-body-md">
+                    Usa el código <span class="font-data-mono text-data-mono text-warning bg-warning/10 px-2 py-1 rounded">AETHERIS</span> para pagar solo $15 de por vida.
+                </p>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col gap-4">
+<button class="w-full h-touch-target bg-warning hover:bg-warning/90 text-on-secondary-fixed font-headline-md text-headline-md rounded-xl transition-all active:scale-95 flex items-center justify-center uppercase">
+                    CONTINUAR POR $20 (O $15 CON CÓDIGO)
+                </button>
+<p class="text-center font-label-sm text-label-sm text-outline">
+                    Cancela en cualquier momento. Sin contratos ocultos.
+                </p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface p-margin-mobile border-t border-outline-variant">
+<div class="flex justify-between items-center opacity-70">
+<div class="flex gap-4">
+<span class="font-label-sm text-label-sm">Términos</span>
+<span class="font-label-sm text-label-sm">Privacidad</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary-mid">shield</span>
+<span class="font-label-sm text-label-sm font-bold">BlindadoUSA</span>
+</div>
+</div>
+<p class="mt-4 text-[10px] text-outline leading-tight text-center">
+                © 2024 BlindadoUSA. Esta es una comunicación automática referente a su periodo de prueba. Si desea dejar de recibir correos, haga clic en desuscribirse.
+            </p>
+</footer>
+</div>
+<!-- Floating AI Assistant (as per guide) -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-primary-mid text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</body></html>

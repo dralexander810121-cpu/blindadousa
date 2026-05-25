@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Abogados | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#503700",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-secondary-container": "#783d01",
+                    "on-surface-variant": "#414844",
+                    "secondary": "#8e4e14",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2f312f",
+                    "tertiary": "#342300",
+                    "outline-variant": "#c1c8c2",
+                    "primary-mid": "#2D6A4F",
+                    "danger": "#D62828",
+                    "on-primary-fixed": "#002114",
+                    "inverse-primary": "#a5d0b9",
+                    "warning": "#F77F00",
+                    "on-tertiary-fixed": "#271900",
+                    "surface-container-high": "#e8e8e5",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e2e3e0",
+                    "surface-dim": "#dadad7",
+                    "on-primary-container": "#86af99",
+                    "surface-tint": "#3f6653",
+                    "primary-fixed": "#c1ecd4",
+                    "pale-green": "#D8F3DC",
+                    "on-secondary-fixed": "#2f1400",
+                    "outline": "#717973",
+                    "inverse-on-surface": "#f0f1ee",
+                    "accent-dark": "#E76F51",
+                    "success": "#52B788",
+                    "secondary-fixed": "#ffdcc4",
+                    "dark": "#1A1A2E",
+                    "surface-container": "#eeeeeb",
+                    "surface": "#f9faf6",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-surface": "#1a1c1a",
+                    "error": "#ba1a1a",
+                    "primary": "#012d1d",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#1b4332",
+                    "background": "#f9faf6",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "gray": "#6B7280",
+                    "secondary-container": "#ffab69",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb780",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-light": "#40916C",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-bright": "#f9faf6",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#d89b00",
+                    "on-background": "#1a1c1a",
+                    "surface-container-low": "#f3f4f1",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "3rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .premium-border {
+            border: 2px solid #F77F00;
+        }
+        body {
+            background-color: #f9faf6;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+<!-- Top Navigation (Mobile) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-surface border-b border-outline-variant md:hidden">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-mid">BlindadoUSA</h1>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">notifications</span>
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 bg-surface border-r border-outline-variant h-screen sticky top-0 py-8 px-6">
+<div class="mb-10">
+<h1 class="font-display-lg text-primary-mid text-4xl">BlindadoUSA</h1>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="font-label-sm text-label-sm">Crédito</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-label-sm text-label-sm">Comprar Auto</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Remesas</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Derechos Laborales</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Impuestos</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-primary-container text-on-primary-container font-bold rounded-xl mt-4" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant">
+<div class="flex items-center gap-3 p-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a Hispanic professional man in his 40s, smiling warmly, wearing a business casual shirt. He is outdoors in a blurred urban setting with soft morning sunlight, conveying trust and reliability. The aesthetic is clean, professional, and high-contrast, following a modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUID5SnMy-AbNgCx-o1IvRlItx_2LYfy5Bv2HAsSxawSUZQtQ67mf91qeZI5xkSfjTffYEN68maFCy0tezhB1YJBsKAZHjpV7BmVvoPDekuQIQu2aNNrGbvtQNQ8yCe0ZQtshRyKXuGkWqI4u0MJ2mY8A-bdYwL4frySbaDy5MmLfS6y3oTO-Hv84Z9IXYRARHKMbrJ2K9Dw2jFnMTNsVdSJxfKM28JQgPwA5elKPcaV_Ysz5fkzsFKL8bUoyk4f3emm-aLbrj49aa"/>
+<div>
+<p class="text-on-surface font-bold text-sm">Juan Pérez</p>
+<p class="text-on-surface-variant text-xs">Plan Pro</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-24 md:pt-10 md:pb-10 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h2 class="font-display-lg-mobile md:text-display-lg text-primary mb-2">Abogados en [Ciudad del Usuario]</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Encuentra profesionales que hablan tu idioma y entienden tu situación financiera y legal en EE.UU. Sin engaños, solo transparencia.</p>
+</section>
+<!-- Search & Filter Bar -->
+<section class="bg-primary-container p-8 rounded-2xl shadow-lg border border-primary-mid/20 mb-stack-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-end">
+<div class="lg:col-span-4">
+<label class="block text-xs font-bold uppercase text-pale-green/80 mb-2">¿A quién buscas?</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-light">search</span>
+<input class="w-full h-touch-target pl-11 pr-4 rounded-lg border-none focus:ring-2 focus:ring-warning bg-surface" placeholder="Nombre, bufete o palabra clave..." type="text"/>
+</div>
+</div>
+<div class="lg:col-span-3">
+<label class="block text-xs font-bold uppercase text-pale-green/80 mb-2">Ubicación</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-light">location_on</span>
+<input class="w-full h-touch-target pl-11 pr-4 rounded-lg border-none focus:ring-2 focus:ring-warning bg-surface" placeholder="Ciudad o Código Postal" type="text" value="[Ciudad del Usuario]"/>
+</div>
+</div>
+<div class="lg:col-span-2">
+<label class="block text-xs font-bold uppercase text-pale-green/80 mb-2">Especialidad</label>
+<select class="w-full h-touch-target rounded-lg border-none focus:ring-2 focus:ring-warning bg-surface">
+<option>Todas</option>
+<option>Inmigración</option>
+<option>Laboral</option>
+<option>Civil / Familia</option>
+</select>
+</div>
+<div class="lg:col-span-2 flex items-center h-touch-target">
+<label class="flex items-center cursor-pointer gap-2">
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-6 bg-primary-mid rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-warning"></div>
+</div>
+<span class="text-sm font-bold text-pale-green">Acepta ITIN</span>
+</label>
+</div>
+<div class="lg:col-span-1">
+<button class="w-full h-touch-target bg-warning text-dark font-bold rounded-lg hover:bg-tertiary-fixed-dim transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Lawyers List -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-md mb-stack-lg">
+<!-- Premium Card -->
+<div class="premium-border bg-surface-container-lowest rounded-xl p-6 relative flex flex-col md:flex-row gap-6 sombra-verde"><div class="absolute -top-3 left-6 bg-success text-white px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-md z-20">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span> Verificados por la Comunidad
+</div>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> PREMIUM
+                </div>
+<div class="w-full md:w-32 flex-shrink-0">
+<img class="w-32 h-32 md:w-full md:h-32 object-cover rounded-lg border border-outline-variant" data-alt="A professional headshot of a mature lawyer with a confident expression, wearing a tailored navy suit and standing in a high-end corporate law office with floor-to-ceiling windows showing a city skyline at dusk. The lighting is sophisticated, using rim lighting to create depth, and the color palette is dominated by professional blues and warm oranges from the city lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGQpjQ8Hf8wzwd5C1qP00nUuLFnIlnDbQg7JiRcKZpBWnVqaSvRV9XIRX7Mc1ozQNl09QBRzl8Bn3pzS3lYfHzbz4eYnTskBszW6-k0sMQsDWJs4sj1qIDxdenc8k7JQ7OC7Do46FjS-n9pTurPzd8FTILVAiT4kz-NDV0XxT_rLU6MIqnYZqAjn4yLit6p1pbi5HLq-LcsAaTgVLG3R6NSA77h-bUdXG9MjGMSaczEAKQmmklz2lHgoWWBl0mdtd5U2U3UL9BGUNY"/>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="mb-4">
+<h3 class="font-headline-md text-primary flex items-center gap-2">
+                            Bufete Martínez &amp; Asociados
+                            <span class="material-symbols-outlined text-warning text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p class="text-primary-mid font-semibold italic">Inmigración y Defensa Laboral</p>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Houston, TX
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">Habla Español</span>
+<span class="bg-primary-light/10 text-primary-light px-3 py-1 rounded-full text-xs font-bold border border-primary-light/20">Acepta ITIN</span>
+<span class="bg-warning/10 text-warning px-3 py-1 rounded-full text-xs font-bold border border-warning/20">Verificado</span>
+</div>
+<div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+<button class="h-touch-target bg-warning text-dark font-bold rounded-lg hover:opacity-90 active:scale-95 transition-all text-sm uppercase">Ver Perfil Completo</button>
+<button class="h-touch-target border-2 border-primary-container text-primary-container font-bold rounded-lg hover:bg-pale-green active:scale-95 transition-all text-sm uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> Llamar ahora
+                        </button>
+</div>
+</div>
+</div>
+<!-- Regular Card 1 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="w-full md:w-32 flex-shrink-0">
+<img class="w-32 h-32 md:w-full md:h-32 object-cover rounded-lg border border-outline-variant" data-alt="A portrait of a professional female attorney in a bright, modern office space. She is dressed in a professional green blazer, reflecting the brand colors, and has an approachable yet authoritative expression. The background is softly blurred, showing legal books and a minimalist desk setup. The lighting is natural and high-key, creating a clean and trustworthy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqZRRUuCd3a1iLRK41VFb1ksgfQnYYzC4gCyDOWpVUsn59fzosyVhnCag3056DNpr19y_1NFXx-NV133P1oejH-KQ_GNb98KyadQgdfdrzKiDDIMsIYEgSABwoNwlGl8ZP4HhLiCb8urht9emJ5p07zLiMxnaaiCqW1MeJjU-fiysc853KWD-QTt3D3hxUOxhyX6IM5mqQy0BWknEvKtQ_ACn0SlKcPxIIWw4SUas6EwIZ-sh-aFkKx031GR5zUzAEiTFh2PDE7YHN"/>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="mb-4">
+<h3 class="font-headline-md text-primary flex items-center gap-2">
+                            Elena Rodríguez Law
+                            <span class="material-symbols-outlined text-warning text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p class="text-primary-mid font-semibold italic">Derecho Civil y Familiar</p>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Miami, FL
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">Habla Español</span>
+<span class="bg-warning/10 text-warning px-3 py-1 rounded-full text-xs font-bold border border-warning/20">Verificado</span>
+</div>
+<div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+<button class="h-touch-target bg-primary-container text-on-primary font-bold rounded-lg hover:bg-primary-mid active:scale-95 transition-all text-sm uppercase">Ver Perfil Completo</button>
+<button class="h-touch-target border-2 border-primary-container text-primary-container font-bold rounded-lg hover:bg-pale-green active:scale-95 transition-all text-sm uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> Llamar ahora
+                        </button>
+</div>
+</div>
+</div>
+<!-- Regular Card 2 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="w-full md:w-32 flex-shrink-0">
+<img class="w-32 h-32 md:w-full md:h-32 object-cover rounded-lg border border-outline-variant" data-alt="A professional profile photo of a diverse legal team sitting around a polished conference table. They are engaged in a serious but collaborative discussion. The setting is a contemporary office with minimalist decor and glass walls. The lighting is crisp and even, highlighting the professional attire of the group. The overall mood is one of teamwork, expertise, and corporate excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYPmvGEw4ovcLc3J3GUpucdDZH6NwsA0guC75WvC4Dd6aaXd51twyQX3VKZqH-GqeBHheSxJ_us-AVCsLDAmuEWEuyzaU6yGRUhQSJw0X8ORHnYG56K5Dly19hSOOfTuYBIHQt6Cw4ZqTm3Q2jeZm_OzQm7a5Uf-gdWtWub8RRQAedddKNGdptadTxdCOUmsGbRd4auk850JgR2uoaDvRG0q-vyJ6SswUeTGwF4FpmcaXwAMb0XpwxAG33OOJ-kgMxq1ndtyQkbAJb"/>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="mb-4">
+<h3 class="font-headline-md text-primary flex items-center gap-2">
+                            Soto &amp; Partners
+                            <span class="material-symbols-outlined text-warning text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h3>
+<p class="text-primary-mid font-semibold italic">Casos de Accidentes y Lesiones</p>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Los Angeles, CA
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">Habla Español</span>
+<span class="bg-primary-light/10 text-primary-light px-3 py-1 rounded-full text-xs font-bold border border-primary-light/20">Acepta ITIN</span>
+</div>
+<div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+<button class="h-touch-target bg-primary-container text-on-primary font-bold rounded-lg hover:bg-primary-mid active:scale-95 transition-all text-sm uppercase">Ver Perfil Completo</button>
+<button class="h-touch-target border-2 border-primary-container text-primary-container font-bold rounded-lg hover:bg-pale-green active:scale-95 transition-all text-sm uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> Llamar ahora
+                        </button>
+</div>
+</div>
+</div>
+<!-- Regular Card 3 -->
+<div class="bg-surface rounded-xl p-6 border border-outline-variant flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="w-full md:w-32 flex-shrink-0">
+<img class="w-32 h-32 md:w-full md:h-32 object-cover rounded-lg border border-outline-variant" data-alt="A close-up shot of a legal professional's hands holding a pen, poised to sign a document on a mahogany desk. In the background, a small legal scale and books are visible but blurred. The lighting is warm and directional, casting soft shadows and emphasizing the importance of the legal process. The color scheme is rich with earthy tones and dark greens, projecting a sense of tradition and authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ka2TgB_-BLOvt4bTR3YwEAZvC850WjxsJBDMoDwqiE96rZ_UO5yBby81iz5dV39a-emHNbEp-CTNlvUHFtFSIz5UT9P2KHLrJKjEJMHyjtoT9tilqF2Slc8YbE81wf2OWNGD4YC8PRZs6zoncNqMM1-m0hNoy3Jvwo6HkMxKT-5Yv8grloAno4-3VH5AV_53YdRl1CMW0SuR0fwDmSY3gCpVdrjdgNq_iyLYlC8KD7hT6fr7NfcS6TfM8waPJJuKZ_mMIcYxcS52"/>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="mb-4">
+<h3 class="font-headline-md text-primary flex items-center gap-2">
+                            Justicia Laboral USA
+                        </h3>
+<p class="text-primary-mid font-semibold italic">Salarios No Pagados y Derechos</p>
+<p class="text-on-surface-variant text-sm flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span> Chicago, IL
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">Habla Español</span>
+<span class="bg-warning/10 text-warning px-3 py-1 rounded-full text-xs font-bold border border-warning/20">Verificado</span>
+</div>
+<div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+<button class="h-touch-target bg-primary-container text-on-primary font-bold rounded-lg hover:bg-primary-mid active:scale-95 transition-all text-sm uppercase">Ver Perfil Completo</button>
+<button class="h-touch-target border-2 border-primary-container text-primary-container font-bold rounded-lg hover:bg-pale-green active:scale-95 transition-all text-sm uppercase flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> Llamar ahora
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Professional CTA -->
+<section class="bg-primary-container rounded-2xl p-8 md:p-12 text-center relative overflow-hidden sombra-verde">
+<!-- Decorative Pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10">
+<h3 class="font-display-lg-mobile md:text-display-lg text-pale-green mb-4">¿Eres abogado y quieres ayudar a la comunidad?</h3>
+<p class="text-on-primary-container text-body-lg mb-8 max-w-2xl mx-auto">Únete a nuestra red de profesionales verificados y conecta con miles de hispanos en busca de asesoría honesta y accesible.</p>
+<button class="px-8 h-touch-target bg-warning text-dark font-bold rounded-xl text-lg uppercase shadow-lg hover:scale-105 transition-transform active:scale-95">
+                    Aparece en nuestro directorio aquí
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[72px] pb-safe px-gutter bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1 px-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Finanzas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-[60]">
+<button class="w-14 h-14 bg-primary-mid text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+</div>
+<script>
+        // Micro-interactions and interactions for list items
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(el.tagName === 'A' && el.getAttribute('href') === '#') e.preventDefault();
+                console.log('Interaction recorded on: ' + el.innerText);
+            });
+        });
+    </script>
+</body></html>

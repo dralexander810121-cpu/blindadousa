@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guía SNAP/WIC - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#342300",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "primary-fixed": "#c1ecd4",
+                        "outline": "#717973",
+                        "surface-dim": "#dadad7",
+                        "primary-mid": "#2D6A4F",
+                        "outline-variant": "#c1c8c2",
+                        "tertiary-container": "#503700",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-tertiary-container": "#d89b00",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-secondary-container": "#783d01",
+                        "surface-tint": "#3f6653",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1a",
+                        "danger": "#D62828",
+                        "surface-container-low": "#f3f4f1",
+                        "surface-bright": "#f9faf6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "dark": "#1A1A2E",
+                        "success": "#52B788",
+                        "on-surface-variant": "#414844",
+                        "warning": "#F77F00",
+                        "inverse-surface": "#2f312f",
+                        "surface": "#f9faf6",
+                        "inverse-primary": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-container": "#eeeeeb",
+                        "background": "#f9faf6",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "secondary-container": "#ffab69",
+                        "accent-dark": "#E76F51",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "primary-light": "#40916C",
+                        "secondary-fixed-dim": "#ffb780",
+                        "pale-green": "#D8F3DC",
+                        "gray": "#6B7280",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container-high": "#e8e8e5",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary-fixed": "#ffdcc4",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#8e4e14",
+                        "on-tertiary-fixed": "#271900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "touch-target": "48px",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-lg": "3rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bebas Neue"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .step-line::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 48px;
+            bottom: -24px;
+            width: 2px;
+            background-color: #c1ecd4;
+        }
+        .step-line:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- SideNavBar Shell -->
+<aside class="bg-primary dark:bg-primary-container h-screen w-64 fixed left-0 top-0 overflow-y-auto shadow-md flex flex-col py-6 px-4 z-50 border-r border-primary-mid hidden md:flex">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-pale-green leading-none">BlindadoUSA</h1>
+<p class="text-pale-green/60 font-label-sm text-[12px] uppercase tracking-widest mt-1">Biblia Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Resumen</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="font-body-md">Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-md">Comunidad</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-body-md">Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-body-md">Impuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-body-md">Legal</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-md">Educación</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-mid">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-xl active:scale-95 transition-transform">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 bg-surface-bright flex items-center justify-between px-margin-mobile md:px-margin-desktop z-40 border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-primary hidden md:block">Guía de Beneficios</h2>
+<h2 class="font-headline-md text-headline-md text-primary md:hidden">BlindadoUSA</h2>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden lg:flex items-center gap-2 bg-primary-fixed text-on-primary-fixed px-4 py-1.5 rounded-full font-label-sm text-[12px]">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    Miembro Premium
+                </span>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="Avatar del usuario" class="w-10 h-10 rounded-full border-2 border-primary-fixed object-cover" data-alt="A professional close-up portrait of a friendly Hispanic man in his late 40s, looking directly at the camera with a warm, confident smile. He is dressed in a clean, casual business shirt. The background is a softly blurred modern office environment with natural daylight, maintaining a professional yet accessible corporate aesthetic that aligns with a high-trust financial platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC59hj0dkAP3-85oIS8cGkpprGlc2TPrnEOluMLt4LUXFxZvp4TbaaJXAX5AlOqWCdh_Sqtgs77RsSpsrkuGKY_CRSb9d_R5xKNrg4t4p9bMRjsAl2GN05GdvLoSGXVuk3Wp0Xz9FN2SvZj0mVEE22k5sUNTg03mFJhykfyu0Y-7A_RUxvb5113eViC3rljWjJgN9-1CyZbnA1n1wXCT0WZLpU9Q-PZ3iXpx-5EdXn2paKi_tXkQxVNF8i_Jf-53aOlVbHKHz48pgYv"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="pt-28 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-3xl sombra-verde border border-outline-variant/30">
+<div class="flex-1">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full font-label-sm text-[12px] mb-4 inline-block">AYUDA ALIMENTARIA</span>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight mb-4">Guía Paso a Paso:<br/>SNAP y WIC</h1>
+<p class="text-body-lg text-on-surface-variant max-w-md">Consigue ayuda para comida de forma segura, sin miedo y protegiendo tu futuro en los Estados Unidos.</p>
+</div>
+<div class="w-full md:w-1/3 relative">
+<div class="bg-success/10 rounded-2xl p-6 border-2 border-dashed border-success flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-success text-[64px] mb-2" data-icon="shield_check" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h3 class="font-bold text-primary mb-1">Carga Pública</h3>
+<p class="text-[14px] leading-relaxed text-on-surface-variant">
+<strong>IMPORTANTE:</strong> Solicitar SNAP o WIC <strong>NO</strong> afecta tu proceso migratorio según las reglas actuales.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Process and Checklist -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Step by Step (Left/Middle) -->
+<div class="lg:col-span-2 space-y-6">
+<h2 class="font-headline-md text-primary flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-light" data-icon="route">route</span>
+                        El Camino al Beneficio
+                    </h2>
+<!-- Step 1 -->
+<div class="relative pl-16 py-4 step-line">
+<div class="absolute left-0 top-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-pale-green font-display-lg text-[24px] z-10">1</div>
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/50 hover:border-primary-mid transition-all shadow-sm">
+<h3 class="font-bold text-lg mb-2 text-primary">Prepara tus Documentos</h3>
+<p class="text-on-surface-variant mb-4">Antes de empezar, ten a la mano lo básico para evitar retrasos.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-md text-[13px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="id_card">id_card</span> Identificación
+                                </span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-md text-[13px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="payments">payments</span> Comprobante de ingresos
+                                </span>
+<span class="bg-surface-container-highest px-3 py-1 rounded-md text-[13px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="home_pin">home_pin</span> Prueba de domicilio
+                                </span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative pl-16 py-4 step-line">
+<div class="absolute left-0 top-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-pale-green font-display-lg text-[24px] z-10">2</div>
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/50 hover:border-primary-mid transition-all shadow-sm">
+<h3 class="font-bold text-lg mb-2 text-primary">Envía tu Solicitud</h3>
+<p class="text-on-surface-variant mb-4">Tienes tres formas seguras de hacerlo. Elige la que más te convenga:</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="p-3 bg-primary-fixed/30 rounded-xl text-center border border-primary-fixed">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="language">language</span>
+<p class="text-[12px] font-bold block uppercase">En Línea</p>
+</div>
+<div class="p-3 bg-primary-fixed/30 rounded-xl text-center border border-primary-fixed">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="call">call</span>
+<p class="text-[12px] font-bold block uppercase">Teléfono</p>
+</div>
+<div class="p-3 bg-primary-fixed/30 rounded-xl text-center border border-primary-fixed">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="location_on">location_on</span>
+<p class="text-[12px] font-bold block uppercase">En Persona</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative pl-16 py-4 step-line">
+<div class="absolute left-0 top-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-pale-green font-display-lg text-[24px] z-10">3</div>
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/50 hover:border-primary-mid transition-all shadow-sm">
+<h3 class="font-bold text-lg mb-2 text-primary">La Entrevista</h3>
+<p class="text-on-surface-variant mb-3">Un trabajador social te llamará o citará. No tengas miedo: solo quieren confirmar que calificas.</p>
+<div class="bg-warning/10 border-l-4 border-warning p-3 rounded-r-lg">
+<p class="text-[13px] text-tertiary font-medium">
+<strong>Tip de Blindado:</strong> Si no hablas inglés, tienes derecho por ley a un intérprete gratuito. ¡Pídelo siempre!
+                                </p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative pl-16 py-4">
+<div class="absolute left-0 top-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-pale-green font-display-lg text-[24px] z-10">4</div>
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/50 hover:border-primary-mid transition-all shadow-sm">
+<h3 class="font-bold text-lg mb-2 text-primary">Usa tu Tarjeta EBT</h3>
+<p class="text-on-surface-variant mb-4">Si aprueban tu caso, recibirás por correo una tarjeta plástica. Funciona como una tarjeta de débito en el supermercado.</p>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-xl">
+<img alt="Tarjeta EBT" class="w-20 h-12 object-cover rounded shadow-sm" data-alt="A clean, high-quality photograph of a modern EBT debit card held by a hand about to pay at a checkout counter. The focus is sharp on the card's surface, while the background shows a blurred, brightly lit supermarket interior with fresh produce. The lighting is optimistic and warm, emphasizing the ease of use and dignity of the process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyh41FjWb8cFs49G3pTyKFlpso-ssdzkFNysWlorIDBEl96EjXEMoI2i1tssSYz1Wf7ToLI5fbFxaO0MGtbHU6tNY_cd3Z3KIXXr82jaLAUTwenpX77NRSQRpMb1UaXTE-gxf-stOb_TrF73qaRb-4HdM6keFHPiVFpYm9VIhSmDmknY16kyx7XJCWoeN25oVnpRLGjPE4EOdifPeaMzq00nJHrqdXAn5kB5UPafAsaS-a4uEBAIrCf07q6LrEtp-39UiIwRf7lNIW"/>
+<p class="text-[13px] italic">Recuerda: Solo puedes comprar comida, no artículos de limpieza o alcohol.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Right) -->
+<div class="space-y-6">
+<!-- Checklist Card -->
+<div class="bg-white rounded-3xl p-6 border border-outline-variant sombra-verde">
+<h3 class="font-headline-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="checklist">checklist</span>
+                            Checklist
+                        </h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 group">
+<div class="w-6 h-6 rounded border-2 border-primary-mid flex items-center justify-center shrink-0 cursor-pointer hover:bg-pale-green transition-all" onclick="this.innerHTML = this.innerHTML ? '' : '&lt;span class=\'material-symbols-outlined text-[18px] text-primary-mid\'&gt;check&lt;/span&gt;'"></div>
+<span class="text-on-surface-variant text-[15px]">Cédula, pasaporte o licencia.</span>
+</li>
+<li class="flex items-start gap-3 group">
+<div class="w-6 h-6 rounded border-2 border-primary-mid flex items-center justify-center shrink-0 cursor-pointer hover:bg-pale-green transition-all" onclick="this.innerHTML = this.innerHTML ? '' : '&lt;span class=\'material-symbols-outlined text-[18px] text-primary-mid\'&gt;check&lt;/span&gt;'"></div>
+<span class="text-on-surface-variant text-[15px]">Últimos 4 recibos de pago.</span>
+</li>
+<li class="flex items-start gap-3 group">
+<div class="w-6 h-6 rounded border-2 border-primary-mid flex items-center justify-center shrink-0 cursor-pointer hover:bg-pale-green transition-all" onclick="this.innerHTML = this.innerHTML ? '' : '&lt;span class=\'material-symbols-outlined text-[18px] text-primary-mid\'&gt;check&lt;/span&gt;'"></div>
+<span class="text-on-surface-variant text-[15px]">Contrato de renta o recibo de luz.</span>
+</li>
+<li class="flex items-start gap-3 group">
+<div class="w-6 h-6 rounded border-2 border-primary-mid flex items-center justify-center shrink-0 cursor-pointer hover:bg-pale-green transition-all" onclick="this.innerHTML = this.innerHTML ? '' : '&lt;span class=\'material-symbols-outlined text-[18px] text-primary-mid\'&gt;check&lt;/span&gt;'"></div>
+<span class="text-on-surface-variant text-[15px]">Números de Seguro Social (si aplica).</span>
+</li>
+</ul>
+</div>
+<!-- CTAs -->
+<div class="space-y-3">
+<button class="w-full bg-secondary-container text-on-secondary-container h-touch-target font-bold rounded-2xl flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+                            Encontrar oficina
+                        </button>
+<button class="w-full bg-white border-2 border-primary text-primary h-touch-target font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-pale-green transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+                            Descargar guía PDF
+                        </button>
+</div>
+<!-- AI Contextual Prompt -->
+<div class="bg-primary-container p-6 rounded-3xl text-pale-green relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[120px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<h4 class="font-bold text-lg mb-2 relative z-10">¿Tienes dudas?</h4>
+<p class="text-[14px] text-pale-green/80 relative z-10 mb-4 leading-relaxed">Pregúntale a nuestro Asistente Blindado sobre cómo calificar para WIC en tu estado específico.</p>
+<button class="bg-pale-green text-primary px-4 py-2 rounded-xl text-[13px] font-bold relative z-10">Consultar ahora</button>
+</div>
+</div>
+</div>
+<!-- Semáforo Section (Footer of Main) -->
+<section class="mt-stack-lg bg-surface-container-high p-8 rounded-3xl border border-outline-variant">
+<h3 class="font-headline-md text-primary mb-6">Estado Legal de estos Beneficios</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col gap-3 p-4 bg-white rounded-2xl border-l-4 border-success">
+<div class="flex items-center gap-2 text-success">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold">Seguro (Verde)</span>
+</div>
+<p class="text-[14px]">WIC para mujeres y niños es 100% seguro para familias mixtas.</p>
+</div>
+<div class="flex flex-col gap-3 p-4 bg-white rounded-2xl border-l-4 border-warning">
+<div class="flex items-center gap-2 text-warning">
+<span class="material-symbols-outlined" data-icon="report_problem" style="font-variation-settings: 'FILL' 1;">report_problem</span>
+<span class="font-bold">Información (Amarillo)</span>
+</div>
+<p class="text-[14px]">SNAP no es carga pública, pero debes reportar ingresos reales.</p>
+</div>
+<div class="flex flex-col gap-3 p-4 bg-white rounded-2xl border-l-4 border-danger">
+<div class="flex items-center gap-2 text-danger">
+<span class="material-symbols-outlined" data-icon="cancel" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span class="font-bold">Alerta (Rojo)</span>
+</div>
+<p class="text-[14px]">No uses documentos falsos para aplicar. Es un fraude federal.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating AI Assistant Button -->
+<button class="fixed bottom-8 right-8 z-50 bg-primary-mid text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all group active:scale-90 duration-150">
+<span class="material-symbols-outlined text-[32px]" data-icon="smart_toy">smart_toy</span>
+<span class="absolute right-16 bg-primary-mid text-white px-4 py-2 rounded-xl font-label-sm text-[12px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+            Asistente Blindado
+        </span>
+</button>
+<script>
+        // Simple state interaction for documents
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("BlindadoUSA UI Initialized");
+            
+            // Interaction for FAB
+            const fab = document.querySelector('.bg-primary-mid.fixed');
+            fab.addEventListener('click', () => {
+                alert('Iniciando chat con Asistente Blindado...');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mis Tarjetas | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeeb",
+                    "on-primary-container": "#86af99",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-fixed": "#271900",
+                    "on-background": "#1a1c1a",
+                    "primary-container": "#1b4332",
+                    "on-secondary-fixed": "#2f1400",
+                    "tertiary-container": "#503700",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "primary-light": "#40916C",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "dark": "#1A1A2E",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-error": "#ffffff",
+                    "primary-mid": "#2D6A4F",
+                    "surface-container-high": "#e8e8e5",
+                    "secondary-fixed-dim": "#ffb780",
+                    "primary": "#012d1d",
+                    "surface-variant": "#e2e3e0",
+                    "on-primary": "#ffffff",
+                    "success": "#52B788",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-highest": "#e2e3e0",
+                    "pale-green": "#D8F3DC",
+                    "secondary-container": "#ffab69",
+                    "error": "#ba1a1a",
+                    "secondary": "#8e4e14",
+                    "outline": "#717973",
+                    "on-tertiary-container": "#d89b00",
+                    "surface-bright": "#f9faf6",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-surface-variant": "#414844",
+                    "inverse-surface": "#2f312f",
+                    "secondary-fixed": "#ffdcc4",
+                    "surface-tint": "#3f6653",
+                    "on-surface": "#1a1c1a",
+                    "warning": "#F77F00",
+                    "surface": "#f9faf6",
+                    "surface-dim": "#dadad7",
+                    "outline-variant": "#c1c8c2",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-secondary-container": "#783d01",
+                    "accent-dark": "#E76F51",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9faf6",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#a5d0b9",
+                    "tertiary": "#342300",
+                    "gray": "#6B7280",
+                    "on-primary-fixed": "#002114",
+                    "tertiary-fixed": "#ffdea9",
+                    "danger": "#D62828"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem",
+                    "gutter": "1rem",
+                    "touch-target": "48px",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px -2px rgba(27, 67, 50, 0.15);
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.2);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        /* Custom scrollbar for horizontal cards */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen pb-24 md:pb-0 md:pl-64">
+<!-- Top Navigation Bar -->
+<header class="docked full-width top-0 z-50 bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center h-touch-target px-margin-mobile w-full sticky">
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">BLINDADOUSA</span>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors p-2 rounded-full">search</button>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors p-2 rounded-full">notifications</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional studio portrait avatar of a Hispanic male executive in his 40s. He is wearing a sharp charcoal suit and white shirt, projecting confidence and financial stability. The background is a soft, out-of-focus modern office interior with warm lighting. The aesthetic is clean, high-contrast, and corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADy8KCvG27MgmNkM3YLMkyDMUdetZjuX5DBvGyQTvvBGiL4BcCLCnf3ORCHPcgqrCphlCCu13FAj6gJQOjoQdHvD7xW81KN0k_rj4uC5dmtNX6XJ-LjUg0pehfAlB4AwuV48vsyC8pCvHdiJmnupqLA3tVUsA62zb4r8dM6f4ewm82q6l4ndjuoPpqzF8QbLnaSqlUZwsanHHtca5ZxjNzbgm3cQs-qV_1y2MLdGZhcKgae67TlSSzPeX5Rl0XKZuIbQD1e4gYWWDK"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar (Desktop) -->
+<nav class="docked left-0 h-full w-64 hidden md:flex flex-col fixed bg-surface-container-low dark:bg-surface-container shadow-sm py-stack-md px-4 space-y-2 border-r border-outline-variant">
+<div class="mb-stack-lg px-2">
+<h2 class="font-display-lg text-display-lg text-primary dark:text-primary-fixed-dim mb-0">Mi Panel</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera</p>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-inverse-surface rounded-lg transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</div>
+<div class="mt-auto pt-stack-md space-y-2">
+<button class="w-full flex items-center justify-center gap-2 bg-secondary text-on-secondary font-label-sm text-label-sm py-4 rounded-xl shadow-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">smart_toy</span>
+                Hablar con IA
+            </button>
+<a class="flex items-center gap-stack-sm text-danger px-4 py-3 hover:bg-error-container rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</nav>
+<main class="p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto space-y-stack-md">
+<!-- Header & Action Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">Mis Tarjetas</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl">Centraliza y optimiza tu crédito. Conecta tus bancos para recibir estrategias automáticas de pago.</p>
+</div>
+<button class="bg-primary hover:bg-primary-mid text-white flex items-center justify-center gap-2 px-8 h-touch-target rounded-full font-label-sm text-label-sm transition-all sombra-verde active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+                Conectar con Plaid
+            </button>
+</section>
+<!-- Optimal Payment Intelligence (Agente 2) -->
+<section class="bg-primary-container text-white rounded-3xl p-6 md:p-8 card-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">psychology</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase">Agente 2 Intelligence</span>
+<span class="text-on-primary-container font-label-sm text-label-sm">Sugerencia de Pago Óptimo</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-md items-center">
+<div class="lg:col-span-4 flex flex-col items-center justify-center text-center p-4 border-r border-on-primary-container/30">
+<span class="font-label-sm text-label-sm text-on-primary-container mb-2">Impacto Estimado</span>
+<div class="flex items-center text-success gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile">+42</span>
+<span class="material-symbols-outlined text-4xl">trending_up</span>
+</div>
+<span class="font-label-sm text-label-sm text-success">Puntos en tu Score</span>
+</div>
+<div class="lg:col-span-8">
+<h3 class="font-headline-md text-headline-md mb-4">Meta: Utilización Bajo el 8%</h3>
+<div class="flex flex-wrap gap-4">
+<div class="flex-1 min-w-[200px] bg-white/10 rounded-2xl p-4 border border-white/10">
+<p class="text-xs text-on-primary-container uppercase font-bold mb-1">Total a Pagar hoy</p>
+<p class="font-data-mono text-data-mono text-success">$1,245.50</p>
+</div>
+<div class="flex-1 min-w-[200px] bg-white/10 rounded-2xl p-4 border border-white/10">
+<p class="text-xs text-on-primary-container uppercase font-bold mb-1">Ahorro en Intereses</p>
+<p class="font-data-mono text-data-mono text-secondary-fixed-dim">$112.20</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cards Display Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Chase Freedom (Critical Status) -->
+<div class="bg-white rounded-[2rem] border border-outline-variant card-shadow flex flex-col overflow-hidden">
+<div class="p-6 bg-gradient-to-br from-[#117ACA] to-[#0D4E81] text-white relative h-48 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-white/20 px-3 py-1 rounded-lg backdrop-blur-md">
+<span class="text-xs font-bold uppercase tracking-widest">Chase Freedom</span>
+</div>
+<span class="material-symbols-outlined">contactless</span>
+</div>
+<div class="space-y-1">
+<p class="font-data-mono text-data-mono tracking-[0.2em] opacity-80">**** **** **** 4291</p>
+<div class="flex justify-between items-end">
+<p class="font-display-lg-mobile text-display-lg-mobile">$4,120.00</p>
+<img alt="Chase Logo" class="h-8 rounded" data-alt="A minimalist professional vector logo for a major banking corporation, stylized in deep navy blue and white. The logo is clean, modern, and high-contrast, representing financial trust and corporate reliability in a corporate light-mode theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzGsXm3Qgs8UTuwg8j0-oESL7Mr-KOUsZeh51HOHELNIirNIuRqKEQ-4lzGIwwazgKTcI4bn-DlBDvh_JZFtYzh2thRCC2BiEwFO2t6T9IKsmWJQAGmcGHyEJMBR5C5Md1RbBHF95BOl_xJ4boYpAvND0dfujjvPNqlz9DdJ8HW2SaCvsIIru2vRrqPj4hP_9dCzxDk_5FjSA6vZ-DMGWCmsJbfUumrwI3h5OoL3qmC0N0n-aPe_2PG7v8hmINP9i9a-RpRGnG1QFy"/>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Límite: $5,000.00</span>
+<span class="font-bold text-danger">82.4% Utilización</span>
+</div>
+<!-- Utilization Progress Bar -->
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-danger rounded-full" style="width: 82%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Corte</p>
+<p class="font-label-sm text-label-sm">15 de Oct</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Pago</p>
+<p class="font-label-sm text-label-sm">02 de Nov</p>
+</div>
+</div>
+<!-- AI Recommendation Box -->
+<div class="bg-error-container/30 p-4 rounded-xl border border-error/20">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-danger text-sm">warning</span>
+<span class="text-xs font-bold text-danger uppercase">Pago Sugerido: $3,720.00</span>
+</div>
+<p class="text-xs text-on-surface-variant">Paga esta cantidad antes del corte para bajar al 8% y evitar reporte negativo.</p>
+</div>
+</div>
+</div>
+<!-- Card 2: Amex Gold (Healthy Status) -->
+<div class="bg-white rounded-[2rem] border border-outline-variant card-shadow flex flex-col overflow-hidden">
+<div class="p-6 bg-gradient-to-br from-[#C5A059] to-[#8E6D3A] text-white relative h-48 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-white/20 px-3 py-1 rounded-lg backdrop-blur-md">
+<span class="text-xs font-bold uppercase tracking-widest">AMEX Gold</span>
+</div>
+<span class="material-symbols-outlined">contactless</span>
+</div>
+<div class="space-y-1">
+<p class="font-data-mono text-data-mono tracking-[0.2em] opacity-80">**** **** **** 1004</p>
+<div class="flex justify-between items-end">
+<p class="font-display-lg-mobile text-display-lg-mobile">$450.00</p>
+<img alt="Amex Logo" class="h-8 rounded" data-alt="A prestigious financial service company logo, minimalist vector style, using gold and deep slate tones. The logo conveys luxury, high-end credit services, and global financial authority, set against a bright, modern professional background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4fLsNx2iQFH9h0rBmtjFXqbzx15i8Ab3g_YIOltbBB7cMX7Agvap6X2VqQq_A2KjX3ajkb0Gld1J4rboJyYMzg68HLo2yCgvtG0mTH0W0vE7vH--3iyi9lOuLCfRsUElCqb1eu3VZsGt9Z7KbRNj3er9ud7CsAbyw5gQ-dpMacgGunMLoYYb7g-jEZJaRS3FkMojW3ocYZV3ZRwG7ab5e1oqKIiNFrjfc-RVbVFHUDnZ-Yiikp7spMhigRE-b-fnXt635tY5Ffeww"/>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Límite: $15,000.00</span>
+<span class="font-bold text-success">3.0% Utilización</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-success rounded-full" style="width: 3%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Corte</p>
+<p class="font-label-sm text-label-sm">21 de Oct</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Pago</p>
+<p class="font-label-sm text-label-sm">08 de Nov</p>
+</div>
+</div>
+<div class="bg-pale-green p-4 rounded-xl border border-success/20">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-success text-sm">check_circle</span>
+<span class="text-xs font-bold text-success uppercase">Estado: Saludable</span>
+</div>
+<p class="text-xs text-on-surface-variant">Tu utilización es ideal. Mantén este balance para seguir subiendo tu score.</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Capital One (Warning Status) -->
+<div class="bg-white rounded-[2rem] border border-outline-variant card-shadow flex flex-col overflow-hidden">
+<div class="p-6 bg-gradient-to-br from-[#D11C32] to-[#8B1221] text-white relative h-48 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="bg-white/20 px-3 py-1 rounded-lg backdrop-blur-md">
+<span class="text-xs font-bold uppercase tracking-widest">Capital One</span>
+</div>
+<span class="material-symbols-outlined">contactless</span>
+</div>
+<div class="space-y-1">
+<p class="font-data-mono text-data-mono tracking-[0.2em] opacity-80">**** **** **** 8820</p>
+<div class="flex justify-between items-end">
+<p class="font-display-lg-mobile text-display-lg-mobile">$980.00</p>
+<img alt="Capital One Logo" class="h-8 rounded" data-alt="A modern, high-contrast corporate logo in bold red and silver. The design is minimalist and represents a secure, technology-driven banking institution. The aesthetic is clean, professional, and fits a high-key light-mode financial application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4EQ_uR4-eBoiepVkLLk2t7a-8swaddjVHA7FioMK2Cg0K9rzdWTjG0NO0mk6O9F3-NNlJTRSS-Q3cyuIusxy0cnuhGEQUgk4TXU5yp-X4Quox3odiKCOlv8xdNR35wNVg5-ZQ2phD_w3Gz3iX3qh9xeCuI-VO5T3bz-OrdmklGbhifCB6nOYJElWZt_Ni77i6D4uits-UaKm2eCU_bVUMOyP76BZmF_e4XM8vD5K_Zm6mcqr6ND7SgkNM0hFXXO78yUiVli3JzMa6"/>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Límite: $3,500.00</span>
+<span class="font-bold text-warning">28.0% Utilización</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-warning rounded-full" style="width: 28%;"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-2 border-y border-outline-variant">
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Corte</p>
+<p class="font-label-sm text-label-sm">28 de Oct</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Fecha de Pago</p>
+<p class="font-label-sm text-label-sm">15 de Nov</p>
+</div>
+</div>
+<div class="bg-secondary-fixed p-4 rounded-xl border border-warning/20">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-warning text-sm">info</span>
+<span class="text-xs font-bold text-warning uppercase">Pago Sugerido: $700.00</span>
+</div>
+<p class="text-xs text-on-surface-variant">Estás cerca del límite del 30%. Un pago parcial te mantendrá en la zona segura.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Semáforo Status Component -->
+<section class="bg-surface-container-low rounded-3xl p-8 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                Resumen de Salud Crediticia
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="bg-white p-6 rounded-2xl border-l-8 border-success card-shadow">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-success">thumb_up</span>
+<span class="font-label-sm text-label-sm text-success">EXCELENTE</span>
+</div>
+<p class="font-body-md text-body-md">Pagos a tiempo en todas tus cuentas este mes.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl border-l-8 border-warning card-shadow">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-warning">warning</span>
+<span class="font-label-sm text-label-sm text-warning">ALERTA</span>
+</div>
+<p class="font-body-md text-body-md">2 tarjetas superan el 20% de utilización.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl border-l-8 border-danger card-shadow">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-danger">priority_high</span>
+<span class="font-label-sm text-label-sm text-danger">CRÍTICO</span>
+</div>
+<p class="font-body-md text-body-md">Saldo cercano al límite en Chase Freedom.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-20 right-6 md:bottom-8 md:right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-primary to-primary-mid text-white flex items-center justify-center shadow-2xl z-[100] hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface border-t border-outline-variant shadow-[0_-4px_10px_rgba(27,67,50,0.1)] md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<span class="font-label-sm text-label-sm">Tarjetas</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2 active:bg-surface-variant rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<script>
+        // Light/Dark mode toggle logic could be added here
+        // Simple micro-interactions
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('click', () => {
+                elem.classList.add('scale-95');
+                setTimeout(() => elem.classList.remove('scale-95'), 100);
+            });
+        });
+
+        // Plaid Link Simulation
+        const connectBtn = document.querySelector('button:contains("Conectar con Plaid")');
+        if(connectBtn) {
+            connectBtn.addEventListener('click', () => {
+                alert("Iniciando Plaid Link... En un entorno real, aquí se abriría el modal de conexión bancaria.");
+            });
+        }
+    </script>
+</body></html>

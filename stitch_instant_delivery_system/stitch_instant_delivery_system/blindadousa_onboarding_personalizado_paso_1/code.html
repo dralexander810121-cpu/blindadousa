@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-mid": "#2D6A4F",
+                        "on-background": "#1a1c1a",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-tertiary-container": "#d89b00",
+                        "background": "#f9faf6",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e3e0",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-dim": "#dadad7",
+                        "secondary-container": "#ffab69",
+                        "tertiary-fixed": "#ffdea9",
+                        "pale-green": "#D8F3DC",
+                        "gray": "#6B7280",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary": "#ffffff",
+                        "success": "#52B788",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "primary-light": "#40916C",
+                        "secondary-fixed-dim": "#ffb780",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#2f1400",
+                        "inverse-on-surface": "#f0f1ee",
+                        "secondary": "#8e4e14",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "tertiary": "#342300",
+                        "on-primary-fixed": "#002114",
+                        "on-primary-container": "#86af99",
+                        "outline-variant": "#c1c8c2",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "dark": "#1A1A2E",
+                        "outline": "#717973",
+                        "surface-bright": "#f9faf6",
+                        "surface-container": "#eeeeeb",
+                        "danger": "#D62828",
+                        "on-tertiary-fixed": "#271900",
+                        "secondary-fixed": "#ffdcc4",
+                        "warning": "#F77F00",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary-container": "#503700",
+                        "surface-container-low": "#f3f4f1",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9faf6",
+                        "primary-fixed": "#c1ecd4",
+                        "inverse-surface": "#2f312f",
+                        "on-surface": "#1a1c1a",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#414844",
+                        "on-tertiary": "#ffffff",
+                        "accent-dark": "#E76F51"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-md": "1.5rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-background min-h-screen flex flex-col">
+<!-- Header: TopAppBar (Simplified for Onboarding) -->
+<header class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full z-50 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-display-lg text-primary-mid uppercase tracking-wider">BlindadoUSA</span>
+</div>
+<!-- Progress Indicator -->
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-primary-mid">Paso 1 de 5</span>
+<div class="w-24 h-1.5 bg-surface-container-high rounded-full overflow-hidden mt-1">
+<div class="w-1/5 h-full bg-primary-mid rounded-full transition-all duration-500"></div>
+</div>
+</div>
+<button class="w-touch-target h-touch-target flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center px-margin-mobile md:px-margin-desktop py-stack-lg max-w-2xl mx-auto w-full">
+<!-- Content Header -->
+<div class="text-center mb-stack-lg space-y-stack-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-primary">
+                Queremos ayudarte mejor, <span class="text-primary-mid">Juan</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-md mx-auto">
+                Responde 5 preguntas rápidas para personalizar tu guía. Solo te tomará 1 minuto.
+            </p>
+</div>
+<!-- Body: Question 1 -->
+<section class="w-full space-y-stack-md animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
+<div class="flex items-center gap-3 mb-stack-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-label-sm">1</div>
+<h2 class="text-headline-md font-headline-md text-primary">¿En qué estado vives?</h2>
+</div>
+<!-- State Grid -->
+<div class="grid grid-cols-2 gap-4">
+<button class="state-card group relative flex flex-col items-center justify-center p-6 bg-surface-container-lowest border-2 border-outline-variant rounded-xl min-h-[120px] transition-all hover:border-primary-mid hover:bg-pale-green/30" onclick="selectState(this)">
+<span class="material-symbols-outlined text-primary-mid mb-2 text-3xl" data-icon="map">map</span>
+<span class="font-bold text-primary group-hover:text-primary-mid">Texas</span>
+<div class="absolute top-2 right-2 opacity-0 group-data-[selected=true]:opacity-100">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<button class="state-card group relative flex flex-col items-center justify-center p-6 bg-surface-container-lowest border-2 border-outline-variant rounded-xl min-h-[120px] transition-all hover:border-primary-mid hover:bg-pale-green/30" onclick="selectState(this)">
+<span class="material-symbols-outlined text-primary-mid mb-2 text-3xl" data-icon="beach_access">beach_access</span>
+<span class="font-bold text-primary group-hover:text-primary-mid">Florida</span>
+<div class="absolute top-2 right-2 opacity-0 group-data-[selected=true]:opacity-100">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<button class="state-card group relative flex flex-col items-center justify-center p-6 bg-surface-container-lowest border-2 border-outline-variant rounded-xl min-h-[120px] transition-all hover:border-primary-mid hover:bg-pale-green/30" onclick="selectState(this)">
+<span class="material-symbols-outlined text-primary-mid mb-2 text-3xl" data-icon="wb_sunny">wb_sunny</span>
+<span class="font-bold text-primary group-hover:text-primary-mid">California</span>
+<div class="absolute top-2 right-2 opacity-0 group-data-[selected=true]:opacity-100">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+<button class="state-card group relative flex flex-col items-center justify-center p-6 bg-surface-container-lowest border-2 border-outline-variant rounded-xl min-h-[120px] transition-all hover:border-primary-mid hover:bg-pale-green/30" onclick="selectState(this)">
+<span class="material-symbols-outlined text-primary-mid mb-2 text-3xl" data-icon="location_city">location_city</span>
+<span class="font-bold text-primary group-hover:text-primary-mid">Nueva York</span>
+<div class="absolute top-2 right-2 opacity-0 group-data-[selected=true]:opacity-100">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</button>
+</div>
+<!-- Search Input -->
+<div class="relative mt-stack-md">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="block w-full pl-12 h-touch-target bg-surface-container border-outline-variant rounded-xl text-on-surface focus:ring-primary-mid focus:border-primary-mid transition-all shadow-inner" placeholder="Otro estado..." type="text"/>
+</div>
+</section>
+<!-- Spacer -->
+<div class="flex-1 min-h-[4rem]"></div>
+<!-- Footer Action -->
+<footer class="w-full pt-stack-md pb-8 sticky bottom-0 bg-surface">
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold text-body-lg rounded-xl shadow-lg shadow-primary-container/15 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-150 flex items-center justify-center gap-2 group">
+                Siguiente
+                <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center mt-4 text-label-sm text-on-surface-variant">
+                Privacidad garantizada por BlindadoUSA
+            </p>
+</footer>
+</main>
+<!-- Floating AI Assistant (as per global tokens) -->
+<button class="fixed bottom-6 right-6 w-14 h-14 bg-primary-mid rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform active:scale-95 z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+</button>
+<script>
+        function selectState(element) {
+            // Remove selection from all cards
+            document.querySelectorAll('.state-card').forEach(card => {
+                card.removeAttribute('data-selected');
+                card.classList.remove('border-primary-mid', 'bg-pale-green/30');
+                card.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+            });
+            
+            // Add selection to clicked card
+            element.setAttribute('data-selected', 'true');
+            element.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+            element.classList.add('border-primary-mid', 'bg-pale-green/30');
+            
+            // Subtle haptic-like scale effect
+            element.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                element.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        // Add scroll behavior for sticky footer transparency or shadow
+        window.addEventListener('scroll', () => {
+            const footer = document.querySelector('footer');
+            if (window.scrollY > 10) {
+                footer.classList.add('shadow-[0_-8px_16px_rgba(249,250,246,0.8)]');
+            } else {
+                footer.classList.remove('shadow-[0_-8px_16px_rgba(249,250,246,0.8)]');
+            }
+        });
+    </script>
+</body></html>

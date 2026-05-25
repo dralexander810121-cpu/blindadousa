@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Negocios | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffdcc4",
+                    "on-primary-container": "#86af99",
+                    "primary": "#012d1d",
+                    "background": "#f9faf6",
+                    "primary-container": "#1b4332",
+                    "danger": "#D62828",
+                    "secondary": "#8e4e14",
+                    "inverse-primary": "#a5d0b9",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "inverse-surface": "#2f312f",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#2f1400",
+                    "gray": "#6B7280",
+                    "on-surface-variant": "#414844",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-primary-fixed": "#002114",
+                    "accent-dark": "#E76F51",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-background": "#1a1c1a",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeeeeb",
+                    "tertiary": "#342300",
+                    "primary-mid": "#2D6A4F",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#3f6653",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9faf6",
+                    "tertiary-container": "#503700",
+                    "surface": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "dark": "#1A1A2E",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#783d01",
+                    "primary-fixed": "#c1ecd4",
+                    "outline": "#717973",
+                    "on-tertiary-container": "#d89b00",
+                    "secondary-container": "#ffab69",
+                    "on-tertiary-fixed": "#271900",
+                    "error-container": "#ffdad6",
+                    "primary-light": "#40916C",
+                    "success": "#52B788",
+                    "warning": "#F77F00",
+                    "surface-variant": "#e2e3e0",
+                    "secondary-fixed-dim": "#ffb780",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e8e8e5",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-dim": "#dadad7",
+                    "on-surface": "#1a1c1a",
+                    "surface-container-highest": "#e2e3e0",
+                    "outline-variant": "#c1c8c2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-shadow {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .scrolling-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background dark:bg-on-background shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary-mid dark:text-primary-fixed-dim">BlindadoUSA</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Precios</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1 hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden md:block text-on-surface-variant font-medium hover:text-primary-light transition-colors">Iniciar Sesión</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-bold Active: scale-95 duration-150">Empieza Gratis</button>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-stack-lg">
+<!-- Search & Filter Section -->
+<section class="px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="max-w-4xl mx-auto text-center mb-stack-md">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Directorio de Confianza</h1>
+<p class="text-on-surface-variant">Encuentra profesionales que entienden tus necesidades financieras y legales.</p>
+</div>
+<div class="max-w-3xl mx-auto bg-surface-container-lowest p-2 rounded-xl shadow-md border border-outline-variant flex flex-col md:flex-row gap-2">
+<div class="flex-grow flex items-center px-4 bg-surface-container rounded-lg h-touch-target">
+<span class="material-symbols-outlined text-outline">search</span>
+<input aria-label="Buscador de negocios" class="bg-transparent border-none focus:ring-0 w-full text-body-md" placeholder="¿Qué negocio buscas?" type="text"/>
+</div>
+<button class="bg-secondary text-on-secondary px-8 rounded-lg font-bold h-touch-target hover:bg-on-secondary-fixed-variant transition-colors">
+                    Buscar
+                </button>
+</div>
+<!-- Categories -->
+<div class="flex overflow-x-auto scrolling-hide gap-3 mt-stack-md justify-start md:justify-center py-2">
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-on-primary whitespace-nowrap font-label-sm Active: scale-95 transition-transform">
+<span class="material-symbols-outlined">all_inclusive</span> Todos
+                </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant whitespace-nowrap font-label-sm hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">gavel</span> Abogados
+                </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant whitespace-nowrap font-label-sm hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">account_balance</span> Bancos
+                </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant whitespace-nowrap font-label-sm hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">directions_car</span> Dealers
+                </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant whitespace-nowrap font-label-sm hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">real_estate_agent</span> Realtors
+                </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant whitespace-nowrap font-label-sm hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">history_edu</span> Notarios
+                </button>
+</div>
+</section>
+<!-- Main Directory Grid -->
+<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+<!-- Premium Card Example -->
+<div class="group bg-surface-container-lowest border-2 border-tertiary-fixed-dim rounded-xl p-6 premium-shadow relative flex flex-col justify-between transition-all hover:-translate-y-1">
+<div class="absolute -top-3 left-6 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> PREMIUN
+                </div>
+<div>
+<div class="flex items-start justify-between mb-4 mt-2">
+<div class="w-16 h-16 bg-pale-green rounded-lg flex items-center justify-center overflow-hidden">
+<img alt="Logo de Legal Alliance" class="w-full h-full object-cover" data-alt="A professional corporate logo for a high-end legal firm called Legal Alliance. The logo features a minimalist green pillar symbol set against a clean white background. The visual style is modern, trustworthy, and authoritative, perfectly aligning with a premium financial and legal directory. The lighting is soft and even, highlighting the clean lines of the design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPnTHJrtdOUxzsAA1ZGMsjIKmZAqZtuXSwnFixeQ9R016TMQGYD_KNMkp9iWr_Y0h_oNhq_Z15MRAboplBBTK10SbW8grQ3EbW27H5j8IDH6LSGc4Dqo7ItveWsoX6przt7wE7DkO6CllrGg0-Iux22xEveq8dRKkhYfJ3U-l4L99P_Wxv64F4-4fpun-7442hj9vGIH6JXOprMcwubzeSUuVh5tK7o-klUFJw8pzh90OPkVT8kmc4HoKnWBvaCAsd4fXpIw2fRAif"/>
+</div>
+<span class="bg-success/10 text-primary-mid px-2 py-1 rounded text-[12px] font-bold border border-success/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span> VERIFICADO
+                        </span>
+</div>
+<h3 class="font-headline-md text-primary mb-1">Legal Alliance Hispanic</h3>
+<p class="text-label-sm text-secondary font-bold uppercase tracking-wider mb-2">Abogados de Inmigración</p>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+                        Miami, FL
+                    </div>
+<!-- Badges -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Habla Español</span>
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Acepta ITIN</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-primary-mid transition-colors min-h-[48px] Active:scale-95 duration-150">
+<span class="material-symbols-outlined">chat</span> Contactar Ahora
+                </button>
+</div>
+<!-- Standard Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="w-16 h-16 bg-surface-variant rounded-lg flex items-center justify-center overflow-hidden">
+<img alt="Auto Trust Logo" class="w-full h-full object-cover" data-alt="A modern automotive dealership logo for a company called Auto Trust. The logo uses a sleek, stylized wheel icon with professional dark green and silver colors. The design is clean and corporate, emphasizing reliability and financial expertise in the car market. High-contrast lighting provides a sharp, professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkilW_WhinJUXoyJerF-OgrKBJ_l6w6sllccKST937o24Nf_3zm1HY14tgZc0GmxjPg4b-QO4-sjtIJySPnBggiRW5Y46Rynuxxt0IOf45PmsYAHuckb0_CsHOPJX4146pi0h5YZ5ReduXTAMPv8OPN7BjOIosd-3bUVgK7wH7DCPMNgmPwSU_DAkFHgOZOZ9vL-42qqiSyrj_50DPWo8FoVgTSJ9-XtYJUKzsJoatYwGeEd29Zj_WOgG2pK3V0390l2RFycPVsBLH"/>
+</div>
+</div>
+<h3 class="font-headline-md text-primary mb-1">Auto Trust Florida</h3>
+<p class="text-label-sm text-on-surface-variant font-bold uppercase tracking-wider mb-2">Dealer de Autos</p>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+                        Orlando, FL
+                    </div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Acepta ITIN</span>
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Financiamiento Propio</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary-mid text-primary-mid font-bold py-3 rounded-lg hover:bg-pale-green transition-colors min-h-[48px]">
+                    Ver Detalles
+                </button>
+</div>
+<!-- Standard Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="w-16 h-16 bg-surface-variant rounded-lg flex items-center justify-center overflow-hidden">
+<img alt="Capital Solutions Logo" class="w-full h-full object-cover" data-alt="A minimalist banking and finance logo for Capital Solutions. The design features a geometric abstract icon representing growth and stability. Colors are deep forest green and light cream. The aesthetic is clean, corporate, and highly accessible, reflecting a trustworthy financial institution for the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJwaFI9LkIGSONejl10t9zWkD2myMWzGASW7vrFH0pS2AJq7oFpQ1bMbV75cj_-rno50xYBAt-NuP_4vY1xwfWqzdKTXZvuSeQv9WUiGXRsDDd8TphrwcxsOzZYD_a8SFMx-UlxYSCg_pXmOE-WGuyokcsa1BdGn7_eFPK6EULm7qxePAmD9i0gRcdM8jjEEragTg5ATa3E6ZRrmBOB0csejBu3Hq3_CuQfadsUYnhHqDcIrFteieODsM0yuU9dlsimAQN2JeniEhm"/>
+</div>
+<span class="bg-success/10 text-primary-mid px-2 py-1 rounded text-[12px] font-bold border border-success/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span> VERIFICADO
+                        </span>
+</div>
+<h3 class="font-headline-md text-primary mb-1">Capital Solutions Bank</h3>
+<p class="text-label-sm text-on-surface-variant font-bold uppercase tracking-wider mb-2">Bancos y Préstamos</p>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+                        Houston, TX
+                    </div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Habla Español</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary-mid text-primary-mid font-bold py-3 rounded-lg hover:bg-pale-green transition-colors min-h-[48px]">
+                    Ver Detalles
+                </button>
+</div>
+<!-- Standard Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-between transition-all hover:shadow-md">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div class="w-16 h-16 bg-surface-variant rounded-lg flex items-center justify-center overflow-hidden">
+<img alt="Notaría Express Logo" class="w-full h-full object-cover" data-alt="A clean, authoritative logo for a notary public service named Notaría Express. The icon shows a stylized quill and seal in a dark emerald green. The style is professional and administrative, emphasizing legal validity and quick service. High-contrast white background with soft shadows creates a modern, trustworthy feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoWk_wW9JczNDd3DvBSesQcGT4TLsQGo4Hg9g28o91iqlOHWtkDAnN9NGDP3LpqBIFim-CVRgDy4WGwiYVaCfWJBssV2gFXTOWmVuNDSE8v2ECyhCyatjWODdoyJRKEmLAhduIAyz5r5YezYDV592aGODh1eGTc_demH4z0uhG9SHi-zQABU-XedPaa9bHXH4MijIHswzpGBKsDHXOldDs_gZUVim9zzVa4qNr-jR9dg3XwpNUdbd2t7-3vEpxXfB69gGO3WXYIS0R"/>
+</div>
+</div>
+<h3 class="font-headline-md text-primary mb-1">Notaría Express Dallas</h3>
+<p class="text-label-sm text-on-surface-variant font-bold uppercase tracking-wider mb-2">Notarios Públicos</p>
+<div class="flex items-center gap-1 text-on-surface-variant text-body-md mb-4">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+                        Dallas, TX
+                    </div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Habla Español</span>
+<span class="bg-surface-container px-3 py-1 rounded-full text-label-sm text-on-surface-variant border border-outline-variant">Servicio Móvil</span>
+</div>
+</div>
+<button class="w-full border-2 border-primary-mid text-primary-mid font-bold py-3 rounded-lg hover:bg-pale-green transition-colors min-h-[48px]">
+                    Ver Detalles
+                </button>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="mt-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-5xl mx-auto bg-primary rounded-2xl p-8 md:p-12 text-center relative overflow-hidden shadow-xl">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-mid/20 rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-primary-light/10 rounded-full -ml-24 -mb-24"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-primary-fixed mb-4">¿Eres un profesional?</h2>
+<p class="text-body-lg text-on-primary-container max-w-2xl mx-auto mb-stack-md">
+                        Únete a la red de negocios de confianza más grande para la comunidad hispana en EE.UU. Aumenta tu visibilidad y llega a miles de clientes potenciales.
+                    </p>
+<div class="flex flex-col md:flex-row justify-center gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-bold text-body-lg shadow-lg hover:bg-secondary-fixed transition-all Active:scale-95 duration-150">
+                            Aparecer en el Directorio
+                        </button>
+<button class="border-2 border-on-primary-container text-on-primary-container px-10 py-4 rounded-xl font-bold text-body-lg hover:bg-primary-mid transition-all">
+                            Saber más
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto bg-primary dark:bg-on-background">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 border-b border-on-primary-fixed-variant pb-8 mb-8">
+<span class="font-display-lg text-primary-fixed">BlindadoUSA</span>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Privacidad</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Términos</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Contacto</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Ayuda</a>
+</div>
+</div>
+<p class="text-primary-fixed-dim text-center md:text-left text-body-md">© 2024 BlindadoUSA. Tu biblia financiera.</p>
+</footer>
+<!-- Mobile BottomNavBar (Strictly for mobile as per rules) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm text-label-sm">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Casa</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 Active: scale-90 transition-transform">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-sm text-label-sm">Seguros</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-all p-2 rounded-lg">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-sm text-label-sm">Más</span>
+</div>
+</nav>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-40 md:bottom-10 md:right-10 flex flex-col items-end gap-4 pointer-events-none">
+<!-- Optional Tooltip -->
+<div class="bg-surface-container-lowest px-4 py-2 rounded-lg shadow-md border border-outline-variant text-body-md font-bold text-primary mb-2 opacity-0 transition-opacity md:group-hover:opacity-100 pointer-events-auto">
+            ¿Necesitas ayuda financiera?
+        </div>
+<button class="w-16 h-16 bg-gradient-to-br from-primary-mid to-primary-light rounded-full shadow-lg flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95 pointer-events-auto group">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+<script>
+        // Micro-interaction for filter buttons
+        const filterButtons = document.querySelectorAll('.scrolling-hide button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary');
+                    b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                btn.classList.add('bg-primary', 'text-on-primary');
+                btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            });
+        });
+
+        // Search Bar Focus Effect
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchContainer = searchInput.parentElement.parentElement;
+        searchInput.addEventListener('focus', () => {
+            searchContainer.classList.add('ring-2', 'ring-primary-mid', 'ring-offset-2');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('ring-2', 'ring-primary-mid', 'ring-offset-2');
+        });
+    </script>
+</body></html>

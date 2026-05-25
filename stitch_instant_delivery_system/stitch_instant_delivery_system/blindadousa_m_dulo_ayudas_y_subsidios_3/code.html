@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo de Ayudas y Subsidios | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-mid": "#2D6A4F",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#503700",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface": "#f9faf6",
+                    "gray": "#6B7280",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-container-high": "#e8e8e5",
+                    "secondary": "#8e4e14",
+                    "surface-dim": "#dadad7",
+                    "secondary-container": "#ffab69",
+                    "surface-tint": "#3f6653",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#a5d0b9",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "dark": "#1A1A2E",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9faf6",
+                    "success": "#52B788",
+                    "surface-variant": "#e2e3e0",
+                    "on-background": "#1a1c1a",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "surface-container": "#eeeeeb",
+                    "primary-container": "#1b4332",
+                    "secondary-fixed-dim": "#ffb780",
+                    "tertiary": "#342300",
+                    "surface-bright": "#f9faf6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#012d1d",
+                    "outline": "#717973",
+                    "on-secondary-container": "#783d01",
+                    "on-tertiary-fixed": "#271900",
+                    "accent-dark": "#E76F51",
+                    "warning": "#F77F00",
+                    "outline-variant": "#c1c8c2",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "danger": "#D62828",
+                    "on-surface": "#1a1c1a",
+                    "primary-light": "#40916C",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "pale-green": "#D8F3DC",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-tertiary-container": "#d89b00",
+                    "surface-container-low": "#f3f4f1",
+                    "on-primary-container": "#86af99",
+                    "on-primary-fixed": "#002114",
+                    "primary-fixed": "#c1ecd4",
+                    "on-surface-variant": "#414844",
+                    "secondary-fixed": "#ffdcc4",
+                    "inverse-surface": "#2f312f",
+                    "inverse-on-surface": "#f0f1ee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem",
+                    "gutter": "1rem",
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -10px rgba(27, 67, 50, 0.15);
+        }
+        .text-semaforo-green { color: #52B788; }
+        .text-semaforo-yellow { color: #F77F00; }
+        .text-semaforo-red { color: #D62828; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation -->
+<nav class="sticky top-0 z-50 flex justify-between items-center w-full bg-surface-container-lowest h-16 px-gutter border-b border-outline-variant">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight">BIBLIA FINANCIERA</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 items-center mr-8">
+<a class="text-primary-mid font-bold font-label-sm text-label-sm" href="#">Ayudas</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low px-3 py-2 rounded transition-colors font-label-sm text-label-sm" href="#">Crédito</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low px-3 py-2 rounded transition-colors font-label-sm text-label-sm" href="#">Remesas</a>
+</div>
+<span class="material-symbols-outlined text-primary-mid cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary-mid cursor-pointer" data-icon="person">person</span>
+</div>
+</nav>
+<!-- Sidebar (Desktop Only) -->
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex-col z-40 bg-surface border-r border-outline-variant p-4">
+<div class="flex flex-col gap-2 mb-8">
+<div class="flex items-center gap-3 p-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-mid font-bold">JD</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Juan Delgado</p>
+<p class="text-xs text-on-surface-variant">Estatus: Seguro</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-pale-green text-primary-mid font-bold rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Ayudas y Subsidios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Comprar Casa</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary-mid hover:bg-surface-container-high rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span>Derechos Laborales</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Ajustes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 p-4 md:p-8 space-y-stack-lg pb-32">
+<!-- Header Section -->
+<section class="max-w-5xl mx-auto space-y-stack-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid leading-none">MÓDULO DE AYUDAS Y SUBSIDIOS</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-2">
+                        Encuentra apoyo financiero sin poner en riesgo tu futuro migratorio. Las reglas de <span class="font-bold text-primary">Carga Pública 2026</span> protegen tu derecho a la salud y alimentación.
+                    </p>
+</div>
+<div class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-label-sm">Información Actualizada 2024-2026</span>
+</div>
+</div>
+<!-- Search and Filter -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 bg-white p-4 rounded-xl shadow-sm border border-outline-variant">
+<div class="md:col-span-4 relative">
+<label class="block text-xs font-bold text-primary-mid mb-1">Estado</label>
+<div class="relative">
+<select class="w-full h-touch-target rounded-lg border-outline-variant bg-surface-container-lowest px-4 appearance-none focus:ring-2 focus:ring-primary-mid">
+<option>Texas (Predeterminado)</option>
+<option>California</option>
+<option>Florida</option>
+<option>New York</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="md:col-span-5">
+<label class="block text-xs font-bold text-primary-mid mb-1">Categoría de Ayuda</label>
+<select class="w-full h-touch-target rounded-lg border-outline-variant bg-surface-container-lowest px-4 focus:ring-2 focus:ring-primary-mid">
+<option>Todas las categorías</option>
+<option>Alimentación (SNAP, WIC)</option>
+<option>Salud (Medicaid)</option>
+<option>Vivienda y Energía</option>
+<option>Educación Infantil</option>
+</select>
+</div>
+<div class="md:col-span-3 flex items-end">
+<button class="w-full h-touch-target bg-primary-mid text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                        Buscar Ayudas
+                    </button>
+</div>
+</div>
+</section>
+<!-- Eligibility Quiz Call-to-Action -->
+<section class="max-w-5xl mx-auto">
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary-mid to-primary-light p-8 md:p-12 text-on-primary shadow-xl">
+<div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+<div class="space-y-4">
+<div class="inline-block bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Recomendado</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight">¿A qué ayudas calificas hoy?</h2>
+<p class="font-body-md text-body-md opacity-90">Responde 8 preguntas simples para obtener una lista personalizada basada en tu estatus, ingresos y ubicación.</p>
+<button class="mt-4 bg-[#F4A261] text-dark font-bold px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform flex items-center justify-center gap-3 w-full md:w-auto">
+                            Comenzar Quiz de Elegibilidad
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="hidden md:block">
+<img alt="Digital Interface" class="rounded-xl shadow-2xl rotate-3" data-alt="A professional and sleek digital interface shown on a high-resolution tablet screen held by a person. The screen displays a colorful progress bar and financial eligibility questions in Spanish. The surrounding environment is a bright, modern office with soft morning light, using a clean corporate aesthetic with green and orange accents to match the brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8z8H4FWrKG4mbIfTqIqmYQlH69U3l0b28u8Ang5_HYHkscviLg7_sv89yRqmbuVxw6pq_KlzCj39ri8KCy2wA3o-cjs8kGUXW0gyOsIq9a0KaYEzqxYGk4uh-bo-FR61OxCmPS-HZcVLGdPh1edlKo6ZV12V1ddCXJ6WmYH6G_UlD2gbQP_TVwjuuHK-picmVNKKnfXlSBQU_KVoURXzV2H6MWhTvR-HA5AYjSHCgCFRPCON3HINsjBLsa6_dLnnV5-GbF3r05inA"/>
+</div>
+</div>
+<!-- Background decoration -->
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Programs Grid -->
+<section class="max-w-5xl mx-auto space-y-stack-md">
+<h3 class="font-display-lg text-display-lg-mobile text-primary-mid">PROGRAMAS DISPONIBLES</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- SNAP Card -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="restaurant">restaurant</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">SNAP (Cupones)</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Ayuda para comprar alimentos saludables.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Familias con ingresos bajos. Disponible para niños ciudadanos aunque padres no lo sean.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">En línea vía "Your Texas Benefits" o en oficinas locales.</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Medicaid/CHIP Card -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="medical_services">medical_services</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">Medicaid / CHIP</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Seguro médico completo para niños y adultos.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Niños, embarazadas y personas con discapacidades o bajos ingresos.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">Solicitud federal de Marketplace o agencia estatal.</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- WIC Card -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="child_care">child_care</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">WIC</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Nutrición para madres y niños menores de 5 años.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Madres lactantes o embarazadas y niños pequeños. No importa el estatus.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">Cita presencial en una clínica local de WIC.</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Section 8 -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="apartment">apartment</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">Section 8 / Vivienda</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Ayuda para pagar la renta de tu hogar.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Familias de ingresos muy bajos. Se requiere al menos un miembro con estatus legal.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">Lista de espera en la autoridad de vivienda local (PHA).</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- LIHEAP -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="bolt">bolt</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">LIHEAP (Luz/Gas)</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Ayuda para pagar tus facturas de energía.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Hogares con facturas altas e ingresos que no superan el límite estatal.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">Agencias comunitarias de acción local.</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Head Start -->
+<div class="bg-white rounded-2xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-colors flex flex-col group">
+<div class="p-6 flex-1 space-y-4">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+</div>
+<span class="bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                                Seguro para Inmigración
+                            </span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary-mid">Head Start</h4>
+<p class="text-sm text-on-surface-variant font-medium mt-1">Educación temprana gratuita para niños.</p>
+</div>
+<div class="space-y-3 pt-2">
+<div>
+<p class="text-xs font-bold uppercase text-outline">Quién califica</p>
+<p class="text-sm">Niños de 0 a 5 años. Se prioriza a familias con necesidad económica.</p>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-outline">Cómo aplicar</p>
+<p class="text-sm">Directamente en los centros Head Start de tu barrio.</p>
+</div>
+</div>
+</div>
+<button class="w-full p-4 bg-surface-container-low text-primary-mid font-bold flex items-center justify-center gap-2 group-hover:bg-primary-mid group-hover:text-on-primary transition-all">
+                        Ver Requisitos
+                        <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Informative Section: Public Charge 2026 -->
+<section class="max-w-5xl mx-auto">
+<div class="bg-surface-container-low rounded-3xl p-8 md:p-12 border border-outline-variant flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1 space-y-6">
+<h3 class="font-display-lg text-display-lg-mobile text-primary-mid">¿ESTO ME AFECTA PARA LA RESIDENCIA?</h3>
+<div class="space-y-4">
+<p class="font-body-lg text-body-lg">La respuesta corta es: <span class="text-success font-bold">PARA LA MAYORÍA, NO.</span></p>
+<p class="text-on-surface-variant">Bajo las reglas actuales y proyectadas para 2026:</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span><strong>SNAP y Medicaid</strong> no se consideran carga pública para la mayoría de los trámites.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Ayudas para niños y embarazadas están <strong>100% protegidas</strong>.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Solo la asistencia económica directa en efectivo (SSI) podría tener impacto.</span>
+</li>
+</ul>
+</div>
+<div class="bg-white p-4 rounded-xl border-l-4 border-warning">
+<p class="text-sm italic">"Tu salud y la de tu familia es lo más importante. No dejes de pedir ayuda por miedo."</p>
+</div>
+</div>
+<div class="w-full md:w-1/3 flex flex-col items-center gap-4">
+<!-- Specialized Semaforo Component -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant w-full text-center space-y-3">
+<div class="text-semaforo-green flex flex-col items-center">
+<span class="material-symbols-outlined text-5xl" data-icon="traffic" style="font-variation-settings: 'FILL' 1;">traffic</span>
+<span class="font-bold text-xl uppercase mt-2">Semáforo: VERDE</span>
+</div>
+<p class="text-sm font-medium">Uso Seguro: Puedes usar SNAP, Medicaid y WIC sin miedo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Resource Map -->
+<section class="max-w-5xl mx-auto space-y-stack-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<h3 class="font-display-lg text-display-lg-mobile text-primary-mid">CENTROS DE RECURSOS EN TEXAS</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-primary-fixed text-primary-mid rounded-full text-sm font-bold border border-primary-mid">Houston</button>
+<button class="px-4 py-2 bg-white text-on-surface-variant rounded-full text-sm font-medium border border-outline-variant">Dallas</button>
+<button class="px-4 py-2 bg-white text-on-surface-variant rounded-full text-sm font-medium border border-outline-variant">San Antonio</button>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="md:col-span-2 h-[400px] bg-surface-variant rounded-2xl overflow-hidden relative shadow-inner border border-outline-variant">
+<img alt="City Map" class="w-full h-full object-cover opacity-50 grayscale" data-alt="A clean and professional digital map visualization of Houston, Texas. The map features modern, high-contrast aesthetics with primary-mid green markers indicating local resource centers. The lighting is bright and clear, emphasizing a user-friendly navigation interface suitable for a financial and legal advocacy platform." data-location="Houston, TX" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7npC0N8s9a837vnkZzCbhelcZAWVrHEFajR5QQennpMSFjw_hdw278BPj9_lhNhqP8Po6VvSfo0_srScHu9Rx_v2Sww8Oo-9jg2egs82Tq8RiuVsaw3m-Qixc7kjUqDQxVwByPh9VANgERivqEZWPedx8U3xrQLZutFeTwMUD5_pU0gt1T2y341kqwDWTdG1NC_va5q0KJ8bkdp6XgrbnH8rxzb7qkxiAYvRTzbNoWSimvMQjixaOqxHdUU2TMCWUJH0BIKvIpEz2"/>
+<!-- UI Overlays for Map -->
+<div class="absolute inset-0 p-4 pointer-events-none">
+<div class="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-md inline-flex items-center gap-2 pointer-events-auto border border-outline-variant">
+<span class="material-symbols-outlined text-primary-mid" data-icon="location_on">location_on</span>
+<span class="text-xs font-bold">12 centros encontrados en Houston</span>
+</div>
+</div>
+</div>
+<div class="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary-mid cursor-pointer transition-all">
+<h5 class="font-bold text-primary-mid">Houston Health Department</h5>
+<p class="text-xs text-on-surface-variant">8000 N Stadium Dr, Houston, TX 77054</p>
+<div class="flex gap-2 mt-3">
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">MEDICAID</span>
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">WIC</span>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary-mid cursor-pointer transition-all">
+<h5 class="font-bold text-primary-mid">Harris County Social Services</h5>
+<p class="text-xs text-on-surface-variant">9418 Jensen Dr, Houston, TX 77093</p>
+<div class="flex gap-2 mt-3">
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">SNAP</span>
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">VIVIENDA</span>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:border-primary-mid cursor-pointer transition-all">
+<h5 class="font-bold text-primary-mid">BakerRipley Community Center</h5>
+<p class="text-xs text-on-surface-variant">6400 High Star Dr, Houston, TX 77074</p>
+<div class="flex gap-2 mt-3">
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">LEGAL</span>
+<span class="px-2 py-0.5 bg-pale-green text-[10px] font-bold rounded">EMPLEO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-8 right-8 z-50 group">
+<div class="absolute bottom-full right-0 mb-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<div class="bg-primary-container text-on-primary-container p-4 rounded-2xl shadow-xl border border-primary w-64">
+<p class="font-bold text-sm mb-1">¿Tienes dudas sobre las ayudas?</p>
+<p class="text-xs opacity-90">Pregúntame sobre cualquier programa y cómo te afecta.</p>
+</div>
+</div>
+<button class="bg-primary-mid text-on-primary rounded-full h-16 w-16 flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all sombra-verde">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest h-16 flex items-center justify-around border-t border-outline-variant z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary-mid" href="#">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="text-[10px] font-bold">Ayudas</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="text-[10px] font-bold">Crédito</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="text-[10px] font-bold">Más</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('sombra-verde');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('sombra-verde');
+            });
+        });
+    </script>
+</body></html>

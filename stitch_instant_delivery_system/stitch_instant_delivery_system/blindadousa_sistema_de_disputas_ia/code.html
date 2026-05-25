@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Disputas de Crédito | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eeeeeb",
+                      "on-primary-container": "#86af99",
+                      "surface-container-low": "#f3f4f1",
+                      "on-tertiary-fixed": "#271900",
+                      "on-background": "#1a1c1a",
+                      "primary-container": "#1b4332",
+                      "on-secondary-fixed": "#2f1400",
+                      "tertiary-container": "#503700",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "primary-light": "#40916C",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "dark": "#1A1A2E",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "on-error": "#ffffff",
+                      "primary-mid": "#2D6A4F",
+                      "surface-container-high": "#e8e8e5",
+                      "secondary-fixed-dim": "#ffb780",
+                      "primary": "#012d1d",
+                      "surface-variant": "#e2e3e0",
+                      "on-primary": "#ffffff",
+                      "success": "#52B788",
+                      "primary-fixed": "#c1ecd4",
+                      "surface-container-highest": "#e2e3e0",
+                      "pale-green": "#D8F3DC",
+                      "secondary-container": "#ffab69",
+                      "error": "#ba1a1a",
+                      "secondary": "#8e4e14",
+                      "outline": "#717973",
+                      "on-tertiary-container": "#d89b00",
+                      "surface-bright": "#f9faf6",
+                      "inverse-on-surface": "#f0f1ee",
+                      "on-surface-variant": "#414844",
+                      "inverse-surface": "#2f312f",
+                      "secondary-fixed": "#ffdcc4",
+                      "surface-tint": "#3f6653",
+                      "on-surface": "#1a1c1a",
+                      "warning": "#F77F00",
+                      "surface": "#f9faf6",
+                      "surface-dim": "#dadad7",
+                      "outline-variant": "#c1c8c2",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "on-secondary-container": "#783d01",
+                      "accent-dark": "#E76F51",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#f9faf6",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#a5d0b9",
+                      "tertiary": "#342300",
+                      "gray": "#6B7280",
+                      "on-primary-fixed": "#002114",
+                      "tertiary-fixed": "#ffdea9",
+                      "danger": "#D62828"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "1.25rem",
+                      "stack-sm": "0.5rem",
+                      "gutter": "1rem",
+                      "touch-target": "48px",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "3rem",
+                      "margin-desktop": "2.5rem"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "display-lg": ["Bebas Neue"],
+                      "data-mono": ["JetBrains Mono"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar (Desktop) -->
+<aside class="docked left-0 h-full w-64 hidden md:flex flex-col bg-surface-container-low dark:bg-surface-container shadow-sm py-stack-md px-4 space-y-2">
+<div class="px-4 mb-stack-lg">
+<h1 class="font-display-lg text-display-lg text-primary">BLINDADOUSA</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Asesoría Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-mid text-white font-label-sm text-label-sm py-3 rounded-lg hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                Hablar con IA
+            </button>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 mt-2 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 flex justify-between items-center h-touch-target px-margin-mobile w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-2 md:hidden">
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary">BLINDADOUSA</h1>
+</div>
+<div class="hidden md:block">
+<h2 class="font-headline-md text-headline-md text-primary">Disputas de Crédito</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPFKFf2NIf-clLVHmXUtoPNt4PA9PrllSrAiJjvwcPO0XKbTnM5o9TdhdINpm31PY7W3prQkavSLboAwBav93VAYXnhTx4jeWVoHLTkhkkM9Hu0nEhP8GUVPxOiNK6odFOllAuy3Voy9O9zjdjaXCxbSOCrMuDoMK-ZYik-8vqY_LgUwth_rEiuxewmx6CNRSckgCoB7gBRCzDs_xcfwlfadFzCtcKr8hV3RQZLcFfNn9mFBPyeX63Hv6jjJTnfPfybho4vj6TF2xU"/>
+</div>
+</div>
+</header>
+<section class="p-margin-mobile md:p-margin-desktop space-y-stack-lg max-w-6xl mx-auto w-full">
+<!-- Hero / Input Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-7 space-y-stack-md">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant sombra-verde">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary-mid" data-icon="gavel">gavel</span>
+<h3 class="font-headline-md text-headline-md">Ingresar Ítem de Reporte</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Ingrese los detalles de la cuenta o error que desea disputar. Nuestro Agente IA analizará violaciones legales automáticamente.
+                        </p>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-primary">Nombre del Acreedor</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary focus:border-primary bg-surface" placeholder="Ej: Chase Bank, Portfolio Recovery" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-primary">Número de Cuenta (Parcial)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary focus:border-primary bg-surface" placeholder="XXXX-XXXX-1234" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-primary">Motivo de la Disputa</label>
+<select class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary focus:border-primary bg-surface">
+<option>Esta cuenta no es mía</option>
+<option>El balance es incorrecto</option>
+<option>Ya pagué esta deuda</option>
+<option>Deuda prescrita (Statute of Limitations)</option>
+<option>Error factual en las fechas</option>
+<option>Otro error específico</option>
+</select>
+</div>
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:scale-[0.98] transition-transform flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                                Analizar con Agente IA
+                            </button>
+</form>
+</div>
+</div>
+<!-- Status Summary (Semáforo) -->
+<div class="lg:col-span-5 space-y-4">
+<div class="bg-primary-container text-on-primary-container p-6 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Protección Blindada</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-white mb-2">Estado de Protección</h4>
+<div class="flex items-center gap-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/20">
+<div class="w-4 h-4 rounded-full bg-warning animate-pulse"></div>
+<p class="font-label-sm text-label-sm text-white">3 errores factuales detectados que afectan su puntaje.</p>
+</div>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined !text-[120px]" data-icon="shield">shield</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Créditos analizados</p>
+<p class="font-data-mono text-data-mono text-primary mt-1">12</p>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl border border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Leyes aplicadas</p>
+<p class="font-data-mono text-data-mono text-primary mt-1">FCRA, FDCPA</p>
+</div>
+</div>
+</div>
+</div>
+<!-- List of Disputes Found -->
+<div class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md">Análisis de Errores Detectados</h3>
+<span class="font-label-sm text-label-sm text-primary-mid">3 ítems encontrados</span>
+</div>
+<!-- Dispute Item 1: FCRA Violation -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="p-6 flex flex-col md:flex-row gap-6 items-start">
+<div class="flex-shrink-0 w-full md:w-16 h-16 bg-error-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-error !text-3xl" data-icon="warning">warning</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex flex-wrap items-center gap-3">
+<h4 class="font-headline-md text-[20px] text-primary">Portfolio Recovery Associates</h4>
+<span class="px-2 py-0.5 bg-error text-white text-[12px] font-bold rounded uppercase">Alta Severidad</span>
+<span class="font-data-mono text-sm text-on-surface-variant">#AC-8892</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong>Violación FCRA detectada:</strong> La fecha del primer incumplimiento no coincide con el reporte original. Esto es un error factual grave que infla negativamente su historial.
+                            </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="flex items-center gap-1 text-[13px] bg-pale-green text-primary-mid px-3 py-1 rounded-full font-medium">
+<span class="material-symbols-outlined !text-sm" data-icon="check_circle">check_circle</span>
+                                    Detectado por IA
+                                </span>
+<span class="flex items-center gap-1 text-[13px] bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full font-medium">
+<span class="material-symbols-outlined !text-sm" data-icon="history_edu">history_edu</span>
+                                    Derecho a verificación
+                                </span>
+</div>
+</div>
+<div class="w-full md:w-auto self-center">
+<button class="w-full md:w-auto h-touch-target px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary-mid transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                                Generar carta
+                            </button>
+</div>
+</div>
+</div>
+<!-- Dispute Item 2: Expired Debt -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+<div class="p-6 flex flex-col md:flex-row gap-6 items-start">
+<div class="flex-shrink-0 w-full md:w-16 h-16 bg-tertiary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-container !text-3xl" data-icon="timer">timer</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex flex-wrap items-center gap-3">
+<h4 class="font-headline-md text-[20px] text-primary">Capital One - Tarjeta de Crédito</h4>
+<span class="px-2 py-0.5 bg-warning text-white text-[12px] font-bold rounded uppercase">Media Severidad</span>
+<span class="font-data-mono text-sm text-on-surface-variant">#CO-1102</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong>Deuda Prescrita:</strong> Según las leyes de su estado (Texas), esta deuda ha superado el estatuto de limitaciones de 4 años para acciones legales. No debería aparecer como activa.
+                            </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="flex items-center gap-1 text-[13px] bg-pale-green text-primary-mid px-3 py-1 rounded-full font-medium">
+<span class="material-symbols-outlined !text-sm" data-icon="check_circle">check_circle</span>
+                                    Analizado por IA
+                                </span>
+</div>
+</div>
+<div class="w-full md:w-auto self-center">
+<button class="w-full md:w-auto h-touch-target px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary-mid transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                                Generar carta
+                            </button>
+</div>
+</div>
+</div>
+<!-- Dispute Item 3: Duplicated Account -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow opacity-80 grayscale-[0.5]">
+<div class="p-6 flex flex-col md:flex-row gap-6 items-start">
+<div class="flex-shrink-0 w-full md:w-16 h-16 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-outline !text-3xl" data-icon="content_copy">content_copy</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex flex-wrap items-center gap-3">
+<h4 class="font-headline-md text-[20px] text-primary">Comcast Cable / Collections</h4>
+<span class="px-2 py-0.5 bg-outline text-white text-[12px] font-bold rounded uppercase">Baja Severidad</span>
+<span class="font-data-mono text-sm text-on-surface-variant">#DU-0041</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong>Cuenta Duplicada:</strong> El mismo balance está siendo reportado por dos agencias de colección diferentes. Esto duplica artificialmente su nivel de deuda.
+                            </p>
+</div>
+<div class="w-full md:w-auto self-center">
+<button class="w-full md:w-auto h-touch-target px-6 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                                Generar carta
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Info Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-stack-lg">
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant relative overflow-hidden flex flex-col justify-end min-h-[300px]">
+<img alt="Financial analysis visual" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="A sophisticated close-up photograph of high-end financial documents and a professional legal tablet resting on a polished mahogany desk. The lighting is warm and directional, typical of a corporate law firm atmosphere. The color palette is dominated by deep forest greens and rich paper creams, aligning with a professional financial bible aesthetic. Subtle bokeh in the background suggests a serious, focused environment of financial advocacy and legal protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApaU2VGvkbBtzjLmrF6mx2CYrTDxATV8auQDyDphsmp_zdsAgqDG_SYEdNYnMFDzY6G3nPKNPk5GuH36QZFvNHXNc2vL5NfTsLbaEgXlixoZUv6ggtB96-gV6C-1Sa--reZ4Qo1xJbD_Fz0KIdJuuecoZlAnx-FVEm3vOJph0XjJMPufJs_-q_Fh0_CpHAjGZXZWGrYTYh8a0Lgf4P_63-e68PWuUxYT4P_1ANJcLXJFccwcevRRYTXNwBORF7drsrhhYv2l0ur6dc"/>
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Su Derecho Legal</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                            Bajo la Fair Credit Reporting Act (FCRA), las agencias tienen 30 días para investigar y responder. Si no pueden verificar la información, DEBEN borrarla.
+                        </p>
+</div>
+</div>
+<div class="bg-primary p-8 rounded-2xl flex flex-col justify-between text-white">
+<span class="material-symbols-outlined !text-4xl text-primary-fixed" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<h4 class="font-headline-md text-headline-md mb-2">IA Especializada</h4>
+<p class="font-body-md text-body-md text-primary-fixed-dim">
+                            Nuestro modelo ha sido entrenado con más de 50,000 casos legales para detectar fallas que el ojo humano ignora.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-6 right-6 w-16 h-16 bg-primary-mid text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60] group">
+<span class="material-symbols-outlined !text-3xl" data-icon="smart_toy">smart_toy</span>
+<span class="absolute -top-12 right-0 bg-dark text-white text-[12px] px-3 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">¿Necesitas ayuda con tu reporte?</span>
+</button>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe bg-surface dark:bg-inverse-surface border-t border-outline-variant md:hidden z-50 shadow-[0_-4px_10px_rgba(27,67,50,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2" href="#">
+<span class="material-symbols-outlined" data-icon="folder">folder</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Simple form "analysis" simulation
+        const analyzeBtn = document.querySelector('button[type="button"]');
+        if (analyzeBtn) {
+            analyzeBtn.addEventListener('click', () => {
+                const originalText = analyzeBtn.innerHTML;
+                analyzeBtn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Analizando...';
+                analyzeBtn.disabled = true;
+                
+                setTimeout(() => {
+                    analyzeBtn.innerHTML = originalText;
+                    analyzeBtn.disabled = false;
+                    alert('Análisis completado. Se han detectado posibles violaciones en los datos ingresados.');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>

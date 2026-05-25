@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-container": "#eeeeeb",
+                        "background": "#f9faf6",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "secondary-container": "#ffab69",
+                        "accent-dark": "#E76F51",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "primary-light": "#40916C",
+                        "secondary-fixed-dim": "#ffb780",
+                        "pale-green": "#D8F3DC",
+                        "gray": "#6B7280",
+                        "surface-variant": "#e2e3e0",
+                        "surface-container-high": "#e8e8e5",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary-fixed": "#ffdcc4",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-primary-fixed": "#002114",
+                        "secondary": "#8e4e14",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary": "#342300",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "primary-fixed": "#c1ecd4",
+                        "outline": "#717973",
+                        "surface-dim": "#dadad7",
+                        "primary-mid": "#2D6A4F",
+                        "outline-variant": "#c1c8c2",
+                        "tertiary-container": "#503700",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-tertiary-container": "#d89b00",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-secondary-container": "#783d01",
+                        "surface-tint": "#3f6653",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1a",
+                        "danger": "#D62828",
+                        "surface-container-low": "#f3f4f1",
+                        "surface-bright": "#f9faf6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "dark": "#1A1A2E",
+                        "success": "#52B788",
+                        "on-surface-variant": "#414844",
+                        "warning": "#F77F00",
+                        "inverse-surface": "#2f312f",
+                        "surface": "#f9faf6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "3rem",
+                        "touch-target": "48px",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "stack-md": "1.5rem",
+                        "gutter": "1rem"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary-mid">BlindadoUSA</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Precios</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+<button class="bg-primary-mid text-on-primary px-6 py-2 rounded-lg font-bold hover:scale-95 transition-transform">Empieza Gratis</button>
+</div>
+<button class="md:hidden text-primary-mid">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 pt-24 pb-8 px-4 bg-surface-container-lowest border-r border-outline-variant z-40">
+<div class="flex flex-col items-center mb-8 px-2">
+<div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mb-2 overflow-hidden">
+<img alt="Usuario" class="w-full h-full object-cover" data-alt="A professional headshot of a Hispanic male in his early 40s wearing a clean white shirt and a confident smile. The background is a soft-focus modern office environment with warm, natural lighting and hints of green indoor plants, maintaining a trustworthy and professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxA7Ez8RMtkEEKoXRFKRkf5x8_2AqubC9D8AbY5hphbAXq96u8aoBnWr7CX-obKrLH27WYfkNfOOMnWUmCvcel6YLq12BGeSTRehQ2TlMBWVW6C_sTgwSBVGy2253nlnmDogQo-_yvWzFBW1aUe_Aw-xPjzQRzmH6_0izxl3nNX0I24ghlpHGpfKoMjZZyz8Hogb6CawxVtczHzlaLY1PfZtPSg4RCvytcJJUBtfGeVuRxNKflCMob7Az8wvV2jcep8GM27OL23Oo9"/>
+</div>
+<p class="font-headline-md text-primary text-center">Hola, Miembro</p>
+<p class="text-sm text-on-surface-variant">Plan Premium Activo</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Mi Perfil</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span>Mis Documentos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Historial</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg translate-x-1" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span>Calculadoras</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span>Soporte</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg hover:brightness-110 transition-all">Mejorar Plan</button>
+<button class="w-full flex items-center justify-center gap-2 text-error font-medium py-2">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 pb-32 px-margin-mobile md:px-margin-desktop min-h-screen">
+<!-- Header Section -->
+<section class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary mb-2">Escáner de Préstamos Predatorios</h1>
+<p class="text-body-lg text-on-surface-variant">No dejes que te cobren de más. Analizamos tu contrato en segundos.</p>
+</section>
+<!-- Scanner Tool -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-lg items-start">
+<div class="lg:col-span-5 bg-surface-container-low p-6 rounded-xl border border-outline-variant sombra-verde">
+<h3 class="font-bold text-primary-mid mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span>
+                    Datos de tu Préstamo
+                </h3>
+<form class="space-y-4" id="loanScanner">
+<div>
+<label class="block text-sm font-semibold mb-1 text-on-surface">Monto del Préstamo ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-lg font-data-mono" id="amount" placeholder="Ej: 5000" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-1 text-on-surface">Tasa de Interés (APR) %</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-lg font-data-mono" id="apr" placeholder="Ej: 24.9" type="number"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-semibold mb-1 text-on-surface">Pago Mensual ($)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-lg font-data-mono" id="monthly" placeholder="250" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-1 text-on-surface">Plazo (Meses)</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-lg font-data-mono" id="term" placeholder="24" type="number"/>
+</div>
+</div>
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg text-lg hover:scale-[0.98] transition-transform flex items-center justify-center gap-2 mt-4" onclick="runScanner()" type="button">
+<span class="material-symbols-outlined">search_check</span>
+                        Escanear Préstamo Ahora
+                    </button>
+</form>
+</div>
+<!-- Result Area -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hidden" id="resultArea">
+<div class="text-center mb-8">
+<div class="inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-xl mb-4" id="verdictBadge">
+<!-- Dynamic Content -->
+</div>
+<p class="text-body-lg text-on-surface" id="verdictSummary"></p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+<div class="p-4 bg-surface rounded-lg border-l-4 border-error">
+<p class="text-sm font-bold text-on-surface-variant uppercase">Tu Oferta Actual</p>
+<p class="text-2xl font-data-mono text-error" id="totalCurrent">$0.00</p>
+<p class="text-xs text-on-surface-variant">Total a pagar al final</p>
+</div>
+<div class="p-4 bg-pale-green rounded-lg border-l-4 border-success">
+<p class="text-sm font-bold text-primary-mid uppercase">Préstamo Justo (Blindado)</p>
+<p class="text-2xl font-data-mono text-primary" id="totalFair">$0.00</p>
+<p class="text-xs text-on-surface-variant">Lo que deberías pagar</p>
+</div>
+</div>
+<div class="bg-error-container p-4 rounded-lg mb-8 flex items-center justify-between">
+<div>
+<p class="font-bold text-on-error-container">Exceso que pagarías:</p>
+<p class="text-3xl font-data-mono text-on-error-container" id="excessAmount">$0.00</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-on-error-container">warning</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-2 mb-3 text-primary-mid">
+<span class="material-symbols-outlined">neurology</span>
+<h4 class="font-bold">Análisis de IA Blindada</h4>
+</div>
+<p class="text-on-surface leading-relaxed italic" id="iaAnalysis">
+                        "Detectamos que este préstamo tiene una tasa de interés significativamente superior al promedio del mercado para tu perfil. En términos sencillos, estás pagando 'intereses sobre intereses' que benefician desproporcionadamente al prestamista."
+                    </p>
+</div>
+</div>
+<!-- Empty State / Placeholder -->
+<div class="lg:col-span-7 h-full flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl p-12 text-center text-on-surface-variant" id="scannerPlaceholder">
+<span class="material-symbols-outlined text-6xl mb-4">radar</span>
+<p class="font-headline-md">Listo para escanear</p>
+<p class="max-w-xs mx-auto">Ingresa los datos de tu contrato a la izquierda para ver si es un préstamo justo o abusivo.</p>
+</div>
+</section>
+<!-- Educational Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-primary mb-6">Tipos de Préstamos Peligrosos</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-error-container text-error rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Payday Loans</h4>
+<p class="text-sm text-on-surface-variant mb-4">Pequeños préstamos con intereses de hasta 400%. Atrapan en ciclos de deuda eternos.</p>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Nivel de Peligro:</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-error"></div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-secondary-fixed text-secondary rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Title Loans</h4>
+<p class="text-sm text-on-surface-variant mb-4">Pones tu auto como garantía. Si no pagas un mes, te quitan tu único medio de transporte.</p>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Nivel de Peligro:</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-tertiary-fixed text-tertiary rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Rent-to-own</h4>
+<p class="text-sm text-on-surface-variant mb-4">Terminas pagando 3 o 4 veces el valor real de un mueble o electrodoméstico.</p>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Nivel de Peligro:</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-warning"></div>
+<div class="w-3 h-3 rounded-full bg-warning"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant hover:shadow-md transition-shadow">
+<div class="w-12 h-12 bg-primary-fixed text-primary rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Tax Refund Loans</h4>
+<p class="text-sm text-on-surface-variant mb-4">Préstamos sobre tu reembolso. Tarifas ocultas que merman tu dinero del IRS.</p>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold uppercase text-on-surface-variant">Nivel de Peligro:</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-warning"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Legal Rights & Action -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-stack-lg">
+<div class="bg-primary p-8 rounded-xl text-on-primary">
+<h3 class="font-headline-md mb-6">Tus derechos con los cobradores (FDCPA)</h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>No pueden llamarte antes de las 8 a.m. o después de las 9 p.m.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>No pueden mentir sobre el monto que debes o quiénes son.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>No pueden amenazarte con arresto o violencia.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span>Deben dejar de contactarte si pides que lo hagan por escrito.</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container-high p-8 rounded-xl border border-outline flex flex-col items-center justify-center text-center">
+<div class="w-20 h-20 bg-primary-mid text-on-primary rounded-full flex items-center justify-center mb-6 shadow-lg">
+<span class="material-symbols-outlined text-4xl">auto_fix_high</span>
+</div>
+<h3 class="font-headline-md text-primary mb-4">¿Te están acosando?</h3>
+<p class="text-on-surface-variant mb-8 max-w-sm">Nuestra IA puede redactar una carta legal personalizada para que los cobradores dejen de llamarte hoy mismo.</p>
+<button class="w-full md:w-auto px-8 h-touch-target bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-mid transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                    Generar Carta de Cese y Desista
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-[10px] font-bold">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Casa</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px] font-bold">Carro</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-[10px] font-bold">Seguros</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">calculate</span>
+<span class="text-[10px] font-bold">Escáner</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto bg-primary text-on-primary">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-8">
+<div>
+<span class="font-display-lg text-primary-fixed mb-4 block">BlindadoUSA</span>
+<p class="text-primary-fixed-dim">© 2024 BlindadoUSA. Tu biblia financiera.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Privacidad</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Términos</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Contacto</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all" href="#">Ayuda</a>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary-fixed">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary-fixed">account_balance</span>
+</div>
+</div>
+</footer>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-primary-mid text-white rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+<script>
+        function runScanner() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const apr = parseFloat(document.getElementById('apr').value);
+            const monthly = parseFloat(document.getElementById('monthly').value);
+            const term = parseFloat(document.getElementById('term').value);
+
+            if (!amount || !apr || !monthly || !term) {
+                alert('Por favor completa todos los campos para el análisis.');
+                return;
+            }
+
+            // Hide placeholder, show results
+            document.getElementById('scannerPlaceholder').classList.add('hidden');
+            const resultArea = document.getElementById('resultArea');
+            resultArea.classList.remove('hidden');
+
+            // Calculation logic
+            const totalToPay = monthly * term;
+            const fairAPR = 12.0; // Benchmark for a "fair" loan
+            const fairMonthly = (amount * (fairAPR/100/12)) / (1 - Math.pow(1 + (fairAPR/100/12), -term));
+            const totalFair = fairMonthly * term;
+            const excess = totalToPay - totalFair;
+
+            // Update UI
+            document.getElementById('totalCurrent').textContent = `$${totalToPay.toLocaleString()}`;
+            document.getElementById('totalFair').textContent = `$${totalFair.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+            document.getElementById('excessAmount').textContent = `$${excess.toLocaleString(undefined, {maximumFractionDigits: 2})}`;
+
+            const badge = document.getElementById('verdictBadge');
+            const summary = document.getElementById('verdictSummary');
+            const analysis = document.getElementById('iaAnalysis');
+
+            if (apr > 36) {
+                badge.className = "inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-xl mb-4 bg-error text-white";
+                badge.innerHTML = '<span class="material-symbols-outlined">dangerous</span> 🔴 MUY ABUSIVO';
+                summary.textContent = "Este préstamo tiene condiciones extremas que dañarán seriamente tu estabilidad.";
+                analysis.textContent = `"Alerta Roja: Un interés del ${apr}% es considerado usura en muchos estados. Estás pagando más de tres veces lo que un banco tradicional te cobraría. Te recomendamos encarecidamente buscar refinanciamiento o asistencia legal inmediata."`;
+            } else if (apr > 18) {
+                badge.className = "inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-xl mb-4 bg-secondary-container text-on-secondary-container";
+                badge.innerHTML = '<span class="material-symbols-outlined">warning</span> 🟡 ABUSIVO';
+                summary.textContent = "Las tasas son altas y podrías encontrar mejores opciones en el mercado.";
+                analysis.textContent = `"Análisis Moderado: Aunque es legal, este préstamo es costoso. Con un buen asesoramiento de BlindadoUSA podrías calificar para un préstamo 'Justo' y ahorrarte esos $${excess.toLocaleString(undefined, {maximumFractionDigits: 0})} en intereses innecesarios."`;
+            } else {
+                badge.className = "inline-flex items-center gap-2 px-6 py-2 rounded-full font-bold text-xl mb-4 bg-success text-white";
+                badge.innerHTML = '<span class="material-symbols-outlined">check_circle</span> 🟢 RAZONABLE';
+                summary.textContent = "Los términos de este préstamo están dentro del rango saludable del mercado.";
+                analysis.textContent = `"Análisis Positivo: Felicidades, has encontrado un préstamo con términos competitivos. El costo total es razonable para el monto solicitado. Asegúrate de cumplir con tus pagos puntuales para seguir protegiendo tu crédito."`;
+            }
+
+            // Scroll to results on mobile
+            if (window.innerWidth < 1024) {
+                resultArea.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body></html>

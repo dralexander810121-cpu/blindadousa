@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e2e3e0",
+                    "on-tertiary-container": "#d89b00",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "dark": "#1A1A2E",
+                    "primary-mid": "#2D6A4F",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-secondary-container": "#783d01",
+                    "tertiary-container": "#503700",
+                    "surface-container": "#eeeeeb",
+                    "on-primary-fixed": "#002114",
+                    "danger": "#D62828",
+                    "secondary": "#8e4e14",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "inverse-surface": "#2f312f",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#dadad7",
+                    "surface-bright": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "surface": "#f9faf6",
+                    "on-secondary": "#ffffff",
+                    "primary-light": "#40916C",
+                    "on-tertiary-fixed": "#271900",
+                    "gray": "#6B7280",
+                    "primary-container": "#1b4332",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-surface-variant": "#414844",
+                    "on-secondary-fixed": "#2f1400",
+                    "warning": "#F77F00",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "secondary-fixed": "#ffdcc4",
+                    "primary-fixed": "#c1ecd4",
+                    "surface-container-low": "#f3f4f1",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1ee",
+                    "outline": "#717973",
+                    "on-primary-container": "#86af99",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ffab69",
+                    "background": "#f9faf6",
+                    "primary": "#012d1d",
+                    "on-surface": "#1a1c1a",
+                    "surface-container-highest": "#e2e3e0",
+                    "success": "#52B788",
+                    "tertiary": "#342300",
+                    "on-background": "#1a1c1a",
+                    "surface-tint": "#3f6653",
+                    "secondary-fixed-dim": "#ffb780",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c1c8c2",
+                    "accent-dark": "#E76F51",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "gutter": "1rem",
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1.25rem",
+                    "touch-target": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .active-chip {
+            background-color: #1b4332;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-mid">BlindadoUSA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 mr-8">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-1 rounded-lg" href="#">Inicio</a>
+<a class="text-primary font-bold border-b-2 border-primary px-3 py-1" href="#">Directorio</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-1 rounded-lg" href="#">Finanzas</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-3 py-1 rounded-lg" href="#">Perfil</a>
+</div>
+<span class="material-symbols-outlined cursor-pointer active:scale-95 duration-150 text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer active:scale-95 duration-150 text-primary" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-touch-target pb-[72px] md:pb-0 h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Sidebar / Search Content -->
+<section class="w-full md:w-[450px] lg:w-[500px] flex flex-col bg-surface border-r border-outline-variant h-full">
+<!-- Hero Search Section -->
+<div class="p-margin-mobile space-y-4 bg-gradient-to-br from-primary-container to-primary text-on-primary">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md">Directorio de Tiendas</h2>
+<p class="text-pale-green font-body-md opacity-90">Encuentra productos de tu tierra al mejor precio.</p>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary" data-icon="search">search</span>
+<input class="w-full h-touch-target pl-12 pr-4 rounded-xl border-none text-dark bg-white focus:ring-2 focus:ring-secondary transition-all" placeholder="Tiendas cerca de ti" type="text"/>
+</div>
+</div>
+<!-- Filters -->
+<div class="p-4 space-y-4 border-b border-outline-variant">
+<div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm active-chip transition-all">Todos</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all">🇲🇽 México</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all">🇨🇴 Colombia</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all">🇸🇻 El Salvador</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all">🇩🇴 Dominicana</button>
+</div>
+<div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span> Supermercado
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="restaurant">restaurant</span> Carnicería
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="bakery_dining">bakery_dining</span> Panadería
+                    </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline text-label-sm font-label-sm hover:bg-surface-container-high transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="psychology">psychology</span> Botánica
+                    </button>
+</div>
+</div>
+<!-- Store List -->
+<div class="flex-1 overflow-y-auto p-4 space-y-4 bg-surface-container-lowest">
+<!-- Socio Blindado Highlighted Card -->
+<article class="relative bg-white p-4 rounded-xl border-2 border-on-tertiary-container sombra-verde flex gap-4 group cursor-pointer active:scale-95 duration-150">
+<div class="absolute -top-3 right-4 bg-on-tertiary-container text-white px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Socio Blindado
+                    </div>
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Supermercado" class="w-full h-full object-cover" data-alt="A vibrant Hispanic grocery store aisle with neatly stacked colorful produce and Mexican products under warm, commercial lighting. The atmosphere is bustling and authentic, reflecting a high-quality community shopping environment in a modern corporate UI context with a primary green and gold color scheme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUvY2DTkK92jNhK2TVU184pRQh_n5JbZi8gO4PBzOOXVoPsezuG-WwWVmPBy05uUoBsJQo9DVd4Evnbow_439_bNr9MBFx1a86xrZIggAri2xVjLTiKZglNzzxCLNXC80NBvtMLO9kMp_G1sqNm1W7HWRpdHfeeRhy5v3M2aD9biN7Q7dg3yUKScbRg2Np2R_yGjHdr3E8F99Dp740bUPUEwQiTDozRrmW8yQMS0mVNU1xm5zl93zYQiWUObEsh9AmGc1pVKJSSDEd"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-dark text-[18px]">La Morenita Market</h3>
+<p class="text-on-surface-variant text-label-sm">Supermercado y Carnicería • 0.8 mi</p>
+<div class="flex items-center gap-1 text-warning mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-[16px]">4.9</span>
+<span class="text-on-surface-variant text-[12px] font-body-md">(2.1k reseñas)</span>
+</div>
+</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-pale-green text-primary px-2 py-1 rounded-md w-fit">
+<span class="material-symbols-outlined text-[16px]" data-icon="sell" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sell</span>
+<span class="font-bold text-label-sm">20% de ahorro</span>
+</div>
+</div>
+</article>
+<!-- Regular Store 1 -->
+<article class="bg-white p-4 rounded-xl border border-outline-variant flex gap-4 hover:shadow-md transition-all cursor-pointer active:scale-95 duration-150">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Panaderia" class="w-full h-full object-cover" data-alt="Close-up of fresh artisan Mexican pan dulce and conchas in a professional bakery display case. Warm golden lighting highlights the textures of the bread, creating a sense of freshness and tradition. The style is clean and appetizing, integrated into a professional financial services application for the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaMb4wdm2jJFZIfD293T7HKIHO8AUyTxb6tMnW6CFObV-gG6Q8TuYynlCg-32dAlw3vSFq5znPcIsQOvZJhWxAAJgP-1B0BaQfSCh3wcCAph_Aj35bemoj3zanGEVHhDqEh9ylGufCgUMJwi53rfl1sYJGq5W5SzKgCf7tIR3O7-wTBHj1vNRK4vREwOcuxms5i5KdZsQ1SHpiTIkAEG4OgFMnfQqu-jxr5nOZBR1D0RaDh_LbqVzL2SO-J_JUSiohl5zeMrYHoCnE"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-dark text-[18px]">Panadería El Sol</h3>
+<p class="text-on-surface-variant text-label-sm">Panadería y Pastelería • 1.2 mi</p>
+<div class="flex items-center gap-1 text-warning mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-[16px]">4.7</span>
+<span class="text-on-surface-variant text-[12px] font-body-md">(850 reseñas)</span>
+</div>
+</div>
+<p class="text-primary-mid font-label-sm mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> Abierto ahora
+                        </p>
+</div>
+</article>
+<!-- Regular Store 2 -->
+<article class="bg-white p-4 rounded-xl border border-outline-variant flex gap-4 hover:shadow-md transition-all cursor-pointer active:scale-95 duration-150">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Carniceria" class="w-full h-full object-cover" data-alt="High-quality display of fresh premium meat cuts in a modern carniceria. The lighting is bright and clean, emphasizing hygiene and quality. The overall aesthetic is professional and inviting, tailored for a Hispanic audience seeking trusted local service providers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB90MtQpiIWhu6Hsmm_gdRvPUEqYiBJg14AUWMinZRCEu871NQkYdSr3kn3msPfY-RzU1-QDgpK-gqzPP6YxLzNuSxXYZUf611mLEZCqJzYRyqJioJjHWOMGwLEi_lkwWTRtQ-wsAUpUMOgcXiGK7QwCOpaqWTygoo0JYYglgWVahCbJSP2sVvIFtjJ77zfHZ9DIAGxfr_7hRL0CIM0-kKAX0sAlJMXDKhveGl4Xnwp65xAcWCYv2kymzz8H0nuE5VDderVwHpa6Wvs"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-dark text-[18px]">Carnicería Los Andes</h3>
+<p class="text-on-surface-variant text-label-sm">Carnes Frescas y Embutidos • 2.5 mi</p>
+<div class="flex items-center gap-1 text-warning mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-[16px]">4.5</span>
+<span class="text-on-surface-variant text-[12px] font-body-md">(420 reseñas)</span>
+</div>
+</div>
+<div class="mt-2 inline-flex items-center gap-2 bg-pale-green text-primary px-2 py-1 rounded-md w-fit">
+<span class="material-symbols-outlined text-[16px]" data-icon="sell" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sell</span>
+<span class="font-bold text-label-sm">15% de ahorro</span>
+</div>
+</div>
+</article>
+<!-- Regular Store 3 -->
+<article class="bg-white p-4 rounded-xl border border-outline-variant flex gap-4 hover:shadow-md transition-all cursor-pointer active:scale-95 duration-150">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Botanica" class="w-full h-full object-cover" data-alt="An atmospheric interior of a traditional Hispanic botanica, with shelves of colorful glass candles, aromatic herbs, and cultural artifacts. The lighting is soft and spiritual, creating a serene and authentic mood. The image is professional, capturing the cultural significance of the space while maintaining a high-end UI look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCswytDmXXVpSf-dSulzTCJ7M1sQydT-y7Kv1uwF5Gab4xvan5n3lqvT0jPbpJnGcoLWlRecQWk85g1dqnvYH9hThBpwS5r1Uk12Kd7T5jZgTT5Yk6A6LRkvqRfBL7HoJsn-Lid0uZoRAuf9YxxCXZMKJ7c6mabOG8czb1o4NLUwoyw-wWL270L6uClDpwovW-6i5Str6aNJE1cCWlhamM8V9Zt1NFALT5ZqimTZ3hoiJYkZcLqu5jaLcl1Qapj7UAwkfKZwKpi2vq9"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-dark text-[18px]">Botánica La Esperanza</h3>
+<p class="text-on-surface-variant text-label-sm">Hierbas y Remedios • 3.1 mi</p>
+<div class="flex items-center gap-1 text-warning mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-data-mono text-[16px]">4.8</span>
+<span class="text-on-surface-variant text-[12px] font-body-md">(1.5k reseñas)</span>
+</div>
+</div>
+<p class="text-danger font-label-sm mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span> Cierra pronto (8:00 PM)
+                        </p>
+</div>
+</article>
+</div>
+</section>
+<!-- Map Section (Desktop) -->
+<section class="hidden md:block flex-1 relative bg-surface-container overflow-hidden">
+<!-- Simulated Map Component -->
+<div class="absolute inset-0 bg-[#e5e3df] overflow-hidden" data-location="Los Angeles" style="">
+<img alt="Map View" class="w-full h-full object-cover opacity-60" data-alt="A stylized aerial view of a vibrant urban neighborhood with clear street markings and greenery. The map is designed with a modern, high-contrast aesthetic, featuring subtle overlays of destination markers in green and gold. The mood is functional and technologically advanced, helping users navigate to their local shopping destinations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIr2ufT1EcftIoRY3-P07msdIsdSsBep45dYdnuqPx9rZF9cxWX4G47deU6VnwWDiOmqYnec9kH9UpsTjCRfmzqli4OzWN5VHgaAwbwSN6bCnVHLKI_DVGeI_5RwPEuUpsj78CKCzWNooEajSnwEQK5DH0BGV4jMy9diM1hRY5Ua1-VUE8G8GdthYDIewCHV7XaDommzKFNOUGdL0AQlY3njQ7bvQbxfx3bw-pP0Lp5JUnj4mTNCbX08lkixp-BFP3Ig29OAKSdpwl"/>
+<!-- Floating Map Pin: Store 1 (Highlighted) -->
+<div class="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-on-tertiary-container text-white px-3 py-1 rounded-lg shadow-lg mb-2 text-label-sm font-label-sm flex items-center gap-1 animate-bounce">
+                        La Morenita 20% OFF
+                    </div>
+<span class="material-symbols-outlined text-[48px] text-on-tertiary-container drop-shadow-md" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Floating Map Pin: Store 2 -->
+<div class="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center opacity-80">
+<span class="material-symbols-outlined text-[36px] text-primary drop-shadow-md" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Floating Map Pin: Store 3 -->
+<div class="absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center opacity-80">
+<span class="material-symbols-outlined text-[36px] text-primary drop-shadow-md" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-margin-desktop right-margin-desktop flex flex-col gap-2">
+<button class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="my_location">my_location</span>
+</button>
+<button class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<button class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[72px] pb-safe px-gutter bg-surface border-t border-outline-variant shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl py-1 px-4 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Finanzas</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant py-1 px-4 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</div>
+</nav>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-24 right-4 md:bottom-8 md:right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-gradient-to-br from-primary-mid to-primary text-white shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-[28px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<!-- Tooltip -->
+<div class="absolute right-16 bg-white text-primary border border-outline-variant px-3 py-1 rounded-lg text-label-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-sm pointer-events-none">
+                ¿Ayuda con tu compra?
+            </div>
+</button>
+</div>
+<script>
+        // Simple Interaction: Toggle active state on chips
+        document.querySelectorAll('button[class*="rounded-full"]').forEach(chip => {
+            chip.addEventListener('click', () => {
+                // If it's a category/country chip, toggle logic
+                if (chip.parentElement.classList.contains('overflow-x-auto')) {
+                    chip.parentElement.querySelectorAll('button').forEach(c => c.classList.remove('active-chip', 'bg-primary', 'text-white'));
+                    chip.classList.add('active-chip');
+                }
+            });
+        });
+
+        // Store card hover interaction simulation for desktop
+        const cards = document.querySelectorAll('article');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('border-primary-mid');
+            });
+            card.addEventListener('mouseleave', () => {
+                if (!card.classList.contains('border-on-tertiary-container')) {
+                    card.classList.remove('border-primary-mid');
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9faf6",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-mid": "#2D6A4F",
+                    "on-background": "#1a1c1a",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "surface-container-high": "#e8e8e5",
+                    "surface-variant": "#e2e3e0",
+                    "outline": "#717973",
+                    "secondary": "#8e4e14",
+                    "on-secondary-container": "#783d01",
+                    "tertiary-container": "#503700",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#ffb780",
+                    "surface-bright": "#f9faf6",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#342300",
+                    "danger": "#D62828",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeeb",
+                    "secondary-fixed": "#ffdcc4",
+                    "warning": "#F77F00",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "primary": "#012d1d",
+                    "on-primary": "#ffffff",
+                    "pale-green": "#D8F3DC",
+                    "inverse-surface": "#2f312f",
+                    "on-tertiary-container": "#d89b00",
+                    "background": "#f9faf6",
+                    "inverse-primary": "#a5d0b9",
+                    "success": "#52B788",
+                    "primary-light": "#40916C",
+                    "on-surface": "#1a1c1a",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "on-surface-variant": "#414844",
+                    "dark": "#1A1A2E",
+                    "primary-fixed": "#c1ecd4",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-tint": "#3f6653",
+                    "accent-dark": "#E76F51",
+                    "primary-container": "#1b4332",
+                    "secondary-container": "#ffab69",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-on-surface": "#f0f1ee",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "gray": "#6B7280"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "margin-desktop": "2.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .sombra-verde {
+        box-shadow: 0 10px 15px -3px rgba(45, 106, 79, 0.1), 0 4px 6px -4px rgba(45, 106, 79, 0.1);
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background shadow-sm">
+<div class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary-mid">BlindadoUSA</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1" href="#">Precios</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+</nav>
+<div class="flex gap-2">
+<button class="hidden md:block px-4 py-2 text-on-surface-variant font-medium hover:text-primary-light transition-colors">Iniciar Sesión</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform">Empieza Gratis</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto space-y-stack-lg">
+<!-- Hero Section -->
+<section class="text-center md:text-left">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary mb-2">Tus Impuestos en USA: La Guía Sin Miedo</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Todo lo que necesitas para entender el sistema fiscal, obtener tu ITIN y declarar con seguridad.</p>
+</section>
+<!-- ITIN Guide & Info Banner -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- ITIN Guide (Bento Style) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 sombra-verde">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary-mid text-3xl">fingerprint</span>
+<h2 class="font-headline-md text-headline-md text-primary">¿Qué es el ITIN?</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">El Número de Identificación Personal del Contribuyente (ITIN) te permite cumplir con tus leyes tributarias y abrir puertas financieras sin necesidad de un SSN.</p>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center p-2">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid font-bold mb-3">1</div>
+<span class="material-symbols-outlined text-primary-light mb-1">description</span>
+<p class="font-label-sm text-label-sm font-bold">Llenar W-7</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center p-2">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid font-bold mb-3">2</div>
+<span class="material-symbols-outlined text-primary-light mb-1">history_edu</span>
+<p class="font-label-sm text-label-sm font-bold">Documentos ID</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center p-2">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid font-bold mb-3">3</div>
+<span class="material-symbols-outlined text-primary-light mb-1">edit_document</span>
+<p class="font-label-sm text-label-sm font-bold">Declaración</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center p-2">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid font-bold mb-3">4</div>
+<span class="material-symbols-outlined text-primary-light mb-1">mail</span>
+<p class="font-label-sm text-label-sm font-bold">Envío IRS</p>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col items-center text-center p-2">
+<div class="w-12 h-12 rounded-full bg-pale-green flex items-center justify-center text-primary-mid font-bold mb-3">5</div>
+<span class="material-symbols-outlined text-primary-light mb-1">verified</span>
+<p class="font-label-sm text-label-sm font-bold">¡Recibe ITIN!</p>
+</div>
+</div>
+</div>
+<!-- Side Banner Card -->
+<div class="bg-primary-container rounded-xl p-6 text-on-primary relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+<div class="z-10">
+<h3 class="font-headline-md text-headline-md mb-4 text-primary-fixed">¿Sabías que puedes declarar sin Seguro Social?</h3>
+<p class="font-body-md text-body-md opacity-90 mb-6">El ITIN te permite declarar impuestos legalmente y construir un historial en los Estados Unidos.</p>
+</div>
+<button class="z-10 bg-success text-primary px-6 py-4 rounded-lg font-bold w-full text-center active:scale-95 transition-all">Saber más</button>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10 rotate-12">account_balance</span>
+</div>
+</div>
+<!-- Calculator & Resources -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Calculator Card -->
+<div class="bg-surface-container-high border border-outline-variant rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Calculadora de Devolución</h2>
+<span class="bg-pale-green text-primary-mid text-xs font-bold px-2 py-1 rounded">ESTIMADO 2024</span>
+</div>
+<div class="space-y-4 mb-8">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Ingreso Anual Bruto ($)</label>
+<input class="w-full bg-surface-container-lowest border-outline font-data-mono text-data-mono h-touch-target rounded-lg px-4 focus:ring-2 focus:ring-primary-mid outline-none" type="number" value="45000"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Dependientes</label>
+<input class="w-full bg-surface-container-lowest border-outline font-data-mono text-data-mono h-touch-target rounded-lg px-4 focus:ring-2 focus:ring-primary-mid outline-none" type="number" value="2"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Créditos Aplicables</label>
+<select class="w-full bg-surface-container-lowest border-outline font-body-md h-touch-target rounded-lg px-4 focus:ring-2 focus:ring-primary-mid outline-none">
+<option>Child Tax Credit</option>
+<option>EITC</option>
+<option>Ambos</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-lg text-center">
+<p class="font-label-sm text-label-sm opacity-70 mb-1">TU POSIBLE DEVOLUCIÓN</p>
+<div class="font-data-mono text-4xl font-bold text-success">$3,420.00</div>
+<div class="mt-4 flex items-center justify-center gap-2">
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-warning"></div>
+<div class="w-3 h-3 rounded-full bg-success ring-2 ring-white ring-offset-2 ring-offset-primary"></div>
+</div>
+<span class="font-label-sm text-label-sm text-success">Estado: Altamente Probable</span>
+</div>
+</div>
+</div>
+<!-- Free Resources & Rights -->
+<div class="space-y-gutter">
+<!-- Free Resources -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Recursos Gratuitos</h3>
+<div class="space-y-4">
+<a class="flex items-center justify-between p-4 bg-surface hover:bg-pale-green transition-colors rounded-lg border border-outline-variant group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-mid">laptop_mac</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-primary">IRS Free File</p>
+<p class="text-xs text-on-surface-variant">Declara en línea sin costo.</p>
+</div>
+</div>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-surface hover:bg-pale-green transition-colors rounded-lg border border-outline-variant group" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-mid">location_on</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-primary">Centros VITA Cercanos</p>
+<p class="text-xs text-on-surface-variant">Ayuda presencial para bajos ingresos.</p>
+</div>
+</div>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Rights Section -->
+<div class="bg-white border-l-4 border-warning rounded-r-xl p-6 shadow-sm">
+<h3 class="font-label-sm text-label-sm font-bold text-warning mb-4 uppercase tracking-wider">Derechos ante el IRS - Evita Estafas</h3>
+<ul class="space-y-3">
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-warning text-sm mt-1">check_circle</span>
+<p class="font-body-md text-body-md">El IRS <strong>nunca</strong> te llamará para exigir pago inmediato.</p>
+</li>
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-warning text-sm mt-1">check_circle</span>
+<p class="font-body-md text-body-md">No pueden amenazarte con traer a la policía o inmigración.</p>
+</li>
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-warning text-sm mt-1">check_circle</span>
+<p class="font-body-md text-body-md">Tienes derecho a apelar cualquier decisión del IRS.</p>
+</li>
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-warning text-sm mt-1">check_circle</span>
+<p class="font-body-md text-body-md">Nunca pagues con tarjetas de regalo o transferencias rápidas.</p>
+</li>
+<li class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-warning text-sm mt-1">check_circle</span>
+<p class="font-body-md text-body-md">Exige siempre una copia firmada de tu declaración.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Semantic Traffic Light Visual Feedback -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="p-4 bg-error-container rounded-xl border border-error/20">
+<div class="flex items-center gap-2 text-error mb-2">
+<span class="material-symbols-outlined">report</span>
+<span class="font-bold">URGENTE</span>
+</div>
+<p class="font-label-sm text-label-sm">Tu ITIN ha expirado. Si no lo renuevas, no podrás recibir tu reembolso este año.</p>
+</div>
+<div class="p-4 bg-tertiary-container text-on-tertiary-container rounded-xl">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined">pending</span>
+<span class="font-bold">PENDIENTE</span>
+</div>
+<p class="font-label-sm text-label-sm">Faltan 45 días para el cierre de temporada. Organiza tus recibos de gastos ahora.</p>
+</div>
+<div class="p-4 bg-pale-green rounded-xl border border-success/20">
+<div class="flex items-center gap-2 text-primary-mid mb-2">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="font-bold">LISTO</span>
+</div>
+<p class="font-label-sm text-label-sm">Identidad verificada. Tu perfil está optimizado para la próxima declaración.</p>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-14 h-14 bg-primary-mid text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-90 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+<!-- Mobile Navigation Shell -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm text-label-sm">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Casa</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm text-label-sm">Taxes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-sm text-label-sm">Seguros</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Más</span>
+</div>
+</footer>
+<!-- Desktop Sidebar Anchor -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant p-4 pt-24">
+<div class="flex items-center gap-3 mb-8 px-2">
+<img class="w-12 h-12 rounded-full border-2 border-primary-mid" data-alt="Professional headshot of a Hispanic male in his 40s wearing a clean white shirt, looking confident and friendly against a soft blurred office background. The lighting is bright and natural, reflecting a clean and modern light-mode UI style with a palette of soft whites and deep greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfI2Y1Qzc9SGYsWnZO1OF2ooqyVKmdZxqdgbz7V8D_j9ZAKeFkPSb9WbUYXi3SHmR18nAttco83c-1YjeBx3jIZ-X1L3GMu9pr_RM5d9dTkZnDkThF3Id5YfcM4fx333yq_kImCm-Rq_dMAiYA1z9wv47JWEIuPG4sWYz3bsC_66OtKukrp1tKDrkCHRXIOECrPW-nveqSKdgWZpMwPXzJ1YKKk3NfCZXgFJDT0tQ2Gbl1x4_KjV9xQP6YHtgGu92w6MLd8En3GqFD"/>
+<div>
+<p class="font-label-sm text-label-sm font-bold">Hola, Miembro</p>
+<p class="text-xs text-primary-light">Plan Premium Activo</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-body-md text-body-md">Mi Perfil</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container font-bold rounded-lg translate-x-1" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md text-body-md">Impuestos</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-body-md text-body-md">Documentos</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-body-md text-body-md">Calculadoras</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-body-md text-body-md">Soporte</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<button class="w-full bg-pale-green text-primary-mid font-bold py-3 rounded-lg hover:bg-primary-mid hover:text-white transition-all">Mejorar Plan</button>
+<a class="flex items-center gap-3 p-3 mt-2 text-error font-medium" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<script>
+        // Simple Calculator Interaction
+        const inputs = document.querySelectorAll('input, select');
+        const display = document.querySelector('.font-data-mono.text-4xl');
+
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const income = document.querySelector('input[type="number"]').value || 0;
+                const dependents = document.querySelectorAll('input[type="number"]')[1].value || 0;
+                // Fake calculation logic for UI feel
+                const base = income * 0.05;
+                const bonus = dependents * 1000;
+                const total = Math.max(0, base + bonus);
+                
+                display.classList.add('scale-105');
+                setTimeout(() => display.classList.remove('scale-105'), 100);
+                display.innerText = `$${total.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+            });
+        });
+    </script>
+</body></html>

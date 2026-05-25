@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA - Generar Reclamo Final</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#a5d0b9",
+                    "tertiary-container": "#503700",
+                    "primary-fixed": "#c1ecd4",
+                    "inverse-surface": "#2f312f",
+                    "gray": "#6B7280",
+                    "primary": "#012d1d",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e8e8e5",
+                    "inverse-on-surface": "#f0f1ee",
+                    "primary-mid": "#2D6A4F",
+                    "on-primary-container": "#86af99",
+                    "surface": "#f9faf6",
+                    "surface-dim": "#dadad7",
+                    "secondary-container": "#ffab69",
+                    "on-tertiary-fixed": "#271900",
+                    "on-error": "#ffffff",
+                    "accent-dark": "#E76F51",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-container": "#d89b00",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f1",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#3f6653",
+                    "on-background": "#1a1c1a",
+                    "warning": "#F77F00",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-surface-variant": "#414844",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "secondary-fixed-dim": "#ffb780",
+                    "dark": "#1A1A2E",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-surface": "#1a1c1a",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdcc4",
+                    "on-primary-fixed": "#002114",
+                    "primary-container": "#1b4332",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717973",
+                    "surface-container-lowest": "#ffffff",
+                    "pale-green": "#D8F3DC",
+                    "primary-light": "#40916C",
+                    "surface-container-highest": "#e2e3e0",
+                    "danger": "#D62828",
+                    "surface-container": "#eeeeeb",
+                    "surface-variant": "#e2e3e0",
+                    "success": "#52B788",
+                    "secondary": "#8e4e14",
+                    "tertiary": "#342300",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "surface-bright": "#f9faf6",
+                    "background": "#f9faf6",
+                    "on-secondary-container": "#783d01"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "gutter": "1rem",
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .paper-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+        @media (max-width: 768px) {
+            .mobile-stack { flex-direction: column; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen">
+<!-- Top Navigation Bar (Shared Component) -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 flex items-center justify-between px-6 md:px-margin-desktop z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight">BlindadoUSA</h1>
+</div>
+<div class="flex items-center gap-stack-md">
+<div class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[20px]">star</span>
+                Miembro Premium
+            </div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container rounded-full transition-colors">settings</span>
+<div class="w-10 h-10 rounded-full bg-primary-mid flex items-center justify-center text-white font-bold">JD</div>
+</div>
+</div>
+</header>
+<!-- Side Navigation (Shared Component) -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-primary border-r border-primary-mid py-6 px-4 z-50">
+<div class="mb-10 px-2">
+<div class="font-display-lg-mobile text-display-lg-mobile text-pale-green leading-none">BlindadoUSA</div>
+<div class="text-pale-green/60 text-label-sm font-label-sm mt-1">Biblia Financiera</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Resumen</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Deudas</span>
+</a>
+<!-- Additional items suppressed for focus on the specific task flow -->
+<div class="pt-4 pb-2 px-3 text-[10px] uppercase tracking-widest text-pale-green/40 font-bold">Herramientas</div>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span>Legal</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-mid/30">
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl active:scale-95 transition-transform">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-20 md:ml-64 min-h-screen flex flex-col">
+<!-- Header & Stepper -->
+<div class="bg-surface px-6 md:px-margin-desktop py-8 border-b border-outline-variant/30">
+<div class="max-w-6xl mx-auto">
+<div class="flex items-center gap-3 text-primary-mid font-bold mb-2">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed rounded text-xs">PASO 3 DE 4</span>
+<span class="uppercase tracking-widest text-xs">Flujo de Reclamo Salarial</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary leading-tight">REVISIÓN Y GENERACIÓN</h2>
+<p class="text-on-surface-variant max-w-2xl">Revisa que toda la información sea correcta antes de generar el documento legal. Este documento tiene validez para mediaciones y reportes oficiales.</p>
+</div>
+</div>
+<div class="flex-1 p-6 md:p-margin-desktop bg-surface-container-low">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Summary -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Datos del Empleador Card -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-2 mb-4 border-b border-surface-container-high pb-2">
+<span class="material-symbols-outlined text-primary-mid">business</span>
+<h3 class="font-headline-md text-headline-md text-primary">Datos del Empleador</h3>
+</div>
+<div class="space-y-3">
+<div>
+<label class="text-xs uppercase font-bold text-outline">Empresa / Nombre</label>
+<p class="font-body-lg text-body-lg text-on-surface">Constructora Los Arcos LLC</p>
+</div>
+<div>
+<label class="text-xs uppercase font-bold text-outline">Dirección</label>
+<p class="text-on-surface">1234 Sunshine Blvd, Miami, FL 33101</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-xs uppercase font-bold text-outline">Supervisor</label>
+<p class="text-on-surface">Roberto Martínez</p>
+</div>
+<div>
+<label class="text-xs uppercase font-bold text-outline">Teléfono</label>
+<p class="text-on-surface">(305) 555-0199</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Desglose de Deuda Card -->
+<div class="bg-primary p-6 rounded-xl text-pale-green shadow-lg">
+<div class="flex items-center justify-between mb-4 border-b border-primary-mid pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">payments</span>
+<h3 class="font-headline-md text-headline-md">Desglose de Deuda</h3>
+</div>
+<button class="text-xs underline opacity-70 hover:opacity-100 transition-opacity">Editar</button>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-pale-green/70">Horas Regulares (40 hrs)</span>
+<span class="font-data-mono text-data-mono">$800.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-pale-green/70">Horas Extra (15 hrs x 1.5)</span>
+<span class="font-data-mono text-data-mono">$450.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-pale-green/70">Bonos no pagados</span>
+<span class="font-data-mono text-data-mono">$100.00</span>
+</div>
+<div class="pt-4 border-t border-primary-mid flex justify-between items-end">
+<span class="font-bold text-lg">TOTAL RECLAMADO</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-secondary-container">$1,350.00</span>
+</div>
+</div>
+</div>
+<!-- Evidencia Card -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-mid">attachment</span>
+<h3 class="font-headline-md text-headline-md text-primary">Evidencia Adjunta</h3>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square bg-surface-container rounded-lg border border-dashed border-outline-variant overflow-hidden group cursor-pointer relative">
+<img class="w-full h-full object-cover" data-alt="A close-up photo of a handwritten work log on a yellow legal pad, showing dates and hours worked. The lighting is natural and bright, emphasizing the high-contrast ink on the textured paper. The composition is clean and document-focused, maintaining a serious, legalistic mood with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt51fQAx7xx1ebED3bmiHc02-YRSRzWebLpzHQumcxEefI8kYFIqO1nNCz2bZqO3TqKBb82ExaT6dSXz7O-HMcaW9yBIyiF_XRZUwvL2cOR9o9WpseXNoldngAkDfKlzmtBRoXgiYTinGH1IlZMyWmSIDzyDyiSNRXMjAtfG3b7K-1y0FwqQLWU3DTywiKOmSgcC1lwuPaLTp28B-mbnHIBe0pCFM5UhYBUhUw8gu-IKkqRMndxpt6igVpmMI6YWH7JBa3ZNM08Ht5"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">visibility</span>
+</div>
+</div>
+<div class="aspect-square bg-surface-container rounded-lg border border-dashed border-outline-variant overflow-hidden group cursor-pointer relative">
+<img class="w-full h-full object-cover" data-alt="A digital photograph of a printed check stub on a desk, with some parts blurred for privacy. The image has a professional, high-contrast look with cool-toned lighting. The focus is sharp on the currency symbols and dates, conveying a sense of financial evidence and corporate transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx6YlH1MZ38RUEdO6WlfrEzPaI-yCKRBbHWiwjB5xPFZNCuSZ6gUYtL2ctXh__PSXsk9DJPmKb07vSD2Dy4_z8m9GegLkTTXuiH8gEHE0uuTyhvyv6mSEKkqtPhU2bXwjn-iwDGxoMm9YM99ZpSEPivqrkpuF-luBlGaGl98UdHhIjFXYkOsb7rS4dgih9A2q5lu9JvoLFtNw04r-TgChfxQrvjamzasbSVThdXj4Ln-nvRBUg38r0tM2z7jAQqrId4PlJdc94_GeA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">visibility</span>
+</div>
+</div>
+<button class="aspect-square bg-surface-container-low rounded-lg border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline hover:border-primary-mid hover:text-primary-mid transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+<span class="text-[10px] font-bold mt-1">AÑADIR</span>
+</button>
+</div>
+</div>
+<!-- Consejo Blindado -->
+<div class="bg-secondary-fixed p-5 rounded-xl border-l-4 border-warning flex gap-4">
+<span class="material-symbols-outlined text-warning text-3xl shrink-0">lightbulb</span>
+<div>
+<h4 class="font-bold text-on-secondary-fixed mb-1 uppercase text-sm tracking-wider">Consejo Blindado</h4>
+<p class="text-sm text-on-secondary-fixed-variant leading-relaxed">
+                                Este documento es una prueba legal de que intentaste resolver el problema. Si tu patrón no paga en 72 horas, puedes enviar este mismo PDF al Departamento de Trabajo (DOL) para iniciar una investigación formal.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Document Preview -->
+<div class="lg:col-span-7">
+<div class="sticky top-24">
+<div class="paper-shadow bg-white rounded-sm min-h-[800px] p-12 md:p-16 relative overflow-hidden">
+<!-- Letterhead Placeholder -->
+<div class="flex justify-between items-start mb-12">
+<div>
+<div class="font-display-lg-mobile text-headline-md text-primary-mid">RECLAMO FORMAL</div>
+<div class="text-xs text-outline uppercase font-bold">Documento Generado por BlindadoUSA</div>
+</div>
+<div class="text-right text-sm text-outline">
+                                    Fecha: 24 de Octubre, 2023<br/>
+                                    ID: BUSA-2023-8821
+                                </div>
+</div>
+<!-- Document Content -->
+<div class="space-y-6 text-on-surface leading-loose">
+<p class="font-bold">A quien corresponda:</p>
+<p>Por medio de la presente, yo, <span class="border-b border-dotted border-primary-mid px-2 font-medium">Juan Delgado</span>, presento un reclamo formal por falta de pago de salarios devengados durante el periodo del <span class="font-medium">1 de Octubre</span> al <span class="font-medium">15 de Octubre de 2023</span>.</p>
+<p>Durante dicho periodo, presté mis servicios para <span class="font-medium">Constructora Los Arcos LLC</span>, acumulando un total de 40 horas regulares y 15 horas extraordinarias que hasta la fecha no han sido remuneradas conforme a las leyes estatales y federales de salario mínimo y tiempo extra (FLSA).</p>
+<div class="my-8 py-4 px-6 bg-surface-container rounded border-l-4 border-primary-mid">
+<p class="text-sm font-bold mb-2">RESUMEN DEL ADEUDO:</p>
+<table class="w-full text-sm">
+<tbody><tr class="border-b border-outline-variant">
+<td class="py-2">Salario Regular</td>
+<td class="text-right py-2 font-data-mono">$800.00</td>
+</tr>
+<tr class="border-b border-outline-variant">
+<td class="py-2">Tiempo Extra (Overtime)</td>
+<td class="text-right py-2 font-data-mono">$450.00</td>
+</tr>
+<tr class="font-bold">
+<td class="py-3">MONTO TOTAL EXIGIDO</td>
+<td class="text-right py-3 font-data-mono text-lg">$1,350.00</td>
+</tr>
+</tbody></table>
+</div>
+<p>Solicito que el pago total sea efectuado en un plazo no mayor a 3 días hábiles a partir de la recepción de esta carta. De lo contrario, me veré en la necesidad de escalar este reclamo ante las autoridades competentes.</p>
+<p>Atentamente,</p>
+<!-- Signature Area -->
+<div class="mt-16 pt-8">
+<div class="w-64 h-24 border-b-2 border-primary/20 relative flex items-center justify-center mb-2">
+<!-- Simulated Digital Signature -->
+<div class="font-['Brush_Script_MT',cursive] text-4xl text-primary/60 transform -rotate-2 select-none">
+                                            Juan Delgado
+                                        </div>
+<div class="absolute bottom-1 right-1 text-[10px] text-primary-mid opacity-50 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                            Verificado por BlindadoUSA
+                                        </div>
+</div>
+<p class="text-sm font-bold uppercase tracking-widest text-outline">Firma del Solicitante</p>
+</div>
+</div>
+<!-- Watermark -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-[0.03]">
+<span class="font-display-lg text-[180px] -rotate-45">BLINDADO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="sticky bottom-0 bg-white border-t border-outline-variant p-4 md:p-6 z-50">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<button class="w-full md:w-auto px-8 py-3 text-primary-mid font-bold flex items-center justify-center gap-2 hover:bg-surface-container rounded-xl transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Anterior
+                </button>
+<div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+<button class="flex-1 md:w-auto px-6 py-3 border-2 border-primary-mid text-primary-mid font-bold rounded-xl hover:bg-pale-green transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span>
+                        Compartir con Abogado
+                    </button>
+<button class="flex-1 md:w-auto px-10 py-4 bg-warning text-white font-display-lg-mobile text-display-lg-mobile rounded-xl shadow-lg shadow-warning/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-3xl">picture_as_pdf</span>
+                        GENERAR RECLAMO (PDF)
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Assistant (Shared Component) -->
+<button class="fixed bottom-8 right-8 z-50 rounded-full h-16 w-16 md:h-20 md:w-20 bg-primary-mid text-on-primary flex flex-col items-center justify-center shadow-lg shadow-primary-container/40 hover:scale-110 hover:shadow-xl transition-all group">
+<span class="material-symbols-outlined text-3xl mb-1">smart_toy</span>
+<span class="font-label-sm text-[10px] uppercase font-bold">Asistente</span>
+<!-- Hover Tooltip -->
+<div class="absolute right-full mr-4 bg-dark text-white text-xs py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            ¿Necesitas ayuda con los términos legales?
+        </div>
+</button>
+<script>
+        // Micro-interaction for the primary action button
+        const generateBtn = document.querySelector('button.bg-warning');
+        generateBtn.addEventListener('click', () => {
+            generateBtn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin text-3xl">sync</span>
+                PROCESANDO...
+            `;
+            setTimeout(() => {
+                alert('¡Documento generado con éxito! El PDF se descargará automáticamente y se ha enviado una copia a su correo.');
+                generateBtn.innerHTML = `
+                    <span class="material-symbols-outlined text-3xl">check_circle</span>
+                    COMPLETADO
+                `;
+            }, 2000);
+        });
+    </script>
+</body></html>

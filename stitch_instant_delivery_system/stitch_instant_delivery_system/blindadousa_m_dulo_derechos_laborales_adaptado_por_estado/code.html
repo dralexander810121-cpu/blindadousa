@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Derechos Laborales | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e2e3e0",
+                    "tertiary": "#342300",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "outline": "#717973",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "background": "#f9faf6",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1b4332",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-secondary-fixed": "#2f1400",
+                    "surface-bright": "#f9faf6",
+                    "on-tertiary": "#ffffff",
+                    "primary-mid": "#2D6A4F",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "surface": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "inverse-surface": "#2f312f",
+                    "pale-green": "#D8F3DC",
+                    "on-background": "#1a1c1a",
+                    "gray": "#6B7280",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-tint": "#3f6653",
+                    "primary-light": "#40916C",
+                    "primary": "#012d1d",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-primary-fixed": "#002114",
+                    "surface-container-low": "#f3f4f1",
+                    "success": "#52B788",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-container": "#ffab69",
+                    "warning": "#F77F00",
+                    "secondary": "#8e4e14",
+                    "surface-dim": "#dadad7",
+                    "accent-dark": "#E76F51",
+                    "tertiary-container": "#503700",
+                    "outline-variant": "#c1c8c2",
+                    "danger": "#D62828",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeeb",
+                    "surface-variant": "#e2e3e0",
+                    "on-surface-variant": "#414844",
+                    "inverse-on-surface": "#f0f1ee",
+                    "secondary-fixed": "#ffdcc4",
+                    "primary-fixed": "#c1ecd4",
+                    "on-tertiary-container": "#d89b00",
+                    "on-primary-container": "#86af99",
+                    "tertiary-fixed": "#ffdea9",
+                    "dark": "#1A1A2E"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .sombra-verde {
+        box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar Navigation -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline fixed top-0 w-full z-50 h-touch-target flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-2">
+<span class="text-headline-md font-display-lg text-primary-mid dark:text-primary-fixed-dim tracking-tight">BlindadoUSA</span>
+</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary-mid font-bold border-b-4 border-secondary-container h-full flex items-center" href="#">Inicio</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors px-2" href="#">Salud</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors px-2" href="#">Finanzas</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors px-2" href="#">Legal</a>
+</nav>
+<div class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-full border border-outline-variant mr-4">
+<span class="material-symbols-outlined text-primary-mid text-sm">location_on</span>
+<span class="text-label-sm text-on-surface-variant">Texas</span>
+</div><div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary p-2">notifications</button>
+<button class="material-symbols-outlined text-primary dark:text-inverse-primary p-2">help</button>
+</div>
+</header>
+<main class="pt-20 pb-32 max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Impact Hero Header -->
+<section class="py-stack-lg animate-fade-in">
+<div class="bg-primary-container text-on-primary-container rounded-xl p-8 md:p-12 relative overflow-hidden sombra-verde">
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase mb-4 leading-none">Tus Derechos en Texas</h1>
+<p class="font-body-lg text-body-lg-mobile md:text-body-lg opacity-90 mb-8">
+                        Tu esfuerzo vale. Conoce las leyes que te protegen, sin importar tu estatus legal. En BlindadoUSA estamos contigo.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary-container text-on-secondary-fixed font-bold px-8 py-4 rounded-lg h-touch-target hover:scale-95 transition-transform">CONOCER MIS DERECHOS</button>
+<button class="border-2 border-white text-white font-bold px-8 py-4 rounded-lg h-touch-target hover:bg-white/10 transition-colors">REPORTAR ABUSO</button>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 top-0 w-1/3 hidden md:block opacity-20">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A professional business setting where diverse individuals are shaking hands firmly. The lighting is warm and authoritative, emphasizing trust and mutual respect in a corporate labor environment. The color palette is grounded in deep greens and soft oranges, conveying a sense of security and legal protection for the Hispanic workforce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxUm6BCnMclDqClf5p5YmVY7JNEZLEJ0mb4I_Bysg0MgWgiydXIHKO-AbZ7ic4fMbLIJsMIRCa2-oHroxnfcndTmNPebNYvnvLwnjNgbOVcm7UBO8cBSLxUGr3GuhPkvxUEKsy_4Z63sK2he6G7JthE9Dt1U456OFFsh9PEherP_RZ_fziZRBysACftHWxViD2zljWZ6oVpJu2QB6MNNDFaGL9mjU2xOEAxhhnh9a0tiGrMlFOrh1XCg23ryRxynKk6Ap7w7HeINCj"/>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Calculator & Robo de Salario -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-stack-lg">
+<!-- Salary Calculator Widget -->
+<div class="lg:col-span-2 bg-surface-container-low rounded-xl p-6 border border-outline-variant">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-mid text-3xl">payments</span>
+<h2 class="font-headline-md text-headline-md">Calculadora de Salario Justo</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div>
+<label class="font-label-sm block mb-2">¿En qué trabajas?</label>
+<select class="w-full h-touch-target bg-white border border-outline rounded-lg px-4 focus:ring-2 ring-primary-mid">
+<option>Construcción</option>
+<option>Limpieza / Janitorial</option>
+<option>Agricultura</option>
+<option>Restaurante / Servicio</option>
+<option>Manufactura</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm block mb-2">¿Cuánto te pagan por hora?</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold">$</span>
+<input class="w-full h-touch-target bg-white border border-outline rounded-lg pl-8 pr-4 focus:ring-2 ring-primary-mid" placeholder="0.00" type="number"/>
+</div>
+</div><div><label class="font-label-sm block mb-2">¿Cuántas horas trabajas a la semana?</label><input class="w-full h-touch-target bg-white border border-outline rounded-lg px-4 focus:ring-2 ring-primary-mid" id="weekly-hours-input" placeholder="Ej: 40" type="number"/></div>
+</div>
+<div class="bg-white rounded-lg p-6 flex flex-col items-center justify-center text-center sombra-verde">
+<div class="mb-4" id="salary-gauge"><div class="relative w-40 h-20 overflow-hidden"><div class="absolute top-0 w-40 h-40 border-[16px] border-surface-container rounded-full"></div><div class="absolute top-0 w-40 h-40 border-[16px] border-success rounded-full clip-path-half" style="clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); transform: rotate(45deg);"></div></div><div class="mt-2 space-y-1"><p class="text-xs text-on-surface-variant">Mercado en Houston, TX: <span class="font-bold">$18.50</span></p><p class="text-sm font-bold text-primary-mid">Tu pago: <span class="" id="user-salary-display">$0.00</span></p></div></div>
+<p class="font-label-sm text-success flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Estás ganando un salario justo para tu área.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Robo de Salario Widget -->
+<div class="bg-accent-dark text-white rounded-xl p-6 flex flex-col justify-between">
+<div><h2 class="font-headline-md mb-2">¿Te pagan completo?</h2><p class="font-body-md opacity-90">Mira si te falta dinero por tus horas extra.</p></div>
+<div class="mt-6 space-y-3">
+<div class="bg-white/10 p-4 rounded-lg">
+<span class="font-label-sm block opacity-70">Horas extras no pagadas</span>
+<span class="font-display-lg text-4xl leading-tight" id="overtime-display">$0.00</span>
+</div>
+<div class="bg-white/10 p-3 rounded-lg mb-3 text-sm"><p class="font-bold mb-1">Ejemplo de cobro:</p><p class="">Si trabajas 45 horas, te deben 5 horas extra. A $10/hr, eso son <span class="font-bold">$75.00</span> de pago total por esas horas.</p></div><button class="w-full bg-white text-accent-dark font-bold py-3 rounded-lg h-touch-target hover:bg-pale-green transition-colors uppercase">Iniciar Auditoría</button>
+</div>
+</div>
+</section>
+<!-- Rights Cards Section -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-center mb-8">Tus 6 Derechos Fundamentales</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">money</span>
+<h3 class="font-bold text-lg mb-2">Salario Mínimo</h3>
+<p class="text-on-surface-variant font-body-md">Bajo la ley de Texas y federal, tienes derecho al salario mínimo. El más alto siempre aplica.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">history_toggle_off</span>
+<h3 class="font-bold text-lg mb-2">Horas Extras (Overtime)</h3>
+<p class="text-on-surface-variant font-body-md">La Ley de Normas Justas de Trabajo (FLSA) en Texas requiere pago de 1.5x por horas extra.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">coffee</span>
+<h3 class="font-bold text-lg mb-2">Descansos</h3>
+<p class="text-on-surface-variant font-body-md">En Texas, las políticas de la TWC rigen los descansos. Conoce tus derechos locales.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">chef_hat</span>
+<h3 class="font-bold text-lg mb-2">Seguridad (OSHA)</h3>
+<p class="text-on-surface-variant font-body-md">Tu lugar de trabajo debe ser seguro y libre de peligros mortales. Reporta sin miedo.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">group_off</span>
+<h3 class="font-bold text-lg mb-2">No Discriminación</h3>
+<p class="text-on-surface-variant font-body-md">Nadie puede tratarte diferente por tu origen, idioma, religión o género.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white border border-outline-variant p-6 rounded-xl hover:border-primary-mid transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-primary-mid text-4xl mb-4 group-hover:scale-110 transition-transform">gavel</span>
+<h3 class="font-bold text-lg mb-2">Cero Represalias</h3>
+<p class="text-on-surface-variant font-body-md">Es ilegal que te despidan por reportar violaciones a la TWC o OSHA en Texas.</p>
+</div>
+</div>
+</section>
+<!-- Guide Action Section -->
+<section class="bg-surface-container p-8 md:p-12 rounded-2xl flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1">
+<h2 class="font-display-lg text-4xl mb-6">¿Qué hacer si violan tus derechos?</h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-mid text-white flex items-center justify-center shrink-0 font-bold">1</div>
+<div>
+<h4 class="font-bold">Documenta Todo</h4>
+<p class="text-on-surface-variant">Anota tus horas, guarda tus talones de pago (paystubs) y toma fotos si hay riesgos.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-mid text-white flex items-center justify-center shrink-0 font-bold">2</div>
+<div>
+<h4 class="font-bold">Habla con Blindado AI</h4>
+<p class="text-on-surface-variant">Usa nuestro chat para entender si tu caso es una violación legal clara.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-mid text-white flex items-center justify-center shrink-0 font-bold">3</div>
+<div>
+<h4 class="font-bold">Contacta Agencias</h4>
+<p class="text-on-surface-variant">Te ayudamos a llenar reportes con la EEOC, TWC o el Departamento del Trabajo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/3 space-y-4">
+<div class="bg-white p-6 rounded-xl border border-outline-variant">
+<p class="font-label-sm uppercase opacity-60 mb-2">Llamada Gratuita</p>
+<p class="font-display-lg text-2xl text-primary-mid">1-800-JUSTICIA</p>
+<p class="text-sm mt-2">Atención en Español 24/7</p>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant">
+<p class="font-label-sm uppercase opacity-60 mb-2">Agencias Aliadas</p>
+<div class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-full border border-outline-variant mr-4">
+<span class="material-symbols-outlined text-primary-mid text-sm">location_on</span>
+<span class="text-label-sm text-on-surface-variant">Texas</span>
+</div><div class="flex gap-4 items-center mt-2 opacity-60"><span class="font-bold">TWC</span>
+<span class="font-bold">EEOC</span>
+<span class="font-bold">OSHA</span>
+<span class="font-bold">DOL</span></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-6 right-6 w-16 h-16 bg-primary-mid text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50 group">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<div class="absolute right-20 bg-white text-on-surface px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-outline-variant">
+<p class="font-bold">Consultar con Blindado AI</p>
+</div>
+</button>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant flex justify-around py-3 px-2 z-40 bg-white">
+<div class="flex flex-col items-center text-primary-mid font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px]">Inicio</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px]">Salud</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px]">Finanzas</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">gavel</span>
+<span class="text-[10px]">Legal</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px]">Ajustes</span>
+</div>
+</nav>
+<script>
+        // Simple Interaction: Mock Salary Change
+        const salaryInput = document.querySelector('input[type="number"]');
+        const overtimeDisplay = document.getElementById('overtime-display');
+
+        salaryInput.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value) || 0;
+            const overtime = val * 1.5;
+            overtimeDisplay.innerText = `$${overtime.toFixed(2)}`;
+            
+            // Animation for numbers
+            overtimeDisplay.classList.add('scale-105', 'text-success');
+            setTimeout(() => {
+                overtimeDisplay.classList.remove('scale-105', 'text-success');
+            }, 200);
+        });
+
+        // Hover animations for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('sombra-verde');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('sombra-verde');
+            });
+        });
+    </script>
+</body></html>

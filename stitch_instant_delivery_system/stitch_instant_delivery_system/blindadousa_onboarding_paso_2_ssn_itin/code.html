@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f0f1ee",
+                    "surface-container-high": "#e8e8e5",
+                    "primary-mid": "#2D6A4F",
+                    "primary": "#012d1d",
+                    "error-container": "#ffdad6",
+                    "gray": "#6B7280",
+                    "inverse-surface": "#2f312f",
+                    "primary-fixed": "#c1ecd4",
+                    "inverse-primary": "#a5d0b9",
+                    "tertiary-container": "#503700",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-surface-variant": "#414844",
+                    "on-error-container": "#93000a",
+                    "warning": "#F77F00",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-container-low": "#f3f4f1",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#d89b00",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c1c8c2",
+                    "on-background": "#1a1c1a",
+                    "surface-tint": "#3f6653",
+                    "surface": "#f9faf6",
+                    "on-primary-container": "#86af99",
+                    "on-tertiary-fixed": "#271900",
+                    "on-error": "#ffffff",
+                    "accent-dark": "#E76F51",
+                    "surface-dim": "#dadad7",
+                    "secondary-container": "#ffab69",
+                    "secondary-fixed": "#ffdcc4",
+                    "primary-container": "#1b4332",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "on-surface": "#1a1c1a",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "secondary-fixed-dim": "#ffb780",
+                    "dark": "#1A1A2E",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "tertiary": "#342300",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-secondary-container": "#783d01",
+                    "surface-bright": "#f9faf6",
+                    "background": "#f9faf6",
+                    "surface-variant": "#e2e3e0",
+                    "secondary": "#8e4e14",
+                    "success": "#52B788",
+                    "surface-container": "#eeeeeb",
+                    "danger": "#D62828",
+                    "surface-container-highest": "#e2e3e0",
+                    "primary-light": "#40916C",
+                    "pale-green": "#D8F3DC",
+                    "outline": "#717973"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "gutter": "1rem",
+                    "stack-lg": "3rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .option-card input:checked + div {
+            border-color: #2D6A4F;
+            background-color: #D8F3DC;
+            box-shadow: 0 4px 10px rgba(27,67,50,0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<nav class="bg-surface dark:bg-on-background flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full z-50 border-b border-outline-variant dark:border-outline">
+<div class="text-headline-md font-display-lg text-primary-mid dark:text-success uppercase tracking-wider">
+            BlindadoUSA
+        </div>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow flex flex-col items-center justify-start py-stack-md px-margin-mobile md:px-margin-desktop max-w-2xl mx-auto w-full">
+<!-- Progress Indicator -->
+<div class="w-full mb-stack-lg">
+<div class="flex justify-between items-end mb-2">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-widest">Paso 2 de 5</span>
+<span class="text-data-mono font-data-mono text-primary-mid">40%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-mid transition-all duration-1000 ease-out" id="progress-bar" style="width: 40%"></div>
+</div>
+</div>
+<!-- Onboarding Content -->
+<div class="w-full space-y-stack-md">
+<header class="text-center md:text-left">
+<h1 class="text-headline-md-mobile font-headline-md md:text-headline-md text-primary mb-2">Queremos ayudarte mejor, Juan</h1>
+<p class="text-body-md text-on-surface-variant">Para brindarte la asesoría legal y financiera correcta, necesitamos saber tu estatus de identificación.</p>
+</header>
+<div class="space-y-4 pt-4">
+<h2 class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-4">¿Tienes número de Seguro Social (SSN)?</h2>
+<!-- Option Group -->
+<div class="grid grid-cols-1 gap-4">
+<label class="option-card cursor-pointer group">
+<input checked="" class="hidden" name="ssn_status" type="radio" value="ssn"/>
+<div class="flex items-center p-4 border-2 border-outline-variant rounded-xl transition-all duration-200 hover:border-primary-mid min-h-touch-target">
+<div class="bg-primary-container text-on-primary-container p-3 rounded-lg mr-4">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+</div>
+<div class="flex-grow">
+<span class="font-headline-md text-body-lg text-primary block">Sí, tengo SSN</span>
+<span class="text-label-sm text-on-surface-variant">Cuento con un número de Seguro Social válido.</span>
+</div>
+<span class="material-symbols-outlined text-primary-mid opacity-0 group-hover:opacity-100 transition-opacity" data-icon="check_circle">check_circle</span>
+</div>
+</label>
+<label class="option-card cursor-pointer group">
+<input class="hidden" name="ssn_status" type="radio" value="itin"/>
+<div class="flex items-center p-4 border-2 border-outline-variant rounded-xl transition-all duration-200 hover:border-primary-mid min-h-touch-target">
+<div class="bg-primary-light text-on-primary p-3 rounded-lg mr-4">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+</div>
+<div class="flex-grow">
+<span class="font-headline-md text-body-lg text-primary block">No, tengo ITIN</span>
+<span class="text-label-sm text-on-surface-variant">Uso un Número de Identificación Personal del Contribuyente.</span>
+</div>
+<span class="material-symbols-outlined text-primary-mid opacity-0 group-hover:opacity-100 transition-opacity" data-icon="check_circle">check_circle</span>
+</div>
+</label>
+<label class="option-card cursor-pointer group">
+<input class="hidden" name="ssn_status" type="radio" value="none"/>
+<div class="flex items-center p-4 border-2 border-outline-variant rounded-xl transition-all duration-200 hover:border-primary-mid min-h-touch-target">
+<div class="bg-surface-variant text-on-surface-variant p-3 rounded-lg mr-4">
+<span class="material-symbols-outlined" data-icon="pending">pending</span>
+</div>
+<div class="flex-grow">
+<span class="font-headline-md text-body-lg text-primary block">Ninguno todavía</span>
+<span class="text-label-sm text-on-surface-variant">Estoy en proceso o no cuento con identificación fiscal aún.</span>
+</div>
+<span class="material-symbols-outlined text-primary-mid opacity-0 group-hover:opacity-100 transition-opacity" data-icon="check_circle">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-stack-lg flex flex-col gap-4">
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-headline-md text-body-lg rounded-xl shadow-lg shadow-primary-container/15 hover:scale-[1.02] active:scale-95 transition-all flex justify-center items-center gap-2">
+                    Siguiente
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full h-touch-target text-on-surface-variant font-label-sm hover:underline transition-all">
+                    Omitir este paso por ahora
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer Security Message -->
+<footer class="py-stack-md px-margin-mobile text-center">
+<div class="inline-flex items-center gap-2 text-label-sm text-primary-mid bg-pale-green px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+            Tus datos están protegidos con cifrado de grado bancario.
+        </div>
+</footer>
+<!-- BottomNavBar (Only for top-level, hidden here for transactional flow but structure maintained) -->
+<nav class="hidden">
+<!-- Suppressed for onboarding transactional focus -->
+</nav>
+<!-- AI Assistant Trigger -->
+<div class="fixed bottom-6 right-6 z-[60]">
+<button class="w-14 h-14 bg-gradient-to-br from-primary-mid to-primary rounded-full shadow-xl flex items-center justify-center text-on-primary hover:rotate-12 transition-transform group">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+<div class="absolute right-16 bg-white text-primary px-4 py-2 rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-label-sm font-label-sm border border-outline-variant">
+                ¿Necesitas ayuda con tu SSN/ITIN?
+            </div>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for option selection
+        document.querySelectorAll('.option-card input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                // Clear state is handled by CSS peer/checked logic
+                // But we can add a small haptic-like scale effect
+                e.target.parentElement.classList.add('scale-95');
+                setTimeout(() => {
+                    e.target.parentElement.classList.remove('scale-95');
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

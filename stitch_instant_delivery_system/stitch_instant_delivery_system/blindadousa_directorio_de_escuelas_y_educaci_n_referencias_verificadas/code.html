@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#012d1d",
+                        "surface-container-lowest": "#ffffff",
+                        "gray": "#6B7280",
+                        "inverse-on-surface": "#f0f1ee",
+                        "warning": "#F77F00",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "outline-variant": "#c1c8c2",
+                        "surface-container-high": "#e8e8e5",
+                        "secondary": "#8e4e14",
+                        "secondary-fixed": "#ffdcc4",
+                        "danger": "#D62828",
+                        "surface-bright": "#f9faf6",
+                        "surface": "#f9faf6",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "secondary-fixed-dim": "#ffb780",
+                        "primary-light": "#40916C",
+                        "primary-mid": "#2D6A4F",
+                        "on-surface-variant": "#414844",
+                        "on-surface": "#1a1c1a",
+                        "background": "#f9faf6",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#3f6653",
+                        "on-background": "#1a1c1a",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-container": "#503700",
+                        "inverse-surface": "#2f312f",
+                        "surface-container": "#eeeeeb",
+                        "on-primary-fixed": "#002114",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-container": "#d89b00",
+                        "surface-dim": "#dadad7",
+                        "outline": "#717973",
+                        "success": "#52B788",
+                        "surface-variant": "#e2e3e0",
+                        "accent-dark": "#E76F51",
+                        "tertiary": "#342300",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "on-tertiary-fixed": "#271900",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "secondary-container": "#ffab69",
+                        "pale-green": "#D8F3DC",
+                        "primary-container": "#1b4332",
+                        "surface-container-low": "#f3f4f1",
+                        "on-secondary-fixed": "#2f1400",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container-highest": "#e2e3e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target w-full z-50 fixed top-0">
+<div class="flex items-center gap-4">
+<h1 class="font-display-lg text-primary-container tracking-tight text-display-lg-mobile md:text-display-lg">BlindadoUSA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant items-center gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-64" placeholder="Buscar escuelas o cursos..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-high text-on-surface-variant transition-colors">account_circle</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-screen overflow-y-auto pb-8 bg-surface-container-low border-r border-outline-variant h-full w-64 fixed left-0 top-0 pt-20">
+<div class="px-6 mb-6">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Panel de Control</p>
+</div>
+<nav class="flex-grow">
+<!-- Navigation Items Mapping -->
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm uppercase">Crédito</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm uppercase">Vivienda</span>
+</a>
+<a class="bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 px-4 py-3 flex items-center gap-3 shadow-sm" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm uppercase">Educación</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm uppercase">Legal</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">shield</span>
+<span class="font-label-sm uppercase">Seguros</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm uppercase">Remesas</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-4">
+<a class="text-on-surface-variant hover:text-primary flex items-center gap-3 px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm uppercase">Configuración</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 pt-24 pb-24 px-margin-mobile md:px-margin-desktop min-h-screen">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-8 md:p-12 text-on-primary shadow-lg">
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight mb-4 text-primary-fixed">DIRECTORIO DE EDUCACIÓN</h2>
+<p class="font-body-lg text-body-lg text-pale-green mb-8">Encuentra las mejores oportunidades académicas y técnicas con enfoque en la comunidad hispana. Claridad total para tu futuro en USA.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary text-on-primary font-bold px-8 py-4 rounded-lg h-touch-target flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">search</span>
+                            Explorar Escuelas
+                        </button>
+<button class="border-2 border-primary-fixed text-primary-fixed font-bold px-8 py-4 rounded-lg h-touch-target flex items-center justify-center gap-2 hover:bg-primary-fixed hover:text-primary transition-all">
+                            Guía de Inscripción
+                        </button>
+</div>
+</div>
+<!-- Background visual element -->
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<div class="w-full h-full bg-gradient-to-l from-primary-mid to-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-[120px]">school</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-stack-md overflow-x-auto hide-scrollbar flex gap-4 py-2">
+<button class="flex-shrink-0 bg-primary text-on-primary px-6 py-3 rounded-full flex items-center gap-2 font-label-sm uppercase transition-all">
+<span class="material-symbols-outlined">list</span> Todo
+            </button>
+<button class="flex-shrink-0 bg-surface-container border border-outline-variant text-on-surface-variant px-6 py-3 rounded-full flex items-center gap-2 font-label-sm uppercase hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">translate</span> Clases ESL
+            </button>
+<button class="flex-shrink-0 bg-surface-container border border-outline-variant text-on-surface-variant px-6 py-3 rounded-full flex items-center gap-2 font-label-sm uppercase hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">engineering</span> Formación Técnica
+            </button>
+<button class="flex-shrink-0 bg-surface-container border border-outline-variant text-on-surface-variant px-6 py-3 rounded-full flex items-center gap-2 font-label-sm uppercase hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">apartment</span> Universidades
+            </button>
+<button class="flex-shrink-0 bg-surface-container border border-outline-variant text-on-surface-variant px-6 py-3 rounded-full flex items-center gap-2 font-label-sm uppercase hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined">child_care</span> Primaria/Secundaria
+            </button>
+</section>
+<!-- Featured Results Grid (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-stack-lg">
+<!-- Result Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:border-primary-mid transition-all sombra-verde group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Educación" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A brightly lit, modern university campus courtyard with clean architectural lines and lush green landscaping. Students of diverse Hispanic backgrounds are walking and talking in a professional, academic setting. The lighting is soft and golden, conveying a sense of optimism and high-level educational opportunity. The image is crisp, high-contrast, and fits a corporate-modern financial brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJoZICpbQdHXmbmk86fMxUMZDA8RtrT1zPyo9AIZNlMaMsfSEl_Ye5K-HpDvRSG4t2xEcZvl_gjW-LIaIHW47E4BBwhQ-2QxOiL2U2mT_Dcx1icnW9w60NEVKY0vIyh--ADO7fcdBcouF-LesySXKvAEV0hUAtU6D3mmUcBbez5Fkiw30vJsDoVbzLW3H3v6D_hQ133NoEcw_as59gYrwLr95scv8EN0d7Renagy3TdaqHlGDgo-pyXIJHY1nIVSmlkWrAHOdoDn3"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-success text-on-primary text-[12px] font-bold px-3 py-1 rounded-full uppercase">Inscripción Abierta</span>
+<span class="bg-primary text-primary-fixed text-[12px] font-bold px-3 py-1 rounded-full uppercase">Top Recomendado</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Miami Technical College</h3>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="font-bold ml-1">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant mb-4 font-body-md line-clamp-2">Especialistas en certificaciones rápidas para HVAC, Electricidad y Enfermería. Soporte 100% en español para el proceso de becas.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">money_off</span> Clases Gratuitas
+                        </div>
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Horario Nocturno
+                        </div>
+</div>
+<button class="w-full border-2 border-outline text-primary font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary hover:border-primary transition-all flex items-center justify-center gap-2">
+                        Ver Detalles <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Result Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:border-primary-mid transition-all sombra-verde group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Idiomas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist classroom setting with large windows letting in bright daylight. A professional instructor is pointing to a screen showing English grammar rules in a simple, clear format. The students are adults, engaged and motivated, representing the Hispanic professional community. The color palette is composed of soft whites, deep greens, and warm wood tones, creating a welcoming and serious atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1S8CV6A_4QAwgmnLek4Yrqjac22mIMD-Ul5Iq_8ekM3PBw8xxoN8xd5sJxhFLWXi26svA9aNhvHIsryQd1T-5EW46uOFfu86OHIra7-pmm8eSes6mnKZqNKIMZpgbjdPo5RyQpkgNCOsbjJU3N4jvmaJI3JrFk4n5-XAHSRfzhBjdpFkGzZLtvhDcJV5DRZ3WCq-iOpyQrp1_NoCahmWmddc1nJHm5BMIh6yC02AONqKKLv9HxyfN7xcN7VEKDlbkzOe9NZ96fRyW"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-on-primary text-[12px] font-bold px-3 py-1 rounded-full uppercase">ESL Intensivo</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">English for Success Center</h3>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="font-bold ml-1">4.7</span>
+</div>
+</div>
+<p class="text-on-surface-variant mb-4 font-body-md line-clamp-2">Programas de inglés enfocados en el entorno laboral de Estados Unidos. Ayuda para ITIN y SSN holders.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">laptop_mac</span> 100% Online
+                        </div>
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">verified</span> Certificado Oficial
+                        </div>
+</div>
+<button class="w-full border-2 border-outline text-primary font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary hover:border-primary transition-all flex items-center justify-center gap-2">
+                        Ver Detalles <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Result Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden hover:border-primary-mid transition-all sombra-verde group">
+<div class="h-48 relative overflow-hidden">
+<img alt="Escuela Pública" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An expansive, modern high school entrance with a large American flag and a diverse group of young students entering the building. The architecture is sturdy and contemporary, with large glass panels reflecting a bright blue sky. The scene is full of energy and life, emphasizing the quality of public education. The mood is authoritative yet accessible, using a professional lighting setup that highlights the architectural details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB61ASqGxbl1CYJE4hB5qWzT2IGtyOuDGgIBd2krZI-A4DB8gxYn_fBroVmDxPTVB_MeoHiEJUwd3C8UURmCVzbXvPZ3_cWi4xF5CnmIl8dO9Y83Yb6JRfp1e-Lex4Lym5knpbRYmyZ7mOnScOxax3B4hgXdWkWAXbSVZ067MqfuzNwuguBc0JcAe7d1ImwLHLZrh6TPCrbuJG04oLLCr8ndNHbtOgbrWIv0s15dtJy1fSW3-mwXGv47dqBISzIyLM0M7B3M2UU3fUO"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-primary-fixed text-[12px] font-bold px-3 py-1 rounded-full uppercase">Pública Bilingüe</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-primary">Westside Academy K-12</h3>
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="font-bold ml-1">4.5</span>
+</div>
+</div>
+<p class="text-on-surface-variant mb-4 font-body-md line-clamp-2">Escuela pública con programa bilingüe dual. Clasificación 'A' por el departamento de educación estatal.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">restaurant</span> Comida Incluida
+                        </div>
+<div class="flex items-center gap-1 text-[13px] text-primary-mid font-bold bg-pale-green px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[16px]">directions_bus</span> Transporte
+                        </div>
+</div>
+<button class="w-full border-2 border-outline text-primary font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary hover:border-primary transition-all flex items-center justify-center gap-2">
+                        Ver Detalles <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Semáforo de Estatus Académico -->
+<section class="bg-surface-container p-6 rounded-xl border border-outline-variant mb-stack-lg">
+<h4 class="font-headline-md text-primary mb-6">Estatus de Admisiones Globales</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-white p-4 rounded-lg flex items-start gap-3 border-l-8 border-success">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<div>
+<p class="font-bold text-success uppercase text-[12px]">Inscripciones Abiertas</p>
+<p class="text-[14px] text-on-surface-variant">Escuelas públicas y cursos técnicos están recibiendo nuevas aplicaciones ahora.</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg flex items-start gap-3 border-l-8 border-warning">
+<span class="material-symbols-outlined text-warning">pending</span>
+<div>
+<p class="font-bold text-warning uppercase text-[12px]">Últimos Cupos</p>
+<p class="text-[14px] text-on-surface-variant">Cursos de ESL avanzados tienen disponibilidad limitada para el semestre actual.</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg flex items-start gap-3 border-l-8 border-error">
+<span class="material-symbols-outlined text-error">cancel</span>
+<div>
+<p class="font-bold text-error uppercase text-[12px]">Cerrado</p>
+<p class="text-[14px] text-on-surface-variant">Becas estatales para el ciclo de otoño han finalizado. Próxima apertura: Enero.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Assistant Banner -->
+<section class="mb-stack-lg">
+<div class="bg-gradient-to-r from-primary-container to-primary-mid p-8 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]">smart_toy</span>
+</div>
+<div>
+<h3 class="font-headline-md text-primary-fixed">¿No sabes por dónde empezar?</h3>
+<p class="text-pale-green">Nuestro Asistente AI puede recomendarte la mejor escuela basado en tu ubicación y presupuesto.</p>
+</div>
+</div>
+<button class="bg-secondary text-on-primary font-bold px-10 py-4 rounded-full h-touch-target whitespace-nowrap hover:scale-105 transition-transform">
+                    Hablar con Asistente AI
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-safe bg-surface h-20 border-t border-outline-variant shadow-[0_-4px_10px_rgba(27,67,50,0.1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-[10px]">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm text-[10px]">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-pale-green rounded-full p-2 h-12 w-12" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-[10px] hidden">Educación</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm text-[10px]">Legal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant Button (Contextual) -->
+<button class="fixed bottom-24 right-6 lg:bottom-10 lg:right-10 w-16 h-16 bg-primary-mid text-on-primary rounded-full shadow-2xl flex items-center justify-center z-40 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[32px]">chat</span>
+</button>
+<script>
+        // Simple logic to handle search interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-primary-light');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-primary-light');
+            });
+        }
+    </script>
+</body></html>

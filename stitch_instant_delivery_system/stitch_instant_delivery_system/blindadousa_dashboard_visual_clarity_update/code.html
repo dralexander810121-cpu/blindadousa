@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA Dashboard - Tu Biblia Financiera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002114",
+                    "inverse-on-surface": "#f0f1ee",
+                    "primary-mid": "#2D6A4F",
+                    "surface-bright": "#f9faf6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eeeeeb",
+                    "accent-dark": "#E76F51",
+                    "on-background": "#1a1c1a",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a5d0b9",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#86af99",
+                    "danger": "#D62828",
+                    "secondary": "#8e4e14",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-tertiary-container": "#d89b00",
+                    "success": "#52B788",
+                    "on-surface-variant": "#414844",
+                    "secondary-container": "#ffab69",
+                    "pale-green": "#D8F3DC",
+                    "surface-container-highest": "#e2e3e0",
+                    "primary-fixed": "#c1ecd4",
+                    "background": "#f9faf6",
+                    "tertiary": "#342300",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-container": "#783d01",
+                    "primary-container": "#1b4332",
+                    "surface-container-lowest": "#ffffff",
+                    "dark": "#1A1A2E",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb780",
+                    "gray": "#6B7280",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "warning": "#F77F00",
+                    "surface-container-low": "#f3f4f1",
+                    "surface": "#f9faf6",
+                    "outline": "#717973",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2f312f",
+                    "surface-tint": "#3f6653",
+                    "tertiary-container": "#503700",
+                    "primary": "#012d1d",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e3e0",
+                    "on-tertiary-fixed": "#271900",
+                    "surface-container-high": "#e8e8e5",
+                    "primary-light": "#40916C",
+                    "outline-variant": "#c1c8c2",
+                    "on-surface": "#1a1c1a",
+                    "tertiary-fixed-dim": "#ffba27"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-profesional {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .arc-container {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            overflow: hidden;
+        }
+        .arc-svg {
+            transform: rotate(-180deg);
+            transform-origin: center;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(rgba(27, 67, 50, 0.03) 2px, transparent 2px);
+            background-size: 24px 24px;
+        }
+        .module-image {
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row bg-pattern">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant z-40 p-4 sombra-profesional">
+<div class="mb-stack-lg">
+<h1 class="font-display-lg text-primary text-4xl tracking-tight">BLINDADOUSA</h1>
+</div>
+<div class="flex items-center gap-3 mb-stack-md p-3 bg-surface-container-low rounded-lg border border-outline-variant/30">
+<img alt="Usuario" class="w-10 h-10 rounded-full border-2 border-primary-light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAakR7TXYoPc7FMkN8zr7Ys9f-QScLSmgRjJmkv1jQsshQPPFkD4tm_IIh3M84tTVZE-MoqfWEgs72euI0jLcQAgvln6Ha59V9sQtptU6dkusHt2zXey3wu2_cSvfLkMga91SXmGYXbfl6ks_CxYE6Qn4c48ULk5IAiTiySzUt9KrB7fdRzjssWbh6wD6HDDY7XA-Gn_LzdZMHOcHD-4yP6MgRFaUcYWt0FvR40WEw8O2HgROZNGyb9cFv5ILsxNgSXl01hK7j5Prbu"/>
+<div>
+<p class="font-label-sm text-on-surface">Hola, Miembro</p>
+<p class="text-[10px] text-primary-mid font-bold uppercase tracking-wider">Plan Premium Activo</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto pr-1">
+<a class="flex items-center gap-3 px-3 py-3 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Resumen</span>
+</a>
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-[0.2em] px-3 mt-4 mb-2">Módulos</p>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">credit_score</span><span class="text-body-md">Mi Crédito</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">home</span><span class="text-body-md">Mi Casa</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">directions_car</span><span class="text-body-md">Mi Carro</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">verified_user</span><span class="text-body-md">Seguros</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">gavel</span><span class="text-body-md">Legal</span></a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-pale-green rounded-lg transition-all" href="#"><span class="material-symbols-outlined">payments</span><span class="text-body-md">Impuestos</span></a>
+</nav>
+<div class="pt-4 border-t border-outline-variant mt-auto">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-2 rounded-lg hover:bg-secondary-fixed transition-colors text-label-sm">Mejorar Plan</button>
+<a class="flex items-center gap-3 px-3 py-3 mt-2 text-error font-medium hover:bg-error-container rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-md">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-64 flex flex-col pb-24 md:pb-0">
+<!-- Trial Banner -->
+<div class="bg-warning text-on-secondary-fixed p-3 flex flex-col md:flex-row justify-center items-center gap-3 sticky top-0 z-50 shadow-sm">
+<div class="flex items-center gap-2 font-label-sm">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span>⏰ Te quedan <strong class="font-bold">3 días</strong> de prueba gratis</span>
+</div>
+<div class="flex gap-2">
+<button class="bg-on-secondary-fixed text-white px-4 py-1 rounded-full text-xs font-bold hover:opacity-90 transition-opacity">Pagar Ahora</button>
+<div class="bg-white/30 border border-white/40 px-4 py-1 rounded-full text-xs font-medium">Usa código: <span class="font-bold">AETHERIS</span></div>
+</div>
+</div>
+<!-- TopAppBar -->
+<header class="px-margin-mobile md:px-margin-desktop py-stack-md flex justify-between items-center bg-surface-container-lowest/70 backdrop-blur-md border-b border-outline-variant/30">
+<div>
+<h2 class="font-display-lg text-4xl text-primary leading-none">HOLA, MIEMBRO 👋</h2>
+<p class="text-on-surface-variant text-label-sm mt-1">Lunes, 24 de Junio de 2024 • Tu Biblia Financiera</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full text-on-surface-variant transition-colors">settings</button>
+</div>
+</header>
+<!-- Summary Metrics -->
+<section class="px-margin-mobile md:px-margin-desktop py-stack-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Credit Score Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant sombra-profesional flex flex-col items-center">
+<span class="text-label-sm text-on-surface-variant uppercase mb-3">Score de Crédito</span>
+<div class="arc-container">
+<svg class="w-full h-full arc-svg" viewbox="0 0 100 50">
+<path d="M10,50 A40,40 0 0,1 90,50" fill="none" stroke="#e2e3e0" stroke-linecap="round" stroke-width="8"></path>
+<path d="M10,50 A40,40 0 0,1 75,20" fill="none" stroke="#52B788" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<div class="absolute inset-0 flex items-end justify-center pb-1">
+<span class="font-display-lg text-4xl text-primary-mid">680</span>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-1.5 px-3 py-1 bg-success/10 text-success rounded-full border border-success/20">
+<div class="w-2 h-2 rounded-full bg-success"></div>
+<span class="text-[11px] font-bold uppercase tracking-tighter">Good Job: SITUACIÓN BUENA</span>
+</div>
+</div>
+<!-- Alerts Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant sombra-profesional flex flex-col justify-between">
+<div>
+<span class="text-label-sm text-on-surface-variant uppercase">Alertas Activas</span>
+<p class="font-display-lg text-5xl text-danger mt-1">02</p>
+</div>
+<div class="mt-2 flex items-center gap-1.5 px-3 py-1 bg-danger/10 text-danger rounded-full border border-danger/20 w-fit">
+<div class="w-2 h-2 rounded-full bg-danger"></div>
+<span class="text-[11px] font-bold uppercase tracking-tighter">Attention Needed</span>
+</div>
+</div>
+<!-- Membership Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant sombra-profesional flex flex-col justify-between">
+<div>
+<span class="text-label-sm text-on-surface-variant uppercase">Membresía</span>
+<p class="font-display-lg text-4xl text-primary mt-1">TRIAL</p>
+</div>
+<div class="mt-auto">
+<div class="w-full bg-surface-container-high h-2 rounded-full mb-2">
+<div class="bg-warning h-2 w-[70%] rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-warning uppercase">Finaliza pronto</span>
+</div>
+</div>
+<!-- Progress Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant sombra-profesional flex flex-col justify-between">
+<div>
+<span class="text-label-sm text-on-surface-variant uppercase">Tu Progreso</span>
+<p class="font-display-lg text-5xl text-primary-mid mt-1">1/13</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-primary/5 text-primary-mid rounded-full border border-primary/10 w-fit mt-2">
+<span class="text-[11px] font-bold uppercase tracking-tighter">Explorando Biblia</span>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="px-margin-mobile md:px-margin-desktop mb-stack-lg">
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant pb-2">
+<h3 class="font-display-lg text-3xl text-on-surface">TU RUTA FINANCIERA</h3>
+<div class="flex items-center gap-2">
+<span class="bg-primary/10 text-primary text-[11px] font-bold px-3 py-1 rounded-full border border-primary/20">13 Módulos de Éxito</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Module 1: Mi Crédito -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-on-primary-fixed opacity-80" style="font-variation-settings: 'FILL' 1;">credit_score</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Mi Crédito</h4>
+<span class="bg-success text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Completado</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Repara y construye tu puntaje para acceder a mejores tasas.</p>
+</div>
+</div>
+<!-- Module 2: Mi Casa -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Casa" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQkbtXU_UpifUpnCDQDKUEyG8uKHEWh4CoM8r2Hgvn8OBhseYaIjQDmp9oQ0D5ltGdxK9a33Z08fz39UWmLPpBKUt5YO7T4El0qzPMVTioplSCVNjMUe50lz7OY17umUJ34VuJ6wwfToTHjSV2arklioiYH4aKHqZLNUg4PtfQ967QZkrrYculEsoQ9pFruMBz-m0zc9v9_PoBHJ64I16Hf_g8eNuP_A9Ew8XCyTmIG1f5UNNd1boIvxta1vvppwu_FzsL5iVY_A5p"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">home</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Mi Casa</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Pendiente</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Estrategias para comprar o refinanciar tu hogar en USA.</p>
+</div>
+</div>
+<!-- Module 3: Mi Carro -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Carro" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6G6nQdMY773kSqQOXfCIFgJW_5eaHmBBtp5kHwm9rX8Irn4XXSxLLJPBjHPaKrX0PyDIzSsdcxWAWNVzaqdxTSDlatIHKyags_KoGzZMZhjq9rjihlep8M99H52W-vqacqWOiIiJL5NqT-p9RQniAY8Trj_cY1Az44RV-aKYAS3pJZBlniYGv2neC0aUuvTaUWGFHOm0yQizdVh-Vs99zIXsk1s3RCnJ2fIKWEAMEmV4TTQ6I0UKWQsTOd4Ncpjf9iTNUV9V8CczT"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">directions_car</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Mi Carro</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Pendiente</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Ahorra miles en la compra y financiamiento de tu vehículo.</p>
+</div>
+</div>
+<!-- Module 4: Salud -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Salud" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY_HHcY852V8Tb7T7g2B8YIEcpHYJHLhNuz1Ta9zECFhaMVWk-Cc1k26FviBG63e_hMa3p_ggcqV-DRh-8GCVgx4JSI2R0BanqOFukQ4Ek9bm211m3pv4we2YLJmxcQ0kTjPFT5Vzm2m9Vqka3UQA8hOdsn9_wGDDmKFobpptfPIYlMOqs5n4L7WZKb_t3LyW_met5PsJbJa3sxmN-mxlW5oDREtNPLyNmBg7TXmnSmvWBD6ulCCWWYqR9XDoYn0PBKzwUswtnR5IP"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">health_and_safety</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Mi Salud</h4>
+<span class="bg-warning/20 text-on-secondary-fixed text-[10px] font-bold px-2 py-0.5 rounded uppercase">En Proceso</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Seguros médicos y ahorro en gastos de salud familiar.</p>
+</div>
+</div>
+<!-- Module 5: Legal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Legal" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6MYo9OJ9APp3Tzy-i9P-HHB31vlFsmOhyIrK-tlf9iT5fmsOFGtg1O44DnrVdFnTggYoKQj81TwR2td7U9piSrlViENu1raVF5qKQZ0VCQKn_ZeuQ2rkzSrALglMLCCZRQJLDIqjrz-wToBlrGSJ185_RY9JdN_40AUI18SxzIM3KGl8t7RQ-L_4VYRO_caBsTTkQ1azhCiq2mBe4CjmmjdIz9QoYVgRhrkeEEW2DDs55dVDX8mTrXpQYQb2ryfCrJ_YvqPw8q3Vh"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">gavel</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Asesoría Legal</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Pendiente</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Navega el sistema legal con expertos a tu lado.</p>
+</div>
+</div>
+<!-- Module 6: Impuestos -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Impuestos" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2KefoukYBLCBPRsjKFCOmc2kEd1N82B0kdUj29Phsnzrywixi35r_ousn2WQmvYboUJuZE7VYbvNkY_am05zcz-rq762G0_n5egq_uxftA6CXTDwe135R85MV2z1mogpN2oX_QhziIPj-b3F-YprM55_V5ymbe1tVKsUppQ9prXojhdlNKJ87w_aAUyoX9328A-__dlUsy7qc8ylUM2ABQkj-xTEcxGnYk5vJOcL55yUOCNVy_eLAroDNKVE1rBFHzUd-AMATc89b"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">payments</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Impuestos</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Pendiente</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Maximiza tus reembolsos y cumple con el IRS sin miedo.</p>
+</div>
+</div>
+<!-- Module 7: Inversiones -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant sombra-profesional transition-all hover:-translate-y-1 hover:shadow-lg cursor-pointer group overflow-hidden">
+<div class="module-image bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img alt="Inversiones" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAUOjvQHJJD1uF8Opb9-s1IKC6PTnQXA_MVeZQKFmtvDmv3SBJ8PzYTfVa2G3Z4tVKdGTsXiDyLpfXhr6Dlm0umYuc665lfBfIbaR_T2HK2_PmuO-e9l7oCw8li-kGo13MC8dwHdsk7ODv9q18HOMAie9VAZjOk6uPmylBNIH8ZbQjAT23tsr0-FwHGQvjN7TqUAYHrJcRclPb0nbd5NqenHsqpuiYEj3f5zzW8cz7bH8eMUFyA7lGbxGPSdsS72PJ9ikwgLLVyFak"/>
+<span class="material-symbols-outlined text-4xl absolute text-primary">trending_up</span>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-headline-md text-lg text-on-surface">Inversiones</h4>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Pendiente</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-snug">Haz que tu dinero trabaje para ti en mercados seguros.</p>
+</div>
+</div>
+<!-- More Modules -->
+<div class="bg-surface-container-lowest rounded-xl border border-2 border-dashed border-outline-variant sombra-profesional flex items-center justify-center p-8 hover:bg-surface-container transition-colors cursor-pointer text-center group">
+<div>
+<span class="material-symbols-outlined text-5xl text-outline group-hover:scale-110 transition-transform">add_circle</span>
+<p class="font-label-sm text-outline mt-3">Ver los 6 módulos<br/>restantes de la Biblia</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop bg-primary text-on-primary mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div>
+<h4 class="font-display-lg text-3xl text-primary-fixed mb-1">BLINDADOUSA</h4>
+<p class="text-sm text-primary-fixed-dim opacity-80">© 2024 BlindadoUSA. Protegiendo tu futuro financiero.</p>
+</div>
+<nav class="flex gap-6">
+<a class="text-primary-fixed-dim hover:text-white underline transition-all text-sm" href="#">Privacidad</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all text-sm" href="#">Términos</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-all text-sm" href="#">Contacto</a>
+</nav>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface border-t border-outline-variant flex justify-around items-center px-2 py-3 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold mt-0.5">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-[10px] font-medium mt-0.5">Crédito</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium mt-0.5">Casa</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-medium mt-0.5">Más</span>
+</a>
+</nav>
+<!-- Floating Human AI Assistant -->
+<div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[60] flex flex-col items-end gap-3 group">
+<!-- Message bubble -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-xl p-3 rounded-2xl rounded-br-none max-w-[200px] text-xs font-medium animate-bounce group-hover:animate-none opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+<p class="text-primary">¡Hola! Soy tu <strong>Asistente Blindado</strong>. Estoy aquí para explicarte cualquier duda sobre tu ruta financiera.</p>
+</div>
+<!-- Assistant Avatar Button -->
+<button class="relative w-16 h-16 bg-primary-mid rounded-full shadow-2xl flex items-center justify-center overflow-hidden border-4 border-white hover:scale-110 active:scale-95 transition-all">
+<img alt="AI Assistant" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAakR7TXYoPc7FMkN8zr7Ys9f-QScLSmgRjJmkv1jQsshQPPFkD4tm_IIh3M84tTVZE-MoqfWEgs72euI0jLcQAgvln6Ha59V9sQtptU6dkusHt2zXey3wu2_cSvfLkMga91SXmGYXbfl6ks_CxYE6Qn4c48ULk5IAiTiySzUt9KrB7fdRzjssWbh6wD6HDDY7XA-Gn_LzdZMHOcHD-4yP6MgRFaUcYWt0FvR40WEw8O2HgROZNGyb9cFv5ILsxNgSXl01hK7j5Prbu"/>
+<div class="absolute bottom-1 right-1 w-4 h-4 bg-success rounded-full border-2 border-white"></div>
+</button>
+</div>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.classList.add('scale-[0.98]');
+            });
+            card.addEventListener('mouseup', () => {
+                card.classList.remove('scale-[0.98]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('scale-[0.98]');
+            });
+        });
+        
+        // Sticky Header effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 40) {
+                header.classList.add('shadow-md', 'bg-surface-container-lowest/95');
+                header.classList.remove('bg-surface-container-lowest/70');
+            } else {
+                header.classList.remove('shadow-md', 'bg-surface-container-lowest/95');
+                header.classList.add('bg-surface-container-lowest/70');
+            }
+        });
+    </script>
+</body></html>

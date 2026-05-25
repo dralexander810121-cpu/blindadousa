@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "success": "#52B788",
+                      "on-primary-fixed": "#002114",
+                      "primary-fixed": "#c1ecd4",
+                      "surface": "#f9faf6",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "tertiary-container": "#503700",
+                      "surface-variant": "#e2e3e0",
+                      "primary": "#012d1d",
+                      "surface-tint": "#3f6653",
+                      "secondary-container": "#ffab69",
+                      "surface-container-high": "#e8e8e5",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9faf6",
+                      "dark": "#1A1A2E",
+                      "outline-variant": "#c1c8c2",
+                      "surface-dim": "#dadad7",
+                      "error": "#ba1a1a",
+                      "tertiary": "#342300",
+                      "inverse-primary": "#a5d0b9",
+                      "primary-light": "#40916C",
+                      "outline": "#717973",
+                      "danger": "#D62828",
+                      "surface-container": "#eeeeeb",
+                      "accent-dark": "#E76F51",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "on-tertiary": "#ffffff",
+                      "background": "#f9faf6",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-on-surface": "#f0f1ee",
+                      "on-tertiary-fixed": "#271900",
+                      "surface-container-low": "#f3f4f1",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "warning": "#F77F00",
+                      "on-tertiary-container": "#d89b00",
+                      "surface-container-highest": "#e2e3e0",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-surface": "#1a1c1a",
+                      "secondary": "#8e4e14",
+                      "on-secondary-container": "#783d01",
+                      "secondary-fixed-dim": "#ffb780",
+                      "on-primary-container": "#86af99",
+                      "on-error": "#ffffff",
+                      "on-background": "#1a1c1a",
+                      "secondary-fixed": "#ffdcc4",
+                      "on-surface-variant": "#414844",
+                      "tertiary-fixed": "#ffdea9",
+                      "primary-container": "#1b4332",
+                      "gray": "#6B7280",
+                      "on-secondary-fixed": "#2f1400",
+                      "pale-green": "#D8F3DC",
+                      "error-container": "#ffdad6",
+                      "primary-mid": "#2D6A4F",
+                      "inverse-surface": "#2f312f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "48px",
+                      "margin-desktop": "2.5rem",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1.5rem",
+                      "gutter": "1rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-lg": "3rem"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "data-mono": ["JetBrains Mono"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Bebas Neue"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-full w-72 left-0 top-0 fixed flex flex-col bg-surface-container dark:bg-surface-container-highest py-stack-md px-4 overflow-y-auto hidden md:flex z-50">
+<div class="mb-10 px-4">
+<h1 class="font-display-lg text-primary-mid text-4xl tracking-tight">BlindadoUSA</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Educación y Protección</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-sm text-label-sm">Salud</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-sm text-label-sm">Finanzas</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm text-label-sm">Legal</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-4 bg-primary-container text-on-primary-container rounded-lg p-4 font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">import_contacts</span>
+<span class="font-label-sm text-label-sm">Directorio</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-secondary-container text-on-secondary-container font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">smart_toy</span>
+                    Consultar IA
+                </button>
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<a class="flex items-center gap-4 text-on-surface-variant p-2 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Configuración</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-2 hover:bg-surface-variant rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+<div class="flex items-center gap-3 p-2 bg-surface-container-low rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a Hispanic male professional in his late 30s, wearing a clean white shirt against a neutral studio background. The lighting is soft and flattering, emphasizing a trustworthy and friendly expression. The overall style is corporate and modern, maintaining high-contrast clarity and professional sharpness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4jsQeK4PWGrwlXk8pM1F_Q9IQymBNErmuG114rKdELR-C8fORhbzEGFScowX7l1UvsyXfUDNuQBW2_X0X92mmEJ3Ijy9Zcms6Ora1kOm_jhTPLdpdcr43S2fW_ty4nnCL2lZH6aafscEjNI3-MDmlFMXU9PGhkZHCjgsB0dTBL7bdsPEy1k4-UCwDNwwvbcn2i169lesF7CGcxzogzoOG76xDIZ3qbQyOPiTMhRtE0Kcd3j6xw2rYQVHV2m3vmyqfuKB8ucpqxD_Y"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-label-sm font-bold truncate">Juan Pérez</p>
+<p class="text-[12px] text-on-surface-variant truncate">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-72 bg-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-touch-target bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline sticky top-0 z-40">
+<h2 class="font-headline-md text-headline-md text-primary dark:text-inverse-primary">Directorio de Staffing</h2>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-md focus:ring-2 ring-primary-mid w-64" placeholder="Buscar agencias..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary-mid">notifications</button>
+<button class="material-symbols-outlined text-primary-mid">help</button>
+</div>
+</header>
+<div class="p-margin-mobile md:p-margin-desktop space-y-stack-lg max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-primary-container rounded-3xl p-8 text-on-primary overflow-hidden relative">
+<div class="relative z-10 space-y-4">
+<h3 class="font-display-lg text-6xl text-secondary-container leading-none">CONSIGUE EMPLEO <br/>HOY MISMO</h3>
+<p class="font-body-lg text-primary-fixed max-w-md">Encuentra las mejores agencias de staffing que aceptan ITIN, ofrecen pago semanal y hablan tu idioma. Blindamos tu futuro laboral.</p>
+<div class="flex flex-wrap gap-3 pt-4">
+<div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-success">verified_user</span>
+<span class="text-label-sm">Agencias Verificadas</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">translate</span>
+<span class="text-label-sm">100% en Español</span>
+</div>
+</div>
+</div>
+<div class="relative h-64 lg:h-full rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Workers" class="w-full h-full object-cover" data-alt="A diverse group of Hispanic industrial workers in high-visibility vests and safety gear sharing a collaborative and positive moment in a modern, clean warehouse environment. The lighting is bright and natural, reflecting an optimistic and professional workplace atmosphere. The image uses a palette of industrial teals and warm safety oranges to create high-contrast visual interest." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdH2k-R3GyzkjOG8qgRw0X9JWn5VZ9F-84NKCvnbP5R9c6IlajRi_JxqfSTP1oivmrWLHB45ApjxkihwDdlvO_1-CAzAyft_Vw5HyqIf7XgEpQmsAUfw4Ozf_IHzG7Hr-zOq42XgZi0nNCgfysdFF_gvNNFIkA6pAVyRTN2wlm4TdA15ChLdrFCuE8CoUFTtlrYwN4BYB8FeHMnIadyxuEYlMTLUiV4iAXTluRIwLWFxMOC9PL4cUq9QN8AKU4UrUs26IIwVlNTEeC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 to-transparent"></div>
+</div>
+</section>
+<!-- Search & Filters -->
+<section class="space-y-6">
+<div class="bg-white p-6 rounded-2xl sombra-verde border border-outline-variant grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-2">
+<label class="text-label-sm font-bold block">¿Qué tipo de trabajo buscas?</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid">construction</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-2 border-transparent focus:border-primary-mid rounded-xl outline-none transition-all" placeholder="Ej: Construcción, Limpieza" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm font-bold block">Código Postal</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low border-2 border-transparent focus:border-primary-mid rounded-xl outline-none transition-all" placeholder="ZIP Code" type="text"/>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full h-[52px] bg-secondary-container text-on-secondary-container font-display-lg text-2xl tracking-wider rounded-xl hover:bg-secondary-fixed transition-all active:scale-95">
+                                BUSCAR EMPLEOS
+                            </button>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 bg-primary-container text-on-primary rounded-full font-label-sm flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Habla Español
+                        </button>
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface border border-outline-variant rounded-full font-label-sm flex items-center gap-2 hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+                            Acepta ITIN
+                        </button>
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface border border-outline-variant rounded-full font-label-sm flex items-center gap-2 hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+                            Pago Semanal
+                        </button>
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface border border-outline-variant rounded-full font-label-sm flex items-center gap-2 hover:bg-pale-green transition-all">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                            Verificado
+                        </button>
+</div>
+</section>
+<!-- Results & Map Split -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Listings -->
+<div class="xl:col-span-5 space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline-md text-primary">Resultados Cercanos</h4>
+<span class="text-label-sm text-on-surface-variant">4 Agencias encontradas</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white p-6 rounded-2xl border-2 border-transparent hover:border-success transition-all cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-md">
+<div class="absolute top-0 right-0 w-24 h-24 bg-success/10 -mr-12 -mt-12 rounded-full transition-all group-hover:scale-150"></div>
+<div class="flex gap-4 relative">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary text-3xl">corporate_fare</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-bold text-lg group-hover:text-primary-mid transition-colors">Prestige Staffing Services</h5>
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> 2.4 miles • Miami, FL
+                                            </p>
+</div>
+<span class="bg-success text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Verificado</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Logística</span>
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Construcción</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-dashed border-outline-variant">
+<span class="font-data-mono text-primary-mid text-lg">$25 - $35/hr</span>
+<button class="text-primary-mid font-bold text-label-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">Ver más <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-6 rounded-2xl border-2 border-transparent hover:border-success transition-all cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-md">
+<div class="flex gap-4 relative">
+<div class="w-16 h-16 bg-primary-light rounded-xl flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white text-3xl">cleaning_services</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-bold text-lg group-hover:text-primary-mid transition-colors">Limpieza Total Corp</h5>
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> 3.1 miles • Miami, FL
+                                            </p>
+</div>
+<span class="bg-tertiary-fixed-dim text-on-tertiary-container px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Acepta ITIN</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Hospitalidad</span>
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Servicios</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-dashed border-outline-variant">
+<span class="font-data-mono text-primary-mid text-lg">$18 - $24/hr</span>
+<button class="text-primary-mid font-bold text-label-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">Ver más <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-6 rounded-2xl border-2 border-transparent hover:border-success transition-all cursor-pointer group relative overflow-hidden shadow-sm hover:shadow-md">
+<div class="flex gap-4 relative">
+<div class="w-16 h-16 bg-dark rounded-xl flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white text-3xl">warehouse</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-bold text-lg group-hover:text-primary-mid transition-colors">Advance Logistic Solutions</h5>
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span> 5.8 miles • Doral, FL
+                                            </p>
+</div>
+<span class="bg-success text-white px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider">Verificado</span>
+</div>
+<div class="flex gap-2">
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Almacén</span>
+<span class="bg-pale-green text-primary-mid px-2 py-1 rounded text-[12px] font-medium">Transporte</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-dashed border-outline-variant">
+<span class="font-data-mono text-primary-mid text-lg">$22 - $30/hr</span>
+<button class="text-primary-mid font-bold text-label-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">Ver más <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map View -->
+<div class="xl:col-span-7 h-[400px] xl:h-auto min-h-[600px] rounded-3xl overflow-hidden relative border border-outline-variant">
+<img alt="Map View" class="w-full h-full object-cover" data-alt="A clean, minimalist topographical map of a metropolitan area like Miami, using a professional color palette of muted grays and primary greens. Several bright orange and green pins are strategically placed across the map to represent job locations. The visual style is sophisticated and functional, with clear street grids and high-contrast markers for immediate legibility." data-location="Miami" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQhEq9P2b5fEyTYOP4M_ZX3G13_UZ_b6EeEpJf0fhNi3Vxzms-0AvmQJtmLAfUHx7_E9yT6ZLKwv6KyD6MBCxI-ys90XS-194yMwq8ayN-rre_50Lx1JmOLPBKQc11c865hdFIazyTAQXGEZUQvHFBCcbdrA6aXCoP3cRndBBLjR5Lu31tg9ATT6Wv7s8L3xFUd66-lRZLroDQKtvJhUoagNcYrf6qMnEeyJ1tVYx14SfDyhCeN_EPo35NIbJgh8Ln_Zt-wymZV6zf"/>
+<!-- Floating Map Controls -->
+<div class="absolute top-6 left-6 space-y-2">
+<div class="bg-white/90 backdrop-blur shadow-lg p-2 rounded-xl flex flex-col gap-2">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-low transition-colors rounded-lg"><span class="material-symbols-outlined">add</span></button>
+<div class="h-[1px] bg-outline-variant mx-2"></div>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-low transition-colors rounded-lg"><span class="material-symbols-outlined">remove</span></button>
+</div>
+<button class="bg-white/90 backdrop-blur shadow-lg w-10 h-10 rounded-xl flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+<!-- Map Popover Preview -->
+<div class="absolute bottom-10 right-10 left-10 md:left-auto md:w-80 bg-white p-4 rounded-2xl shadow-2xl border border-outline-variant animate-bounce-subtle">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white">home_repair_service</span>
+</div>
+<div>
+<p class="font-bold text-sm">Miami Logistics Hub</p>
+<p class="text-[12px] text-on-surface-variant">12 vacantes disponibles</p>
+</div>
+</div>
+<button class="w-full mt-3 py-2 bg-primary-container text-on-primary text-label-sm font-bold rounded-lg">Ver Detalles</button>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="bg-gradient-to-r from-primary to-primary-mid rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-success/10 blur-3xl -mr-32 -mt-32"></div>
+<div class="space-y-4 relative z-10">
+<h4 class="font-display-lg text-5xl text-white">¿OFRECES EMPLEOS?</h4>
+<p class="text-primary-fixed max-w-xl text-body-lg">Únete a la red más grande de empresas comprometidas con el éxito de la comunidad hispana en Estados Unidos.</p>
+</div>
+<div class="relative z-10">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-xl font-display-lg text-2xl hover:bg-secondary-fixed transition-all hover:shadow-[0_0_20px_rgba(244,162,97,0.4)] active:scale-95">
+                            REGISTRAR AGENCIA
+                        </button>
+</div>
+</section>
+</div>
+<!-- Footer Small -->
+<footer class="mt-12 py-8 border-t border-outline-variant px-margin-desktop text-center md:text-left">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant text-label-sm">
+<p>© 2024 BlindadoUSA. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary-mid" href="#">Privacidad</a>
+<a class="hover:text-primary-mid" href="#">Términos</a>
+<a class="hover:text-primary-mid" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 bg-gradient-to-tr from-primary-container to-primary-mid rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all duration-300 relative border-4 border-white" id="ai-assistant">
+<span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-success rounded-full border-2 border-white animate-pulse"></span>
+<!-- Tooltip -->
+<div class="absolute right-20 bottom-0 bg-white px-4 py-2 rounded-xl shadow-xl border border-outline-variant w-48 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">
+<p class="text-[12px] font-bold text-primary">¿Buscas trabajo hoy? Pregúntame.</p>
+</div>
+</button>
+</div>
+<script>
+        // Micro-interaction for search button
+        document.querySelector('button.bg-secondary-container').addEventListener('click', function() {
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> BUSCANDO...';
+            setTimeout(() => {
+                this.innerHTML = 'BUSCAR EMPLEOS';
+            }, 1500);
+        });
+
+        // Floating button logic
+        const fab = document.getElementById('ai-assistant');
+        let isHovered = false;
+        
+        fab.addEventListener('mouseenter', () => isHovered = true);
+        fab.addEventListener('mouseleave', () => isHovered = false);
+
+        // Simple bounce animation for the map popover
+        const popover = document.querySelector('.animate-bounce-subtle');
+        let posY = 0;
+        let direction = 1;
+        
+        function animate() {
+            if (popover) {
+                posY += 0.2 * direction;
+                if (posY > 10 || posY < 0) direction *= -1;
+                popover.style.transform = `translateY(-${posY}px)`;
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recuperar Acceso - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#ffab69",
+                    "on-surface": "#1a1c1a",
+                    "tertiary": "#342300",
+                    "primary-light": "#40916C",
+                    "error-container": "#ffdad6",
+                    "dark": "#1A1A2E",
+                    "primary": "#012d1d",
+                    "inverse-surface": "#2f312f",
+                    "on-tertiary-fixed": "#271900",
+                    "on-tertiary-container": "#d89b00",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "outline": "#717973",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-primary-fixed": "#002114",
+                    "secondary": "#8e4e14",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "danger": "#D62828",
+                    "tertiary-container": "#503700",
+                    "warning": "#F77F00",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#c1ecd4",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "surface-container-high": "#e8e8e5",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "primary-container": "#1b4332",
+                    "on-error": "#ffffff",
+                    "inverse-primary": "#a5d0b9",
+                    "primary-mid": "#2D6A4F",
+                    "surface-variant": "#e2e3e0",
+                    "secondary-fixed": "#ffdcc4",
+                    "gray": "#6B7280",
+                    "surface-container": "#eeeeeb",
+                    "surface-container-highest": "#e2e3e0",
+                    "success": "#52B788",
+                    "on-surface-variant": "#414844",
+                    "on-background": "#1a1c1a",
+                    "outline-variant": "#c1c8c2",
+                    "pale-green": "#D8F3DC",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-dim": "#dadad7",
+                    "surface": "#f9faf6",
+                    "on-primary-container": "#86af99",
+                    "inverse-on-surface": "#f0f1ee",
+                    "background": "#f9faf6",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "surface-tint": "#3f6653",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-primary": "#ffffff",
+                    "accent-dark": "#E76F51",
+                    "surface-bright": "#f9faf6",
+                    "surface-container-low": "#f3f4f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "touch-target": "48px",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bg-mesh {
+            background-color: #f9faf6;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(216, 243, 220, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(165, 208, 185, 0.2) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen flex flex-col font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<main class="flex-grow flex items-center justify-center px-margin-mobile md:px-margin-desktop py-stack-lg">
+<div class="w-full max-w-md">
+<div class="text-center mb-stack-lg">
+<div class="inline-flex items-center justify-center p-4 bg-primary-container rounded-xl shadow-lg mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-icon="lock_reset">lock_reset</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase tracking-tight">
+                    RECURPERAR ACCESO
+                </h1>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-[320px] mx-auto">
+                    Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu contraseña.
+                </p>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl p-8 shadow-sm">
+<form class="space-y-6" id="recoveryForm">
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block ml-1" for="email">
+                            Correo Electrónico
+                        </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline group-focus-within:text-primary-mid transition-colors" data-icon="mail">mail</span>
+</div>
+<input class="w-full h-touch-target pl-12 pr-4 bg-surface-container-lowest border-2 border-outline-variant rounded-lg focus:ring-0 focus:border-primary-mid text-on-surface placeholder:text-outline transition-all" id="email" name="email" placeholder="tu@correo.com" required="" type="email"/>
+</div>
+</div>
+<button class="w-full h-touch-target bg-secondary-container hover:bg-secondary-fixed-dim active:scale-[0.98] text-on-secondary-fixed font-bold rounded-lg shadow-md transition-all flex items-center justify-center gap-2 uppercase" type="submit">
+<span>ENVIAR INSTRUCCIONES</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="mt-8 pt-6 border-t border-outline-variant text-center">
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:underline decoration-2 underline-offset-4 transition-all" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+                        Volver al Inicio de Sesión
+                    </a>
+</div>
+</div>
+<div class="mt-stack-lg flex flex-col items-center gap-6">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-high rounded-full border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-success text-[18px]" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant">SSL SECURE</span>
+</div>
+<div class="flex items-center gap-1 px-3 py-1.5 bg-surface-container-high rounded-full border border-outline-variant shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant">PROTEGIDO</span>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 opacity-60">
+<img alt="Norton" class="h-6 object-contain grayscale" data-alt="The official Norton security logo rendered in a clean grayscale format to fit a professional and minimalist corporate UI design. The logo is displayed with sharp clarity against a light background, emphasizing security and brand trust without being visually distracting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkTBp9o_1EzW-P5SxTUyMenzLgljzzKet_GyEw9GFCZTwLqU7IU-wx2PXZg8qqJFyi9PNOnp-qTTeXmUkhdXnxOxHfTeGwCso5L5muVQTB-avKUMWtZ8e0retY7TDdb52W_4g0Iajtb6LpJaHgveZ0y9vAtP5qyvnbo7TyVUrvpymCV91xuaNMVb5N04y1AHCFDYCcGpIh164hrfC0_-0r20cREQyGknrK5hGLHK6ulDZblJY1ocG-lUIYlrQwyBXC6NmYp7wHIhNQ"/>
+<img alt="McAfee" class="h-5 object-contain grayscale" data-alt="A high-resolution McAfee security logo in a grayscale finish, perfectly integrated into a modern financial website footer. The aesthetic is clean and corporate, utilizing neutral tones to maintain a sophisticated and secure atmosphere that reassures users of data protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZHGWQ8Jwz91y8Yl4eI9lfX-j8FkUVd7bp6UfLNNf_G29PKR5G20AJhc5zZB-CzqYWC86ttB8kQCIqHWlntbjjqyZ3luJbm3Kmezc0C3ws4xeSNtNUVxxwokweet_f0c8xJc_I4Rh41IhOb31Bd6CP21WH7CDYSd8dhdplWQz1513ZzYhh8QZI4QT964BCaLXHu92QKBLD_-llmlxfA-KzXBniBzdLuK2tDV_e5oqS5RGRyJb6QAGLjhV6I_jCN8PwWIhpFndD5jn6"/>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-6 px-margin-mobile text-center border-t border-outline-variant bg-surface-container-lowest">
+<p class="font-label-sm text-on-surface-variant">
+            © 2024 BlindadoUSA. Todos los derechos reservados.
+        </p>
+</footer>
+<script>
+        document.getElementById('recoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalContent = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-on-secondary-fixed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>PROCESANDO...</span>
+            `;
+
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                    <span>CORREO ENVIADO</span>
+                `;
+                btn.classList.remove('bg-secondary-container');
+                btn.classList.add('bg-success', 'text-white');
+                
+                const email = document.getElementById('email').value;
+                console.log('Recovery email sent to:', email);
+            }, 1500);
+        });
+    </script>
+</body></html>

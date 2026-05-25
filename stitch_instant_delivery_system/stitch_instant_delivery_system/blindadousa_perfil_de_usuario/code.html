@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -2px rgba(27, 67, 50, 0.05);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#3f6653",
+                        "surface-container-highest": "#e2e3e0",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "inverse-surface": "#2f312f",
+                        "primary-mid": "#2D6A4F",
+                        "surface-dim": "#dadad7",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary-fixed": "#271900",
+                        "secondary-container": "#ffab69",
+                        "inverse-on-surface": "#f0f1ee",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "surface-bright": "#f9faf6",
+                        "warning": "#F77F00",
+                        "on-surface": "#1a1c1a",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary": "#012d1d",
+                        "on-error-container": "#93000a",
+                        "secondary": "#8e4e14",
+                        "gray": "#6B7280",
+                        "on-secondary-fixed": "#2f1400",
+                        "tertiary": "#342300",
+                        "success": "#52B788",
+                        "accent-dark": "#E76F51",
+                        "on-tertiary-container": "#d89b00",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "primary-light": "#40916C",
+                        "on-primary-container": "#86af99",
+                        "primary-fixed": "#c1ecd4",
+                        "tertiary-container": "#503700",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "surface-container": "#eeeeeb",
+                        "background": "#f9faf6",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "danger": "#D62828",
+                        "secondary-fixed": "#ffdcc4",
+                        "secondary-fixed-dim": "#ffb780",
+                        "on-surface-variant": "#414844",
+                        "surface": "#f9faf6",
+                        "outline-variant": "#c1c8c2",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "pale-green": "#D8F3DC",
+                        "dark": "#1A1A2E",
+                        "outline": "#717973",
+                        "primary-container": "#1b4332",
+                        "surface-variant": "#e2e3e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "margin-mobile": "1.25rem",
+                        "margin-desktop": "2.5rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="bg-primary dark:bg-primary-container h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-primary border-r border-primary-mid shadow-md flex flex-col py-6 px-4 hidden md:flex z-50">
+<div class="mb-10">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-pale-green tracking-tight">BlindadoUSA</h1>
+<p class="text-pale-green/60 text-label-sm uppercase tracking-widest -mt-2">Biblia Financiera</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Nav Items Mapping from JSON -->
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Resumen
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span> Crédito
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span> ITIN/SSN
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Presupuesto
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="savings">savings</span> Ahorros
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Deudas
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span> Impuestos
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span> Inversiones
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span> Seguros
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span> Legal
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span> Educación
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Comunidad
+            </a>
+<!-- Active State for Profile/Soporte Context -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold font-body-md" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> Perfil
+            </a>
+</nav>
+<div class="mt-6">
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold hover:opacity-90 active:scale-95 transition-all text-label-sm">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="bg-surface-bright dark:bg-surface-dim docked full-width top-0 h-20 bg-surface-bright border-b border-outline-variant flat no shadows fixed top-0 right-0 left-0 md:left-64 flex items-center justify-between px-6 md:px-margin-desktop z-40">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed">Perfil</h2>
+</div>
+<div class="flex items-center gap-2 md:gap-6">
+<div class="hidden md:flex items-center gap-2">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-[12px] font-bold">MIEMBRO PREMIUM</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary-mid active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-primary-mid active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Avatar del usuario" class="w-10 h-10 rounded-full border-2 border-primary-light object-cover" data-alt="A professional headshot of a Hispanic male in his late 30s with a warm, confident smile, set against a blurred modern office background. The lighting is bright and natural, reflecting a high-key, clean light-mode aesthetic. The composition is focused on the subject's face to serve as a high-quality UI avatar, emphasizing trust and professional accessibility in line with a corporate financial platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDg5tCkdS83rmUPaxFogqe0qsZpt2d7on5tk-OGIxjhVZ2xKJLEnYge5Ao4fz1s0U8tc04pQid_KbfhL2RmjjjJmu8oCDmblCn9ysfcnciaNH0BAIlnPJN8uywSM2J7lQlTUXugVuSTuNwwb91D8YCZNtxtCWY-cbFWboURbE31wLCY7q3906HIMXSB8cpbptb33UblilAPN7BE8rRw02P4aaHu92X4rXXyWoC_fWm0zz_VkLZt0EseJ6LQdWKQYTqCHgJm8oRk4ny"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-12 px-6 md:px-12 md:ml-64 transition-all">
+<div class="max-w-5xl mx-auto space-y-8">
+<!-- Header Section (Bento Style) -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- User Bio Card -->
+<div class="lg:col-span-2 bg-white rounded-xl p-8 border border-outline-variant flex flex-col md:flex-row items-center gap-8 sombra-verde">
+<div class="relative">
+<img class="w-32 h-32 rounded-full border-4 border-pale-green shadow-xl object-cover" data-alt="Close-up professional portrait of a confident man with a friendly expression. The scene is bright and airy with soft focus on a contemporary office setting in the background. The aesthetic is clean, high-contrast, and corporate, using a palette of white, light grays, and subtle green accents to match a modern financial application's profile section." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvGcoZqAzkUmcJMtD7p02aC6Gbz2inP5jwmKqPeHnBZXcuUHG8T8lESOc0mzHseJjbcTK0zUBFdSxTiKZDG3sMtZ84uophIgz0Wz_pCp7yfbPNKaAIgTkzlk_OapLBB8lMHnPYiMOOuAar9NWaCM2TuR8BcDFNvJNvqEXOySTH_Vp7L__kGupDYWUsPb08FOQtrxn5WJsqPweQ4MjBwAcxaGoxS-fAo0N2rNRzAoWY2JiQ0Qi2RW8z4TGlMsjX6IgtApsZWFSS3q6N"/>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-2 rounded-full shadow-lg hover:bg-primary-mid">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="text-center md:text-left">
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-primary leading-none">Juan Pérez</h3>
+<div class="flex flex-wrap justify-center md:justify-start gap-2 mt-2">
+<span class="flex items-center gap-1 bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                                Miembro Premium
+                            </span>
+<span class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">Desde Enero 2024</span>
+</div>
+<p class="mt-4 text-on-surface-variant max-w-md">"Construyendo un legado financiero sólido para mi familia en Estados Unidos."</p>
+</div>
+</div>
+<!-- Mi Blindaje (Status Card) -->
+<div class="bg-primary-container text-white rounded-xl p-8 relative overflow-hidden shadow-xl flex flex-col justify-between">
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<p class="font-display-lg-mobile text-[24px] uppercase tracking-wider text-pale-green">Mi Blindaje</p>
+<span class="flex items-center gap-1 bg-success/20 text-success border border-success/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verificado
+                            </span>
+</div>
+<div class="mt-4">
+<p class="text-pale-green/70 text-sm uppercase font-bold tracking-widest">Estado de Cuenta</p>
+<h4 class="font-display-lg text-secondary-container leading-none mt-1">ACCESO VITALICIO</h4>
+</div>
+</div>
+<div class="mt-6 flex items-center gap-2 text-pale-green z-10">
+<span class="material-symbols-outlined">shield_with_heart</span>
+<span class="text-sm font-medium">Protección activa 24/7</span>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'wght' 700;">security</span>
+</div>
+</div>
+</section>
+<!-- Personal Info & Security -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Información Personal -->
+<div class="bg-white rounded-xl p-8 border border-outline-variant">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary-mid">person_book</span>
+<h4 class="font-display-lg-mobile text-[28px] text-primary">Información Personal</h4>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Nombre Completo</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid font-medium" type="text" value="Juan Pérez"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Correo Electrónico</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid font-medium" type="email" value="juan.perez@ejemplo.com"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Teléfono</label>
+<input class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid font-medium" type="tel" value="+1 (555) 123-4567"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Estado de Residencia</label>
+<select class="w-full h-touch-target rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid font-medium">
+<option>Florida</option>
+<option>Texas</option>
+<option>California</option>
+<option>New York</option>
+</select>
+</div>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:bg-primary-mid transition-all">Guardar Cambios</button>
+</div>
+</div>
+<!-- Referidos & Seguridad Cluster -->
+<div class="space-y-8">
+<!-- Sistema de Referidos -->
+<div class="bg-secondary-fixed rounded-xl p-8 border border-secondary-container relative overflow-hidden">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary">share</span>
+<h4 class="font-display-lg-mobile text-[28px] text-on-secondary-container">Gana Blindando a Otros</h4>
+</div>
+<p class="text-on-secondary-container/80 text-sm mb-6">Comparte tu código y recibe 1 mes gratis por cada amigo que se una a la comunidad.</p>
+<div class="flex items-center gap-3 bg-white p-2 rounded-xl border-2 border-dashed border-secondary-container">
+<code class="flex-grow text-center font-data-mono text-data-mono text-secondary tracking-widest py-2">JUAN4521</code>
+<button class="bg-secondary-container text-on-secondary-container p-3 rounded-lg hover:opacity-90 active:scale-90 transition-all" onclick="this.innerHTML='&lt;span class=\'material-symbols-outlined\'&gt;check&lt;/span&gt;'">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<div class="mt-6 flex justify-around items-center pt-6 border-t border-secondary-container/20">
+<div class="text-center">
+<p class="font-display-lg-mobile text-[32px] text-secondary leading-none">12</p>
+<p class="text-[10px] font-bold uppercase text-on-secondary-container/60 tracking-wider">Referidos</p>
+</div>
+<div class="text-center border-l border-secondary-container/20 pl-8">
+<p class="font-display-lg-mobile text-[32px] text-secondary leading-none">$120</p>
+<p class="text-[10px] font-bold uppercase text-on-secondary-container/60 tracking-wider">Crédito Ganado</p>
+</div>
+</div>
+</div>
+<!-- Seguridad -->
+<div class="bg-white rounded-xl p-8 border border-outline-variant">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary-mid">lock_reset</span>
+<h4 class="font-display-lg-mobile text-[28px] text-primary">Seguridad</h4>
+</div>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 rounded-xl border border-outline-variant hover:border-primary-mid hover:bg-surface-container-low transition-all group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary-mid">password</span>
+<div class="text-left">
+<p class="font-bold text-sm">Cambiar Contraseña</p>
+<p class="text-xs text-on-surface-variant">Actualizada hace 3 meses</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</button>
+<div class="w-full flex items-center justify-between p-4 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">security_update_good</span>
+<div class="text-left">
+<p class="font-bold text-sm">Autenticación (2FA)</p>
+<p class="text-xs text-on-surface-variant">Protege tu cuenta con SMS/App</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-mid"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dangerous Area -->
+<section class="flex justify-end pt-4">
+<button class="flex items-center gap-2 text-danger font-bold hover:underline opacity-80 hover:opacity-100 transition-all text-sm">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+                    Eliminar mi cuenta definitivamente
+                </button>
+</section>
+</div>
+</main>
+<!-- FloatingAIButton -->
+<button class="fixed bottom-8 right-8 z-50 bg-primary-mid dark:bg-primary-light text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="absolute right-full mr-4 bg-primary text-pale-green px-4 py-2 rounded-lg text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl border border-primary-mid">Asistente Blindado</span>
+</button>
+<!-- Mobile Bottom NavBar (from shared components logic) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-primary h-16 flex justify-around items-center px-4 z-50">
+<a class="text-pale-green/70 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+</a>
+<a class="text-pale-green/70 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-[24px]">credit_card</span>
+</a>
+<a class="text-pale-green/70 flex flex-col items-center" href="#">
+<span class="material-symbols-outlined text-[24px]">groups</span>
+</a>
+<a class="text-on-primary-fixed bg-primary-fixed rounded-full p-2 flex flex-col items-center shadow-lg -mt-8 border-4 border-background" href="#">
+<span class="material-symbols-outlined text-[28px]">person</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for copy code
+        function setupInteractions() {
+            // Visual feedback for interactions is handled via CSS classes defined in the design system
+            console.log("BlindadoUSA UI Initialized");
+        }
+        window.onload = setupInteractions;
+    </script>
+</body></html>

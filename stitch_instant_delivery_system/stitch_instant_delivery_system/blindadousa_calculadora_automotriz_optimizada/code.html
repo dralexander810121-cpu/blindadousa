@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA - Módulo Comprar Carro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #1b4332;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .rule-card.passed {
+            border-color: #52B788;
+            background-color: #f0fdf4;
+        }
+        .rule-card.failed {
+            border-color: #ba1a1a;
+            background-color: #fef2f2;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9faf6",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "primary-mid": "#2D6A4F",
+                    "on-background": "#1a1c1a",
+                    "on-tertiary-fixed": "#271900",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "surface-container-high": "#e8e8e5",
+                    "outline": "#717973",
+                    "surface-variant": "#e2e3e0",
+                    "secondary": "#8e4e14",
+                    "on-secondary-container": "#783d01",
+                    "tertiary-container": "#503700",
+                    "on-secondary-fixed": "#2f1400",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-bright": "#f9faf6",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#342300",
+                    "danger": "#D62828",
+                    "surface-container-highest": "#e2e3e0",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-on-surface": "#f0f1ee",
+                    "gray": "#6B7280",
+                    "surface-dim": "#dadad7",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary": "#012d1d",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary-container": "#d89b00",
+                    "inverse-surface": "#2f312f",
+                    "background": "#f9faf6",
+                    "success": "#52B788",
+                    "inverse-primary": "#a5d0b9",
+                    "primary-light": "#40916C",
+                    "on-surface": "#1a1c1a",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "on-surface-variant": "#414844",
+                    "primary-fixed": "#c1ecd4",
+                    "dark": "#1A1A2E",
+                    "tertiary-fixed": "#ffdea9",
+                    "surface-tint": "#3f6653",
+                    "accent-dark": "#E76F51",
+                    "primary-container": "#1b4332",
+                    "surface-container": "#eeeeeb",
+                    "secondary-container": "#ffab69",
+                    "secondary-fixed": "#ffdcc4",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "warning": "#F77F00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "gutter": "1rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1.5rem",
+                    "stack-lg": "3rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 flex justify-between items-center h-touch-target px-margin-mobile w-full bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary">BLINDADOUSA</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-2 rounded-full transition-colors">search</button>
+<button class="material-symbols-outlined text-primary hover:bg-surface-container-high p-2 rounded-full transition-colors">notifications</button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpx2_zAFHmO8uTcOr4gXGl4zLFFb9yUhVsnOYq9OlWGmdiZ8riSGcMM_bnr5i8A-kR3PLQ630a1_rurY5bylkXabPKgJT5JiLsHsWNmu6gW1VD1bCqgwjXzmHsv9p972JZ-BrR9MEydDBCQ7XM_xJoBJELKrwQoOEtxk_DsDD1vfydp5HyFx2YYo9il6NPU0sCknHSpCqZKKYRiRnyIaOSGhboZ08s3XnsAGIHqNmRFML1cdBH0BoyfaI9td93nAItMQOiWxrnia4"/>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="docked left-0 h-screen w-64 hidden md:flex flex-col bg-surface-container-low py-stack-md px-4 space-y-2 fixed top-0 pt-20">
+<div class="px-4 mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary">Mi Panel</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Asesoría Financiera</p>
+</div>
+<nav class="flex-1 flex flex-col space-y-1">
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-outline-variant">
+<button class="w-full bg-primary-mid text-white font-label-sm py-3 rounded-xl mb-4 hover:opacity-90">Hablar con IA</button>
+<a class="flex items-center gap-stack-sm text-error px-4 py-3 hover:bg-error-container rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-sm text-label-sm">Cerrar Sesión</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 pt-20 pb-24 md:pb-8 px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="mb-stack-lg mt-8">
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-8 md:p-12 text-white">
+<div class="relative z-10 max-w-2xl">
+<span class="text-secondary-container font-label-sm uppercase tracking-widest mb-2 block">Guía Financiera</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">MI PRÓXIMO CARRO</h1>
+<p class="font-body-lg text-body-lg text-pale-green mb-8">Calculadoras avanzadas y consejos reales para que tomes el control de tu financiamiento automotriz.</p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-secondary-container text-primary font-headline-md px-8 py-4 rounded-xl hover:scale-105 transition-transform text-center min-w-[200px]" href="#calculadora">Ir a Calculadora</a>
+<a class="border border-pale-green text-pale-green font-headline-md px-8 py-4 rounded-xl hover:bg-white/10 transition-colors text-center min-w-[200px]" href="#dealer">Tips de Dealer</a>
+</div>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden lg:block">
+<img class="h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqcRp1gy9z36Y__ylYv-kmSqbK6kdWRbFxrL08a-viQ0BGq5wtam3-JRuwdmZa24TNkK6FbtrjZ_GYcffm4rA0uDmMKiYqiXe36zYu_Hl6Qd1h-3FWBRppjQ-W8ZPIZppDJelPoMKHCxcbPvdy7a3sZKKD_kDk16T82nAI9jIX5eiNSXTAZHjKdYhw9WZ2d_MOxnZYss74sXC85ba-oH83zZtJjG0yl1coORW_tqLRgBDYE7ShX3RdePG2sthuHATt3FuUx0FvBeSP"/>
+</div>
+</div>
+</section>
+<!-- Calculator Section -->
+<section class="mb-stack-lg" id="calculadora">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Controls Side -->
+<div class="lg:col-span-7 space-y-gutter">
+<div class="bg-white p-8 rounded-xl sombra-verde border border-outline-variant">
+<h2 class="font-headline-md text-headline-md mb-8 flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-primary-mid">settings_input_component</span>
+                            Configuración del Préstamo
+                        </h2>
+<div class="space-y-10">
+<!-- Vehicle Price -->
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-label-sm text-primary uppercase tracking-wide">Precio del Vehículo</label>
+<span class="font-display-lg text-3xl text-primary-mid">$<span id="price-val">35,000</span></span>
+</div>
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer" id="price-range" max="100000" min="5000" step="500" type="range" value="35000"/>
+</div>
+<!-- Manual APR Slider -->
+<div>
+<div class="flex justify-between mb-4">
+<label class="font-label-sm text-primary uppercase tracking-wide">Tasa de Interés (APR)</label>
+<span class="font-display-lg text-3xl text-primary-mid"><span id="apr-val-display">5.9</span>%</span>
+</div>
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer" id="apr-range" max="30" min="1" step="0.1" type="range" value="5.9"/>
+</div>
+<!-- Term & Tax Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+<div>
+<label class="font-label-sm text-primary mb-3 block uppercase tracking-wide">Plazo (Meses)</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="term-btn py-3 border border-outline rounded-lg font-data-mono hover:bg-primary-container hover:text-white transition-colors" data-months="36">36</button>
+<button class="term-btn py-3 border-2 border-primary-mid bg-primary-container text-white rounded-lg font-data-mono" data-months="48">48</button>
+<button class="term-btn py-3 border border-outline rounded-lg font-data-mono hover:bg-primary-container hover:text-white transition-colors" data-months="60">60</button>
+<button class="term-btn py-3 border border-outline rounded-lg font-data-mono hover:bg-primary-container hover:text-white transition-colors" data-months="72">72</button>
+<button class="term-btn py-3 border border-outline rounded-lg font-data-mono hover:bg-primary-container hover:text-white transition-colors" data-months="84">84</button>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-primary mb-3 block uppercase tracking-wide">Impuestos y Cargos (%)</label>
+<div class="relative">
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="tax-input" type="number" value="7.5"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline-variant">%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<label class="font-label-sm text-primary mb-2 block uppercase tracking-wide">Down Payment ($)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="down-payment" type="number" value="7000"/>
+</div>
+<div>
+<label class="font-label-sm text-primary mb-2 block uppercase tracking-wide">Valor Trade-in ($)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="trade-in" type="number" value="0"/>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-primary mb-2 block uppercase tracking-wide">Ingreso Mensual Neto (Post-Taxes)</label>
+<input class="w-full h-touch-target border border-outline rounded-lg px-4 focus:ring-2 focus:ring-primary-mid font-data-mono" id="monthly-income" type="number" value="5000"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Results Side -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Main Payment Result -->
+<div class="bg-primary text-white p-8 rounded-xl flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">payments</span>
+</div>
+<span class="font-label-sm text-pale-green mb-2 uppercase tracking-widest">Pago Mensual Estimado</span>
+<div class="font-display-lg text-7xl md:text-8xl text-secondary-container mb-6">$<span id="monthly-payment">584</span></div>
+<!-- Detailed Breakdown -->
+<div class="w-full space-y-3 pt-6 border-t border-white/10">
+<div class="flex justify-between text-sm">
+<span class="opacity-70">Principal</span>
+<span class="font-data-mono">$<span id="breakdown-principal">450</span></span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="opacity-70">Interés Estimado</span>
+<span class="font-data-mono">$<span id="breakdown-interest">84</span></span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="opacity-70">Impuestos (Mensualizados)</span>
+<span class="font-data-mono">$<span id="breakdown-tax">50</span></span>
+</div>
+<div class="flex justify-between pt-3 border-t border-white/10 text-secondary-container font-bold">
+<span>Costo Total a Pagar</span>
+<span class="font-data-mono">$<span id="total-cost">42,500</span></span>
+</div>
+</div>
+</div>
+<!-- Interactive 20/4/10 Rules -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant space-y-4">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-headline-md text-primary text-lg">Regla de Oro: 20/4/10</h3>
+<span class="material-symbols-outlined text-primary-mid">verified_user</span>
+</div>
+<div class="space-y-3">
+<!-- Rule 20% Down -->
+<div class="rule-card p-4 rounded-xl border-2 flex items-center justify-between transition-all duration-300" id="rule-down">
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">20% Down Payment</span>
+<span class="text-xs text-on-surface-variant" id="down-desc">Mínimo sugerido: $7,000</span>
+</div>
+<span class="material-symbols-outlined text-2xl status-icon">help</span>
+</div>
+<!-- Rule 4 Years -->
+<div class="rule-card p-4 rounded-xl border-2 flex items-center justify-between transition-all duration-300" id="rule-years">
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">Máximo 4 Años (48m)</span>
+<span class="text-xs text-on-surface-variant" id="term-desc">Evita quedar boca abajo</span>
+</div>
+<span class="material-symbols-outlined text-2xl status-icon">help</span>
+</div>
+<!-- Rule 10% Income -->
+<div class="rule-card p-4 rounded-xl border-2 flex items-center justify-between transition-all duration-300" id="rule-income">
+<div class="flex flex-col">
+<span class="font-label-sm font-bold">10% de Ingresos</span>
+<span class="text-xs text-on-surface-variant" id="income-desc">Pago max: $500</span>
+</div>
+<span class="material-symbols-outlined text-2xl status-icon">help</span>
+</div>
+</div>
+<p class="text-[12px] text-on-surface-variant italic leading-tight text-center pt-2">
+                            Cumplir estas 3 reglas garantiza tu salud financiera automotriz.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rates Table -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Tasas de Interés del Mercado (Referencia)</h2>
+<div class="overflow-x-auto rounded-xl border border-outline-variant">
+<table class="w-full text-left bg-white">
+<thead class="bg-primary text-white font-label-sm">
+<tr>
+<th class="p-4">Rango Crediticio</th>
+<th class="p-4 text-center">Calificación</th>
+<th class="p-4">APR Nuevo (Prom.)</th>
+<th class="p-4">APR Usado (Prom.)</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="hover:bg-pale-green/20 border-b">
+<td class="p-4">800 - 850</td>
+<td class="p-4 text-center"><span class="px-3 py-1 bg-success/10 text-success rounded-full text-xs font-bold uppercase">Excelente</span></td>
+<td class="p-4 font-data-mono">4.5% - 5.1%</td>
+<td class="p-4 font-data-mono">5.5% - 6.2%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 border-b">
+<td class="p-4">740 - 799</td>
+<td class="p-4 text-center"><span class="px-3 py-1 bg-success/10 text-success rounded-full text-xs font-bold uppercase">Muy Bueno</span></td>
+<td class="p-4 font-data-mono">5.2% - 6.0%</td>
+<td class="p-4 font-data-mono">6.5% - 7.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 border-b bg-surface-container-low">
+<td class="p-4">670 - 739</td>
+<td class="p-4 text-center"><span class="px-3 py-1 bg-warning/10 text-warning rounded-full text-xs font-bold uppercase">Promedio</span></td>
+<td class="p-4 font-data-mono">6.1% - 9.5%</td>
+<td class="p-4 font-data-mono">9.0% - 11.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20 border-b">
+<td class="p-4">580 - 669</td>
+<td class="p-4 text-center"><span class="px-3 py-1 bg-danger/10 text-danger rounded-full text-xs font-bold uppercase">Bajo</span></td>
+<td class="p-4 font-data-mono">10.0% - 14.5%</td>
+<td class="p-4 font-data-mono">15.0% - 19.5%</td>
+</tr>
+<tr class="hover:bg-pale-green/20">
+<td class="p-4">300 - 579</td>
+<td class="p-4 text-center"><span class="px-3 py-1 bg-danger/10 text-danger rounded-full text-xs font-bold uppercase">Pobre</span></td>
+<td class="p-4 font-data-mono">14.5% +</td>
+<td class="p-4 font-data-mono">21.0% +</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Dealer Protection -->
+<section class="mb-stack-lg" id="dealer">
+<div class="bg-error-container/10 p-8 rounded-xl border border-error/20 mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-danger mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+                    Lo que el Dealer NO puede hacer
+                </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Interés Oculto</h3>
+<p class="text-sm text-on-surface-variant">Ellos se enfocan en "cuánto puedes pagar al mes". Tu respuesta: <strong>"Hablemos del precio total y el APR, no del pago mensual."</strong></p>
+</div>
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Seguros Forzados</h3>
+<p class="text-sm text-on-surface-variant">GAP o Vin Etching NO son obligatorios por ley. Tu respuesta: <strong>"Remueva eso del contrato, yo elegiré mis propios seguros."</strong></p>
+</div>
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Trampa del Trade-in</h3>
+<p class="text-sm text-on-surface-variant">Te dan poco por tu carro viejo para "compensar" el descuento del nuevo. Negocia siempre ambos por separado.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Firmas en Blanco</h3>
+<p class="text-sm text-on-surface-variant">Nunca firmes nada con espacios vacíos. El dealer podría llenarlos después con números desfavorables.</p>
+</div>
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Depósitos</h3>
+<p class="text-sm text-on-surface-variant">Si no has firmado contrato final, tu depósito suele ser reembolsable. Siempre pide recibo que diga "reembolsable".</p>
+</div>
+<div class="bg-white p-6 rounded-xl border-t-4 border-error shadow-sm">
+<h3 class="font-label-sm text-primary mb-2 uppercase">Yo-Yo Financing</h3>
+<p class="text-sm text-on-surface-variant">Llaman días después diciendo que el banco rechazó el crédito para subirte la tasa. No entregues el carro sin asesoría legal.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Glossary -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Glosario del Comprador</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1 font-bold">APR</span>
+<p class="text-xs text-on-surface-variant">Costo total anual del préstamo, incluyendo intereses y tarifas bancarias.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1 font-bold">GAP Insurance</span>
+<p class="text-xs text-on-surface-variant">Cubre la brecha entre lo que debes y lo que el seguro paga si el carro es pérdida total.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1 font-bold">Trade-in</span>
+<p class="text-xs text-on-surface-variant">Usar tu vehículo actual como crédito para comprar el siguiente.</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-label-sm text-primary block mb-1 font-bold">MSRP</span>
+<p class="text-xs text-on-surface-variant">Precio sugerido por el fabricante. Es el punto de partida de la negociación.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Nav -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2 px-4" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-[10px]">Calculadoras</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-[10px]">Perfil</span>
+</a>
+</nav>
+<script>
+    const priceRange = document.getElementById('price-range');
+    const aprRange = document.getElementById('apr-range');
+    const taxInput = document.getElementById('tax-input');
+    const downPaymentInput = document.getElementById('down-payment');
+    const tradeInInput = document.getElementById('trade-in');
+    const incomeInput = document.getElementById('monthly-income');
+    const termBtns = document.querySelectorAll('.term-btn');
+
+    const priceVal = document.getElementById('price-val');
+    const aprValDisplay = document.getElementById('apr-val-display');
+    const monthlyPaymentDisplay = document.getElementById('monthly-payment');
+    
+    const breakdownPrincipal = document.getElementById('breakdown-principal');
+    const breakdownInterest = document.getElementById('breakdown-interest');
+    const breakdownTax = document.getElementById('breakdown-tax');
+    const totalCostDisplay = document.getElementById('total-cost');
+
+    const ruleDown = document.getElementById('rule-down');
+    const ruleYears = document.getElementById('rule-years');
+    const ruleIncome = document.getElementById('rule-income');
+
+    let currentTerm = 48;
+
+    function updateCalculator() {
+        const price = parseFloat(priceRange.value);
+        const apr = parseFloat(aprRange.value);
+        const taxRate = parseFloat(taxInput.value) || 0;
+        const down = parseFloat(downPaymentInput.value) || 0;
+        const trade = parseFloat(tradeInInput.value) || 0;
+        const income = parseFloat(incomeInput.value) || 1;
+
+        priceVal.innerText = price.toLocaleString();
+        aprValDisplay.innerText = apr;
+
+        const totalTax = price * (taxRate / 100);
+        const totalAmount = (price + totalTax) - down - trade;
+        const loanAmount = Math.max(0, totalAmount);
+        
+        const monthlyRate = (apr / 100) / 12;
+        const n = currentTerm;
+        
+        let monthlyPayment = 0;
+        if (loanAmount > 0) {
+            monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+        }
+
+        const totalInterest = (monthlyPayment * n) - loanAmount;
+        const totalPaidOverTime = (monthlyPayment * n) + down + trade;
+
+        monthlyPaymentDisplay.innerText = Math.round(monthlyPayment).toLocaleString();
+        breakdownPrincipal.innerText = Math.round(loanAmount / n).toLocaleString();
+        breakdownInterest.innerText = Math.round(totalInterest / n).toLocaleString();
+        breakdownTax.innerText = Math.round(totalTax / n).toLocaleString();
+        totalCostDisplay.innerText = Math.round(totalPaidOverTime).toLocaleString();
+
+        // Rules Logic
+        // 20% Down
+        const minDownRequired = price * 0.2;
+        const passedDown = (down + trade) >= minDownRequired;
+        updateRuleUI(ruleDown, passedDown, `Min sugerido: $${Math.round(minDownRequired).toLocaleString()}`);
+
+        // 4 Years (48m)
+        const passedYears = currentTerm <= 48;
+        updateRuleUI(ruleYears, passedYears, currentTerm <= 48 ? 'Ideal para no perder valor' : 'Préstamo muy largo');
+
+        // 10% Income
+        const maxSafePayment = income * 0.1;
+        const passedIncome = monthlyPayment <= maxSafePayment;
+        updateRuleUI(ruleIncome, passedIncome, `Límite seguro: $${Math.round(maxSafePayment).toLocaleString()}`);
+    }
+
+    function updateRuleUI(element, passed, text) {
+        const icon = element.querySelector('.status-icon');
+        const desc = element.querySelector('span:last-child');
+        
+        element.classList.remove('passed', 'failed');
+        element.classList.add(passed ? 'passed' : 'failed');
+        
+        icon.innerText = passed ? 'check_circle' : 'cancel';
+        icon.style.color = passed ? '#52B788' : '#ba1a1a';
+        desc.innerText = text;
+    }
+
+    termBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            termBtns.forEach(b => b.className = 'term-btn py-3 border border-outline rounded-lg font-data-mono hover:bg-primary-container hover:text-white transition-colors');
+            btn.className = 'term-btn py-3 border-2 border-primary-mid bg-primary-container text-white rounded-lg font-data-mono';
+            currentTerm = parseInt(btn.dataset.months);
+            updateCalculator();
+        });
+    });
+
+    [priceRange, aprRange, taxInput, downPaymentInput, tradeInInput, incomeInput].forEach(el => {
+        el.addEventListener('input', updateCalculator);
+    });
+
+    updateCalculator();
+</script>
+</body></html>

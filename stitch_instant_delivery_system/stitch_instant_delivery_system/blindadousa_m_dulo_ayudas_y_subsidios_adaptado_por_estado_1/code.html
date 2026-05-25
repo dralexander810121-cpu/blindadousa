@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA - Ayudas y Subsidios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb780",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-light": "#40916C",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "secondary-container": "#ffab69",
+                        "gray": "#6B7280",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#d89b00",
+                        "on-background": "#1a1c1a",
+                        "surface-container-low": "#f3f4f1",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9faf6",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error": "#ffffff",
+                        "primary": "#012d1d",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1b4332",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "background": "#f9faf6",
+                        "pale-green": "#D8F3DC",
+                        "on-secondary-fixed": "#2f1400",
+                        "outline": "#717973",
+                        "inverse-on-surface": "#f0f1ee",
+                        "accent-dark": "#E76F51",
+                        "surface-tint": "#3f6653",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-container": "#eeeeeb",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface": "#f9faf6",
+                        "on-surface": "#1a1c1a",
+                        "secondary-fixed": "#ffdcc4",
+                        "success": "#52B788",
+                        "dark": "#1A1A2E",
+                        "on-secondary-container": "#783d01",
+                        "secondary": "#8e4e14",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f312f",
+                        "outline-variant": "#c1000a",
+                        "outline-variant": "#c1c8c2",
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary-fixed": "#002114",
+                        "tertiary-container": "#503700",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-fixed": "#ffdea9",
+                        "surface-variant": "#e2e3e0",
+                        "surface-dim": "#dadad7",
+                        "on-primary-container": "#86af99",
+                        "warning": "#F77F00",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-container-high": "#e8e8e5",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "margin-desktop": "2.5rem",
+                        "touch-target": "48px",
+                        "gutter": "1rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-md": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- SideNavBar -->
+<aside class="bg-primary dark:bg-primary-container h-screen w-64 fixed left-0 top-0 overflow-y-auto z-50 flex flex-col py-6 px-4 border-r border-primary-mid shadow-md">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-pale-green leading-none">BlindadoUSA</h1>
+<p class="text-pale-green/60 text-sm">Biblia Financiera</p>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto hide-scrollbar">
+<!-- Mapping JSON labels and icons -->
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined group-active:scale-95 transition-transform">dashboard</span>
+<span>Resumen</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span>Comunidad</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span>ITIN/SSN</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span>Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span>Ahorros</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Deudas</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Impuestos</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span>Inversiones</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span>Seguros</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span>Legal</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>Educación</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span>Soporte</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-mid">
+<button class="w-full py-3 bg-secondary-fixed text-on-secondary-fixed font-bold rounded-xl hover:bg-secondary-container transition-all active:scale-95">
+                Actualizar Plan
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-20 flex items-center justify-between px-margin-desktop z-40 bg-surface-bright border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-primary">Ayudas Locales</h2>
+<div class="flex items-center gap-2 bg-primary-fixed/30 px-3 py-1 rounded-full border border-primary-light/20">
+<span class="material-symbols-outlined text-primary-mid scale-75">location_on</span>
+<span class="font-label-sm text-primary">California Detectado</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary-light w-64" placeholder="Buscar programas..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">settings</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant">
+<img alt="Avatar del usuario" class="h-10 w-10 rounded-full object-cover border-2 border-primary-light" data-alt="A close-up portrait of a friendly Hispanic man in his late 40s smiling warmly. He is in a brightly lit modern office environment with soft natural light. The photograph is high-resolution with a shallow depth of field, highlighting his approachable and trustworthy character. The overall aesthetic is clean, professional, and empathetic, aligning with a financial guidance brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-IXFi19Dp_ZyW1Wt1K1u4JF4PQKhZK-9pBs9MKoSLrfJEp__GsxIr8l5I-YHTqoafJQshWBJbxNqD1WInOg0s7BJDYM3MFBNTWpnbL_gpSKInRVzhLiVe61p5By6sw5DHskcsdM0eqzT7aEN6EwoOBEpxYTHRCfbgEwpM1pL2jsudCoHVHZZhWRCmk8s-5F7iFWclNeTpxR3Y573_q5Vdg84Kj7imbfgdUdopvVe8GbS9ghBpDwl4_H9AsWrOlqrffgxDw1bvDHNv"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-margin-desktop bg-background min-h-screen">
+<div class="max-w-7xl mx-auto space-y-stack-lg pb-24">
+<!-- Hero: Public Charge Safety First -->
+<section class="relative overflow-hidden rounded-3xl bg-primary text-white p-10 flex flex-col md:flex-row items-center gap-8 sombra-verde">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="z-10 flex-1 space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-1 bg-success/20 rounded-full text-success font-bold text-sm">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        SEGURO PARA INMIGRANTES
+                    </div>
+<h3 class="font-display-lg text-display-lg leading-tight">Uso de beneficios y "Carga Pública"</h3>
+<p class="font-body-lg text-pale-green/80 max-w-2xl">
+                        ¿Sabías que recibir CalFresh o Medi-Cal <strong>NO</strong> afecta tu proceso de ciudadanía o residencia bajo las reglas actuales? BlindadoUSA te ayuda a navegar el sistema con total seguridad legal.
+                    </p>
+<div class="flex gap-4 pt-2">
+<button class="px-6 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl hover:scale-105 transition-all">Ver Guía Legal</button>
+<button class="px-6 py-3 border border-pale-green/30 text-pale-green font-bold rounded-xl hover:bg-white/10 transition-all">Hablar con Abogado</button>
+</div>
+</div>
+<div class="hidden lg:block w-72 h-48 bg-pale-green/10 rounded-2xl border border-pale-green/20 p-6 backdrop-blur-sm">
+<div class="flex flex-col h-full justify-between">
+<span class="material-symbols-outlined text-pale-green">gavel</span>
+<div>
+<p class="font-headline-md text-pale-green">Regla 2024</p>
+<p class="text-xs text-pale-green/60">Actualizado hace 2 días por el equipo legal de BlindadoUSA</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz & Eligibility Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Quiz Card -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/30 sombra-verde flex flex-col md:flex-row gap-8">
+<div class="flex-1 space-y-6">
+<div class="space-y-2">
+<h4 class="font-headline-md text-primary">¿A qué ayudas calificas hoy?</h4>
+<p class="text-on-surface-variant">Responde 3 preguntas rápidas y descubre programas en California adaptados a tu estatus y nivel de ingresos.</p>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-low rounded-xl border-l-4 border-primary-mid">
+<p class="font-label-sm text-primary-mid mb-2">Paso 1: Estatus de ITIN/SSN</p>
+<div class="flex gap-2">
+<button class="flex-1 py-3 bg-primary text-white rounded-lg font-bold">Tengo SSN</button>
+<button class="flex-1 py-3 bg-white border border-outline text-primary rounded-lg font-bold">Tengo ITIN</button>
+<button class="flex-1 py-3 bg-white border border-outline text-primary rounded-lg font-bold">Ninguno</button>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-64 flex flex-col items-center justify-center text-center p-6 bg-primary-fixed/20 rounded-2xl border border-primary-fixed">
+<div class="h-16 w-16 bg-primary rounded-full flex items-center justify-center text-white mb-4">
+<span class="material-symbols-outlined text-3xl">psychology_alt</span>
+</div>
+<p class="font-bold text-primary mb-2">Simulador de Elegibilidad</p>
+<p class="text-xs text-on-surface-variant">98% de precisión basado en guías federales 2024.</p>
+</div>
+</div>
+<!-- Traffic Light Status Card -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/30 sombra-verde space-y-6">
+<h4 class="font-headline-md text-primary">Estado de Red Local</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 bg-success/10 rounded-xl border border-success/20">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<div>
+<p class="font-bold text-success">CalFresh (SNAP)</p>
+<p class="text-sm text-on-surface-variant">Fondos disponibles. Aplicaciones abiertas en Los Angeles.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-warning/10 rounded-xl border border-warning/20">
+<span class="material-symbols-outlined text-warning">warning</span>
+<div>
+<p class="font-bold text-warning">Vivienda (Sección 8)</p>
+<p class="text-sm text-on-surface-variant">Lista de espera alta. Tiempo estimado: 24 meses.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-error/10 rounded-xl border border-error/20">
+<span class="material-symbols-outlined text-error">cancel</span>
+<div>
+<p class="font-bold text-error">Ayuda de Renta Local</p>
+<p class="text-sm text-on-surface-variant">Fondos agotados para el trimestre actual.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Program Cards Grid -->
+<section class="space-y-stack-md">
+<div class="flex items-end justify-between">
+<div>
+<h4 class="font-headline-md text-primary">Programas Principales en California</h4>
+<p class="text-on-surface-variant">Guía paso a paso para aplicar sin errores.</p>
+</div>
+<button class="text-primary-mid font-bold flex items-center gap-1 hover:underline">
+                        Ver todos (12)
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- CalFresh -->
+<div class="group bg-white p-6 rounded-2xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-12 bg-pale-green rounded-xl flex items-center justify-center text-primary-mid">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">Comida</span>
+</div>
+<h5 class="text-xl font-bold text-primary mb-2">CalFresh (SNAP)</h5>
+<p class="text-sm text-on-surface-variant mb-6">Hasta $291/mes por persona para comprar alimentos saludables en supermercados locales.</p>
+<div class="pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="text-xs font-bold text-success flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">group</span> 
+                                ITIN Amigable
+                            </span>
+<button class="text-primary font-bold text-sm group-hover:translate-x-1 transition-transform">Aplicar Aquí →</button>
+</div>
+</div>
+<!-- Medi-Cal -->
+<div class="group bg-white p-6 rounded-2xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-12 bg-orange-100 rounded-xl flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-xs font-bold rounded-full">Salud</span>
+</div>
+<h5 class="text-xl font-bold text-primary mb-2">Medi-Cal (California)</h5>
+<p class="text-sm text-on-surface-variant mb-6">Cobertura médica gratuita para todas las edades, incluyendo inmigrantes indocumentados (Nueva Ley).</p>
+<div class="pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="text-xs font-bold text-success flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> 
+                                Ley 2024
+                            </span>
+<button class="text-primary font-bold text-sm group-hover:translate-x-1 transition-transform">Ver Requisitos →</button>
+</div>
+</div>
+<!-- Housing -->
+<div class="group bg-white p-6 rounded-2xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="h-12 w-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-800">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">Vivienda</span>
+</div>
+<h5 class="text-xl font-bold text-primary mb-2">Sección 8 &amp; HUD</h5>
+<p class="text-sm text-on-surface-variant mb-6">Vales de elección de vivienda para reducir el costo de tu renta mensual en propiedades privadas.</p>
+<div class="pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="text-xs font-bold text-warning flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">timer</span> 
+                                Lista de Espera
+                            </span>
+<button class="text-primary font-bold text-sm group-hover:translate-x-1 transition-transform">Inscribirse →</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Map & Local Resources Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<div class="bg-surface-container-highest rounded-3xl overflow-hidden relative min-h-[400px]">
+<!-- Placeholder for Map -->
+<div class="absolute inset-0 bg-gray-300">
+<img class="w-full h-full object-cover" data-alt="A detailed, clean cartographic map of the Los Angeles area featuring soft green and blue highlights to indicate community resources and aid centers. The map uses a modern minimalist UI aesthetic with rounded pins and subtle drop shadows. The lighting is neutral and clear, suggesting a digital interface designed for easy navigation and clarity for a diverse Hispanic audience." data-location="Los Angeles, California" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFN79TD44PoFGQPmYtkNAxq1GxaHnU3XvtaNU5kkGqYimxFoHSH8LNwYt7Deq3ZIUgwWm9MTfwg7cNY6mmT7dqzzTRaT53QIoW8AFOrXRUmGxaiuQR1-2cSGKzBl5zij3IqTeF9v_Ar5Vys0hhJFGgWQaaZpZdmtGIFI34TwAtUPyAwUmP9vSwvIBfECfWmSeh6HvwlfK0znvmfpUQVnt8gxgZhBVC32IY1mbIiZaCdP8OZ74OwImvmLUfgN_ZA82YMU-Zzgn9lLju"/>
+</div>
+<!-- Map Overlay -->
+<div class="absolute top-4 left-4 right-4 flex gap-2">
+<div class="flex-1 bg-white p-3 rounded-xl shadow-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">search</span>
+<input class="border-none focus:ring-0 p-0 text-sm w-full" type="text" value="90012, Los Angeles, CA"/>
+</div>
+<button class="bg-primary text-white p-3 rounded-xl shadow-lg material-symbols-outlined">my_location</button>
+</div>
+</div>
+<div class="space-y-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+<h4 class="font-headline-md text-primary sticky top-0 bg-background/80 backdrop-blur-md py-2">Centros de Ayuda Cercanos</h4>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:shadow-md transition-all cursor-pointer">
+<div class="flex gap-4">
+<div class="h-10 w-10 bg-primary-fixed rounded-full flex items-center justify-center text-primary-mid shrink-0">
+<span class="material-symbols-outlined">volunteer_activism</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h6 class="font-bold text-primary">Banco de Alimentos LA</h6>
+<span class="text-xs font-data-mono text-primary-mid">0.8 mi</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2">1734 E 41st St, Los Angeles, CA 90058</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">Comida Gratis</span>
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">No pide papeles</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:shadow-md transition-all cursor-pointer">
+<div class="flex gap-4">
+<div class="h-10 w-10 bg-pale-green rounded-full flex items-center justify-center text-primary-mid shrink-0">
+<span class="material-symbols-outlined">balance</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h6 class="font-bold text-primary">Coalición por los Derechos de Inmigrantes (CHIRLA)</h6>
+<span class="text-xs font-data-mono text-primary-mid">1.2 mi</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2">2533 W 3rd St, Los Angeles, CA 90057</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">Legal</span>
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">Español</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-4 rounded-xl border border-outline-variant hover:shadow-md transition-all cursor-pointer">
+<div class="flex gap-4">
+<div class="h-10 w-10 bg-orange-100 rounded-full flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined">stethoscope</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h6 class="font-bold text-primary">Clínica de Salud Comunitaria</h6>
+<span class="text-xs font-data-mono text-primary-mid">2.5 mi</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-2">123 Health Ave, Los Angeles, CA 90012</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">Medi-Cal</span>
+<span class="px-2 py-0.5 bg-surface-container-low text-[10px] font-bold rounded">Emergencias</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-8 right-8 z-50 rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<div class="absolute right-16 bg-primary text-white px-4 py-2 rounded-xl text-sm font-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+            Asistente Blindado: Pregúntame sobre el SNAP
+        </div>
+</button>
+<script>
+        // Micro-interaction for quiz
+        const quizButtons = document.querySelectorAll('.flex-1.py-3');
+        quizButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                quizButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white');
+                    b.classList.add('bg-white', 'text-primary', 'border', 'border-outline');
+                });
+                this.classList.remove('bg-white', 'text-primary', 'border-outline');
+                this.classList.add('bg-primary', 'text-white');
+                
+                // Visual feedback of loading
+                const parent = this.closest('.p-4');
+                const title = parent.querySelector('p');
+                title.innerHTML = '<span class="material-symbols-outlined animate-spin text-xs">sync</span> Procesando...';
+                
+                setTimeout(() => {
+                    title.textContent = 'Paso 2: Ingresos Mensuales Estimados';
+                    const container = parent.querySelector('.flex');
+                    container.innerHTML = `
+                        <input type="range" min="0" max="10000" step="100" class="w-full h-2 bg-primary-fixed rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between w-full mt-2 text-xs font-data-mono text-primary">$0 - $10,000</div>
+                    `;
+                }, 800);
+            });
+        });
+    </script>
+</body></html>

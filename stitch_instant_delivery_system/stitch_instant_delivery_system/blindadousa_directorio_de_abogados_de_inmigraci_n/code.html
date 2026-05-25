@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Abogados - BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e2e3e0",
+                    "gray": "#6B7280",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "inverse-on-surface": "#f0f1ee",
+                    "secondary-fixed": "#ffdcc4",
+                    "on-tertiary-fixed": "#271900",
+                    "accent-dark": "#E76F51",
+                    "success": "#52B788",
+                    "inverse-surface": "#2f312f",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "primary": "#012d1d",
+                    "secondary-container": "#ffab69",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1a",
+                    "on-secondary-fixed": "#2f1400",
+                    "secondary": "#8e4e14",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e2e3e0",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "inverse-primary": "#a5d0b9",
+                    "on-secondary-container": "#783d01",
+                    "danger": "#D62828",
+                    "primary-container": "#1b4332",
+                    "surface": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "tertiary-container": "#503700",
+                    "warning": "#F77F00",
+                    "primary-mid": "#2D6A4F",
+                    "surface-tint": "#3f6653",
+                    "background": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-container": "#86af99",
+                    "dark": "#1A1A2E",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "surface-bright": "#f9faf6",
+                    "tertiary-fixed": "#ffdea9",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "primary-light": "#40916C",
+                    "surface-container": "#eeeeeb",
+                    "on-tertiary-container": "#d89b00",
+                    "on-surface": "#1a1c1a",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dadad7",
+                    "outline": "#717973",
+                    "primary-fixed": "#c1ecd4",
+                    "tertiary": "#342300",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c8c2",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-surface-variant": "#414844"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "touch-target": "48px",
+                    "stack-lg": "3rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1B4332;
+            border-radius: 10px;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="bg-surface sticky top-0 z-50 border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-touch-target">
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tight text-primary-container">BlindadoUSA</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-primary font-bold border-b-2 border-primary py-1" href="#">Directorio Salud</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Finanzas</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors" href="#">Ayuda Legal</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container-low rounded-full px-4 py-2 items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-gray">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-48" placeholder="Buscar abogado..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-primary-mid text-3xl cursor-pointer">account_circle</span>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-stack-md md:py-stack-lg">
+<!-- Search & Filter Section -->
+<section class="mb-stack-lg">
+<div class="flex flex-col gap-stack-md">
+<h1 class="font-display-lg-mobile md:font-display-lg text-primary">Directorio Legal Especializado</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Encuentra defensores confiables que entienden tu idioma y tu situación migratoria. Todos nuestros profesionales están verificados.</p>
+<div class="bg-white p-4 md:p-6 rounded-xl border border-outline-variant sombra-verde flex flex-col md:flex-row gap-4 items-end">
+<div class="w-full md:flex-1 space-y-2">
+<label class="font-label-sm text-primary uppercase tracking-wider">Especialidad</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid">gavel</span>
+<select class="w-full h-touch-target pl-11 rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md">
+<option>Inmigration (Inmigración)</option>
+<option>Labor (Laboral)</option>
+<option>Family (Familia)</option>
+</select>
+</div>
+</div>
+<div class="w-full md:flex-1 space-y-2">
+<label class="font-label-sm text-primary uppercase tracking-wider">Ubicación</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary-mid">location_on</span>
+<input class="w-full h-touch-target pl-11 rounded-lg border-outline-variant focus:border-primary-mid focus:ring-primary-mid text-body-md" placeholder="Ciudad o Código Postal" type="text"/>
+</div>
+</div>
+<button class="w-full md:w-auto px-8 h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:brightness-95 transition-all shadow-md">
+                        BUSCAR AHORA
+                    </button>
+</div>
+<div class="flex flex-wrap gap-2 pt-2">
+<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-sm text-label-sm flex items-center gap-2">
+                        Inmigración <span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-pale-green transition-colors">Visas/Greencard</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-pale-green transition-colors">Deportation Defense</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm hover:bg-pale-green transition-colors">Asylum</button>
+</div>
+</div>
+</section>
+<!-- Main Content Layout -->
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Cards Section -->
+<div class="flex-1">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label-sm text-on-surface-variant">Mostrando 24 resultados cerca de ti</span>
+<div class="flex items-center gap-2 text-primary cursor-pointer">
+<span class="material-symbols-outlined">tune</span>
+<span class="font-label-sm">Filtros Avanzados</span>
+</div>
+</div>
+<div class="bento-grid">
+<!-- Lawyer Card 1 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-all group flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional portrait of a Hispanic male lawyer in a sharp navy suit, smiling confidently in a modern, sunlit glass office. The atmosphere is professional, warm, and trustworthy, with soft morning light illuminating the high-quality corporate setting. The colors are muted and sophisticated, reflecting a premium legal service brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAShF08oje95_cw05KPQkJewLnhonN32H-gjmcTzW343L0BzWVvNDsRjZHFr3b0_pga_HYinTu7YGncdUpER-QanJ-D9VY94LwOyOj2IgAaA33FksPIXzpgB3l0H9zXmPuRZHl3LfFZ55AzfBrJCXtZjLFJIwF9KTcgkhzh77CQgufwJSys9w2CeTflwyoQrekeJn0KtEkNg10f1tatt0vFt1vJUZHDbV0WwI6JNoHKO0IEUntYPEIBCreq-FG5hJHtDNN1cA4PgJmm"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-success text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[12px] font-bold text-primary">VERIFICADO</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Alejandro Morales</h3>
+<p class="text-on-surface-variant text-sm font-medium">Morales &amp; Asociados LLC</p>
+</div>
+<div class="bg-pale-green px-2 py-1 rounded text-primary-mid font-data-mono text-sm">
+                                    0.8 mi
+                                </div>
+</div>
+<div class="flex flex-wrap gap-2 my-4">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">translate</span> HABLA ESPAÑOL
+                                </span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">id_card</span> ACEPTA ITIN
+                                </span>
+<span class="px-2 py-1 bg-surface-container-low text-success text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">redeem</span> CONSULTA GRATIS
+                                </span>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm ml-1 text-on-surface">4.9</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(128 reseñas)</span>
+</div>
+<button class="text-primary-mid font-bold hover:underline text-sm">VER PERFIL</button>
+</div>
+</div>
+</div>
+<!-- Lawyer Card 2 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-all group flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional portrait of a female immigration lawyer of Hispanic descent, wearing a professional charcoal blazer. She stands in a bright, minimalist office with a warm and empathetic expression. The lighting is soft and even, highlighting a corporate yet accessible aesthetic. The background features blurred wooden elements and plants to convey stability and growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcUSUN1HU9xKaTROcA3QiFRyCSXn0nB2z1XUm1gOPJIrKPVxBjGTuxGY63STf-mHWIAFZ0g0rdBwRk-sxnGs6zkARHSKoRp1OXo7Wjr3Qxcca45AWaTibx-Ip-92FjggX4-P3XQdckYXl8MIYa9Wnx-yryfhg8OoZxhYP-rWFvj55jNLLS90XZNJwj7G3NqddTC0Y5zYfhDZu2K6mqDAokPbTA-4K3nDfzwFQqcFoeVGyux7irKCYB3Yr1v4Rf_PvVF1nZFtYbJ4fd"/>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-success text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[12px] font-bold text-primary">VERIFICADO</span>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Elena Rodríguez</h3>
+<p class="text-on-surface-variant text-sm font-medium">Libertad Law Group</p>
+</div>
+<div class="bg-pale-green px-2 py-1 rounded text-primary-mid font-data-mono text-sm">
+                                    1.2 mi
+                                </div>
+</div>
+<div class="flex flex-wrap gap-2 my-4">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">translate</span> HABLA ESPAÑOL
+                                </span>
+<span class="px-2 py-1 bg-surface-container-low text-primary text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">id_card</span> ACEPTA ITIN
+                                </span>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm ml-1 text-on-surface">4.8</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(95 reseñas)</span>
+</div>
+<button class="text-primary-mid font-bold hover:underline text-sm">VER PERFIL</button>
+</div>
+</div>
+</div>
+<!-- Lawyer Card 3 -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden hover:border-primary-mid transition-all group flex flex-col">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end corporate setting showing a male lawyer shaking hands with a client. The focus is on professional empathy and collaboration. The office is bright with clean white walls and floor-to-ceiling windows showing a modern city skyline. The color palette is composed of deep greens and soft creams, conveying a high-contrast and authoritative legal atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3E9ciEJWsGVz5R9DEktok55O1vFcLtbi-ZbobK0-ySIeSoNeMdsq6cpO-rQkqweSSC0ISQ9mXvqbKoSaMEC0Hb30A15gFJMsv7vxxSYqkh1mGQ_LkP1z1GC6VO_qB2DV0kGDGcFrGWc5ByCDGwjUExQNkYQPhMa1GXBYw7Li39JAX_tV51sz222wXnjFbKxs6xtprE2U-ncRiu1TDLjq_whRV9CgtQt8lim9AoBRu5jVdJOfIoco4SKd4sH4DEUbOSBUqbnWzLKu0"/>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary leading-tight">Carlos Ruiz</h3>
+<p class="text-on-surface-variant text-sm font-medium">Ruiz Legal Solutions</p>
+</div>
+<div class="bg-pale-green px-2 py-1 rounded text-primary-mid font-data-mono text-sm">
+                                    2.5 mi
+                                </div>
+</div>
+<div class="flex flex-wrap gap-2 my-4">
+<span class="px-2 py-1 bg-surface-container-low text-primary text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">translate</span> HABLA ESPAÑOL
+                                </span>
+<span class="px-2 py-1 bg-surface-container-low text-success text-[11px] font-bold rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">redeem</span> CONSULTA GRATIS
+                                </span>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant flex items-center justify-between">
+<div class="flex items-center text-warning">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm ml-1 text-on-surface">4.7</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(52 reseñas)</span>
+</div>
+<button class="text-primary-mid font-bold hover:underline text-sm">VER PERFIL</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low text-primary">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low">2</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low">3</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Map View Sidebar -->
+<aside class="hidden lg:block w-96 sticky top-24 h-[calc(100vh-120px)] rounded-2xl border border-outline-variant overflow-hidden sombra-verde bg-white">
+<div class="p-4 bg-primary text-white flex justify-between items-center">
+<span class="font-bold">Vista de Mapa</span>
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="w-full h-full relative bg-surface-container">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="A detailed digital map interface showing an urban city grid with customized pins. The map is rendered in a minimalist, high-contrast monochrome style with primary green accents for interactive elements. Pins indicate lawyer locations with subtle pulsing animations. The lighting is clean and modern, evoking a high-tech legal directory service interface." data-location="Miami" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY2lObp6MPyuX06EfJxsd-SFPw2WewD2ULh4lC3-d-kgfTrYKiUbhr0jhO1kSbH1oRG0xeuF7xzIjixHOkjqxBfoO2a4jOdMwonoKKnsVMAT4n-74Rjcp0UvB6XUm8iqdDrB30KoUhtb0rxmbY-DvuGb1BU8U3mZyIOdyhTloYMBqeijq_qAs2VDE4wln4J8uSNXvXfhXD20OBLrp1-VEO0zjioGSc7YKmp2yxy8sTheL2MRPFCYQSkskJAxyWJXeyBfbwAXJEyMrB"/>
+<!-- Mock Pins -->
+<div class="absolute top-1/4 left-1/3 group cursor-pointer">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+</div>
+<div class="absolute top-1/2 right-1/4 group cursor-pointer">
+<div class="bg-secondary-container text-on-secondary-container p-2 rounded-full shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+</div>
+<div class="absolute bottom-1/3 left-1/2 group cursor-pointer">
+<div class="bg-primary text-white p-2 rounded-full shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">gavel</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- B2B Banner -->
+<section class="mt-stack-lg bg-primary-container rounded-2xl p-8 md:p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 border border-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-mid opacity-10 rounded-full -mr-20 -mt-20"></div>
+<div class="relative z-10 space-y-4">
+<h2 class="font-display-lg-mobile md:font-display-lg text-white">¿Eres abogado? Únete a nuestra red de confianza</h2>
+<p class="text-primary-fixed text-body-lg max-w-xl">Ayuda a miles de inmigrantes a navegar el sistema legal de EE.UU. Posiciona tu firma ante una comunidad que busca tu expertise.</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="flex items-center gap-2 text-primary-fixed">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span class="font-label-sm">Perfil Verificado</span>
+</div>
+<div class="flex items-center gap-2 text-primary-fixed">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span class="font-label-sm">Leads Calificados</span>
+</div>
+</div>
+</div>
+<button class="relative z-10 px-10 py-4 bg-secondary-container text-on-secondary-container font-bold text-lg rounded-xl shadow-xl hover:scale-105 transition-transform active:scale-95">
+                UNIRSE AHORA
+            </button>
+</section>
+</main>
+<!-- Footer Space -->
+<footer class="bg-white border-t border-outline-variant py-stack-lg mt-stack-lg">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<span class="font-display-lg-mobile text-primary-container">BlindadoUSA</span>
+<p class="mt-4 text-on-surface-variant text-sm">Protegiendo el futuro de la comunidad hispana en Estados Unidos.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary">Recursos</h4>
+<ul class="text-on-surface-variant text-sm space-y-2">
+<li><a class="hover:text-primary" href="#">Guía de Inmigración</a></li>
+<li><a class="hover:text-primary" href="#">Derechos del Trabajador</a></li>
+<li><a class="hover:text-primary" href="#">Ayuda Financiera</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary">Directorio</h4>
+<ul class="text-on-surface-variant text-sm space-y-2">
+<li><a class="hover:text-primary" href="#">Abogados de Inmigración</a></li>
+<li><a class="hover:text-primary" href="#">Clínicas de Salud</a></li>
+<li><a class="hover:text-primary" href="#">Servicios de Crédito</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary">Contacto</h4>
+<ul class="text-on-surface-variant text-sm space-y-2">
+<li><a class="hover:text-primary" href="#">Centro de Ayuda</a></li>
+<li><a class="hover:text-primary" href="#">Términos de Servicio</a></li>
+<li><a class="hover:text-primary" href="#">Privacidad</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mt-12 pt-8 border-t border-outline-variant text-center text-[12px] text-gray uppercase tracking-widest">
+            © 2024 BlindadoUSA. Todos los derechos reservados.
+        </div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[72px] px-2 bg-surface border-t border-outline-variant shadow-[0_-4px_6px_-1px_rgba(27,67,50,0.1)] pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm-mobile text-[10px] mt-1">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span class="font-label-sm-mobile text-[10px] mt-1">Salud</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-sm-mobile text-[10px] mt-1">Legal</span>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm-mobile text-[10px] mt-1">Perfil</span>
+</a>
+</nav>
+<!-- AI Assistant FAB -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-14 h-14 rounded-full bg-primary-mid text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.bento-grid > div').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('sombra-verde');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('sombra-verde');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mantenimiento | BIBLIA FINANCIERA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "warning": "#F77F00",
+                    "surface-container-high": "#e8e8e5",
+                    "outline": "#717973",
+                    "primary-mid": "#2D6A4F",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c1c8c2",
+                    "on-secondary-container": "#783d01",
+                    "background": "#f9faf6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "secondary": "#8e4e14",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-surface": "#1a1c1a",
+                    "primary-container": "#1b4332",
+                    "surface-bright": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "dark": "#1A1A2E",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dadad7",
+                    "on-primary-container": "#86af99",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#3f6653",
+                    "inverse-on-surface": "#f0f1ee",
+                    "accent-dark": "#E76F51",
+                    "surface-container-highest": "#e2e3e0",
+                    "primary-fixed": "#c1ecd4",
+                    "on-surface-variant": "#414844",
+                    "tertiary-container": "#503700",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "on-tertiary-container": "#d89b00",
+                    "surface": "#f9faf6",
+                    "gray": "#6B7280",
+                    "secondary-container": "#ffab69",
+                    "primary-light": "#40916C",
+                    "secondary-fixed": "#ffdcc4",
+                    "primary": "#012d1d",
+                    "surface-variant": "#e2e3e0",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "success": "#52B788",
+                    "on-secondary-fixed": "#2f1400",
+                    "danger": "#D62828",
+                    "on-tertiary-fixed": "#271900",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1a",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-container": "#eeeeeb",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#342300",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "on-primary-fixed": "#002114"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem",
+                    "touch-target": "48px",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .bg-mesh {
+            background-color: #f9faf6;
+            background-image: radial-gradient(at 0% 0%, rgba(216, 243, 220, 0.4) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(255, 171, 105, 0.1) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen flex flex-col items-center justify-center p-gutter font-body-md text-on-surface selection:bg-primary-fixed selection:text-primary-container">
+<main class="max-w-4xl w-full flex flex-col items-center text-center">
+<!-- Brand Identity Container -->
+<div class="mb-stack-lg animate-fade-in-down">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-mid tracking-tight uppercase">
+                BIBLIA FINANCIERA
+            </h2>
+<div class="h-1 w-24 bg-secondary mx-auto mt-2 rounded-full"></div>
+</div>
+<!-- Hero Visual Section -->
+<section class="relative w-full max-w-md aspect-video mb-stack-lg rounded-xl overflow-hidden sombra-verde border border-outline-variant bg-surface-container-lowest flex items-center justify-center group">
+<img alt="Mantenimiento" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-105 transition-transform duration-700" data-alt="A professional close-up shot of a golden metal shield emblem with intricate engravings, resting on a polished dark green marble surface. The lighting is dramatic and focused, highlighting the textures of the metal and stone. The atmosphere is one of high security and financial protection, using the brand colors of deep emerald green and warm gold. Soft bokeh in the background suggests a modern, high-end corporate office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjC2kALcdAqo6zpmONOKcKETLJyK9kz9DEKHSPOJK9RWgyUK6XasoQlIdN86BsBPgP3fRLRZgvrXYf-FKwO59wAtdrVSCGyyo-Bik1oxvD1UT-_mUmcH16AwiNVE1RydpHYrJVhHLQ-V0kEhmHVaX13HKBp-9vyoB8f3GWMF2ighRgQdEgeeusTpByV7UJvJX52xBvCwCP-9NqFjy5Y7JhO1I_W6BTL_p5XZszdxA_1fXPy1UF1DIHklEPWn2jkkYLUsOf2SN_z2CK"/>
+<div class="relative z-10 flex flex-col items-center">
+<div class="bg-primary-container text-on-primary-container p-6 rounded-full mb-stack-sm shadow-lg animate-pulse">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-pale-green text-primary-mid rounded-full font-label-sm text-label-sm border border-primary-light/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-mid opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-mid"></span>
+</span>
+                    SISTEMA EN OPTIMIZACIÓN
+                </div>
+</div>
+</section>
+<!-- Messaging -->
+<header class="mb-stack-lg px-gutter">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container leading-none mb-stack-sm">
+                ESTAMOS FORTALECIENDO TU SEGURIDAD FINANCIERA
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Estamos realizando actualizaciones técnicas para garantizar que tu camino hacia la libertad financiera sea más rápido, seguro y accesible. Vuelve pronto para descubrir nuevas herramientas.
+            </p>
+</header>
+<!-- Action Grid -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-lg max-w-2xl">
+<!-- Notify Form -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-low p-6 rounded-xl border border-outline-variant text-left">
+<label class="font-headline-md text-headline-md text-primary-container block mb-4" for="notify-email">Avisarme cuando esté listo</label>
+<div class="flex flex-col sm:flex-row gap-2">
+<input class="flex-grow min-h-[48px] rounded-lg border-outline-variant focus:ring-primary-mid focus:border-primary-mid bg-surface-container-lowest px-4 font-body-md" id="notify-email" placeholder="tu@correo.com" type="email"/>
+<button class="bg-secondary text-on-secondary font-bold px-8 h-[48px] rounded-lg hover:bg-on-secondary-container transition-colors shadow-md active:scale-95">
+                        NOTIFICARME
+                    </button>
+</div>
+</div>
+<!-- Contact Options -->
+<a class="flex items-center justify-between p-4 bg-white rounded-lg border border-outline-variant hover:border-primary-light transition-all group sombra-verde" href="https://wa.me/support">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-success/10 text-success flex items-center justify-center rounded-full group-hover:bg-success group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div class="text-left">
+<span class="block font-bold text-primary-container">Soporte WhatsApp</span>
+<span class="text-sm text-on-surface-variant">Consulta inmediata</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="flex items-center justify-between p-4 bg-white rounded-lg border border-outline-variant hover:border-primary-light transition-all group sombra-verde" href="mailto:ayuda@bibliafinanciera.com">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-mid/10 text-primary-mid flex items-center justify-center rounded-full group-hover:bg-primary-mid group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="text-left">
+<span class="block font-bold text-primary-container">Correo Electrónico</span>
+<span class="text-sm text-on-surface-variant">Respuesta en 24h</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Brand Mission Footer -->
+<footer class="mt-auto pt-stack-lg border-t border-outline-variant w-full max-w-2xl text-center">
+<p class="font-body-md text-on-surface-variant italic mb-2">
+                "Porque saber es el primer paso para ser libre"
+            </p>
+<div class="text-label-sm font-label-sm text-outline tracking-widest uppercase opacity-60">
+                © 2024 BIBLIA FINANCIERA • TODOS LOS DERECHOS RESERVADOS
+            </div>
+</footer>
+</main>
+<!-- Contextual Floating Button (Asistente IA - Disabled but present for brand shell logic) -->
+<div class="fixed bottom-8 right-8 z-50 cursor-not-allowed opacity-50 flex items-center gap-3">
+<span class="hidden md:block font-label-sm text-label-sm text-primary-mid bg-white px-3 py-2 rounded-full shadow-sm">Estamos trabajando para ti</span>
+<div class="bg-primary-mid text-on-primary rounded-full h-14 w-14 flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for button feedback
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const originalText = btn.innerText;
+                if(btn.id !== 'notified') {
+                    btn.innerText = '¡LISTO!';
+                    btn.classList.add('bg-primary-mid');
+                    btn.id = 'notified';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.classList.remove('bg-primary-mid');
+                        btn.id = '';
+                    }, 3000);
+                }
+            });
+        });
+
+        // Atmospheric effect: Subtle mouse-follow on the background (optional/gentle)
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 5;
+            const y = (e.clientY / window.innerHeight) * 5;
+            document.body.style.backgroundPosition = `${x}% ${y}%`;
+        });
+    </script>
+</body></html>

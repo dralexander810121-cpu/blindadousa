@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ayudas y Subsidios | BlindadoUSA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1a1c1a",
+                    "surface-tint": "#3f6653",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f9faf6",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "danger": "#D62828",
+                    "success": "#52B788",
+                    "dark": "#1A1A2E",
+                    "on-background": "#1a1c1a",
+                    "surface": "#f9faf6",
+                    "warning": "#F77F00",
+                    "inverse-surface": "#2f312f",
+                    "on-surface-variant": "#414844",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary-fixed": "#c1ecd4",
+                    "tertiary": "#342300",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#503700",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dadad7",
+                    "primary-mid": "#2D6A4F",
+                    "outline-variant": "#c1c8c2",
+                    "outline": "#717973",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-tertiary-container": "#d89b00",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-secondary-container": "#783d01",
+                    "secondary-fixed-dim": "#ffb780",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "primary-light": "#40916C",
+                    "surface-variant": "#e2e3e0",
+                    "surface-container-high": "#e8e8e5",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "secondary-fixed": "#ffdcc4",
+                    "pale-green": "#D8F3DC",
+                    "gray": "#6B7280",
+                    "on-secondary-fixed": "#2f1400",
+                    "secondary": "#8e4e14",
+                    "on-tertiary-fixed": "#271900",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#a5d0b9",
+                    "on-error": "#ffffff",
+                    "background": "#f9faf6",
+                    "surface-container": "#eeeeeb",
+                    "surface-container-highest": "#e2e3e0",
+                    "tertiary-fixed": "#ffdea9",
+                    "primary-container": "#1b4332",
+                    "error": "#ba1a1a",
+                    "accent-dark": "#E76F51",
+                    "primary": "#012d1d",
+                    "secondary-container": "#ffab69"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "1rem",
+                    "stack-lg": "3rem",
+                    "touch-target": "48px",
+                    "stack-sm": "0.5rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1b4332;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto py-6 border-r border-outline-variant dark:border-outline bg-surface-container dark:bg-surface-container-low docked left-0 h-screen w-72 hidden md:flex flex-col z-50 custom-scrollbar">
+<div class="px-6 mb-8">
+<h1 class="font-display-lg text-headline-md text-primary-container dark:text-primary-fixed">BlindadoUSA</h1>
+<p class="text-label-sm text-on-surface-variant opacity-70">Tu Biblia Financiera</p>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md font-semibold">Panel Principal</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-body-md font-semibold">Mi Crédito</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-body-md font-semibold">Seguros</span>
+</a>
+<a class="flex items-center gap-3 bg-primary-container text-on-primary rounded-lg px-4 py-3 mx-2 my-1 shadow-[0_4px_10px_rgba(27,67,50,0.3)]" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-body-md font-semibold">Trámites</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-body-md font-semibold">Impuestos ITIN</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">savings</span>
+<span class="font-body-md font-semibold">Ahorros</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md font-semibold">Vivienda</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-body-md font-semibold">Salud</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant dark:text-surface-variant px-4 py-3 mx-2 my-1 rounded-lg hover:bg-pale-green/30 transition-all" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md font-semibold">Comunidad</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">smart_toy</span>
+                Asistente AI
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="md:ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full h-16 px-margin-mobile md:px-margin-desktop bg-surface dark:bg-on-surface docked full-width top-0 z-40 border-b border-outline-variant dark:border-outline shadow-sm sticky">
+<div class="flex items-center gap-4">
+<span class="md:hidden material-symbols-outlined text-primary-container">menu</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary-container dark:text-primary-fixed uppercase tracking-wider">Ayudas y Subsidios</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-1 items-center gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48" placeholder="Buscar programas..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-primary-container cursor-pointer active:scale-95 duration-200">notifications</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Usuario" data-alt="A professional headshot of a Hispanic male in his late 30s, smiling warmly with confidence. He is wearing a clean, modern white shirt against a soft-focus office background with natural lighting. The image conveys a sense of reliability and success, perfectly fitting the high-end financial and corporate branding of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMLzMGWM2eIVeaaYy_4jwrU-l3LaketKmovlpOl-jpXq3APDZ9X5_ZbE8bxDcTH0lGAifq4yUzzsWW0pop5DFrS24MBnjBzQqHBlML_Pt4p5uFeX_RqCnBSNXgyKgqVh_xoPTC1ldA01iyiWeDXpr0hJm0NnzyxdkTvw32iFBKDL8L9HRNnHGT9mLTJ9T2Y_Q9feHdvbo5s-hmFdZVgeVarfCY0wZVv8NlCrLf8BiZNgoK5zhake7omfVtXsg0bEwhvy5VXsOkcNue"/>
+</div>
+</div>
+</header>
+<main class="flex-1 p-margin-mobile md:p-margin-desktop space-y-stack-lg max-w-7xl mx-auto w-full">
+<!-- Quiz Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center bg-primary-container text-on-primary p-8 md:p-12 rounded-3xl sombra-verde overflow-hidden relative">
+<div class="lg:col-span-7 z-10">
+<div class="inline-block bg-accent-dark text-on-primary px-3 py-1 rounded-full text-label-sm mb-4 uppercase tracking-widest font-bold">Nuevo</div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4">¿A qué ayudas calificas hoy?</h2>
+<p class="font-body-lg mb-8 opacity-90 max-w-lg text-balance">Responde 8 preguntas rápidas y nuestro sistema te dirá exactamente qué dinero y beneficios puedes recibir legalmente en Texas.</p>
+<button class="bg-secondary-container text-on-secondary-container h-touch-target px-8 rounded-xl font-bold text-body-lg flex items-center gap-3 hover:scale-105 transition-transform active:scale-95">
+                        Iniciar Quiz de Elegibilidad
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="mt-6 flex items-center gap-2 text-label-sm opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span>Toma menos de 3 minutos</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative hidden lg:block">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container to-transparent z-10"></div>
+<img alt="Dashboard" class="rounded-2xl shadow-2xl rotate-3" data-alt="A high-resolution close-up of a modern digital dashboard interface showing financial growth charts and checkmarks. The aesthetic is clean and corporate, featuring a palette of deep forest green and soft cream. The lighting is bright and professional, suggesting a secure and trustworthy financial tool for the Hispanic community." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByd3_bU_Ikxi_qCIIxEj9gN4xymsvuji7-70EJQw7SJn7Vhkx4FyWfY4g8J_YxsFFXXzReIHb4JwetuCFOzmRqmyRv32suS9PFeTNKOEebEfAxzaTWuaJS8WuEOn82J1tiFOdRPAT3eI_D5HEU8A8W0cEuTnjWmBFPRxGPLjSkeFckNuearYJBdmCCjpJifRQa1xVP6jxu2TAFgc-9nNUDpnGN8WDsS4HRQdv1_Jbr0jFZuURpPDS9RSsMhESHt33msnxk4yX-LXuX"/>
+</div>
+<!-- Abstract Background Decals -->
+<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-primary-mid/20 rounded-full blur-3xl"></div>
+</section>
+<!-- Public Charge (Carga Pública) Alert -->
+<section class="bg-surface-container-high border-2 border-primary-mid/30 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+<div class="w-16 h-16 bg-success/20 text-success rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-headline-md text-primary-container">¿Esto afecta mi residencia? (Carga Pública 2026)</h3>
+<p class="text-body-md mt-1">La respuesta corta es <strong class="text-success font-bold text-xl uppercase">NO</strong>. La mayoría de estos programas NO se consideran carga pública para trámites de migración.</p>
+</div>
+<a class="text-primary-container font-bold underline flex items-center gap-1 hover:text-primary-light" href="#">
+                    Ver detalles legales
+                    <span class="material-symbols-outlined">open_in_new</span>
+</a>
+</section>
+<!-- Program Grid -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-display-lg text-headline-md text-primary-container">Programas Federales Disponibles</h2>
+<p class="text-on-surface-variant">Beneficios directos para tu familia y salud.</p>
+</div>
+<button class="text-primary-container font-bold text-label-sm border-b-2 border-primary-container pb-1">Ver todos</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- SNAP Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group relative">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+</div>
+<div class="bg-success text-on-primary px-2 py-1 rounded text-[10px] font-bold">APROBACIÓN RÁPIDA</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">SNAP (Cupones)</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Ayuda mensual para comprar comida saludable en supermercados.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Familias de bajos ingresos</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Ciudadanos y residentes</span>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary rounded-xl font-bold group-hover:bg-primary-mid transition-colors">Solicitar Ahora</button>
+</div>
+<!-- Medicaid Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<div class="bg-warning text-on-primary px-2 py-1 rounded text-[10px] font-bold">REQUISITOS ESTRICTOS</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">Medicaid / CHIP</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Seguro médico gratuito o de bajo costo para ti y tus hijos.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Niños y mujeres embarazadas</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Ingreso anual bajo</span>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary rounded-xl font-bold group-hover:bg-primary-mid transition-colors">Ver si califico</button>
+</div>
+<!-- Section 8 Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<div class="bg-danger text-on-primary px-2 py-1 rounded text-[10px] font-bold">LISTA DE ESPERA</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">Sección 8 (Vivienda)</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Vales de elección de vivienda para ayudar a pagar la renta.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Vivienda digna asegurada</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Ajustado a tu ingreso</span>
+</div>
+</div>
+<button class="w-full h-touch-target border-2 border-primary-container text-primary-container rounded-xl font-bold hover:bg-pale-green transition-colors">Más Información</button>
+</div>
+<!-- WIC Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">nutrition</span>
+</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">WIC (Nutrición)</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Especial para mamás y niños pequeños (hasta los 5 años).</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Leche, huevos y frutas</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Clases de nutrición</span>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary rounded-xl font-bold">Inscribirse</button>
+</div>
+<!-- LIHEAP Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">LIHEAP (Luz y Gas)</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Ayuda directa para pagar tus biles de energía en invierno y verano.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Evita cortes de luz</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Una vez por año</span>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary rounded-xl font-bold">Pedir ayuda hoy</button>
+</div>
+<!-- Head Start Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-2xl hover:border-primary-mid transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-pale-green text-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+</div>
+<h4 class="font-headline-md text-primary-container mb-2">Head Start (Educación)</h4>
+<p class="text-label-sm text-on-surface-variant mb-4">Educación preescolar de alta calidad para preparar a tus hijos.</p>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>3 a 5 años de edad</span>
+</div>
+<div class="flex items-center gap-2 text-body-md">
+<span class="material-symbols-outlined text-success text-lg">check_circle</span>
+<span>Fomento familiar</span>
+</div>
+</div>
+<button class="w-full h-touch-target bg-primary-container text-on-primary rounded-xl font-bold">Buscar centro</button>
+</div>
+</div>
+</section>
+<!-- Texas Resource Map Section -->
+<section class="bg-surface-container-low rounded-3xl p-8 border border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h2 class="font-display-lg text-headline-md text-primary-container mb-4">Recursos Locales en Texas</h2>
+<p class="text-body-lg text-on-surface-variant mb-8">Encuentra comida gratis y apoyo legal cerca de tu casa.</p>
+<div class="space-y-4 mb-8">
+<label class="block font-bold text-primary-container">Selecciona tu ciudad:</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary font-bold transition-colors">Houston</button>
+<button class="px-6 py-2 rounded-full bg-white border border-outline-variant hover:bg-pale-green transition-colors">Dallas</button>
+<button class="px-6 py-2 rounded-full bg-white border border-outline-variant hover:bg-pale-green transition-colors">Austin</button>
+<button class="px-6 py-2 rounded-full bg-white border border-outline-variant hover:bg-pale-green transition-colors">San Antonio</button>
+<button class="px-6 py-2 rounded-full bg-white border border-outline-variant hover:bg-pale-green transition-colors">El Paso</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-primary-mid">volunteer_activism</span>
+<div class="flex-1">
+<p class="font-bold">Houston Food Bank</p>
+<p class="text-label-sm opacity-70">Distribución de alimentos de emergencia</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-primary-mid">gavel</span>
+<div class="flex-1">
+<p class="font-bold">Asesoría Legal Comunitaria</p>
+<p class="text-label-sm opacity-70">Abogados de bajo costo para trámites</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white h-full min-h-[300px]">
+<div class="w-full h-full bg-surface-variant relative">
+<!-- Simulated Map Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-mid text-6xl animate-bounce">location_on</span>
+</div>
+<img alt="Mapa de Houston" class="w-full h-full object-cover opacity-50" data-location="Houston" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi4T3jBElJTygmnXYtcOHi02GJMm3_xdTPVKKVH1gqpEshbv-5gCZGII83jlx26OGZVivorij9Mg4YpLu-C3CJrsVgcXbCLErzUoYZKE9l4zXvAi6JdB_9xx7I4Khlz4jxa2QgOPtwU9JIUOEknnW8dMce_U0yUw0aZ0Ujkye8P9nApOG4P_UyLzOztA1dlTEJRFlaLDGC2f1O6U5K0OpF-CLnHYtJQ8EucHI3Phw1bwBLYlF4yY7R5zgqnfzx4hvJAgYaUOs_nlUC"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop mt-stack-lg border-t border-outline-variant py-8 bg-surface-container-lowest">
+<div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+<span class="font-display-lg text-body-lg text-primary-container">BlindadoUSA</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 BlindadoUSA. Protegiendo el futuro hispano.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary-light transition-colors font-label-sm" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-primary-light transition-colors font-label-sm" href="#">Términos</a>
+<a class="text-on-surface-variant hover:text-primary-light transition-colors font-label-sm" href="#">Soporte</a>
+<a class="text-on-surface-variant hover:text-primary-light transition-colors font-label-sm" href="#">Contacto</a>
+</div>
+</footer>
+</div>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-primary-container to-primary-mid text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group z-50">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<div class="absolute right-full mr-4 bg-primary-container text-on-primary px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            ¡Hola! Soy tu Asistente Blindado
+        </div>
+</button>
+<script>
+        // Micro-interactions and subtle effects
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle scale effect for icons
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Simple smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

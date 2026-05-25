@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jubilación y Retiro | BLINDADOUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dadad7",
+                    "outline-variant": "#c1c8c2",
+                    "dark": "#1A1A2E",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "warning": "#F77F00",
+                    "secondary": "#8e4e14",
+                    "on-primary-container": "#86af99",
+                    "surface-variant": "#e2e3e0",
+                    "surface-container": "#eeeeeb",
+                    "success": "#52B788",
+                    "surface": "#f9faf6",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-container": "#ffab69",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "primary-mid": "#2D6A4F",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-tertiary-container": "#d89b00",
+                    "inverse-surface": "#2f312f",
+                    "inverse-on-surface": "#f0f1ee",
+                    "accent-dark": "#E76F51",
+                    "gray": "#6B7280",
+                    "on-error-container": "#93000a",
+                    "pale-green": "#D8F3DC",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "on-surface": "#1a1c1a",
+                    "inverse-primary": "#a5d0b9",
+                    "outline": "#717973",
+                    "surface-tint": "#3f6653",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f3f4f1",
+                    "on-background": "#1a1c1a",
+                    "on-surface-variant": "#414844",
+                    "secondary-fixed-dim": "#ffb780",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#c1ecd4",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "primary-light": "#40916C",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#783d01",
+                    "background": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#002114",
+                    "surface-container-highest": "#e2e3e0",
+                    "error": "#ba1a1a",
+                    "danger": "#D62828",
+                    "surface-bright": "#f9faf6",
+                    "tertiary": "#342300",
+                    "primary-container": "#1b4332",
+                    "primary": "#012d1d",
+                    "secondary-fixed": "#ffdcc4",
+                    "tertiary-container": "#503700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target": "48px",
+                    "stack-lg": "3rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "margin-mobile": "1.25rem",
+                    "margin-desktop": "2.5rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #2D6A4F;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 z-50 bg-surface dark:bg-on-background border-b border-outline-variant dark:border-outline flex justify-between items-center h-touch-target px-margin-mobile w-full fixed">
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-wider text-primary dark:text-primary-fixed-dim">BLINDADOUSA</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">search</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Avatar" data-alt="A professional headshot of a smiling Hispanic male user in a business-casual white shirt. The background is a soft, out-of-focus modern office interior with warm wooden accents and bright, natural sunlight streaming through large windows. The overall aesthetic is clean, corporate, and trustworthy, matching a professional financial app environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1EkIz9wCk2rR6-pEPKDmHvKebJA3n-Db0hFNn4YQxf_n2P1hzbV4D2XrcyHp-hZC_YndNxOfhKiFE3spX4mB0wdpLGhYfcn1tGjTrBYSH_vDHz47ODlGceXVHbXAegRpUab8mVaU9_CGQhX3lBTVliUyelQvEe1rdFeXYhF6N8qZwX2rXeo58ZW1yJuYg-JRaUznz7SQ-8-DDYA1rvSkRDAtNKk6Omgph8hZ3vUopWMPbYIXQakPZJ2T8V0G2xe78gIDOPSybXMD"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="docked left-0 h-full w-64 hidden md:flex flex-col bg-surface-container-low dark:bg-surface-container shadow-sm fixed pt-20">
+<nav class="flex flex-col h-full py-stack-md px-4 space-y-2">
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-sm text-label-sm">Documentos</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">Historial</span>
+</a>
+<a class="flex items-center gap-stack-sm bg-primary-container text-on-primary-container rounded-lg px-4 py-3 translate-x-1" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadoras</span>
+</a>
+<a class="flex items-center gap-stack-sm text-on-surface-variant dark:text-surface-variant px-4 py-3 hover:bg-surface-container-highest rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span class="font-label-sm text-label-sm">Soporte</span>
+</a>
+<div class="pt-10">
+<button class="w-full bg-primary-mid text-on-primary py-3 rounded-xl font-label-sm flex items-center justify-center gap-2 hover:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined">smart_toy</span> Hablar con IA
+                </button>
+</div>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 pb-32 px-margin-mobile md:px-margin-desktop">
+<!-- Impact Hero Section -->
+<section class="mb-stack-lg max-w-4xl">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight mb-4">
+                8 DE CADA 10 HISPANOS MILLENNIALS NO TIENE <span class="text-secondary-container bg-primary px-2">NADA</span> AHORRADO.
+            </h1>
+<p class="font-headline-md text-headline-md text-primary-mid">No seas parte de la estadística. Construye tu blindaje hoy.</p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-stack-md">
+<!-- Left Column: Interactive Calculator -->
+<div class="lg:col-span-7 space-y-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant sombra-verde">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Tu Máquina de Dinero</h2>
+<div class="space-y-6">
+<!-- Age Sliders -->
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant">¿Qué edad tienes hoy?</label>
+<span class="font-data-mono text-data-mono text-primary" id="val-age">25</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="age" max="65" min="18" type="range" value="25"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant">¿A qué edad quieres dejar de trabajar?</label>
+<span class="font-data-mono text-data-mono text-primary" id="val-retire">65</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="retire" max="80" min="40" type="range" value="65"/>
+</div>
+<!-- Savings Slider -->
+<div class="space-y-2">
+<div class="flex justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Ahorro Mensual (Inversión)</label>
+<span class="font-data-mono text-data-mono text-primary" id="val-monthly">$200</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="monthly" max="5000" min="50" step="50" type="range" value="200"/>
+</div>
+</div>
+<div class="mt-10 p-4 bg-pale-green rounded-lg border-l-4 border-primary-mid">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-1">Tendrías ahorrado a los <span id="res-age">65</span>:</p>
+<p class="font-display-lg-mobile text-display-lg-mobile text-primary-container" id="res-total">$749,280</p>
+<p class="font-body-md text-body-md text-primary-mid mt-2 italic">Estimado basado en un 8% de retorno anual promedio.</p>
+</div>
+</div>
+<!-- Visual Chart Simulation -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">El Efecto Bola de Nieve</h3>
+<div class="relative h-64 w-full flex items-end gap-1">
+<!-- Simplified bar chart logic for visualization -->
+<div class="bg-primary-fixed w-full h-[10%] rounded-t-sm transition-all duration-500" id="bar-1"></div>
+<div class="bg-primary-fixed w-full h-[15%] rounded-t-sm transition-all duration-500" id="bar-2"></div>
+<div class="bg-primary-fixed w-full h-[22%] rounded-t-sm transition-all duration-500" id="bar-3"></div>
+<div class="bg-primary-light w-full h-[35%] rounded-t-sm transition-all duration-500" id="bar-4"></div>
+<div class="bg-primary-light w-full h-[55%] rounded-t-sm transition-all duration-500" id="bar-5"></div>
+<div class="bg-primary-mid w-full h-[85%] rounded-t-sm transition-all duration-500" id="bar-6"></div>
+<div class="bg-primary-container w-full h-[100%] rounded-t-sm transition-all duration-500" id="bar-7"></div>
+</div>
+<div class="flex justify-between mt-2 font-label-sm text-on-surface-variant">
+<span>Hoy</span>
+<span>Retiro</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Education & CTA -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Time Power Comparison -->
+<div class="bg-primary-container text-on-primary rounded-xl p-6 shadow-lg overflow-hidden relative">
+<h3 class="font-headline-md text-headline-md mb-6">El Poder del Tiempo</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-primary font-bold">25</div>
+<div>
+<p class="font-label-sm opacity-80">Empieza a los 25 ($200/mes)</p>
+<p class="font-display-lg-mobile">$1,050,000</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-outline rounded-full flex items-center justify-center text-on-surface font-bold">40</div>
+<div>
+<p class="font-label-sm opacity-80">Empieza a los 40 ($200/mes)</p>
+<p class="font-display-lg-mobile text-error-container">$280,000</p>
+</div>
+</div>
+</div>
+<p class="mt-6 text-sm italic opacity-70">Esperar 15 años te costó casi 800 mil dólares.</p>
+</div>
+<!-- 5th Grade Explanation Section -->
+<div class="bg-surface-container-high rounded-xl p-6 border border-outline-variant">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Cuentas para tu futuro</h3>
+<div class="space-y-4">
+<!-- 401K -->
+<div class="flex gap-4 p-3 bg-white rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-3xl">corporate_fare</span>
+<div>
+<h4 class="font-bold text-primary">401(k)</h4>
+<p class="text-sm">Es como una caja de ahorros en tu trabajo. Tu jefe a veces pone dinero extra si tú pones el tuyo.</p>
+</div>
+</div>
+<!-- IRA Regular -->
+<div class="flex gap-4 p-3 bg-white rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-primary-light text-3xl">savings</span>
+<div>
+<h4 class="font-bold text-primary">IRA Regular</h4>
+<p class="text-sm">Tu hucha personal. No pagas impuestos hoy por el dinero que guardas, pero pagarás cuando seas viejo.</p>
+</div>
+</div>
+<!-- Roth IRA -->
+<div class="flex gap-4 p-3 bg-white rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-success text-3xl">stars</span>
+<div>
+<h4 class="font-bold text-primary">Roth IRA</h4>
+<p class="text-sm">La favorita. Pagas impuestos hoy, pero cuando saques el dinero a los 65 años, <strong>¡todo lo ganado es GRATIS!</strong></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Affiliates Section -->
+<div class="bg-white rounded-xl p-6 border-2 border-dashed border-secondary-container">
+<h3 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-4">Empieza hoy mismo</h3>
+<div class="grid grid-cols-2 gap-4">
+<a class="group block p-4 bg-surface-container-low rounded-lg text-center hover:bg-secondary-container transition-all" href="#">
+<div class="h-8 mb-2 flex justify-center">
+<img alt="Acorns Logo" class="h-full object-contain filter grayscale group-hover:grayscale-0" data-alt="The Acorns finance app logo presented in a minimalist, clean brand identity style. The logo features a stylized green acorn icon on a clean white background, surrounded by a subtle bright glow to emphasize growth and technology in a professional financial context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9wGbV-46uNx7uzrbAy_r2rNH_qFx3v7ag04VoqTt8-FoJMhRkb_JLWNegvGi8AdUEpI9xvTTlbbsQDE7XBy_kUE7Xz7m6SrLOSJxTrwylHADyWxe-0JBHGKEpqHl9_5tVcHic8gw0GFhL84n_EaZKL2El8Azhu3HeV-_TzNYriIWEDfQTKncmOXIMu0ePHtCMsQOU0QVnQ91mUhssPRAqzlowdIsp6eRrX8ODP-NZM8-a9qxCHg2aOByWsXM9-scDO5S29vm4gui7"/>
+</div>
+<span class="font-label-sm text-primary">Acorns</span>
+<p class="text-[10px] text-on-surface-variant">Empieza con solo $5</p>
+</a>
+<a class="group block p-4 bg-surface-container-low rounded-lg text-center hover:bg-secondary-container transition-all" href="#">
+<div class="h-8 mb-2 flex justify-center">
+<img alt="Betterment Logo" class="h-full object-contain filter grayscale group-hover:grayscale-0" data-alt="A clean and professional logo representation for Betterment, a leading fintech platform. The visual style is modern corporate, featuring blue and white tones that evoke stability, trust, and advanced financial automation. The lighting is high-key and optimistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeeTt-cQ6AvfkjwxaGLOHl3H_n_o3U0bloM4IWOJ8-cG9ObjROl949dMDLZbpoJo0cWZyI_8E33Pgwua63kWRnc_G1BkXKmSX2U3noGa3ea0EvRQUMKgs5Sf9c3jcSu2tbiIB8s67pYX24SsqsWQDH4QHbjy_-KVpV_Dh-jzf6R3icSTxvARaL_mUOXwaOxwiWLrjEf5dGhZmojadVneWNo8vu1EoE8qVZKe4c4xQA7cXF8hOPSc4_NtBBD26dPQD4PlkvCi0M37EU"/>
+</div>
+<span class="font-label-sm text-primary">Betterment</span>
+<p class="text-[10px] text-on-surface-variant">Invierte en piloto automático</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-2 pb-safe border-t border-outline-variant bg-surface dark:bg-inverse-surface shadow-lg md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">IA</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-2" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span class="font-label-sm text-label-sm">Calculadora</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-sm text-label-sm">Perfil</span>
+</a>
+</nav>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-24 right-6 md:bottom-10 md:right-10 w-16 h-16 bg-primary-mid text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<script>
+        // Simple Retirement Logic
+        const ageInp = document.getElementById('age');
+        const retireInp = document.getElementById('retire');
+        const monthlyInp = document.getElementById('monthly');
+
+        const valAge = document.getElementById('val-age');
+        const valRetire = document.getElementById('val-retire');
+        const valMonthly = document.getElementById('val-monthly');
+        const resAge = document.getElementById('res-age');
+        const resTotal = document.getElementById('res-total');
+
+        function calculateRetirement() {
+            const age = parseInt(ageInp.value);
+            const retire = parseInt(retireInp.value);
+            const monthly = parseInt(monthlyInp.value);
+            const annualReturn = 0.08;
+            const years = Math.max(0, retire - age);
+            
+            valAge.textContent = age;
+            valRetire.textContent = retire;
+            valMonthly.textContent = `$${monthly}`;
+            resAge.textContent = retire;
+
+            // Compound Interest Formula: P * [((1 + r)^n - 1) / r]
+            // where r is monthly rate, n is total months
+            const r = annualReturn / 12;
+            const n = years * 12;
+            let total = 0;
+            if (n > 0) {
+                total = monthly * ((Math.pow(1 + r, n) - 1) / r);
+            }
+
+            resTotal.textContent = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(total);
+
+            // Update Chart Mock Animation
+            const bars = [1,2,3,4,5,6,7];
+            bars.forEach(b => {
+                const bar = document.getElementById(`bar-${b}`);
+                const scale = (b/7) * (years/45);
+                bar.style.height = `${Math.min(100, Math.max(10, scale * 100))}%`;
+            });
+        }
+
+        [ageInp, retireInp, monthlyInp].forEach(input => {
+            input.addEventListener('input', calculateRetirement);
+        });
+
+        // Initial Calc
+        calculateRetirement();
+    </script>
+</body></html>

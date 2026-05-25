@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Comprar Casa | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#342300",
+                    "secondary": "#8e4e14",
+                    "inverse-surface": "#2f312f",
+                    "tertiary-fixed": "#ffdea9",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#2f1400",
+                    "on-secondary-container": "#783d01",
+                    "surface-dim": "#dadad7",
+                    "dark": "#1A1A2E",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9faf6",
+                    "pale-green": "#D8F3DC",
+                    "on-background": "#1a1c1a",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e3e0",
+                    "surface-tint": "#3f6653",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#6f3800",
+                    "outline": "#717973",
+                    "on-surface": "#1a1c1a",
+                    "outline-variant": "#c1c8c2",
+                    "on-tertiary-container": "#d89b00",
+                    "surface-container-low": "#f3f4f1",
+                    "inverse-primary": "#a5d0b9",
+                    "secondary-fixed": "#ffdcc4",
+                    "accent-dark": "#E76F51",
+                    "warning": "#F77F00",
+                    "primary-light": "#40916C",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#5e4100",
+                    "gray": "#6B7280",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#503700",
+                    "success": "#52B788",
+                    "danger": "#D62828",
+                    "surface-container": "#eeeeeb",
+                    "primary-fixed": "#c1ecd4",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-primary-container": "#86af99",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f0f1ee",
+                    "primary-mid": "#2D6A4F",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-tertiary-fixed": "#271900",
+                    "secondary-fixed-dim": "#ffb780",
+                    "tertiary-fixed-dim": "#ffba27",
+                    "on-surface-variant": "#414844",
+                    "surface-bright": "#f9faf6",
+                    "surface-container-high": "#e8e8e5",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#ffab69",
+                    "surface-container-highest": "#e2e3e0",
+                    "surface": "#f9faf6",
+                    "primary-container": "#1b4332",
+                    "primary": "#012d1d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1rem",
+                    "stack-md": "1.5rem",
+                    "touch-target": "48px",
+                    "margin-mobile": "1.25rem",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "data-mono": ["JetBrains Mono"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg-mobile": ["Bebas Neue"],
+                    "display-lg": ["Bebas Neue"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 15px -3px rgba(27, 67, 50, 0.1), 0 4px 6px -4px rgba(27, 67, 50, 0.1);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #D8F3DC;
+            height: 8px;
+            border-radius: 4px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -12px;
+            background-color: #2D6A4F;
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background-color: #c1c8c2;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background shadow-sm">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary-mid md:text-display-lg leading-none">BlindadoUSA</h1>
+<nav class="hidden md:flex gap-gutter">
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Cómo funciona</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1" href="#">Precios</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Directorio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary-light transition-colors" href="#">Blog</a>
+</nav>
+<div class="flex gap-stack-sm">
+<button class="px-4 py-2 text-on-surface-variant font-medium hidden md:block">Iniciar Sesión</button>
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-bold rounded-lg Active: scale-95 duration-150">Empieza Gratis</button>
+</div>
+</header>
+<main class="mt-20 px-margin-mobile md:px-margin-desktop py-stack-lg flex-grow">
+<!-- Hero Section -->
+<section class="mb-stack-lg">
+<div class="relative rounded-xl overflow-hidden min-h-[300px] flex items-center p-8 bg-primary-container text-white">
+<div class="z-10 max-w-2xl">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md mb-4 text-primary-fixed">Tu Biblia para comprar casa en USA</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim mb-6">Desde el ahorro inicial hasta que te entreguen las llaves. Sin tecnicismos, solo la verdad financiera para nuestra comunidad.</p>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container to-transparent opacity-80"></div>
+<img alt="Casa moderna" class="absolute inset-0 w-full h-full object-cover -z-10" data-alt="A warm, sunlit modern suburban house with a well-manicured green lawn and clear blue sky, evoking a sense of stability and home ownership. The photography style is high-key with soft natural lighting, using a color palette of deep greens and crisp whites that aligns with the brand's professional and welcoming financial advocate aesthetic. The mood is aspirational yet grounded in reality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmnumcYFuS-7H0XbKgWP03KFWAar5TbSFWECY7CMY4sa68cWuNUyI4ewwmruzZijqfm1YD469Ctnran_hdwpue0Oq_fGOYhMO9RrGaHWHjWPSZ2pHxr6SqvtP0ze5FS6liFZ02QSodx5VyTxrpg0mtGFaFV6Cg9qirT9DiSTKGgTMd3FBx-MQb0G_0Dsd2bb5rBgNgHf8y5k_1Dd2xaipAKf9Rxufb4gQaKNahON2-am7H1rt18ulmdmokFVbn0-Va5XEj2l20RdWz"/>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Sidebar: Navigation/Checklist -->
+<aside class="lg:col-span-4 space-y-gutter order-2 lg:order-1">
+<!-- Traffic Light Checklist -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<h3 class="font-headline-md text-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">fact_check</span>
+                        ¿Estoy listo?
+                    </h3>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-pale-green mb-6 transition-all duration-300" id="semaforo">
+<div class="w-12 h-12 rounded-full bg-success flex items-center justify-center text-white" id="semaforo-icon">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</div>
+<div>
+<p class="font-bold text-primary-mid" id="semaforo-label">Luz Verde</p>
+<p class="text-on-surface-variant text-sm" id="semaforo-desc">Estás en una posición sólida para calificar.</p>
+</div>
+</div>
+<ul class="space-y-4" id="checklist">
+<li class="flex items-center gap-3">
+<input checked="" class="w-6 h-6 rounded text-primary-mid border-outline-variant focus:ring-primary-mid" type="checkbox"/>
+<span class="text-body-md">Crédito mayor a 640</span>
+</li>
+<li class="flex items-center gap-3">
+<input checked="" class="w-6 h-6 rounded text-primary-mid border-outline-variant focus:ring-primary-mid" type="checkbox"/>
+<span class="text-body-md">2 años de taxes (W2/1099)</span>
+</li>
+<li class="flex items-center gap-3">
+<input class="w-6 h-6 rounded text-primary-mid border-outline-variant focus:ring-primary-mid" type="checkbox"/>
+<span class="text-body-md">Ahorro para Downpayment (3.5%)</span>
+</li>
+<li class="flex items-center gap-3">
+<input class="w-6 h-6 rounded text-primary-mid border-outline-variant focus:ring-primary-mid" type="checkbox"/>
+<span class="text-body-md">Deudas bajas (DTI &lt; 43%)</span>
+</li>
+</ul>
+</div>
+<!-- Buying Timeline -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<h3 class="font-headline-md text-headline-md mb-6">Ruta de Compra</h3>
+<div class="relative timeline-line space-y-8">
+<div class="relative flex gap-4">
+<div class="z-10 w-10 h-10 rounded-full bg-primary-mid text-white flex items-center justify-center font-bold">1</div>
+<div>
+<h4 class="font-bold">Preparar Crédito</h4>
+<p class="text-sm text-on-surface-variant">Limpia errores y baja balances.</p>
+</div>
+</div>
+<div class="relative flex gap-4">
+<div class="z-10 w-10 h-10 rounded-full bg-primary-mid text-white flex items-center justify-center font-bold">2</div>
+<div>
+<h4 class="font-bold">Pre-aprobación</h4>
+<p class="text-sm text-on-surface-variant">Obtén la carta del prestamista.</p>
+</div>
+</div>
+<div class="relative flex gap-4">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">3</div>
+<div>
+<h4 class="font-bold text-outline">Búsqueda</h4>
+<p class="text-sm text-on-surface-variant">Visita casas con tu realtor.</p>
+</div>
+</div>
+<div class="relative flex gap-4 opacity-50">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">4</div>
+<div class="font-bold text-outline">Oferta y Contrato</div>
+</div>
+<div class="relative flex gap-4 opacity-50">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">5</div>
+<div class="font-bold text-outline">Inspección</div>
+</div>
+<div class="relative flex gap-4 opacity-50">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">6</div>
+<div class="font-bold text-outline">Avalúo (Appraisal)</div>
+</div>
+<div class="relative flex gap-4 opacity-50">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">7</div>
+<div class="font-bold text-outline">Suscripción (Underwriting)</div>
+</div>
+<div class="relative flex gap-4 opacity-50">
+<div class="z-10 w-10 h-10 rounded-full bg-outline-variant text-white flex items-center justify-center font-bold">8</div>
+<div class="font-bold text-outline">Cierre (Closing)</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="lg:col-span-8 space-y-gutter order-1 lg:order-2">
+<!-- Mortgage Calculator Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant sombra-verde relative">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">Calculadora Hipotecaria</h3><div class="flex p-1 bg-surface-container rounded-lg mb-6 w-fit ml-auto md:ml-0 md:absolute md:right-8 md:top-8" id="loan-toggle-container">
+<button class="px-6 py-2 rounded-md font-bold transition-all bg-primary-mid text-white" id="btn-fha" onclick="window.setLoanType('fha')">Préstamo FHA</button>
+<button class="px-6 py-2 rounded-md font-bold transition-all text-on-surface-variant hover:bg-surface-variant" id="btn-conv" onclick="window.setLoanType('conv')">Convencional</button>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-10">
+<div class="space-y-6">
+<div class="flex flex-wrap gap-2 mb-4" id="loan-badges">
+<span class="px-3 py-1 bg-pale-green text-primary-mid text-xs font-bold rounded-full" id="badge-1">Enganche bajo (3.5%)</span>
+<span class="px-3 py-1 bg-pale-green text-primary-mid text-xs font-bold rounded-full" id="badge-2">Score desde 580</span>
+</div><div>
+<label class="block font-bold mb-2 text-on-surface-variant">Precio de la Casa: <span class="text-primary-mid font-data-mono" id="price-val">$350,000</span></label>
+<input class="w-full" id="price-slider" max="1000000" min="100000" step="10000" type="range" value="350000"/>
+</div>
+<div>
+<label class="block font-bold mb-2 text-on-surface-variant">Score de Crédito: <span class="text-primary-mid font-data-mono" id="score-val">720</span></label>
+<input class="w-full" id="score-slider" max="850" min="580" step="1" type="range" value="720"/>
+</div>
+<div>
+<label class="block font-bold mb-2 text-on-surface-variant">Término (Años): <span class="text-primary-mid font-data-mono" id="term-val">30</span></label>
+<input class="w-full" id="term-slider" max="30" min="15" step="15" type="range" value="30"/>
+</div>
+<div class="p-4 bg-surface-container-low border border-primary-light/20 rounded-lg mt-6">
+<p class="text-sm text-on-surface-variant italic">
+<strong class="text-primary-mid">Sugerencia Blindada:</strong>
+<span id="blindada-note">FHA si tienes poco ahorro o score bajo; Convencional si tienes buen crédito y más del 5% de enganche.</span>
+</p>
+</div></div>
+<div class="bg-primary-container p-6 rounded-xl text-white flex flex-col justify-between">
+<div>
+<p class="text-primary-fixed-dim text-sm uppercase tracking-widest font-bold mb-1">Pago Mensual <span id="selected-loan-text">FHA</span> (PITI)</p>
+<h4 class="font-display-lg text-primary-fixed text-5xl" id="total-payment">$2,450</h4>
+</div>
+<div class="mt-4 pt-4 border-t border-primary-light space-y-2">
+<div class="flex justify-between text-sm">
+<span>Principal e Interés:</span>
+<span class="font-data-mono" id="pi-val">$1,850</span>
+</div>
+<div class="flex justify-between text-sm">
+<span>Seguro e Impuestos:</span>
+<span class="font-data-mono" id="tax-val">$600</span>
+</div>
+<div class="flex justify-between text-sm pt-2 border-t border-primary-mid font-bold text-secondary-container">
+<span>Gastos de Cierre:</span>
+<span class="font-data-mono" id="closing-val">$10,500</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Loan Types Accordion -->
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md">Tipos de Préstamo</h3>
+<details class="group bg-surface-container p-4 rounded-xl border border-outline-variant open:sombra-verde transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-mid">family_restroom</span>
+                                FHA (Federal Housing Administration)
+                            </div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant leading-relaxed">
+<p class="mb-4">Ideal para primeros compradores con poco ahorro. Permite un pago inicial de solo el **3.5%** y un score de crédito desde **580**.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-pale-green p-3 rounded">
+<p class="font-bold text-primary-mid">Pro</p>
+<p class="text-sm">Bajo downpayment</p>
+</div>
+<div class="bg-error-container p-3 rounded">
+<p class="font-bold text-error">Con</p>
+<p class="text-sm">Seguro (MIP) de por vida</p>
+</div>
+</div>
+</div>
+</details>
+<details class="group bg-surface-container p-4 rounded-xl border border-outline-variant open:sombra-verde transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-mid">account_balance</span>
+                                Convencional
+                            </div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant leading-relaxed">
+<p class="mb-4">Para perfiles con crédito sólido (+680). Si pones el **20%**, no pagas seguro privado (PMI).</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-pale-green p-3 rounded">
+<p class="font-bold text-primary-mid">Pro</p>
+<p class="text-sm">Sin seguro hipotecario permanente</p>
+</div>
+<div class="bg-error-container p-3 rounded">
+<p class="font-bold text-error">Con</p>
+<p class="text-sm">Más difícil de calificar</p>
+</div>
+</div>
+</div>
+</details>
+<details class="group bg-surface-container p-4 rounded-xl border border-outline-variant open:sombra-verde transition-all">
+<summary class="flex justify-between items-center cursor-pointer list-none font-bold text-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-mid">military_tech</span>
+                                VA (Veteranos)
+                            </div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-on-surface-variant leading-relaxed">
+<p class="mb-4">Exclusivo para militares, veteranos y cónyuges. El beneficio más poderoso del mercado inmobiliario.</p>
+<div class="bg-primary-container p-4 rounded-xl text-white flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-secondary-container">stars</span>
+<p class="font-bold">¡$0 de enganche y sin seguro hipotecario mensual!</p>
+</div>
+</div>
+</details>
+</div>
+<!-- Legal Warnings Section -->
+<section class="mt-10">
+<div class="bg-error-container p-6 rounded-xl border-l-8 border-error mb-6">
+<h3 class="font-headline-md text-error flex items-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+                            Lo que el realtor NO puede hacer
+                        </h3>
+<p class="text-on-error-container mt-1">Protege tus derechos legales y financieros. No permitas estas prácticas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Presionarte con prestamistas</p>
+<p class="text-sm text-on-surface-variant">Tú eliges quién te financia, no es obligatorio usar el de su oficina.</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Dar asesoría legal</p>
+<p class="text-sm text-on-surface-variant">Un realtor no es abogado. No puede interpretar leyes complejas.</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Ocultar defectos</p>
+<p class="text-sm text-on-surface-variant">Si conocen un daño estructural, están obligados a revelarlo por ley.</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Discriminar</p>
+<p class="text-sm text-on-surface-variant">Bajo el Fair Housing Act, no pueden filtrar por raza o religión.</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Garantizar ganancias</p>
+<p class="text-sm text-on-surface-variant">Nadie puede asegurar que la casa subirá de valor en el futuro.</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-outline-variant hover:border-error transition-colors">
+<p class="font-bold mb-2">Modificar documentos</p>
+<p class="text-sm text-on-surface-variant">Nunca deben pedirte firmar papeles en blanco o sin fecha.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto bg-primary text-on-primary">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<h2 class="font-display-lg text-primary-fixed text-4xl">BlindadoUSA</h2>
+<div class="flex gap-gutter">
+<a class="text-primary-fixed-dim hover:text-white underline transition-opacity" href="#">Privacidad</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-opacity" href="#">Términos</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-opacity" href="#">Contacto</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-opacity" href="#">Ayuda</a>
+</div>
+<p class="text-primary-fixed-dim font-body-md opacity-75">© 2024 BlindadoUSA. Tu biblia financiera.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-[10px] font-bold">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Casa</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px] font-bold">Carro</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-[10px] font-bold">Seguros</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] font-bold">Más</span>
+</div>
+</nav>
+<!-- Floating AI Assistant -->
+<button class="fixed bottom-20 md:bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-primary-mid to-primary-light text-white shadow-lg flex items-center justify-center z-50 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-weight="fill">smart_toy</span>
+</button>
+<script>
+        const priceSlider = document.getElementById('price-slider');
+        const scoreSlider = document.getElementById('score-slider');
+        const termSlider = document.getElementById('term-slider');
+
+        const priceVal = document.getElementById('price-val');
+        const scoreVal = document.getElementById('score-val');
+        const termVal = document.getElementById('term-val');
+
+        const totalPayment = document.getElementById('total-payment');
+        const piVal = document.getElementById('pi-val');
+        const taxVal = document.getElementById('tax-val');
+        const closingVal = document.getElementById('closing-val');
+
+        function updateCalculator() {
+            const price = parseInt(priceSlider.value);
+            const score = parseInt(scoreSlider.value);
+            const years = parseInt(termSlider.value);
+
+            priceVal.innerText = `$${price.toLocaleString()}`;
+            scoreVal.innerText = score;
+            termVal.innerText = years;
+
+            // Simple logic for simulation purposes
+            let rate = (850 - score) / 100 * 0.5 + 6; 
+            const monthlyRate = (rate / 100) / 12;
+            const n = years * 12;
+            const pi = (price * 0.965) * (monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+            const taxes = price * 0.002; // Roughly estimated
+
+            piVal.innerText = `$${Math.round(pi).toLocaleString()}`;
+            taxVal.innerText = `$${Math.round(taxes).toLocaleString()}`;
+            totalPayment.innerText = `$${Math.round(pi + taxes).toLocaleString()}`;
+            closingVal.innerText = `$${Math.round(price * 0.03).toLocaleString()}`;
+        }
+
+        [priceSlider, scoreSlider, termSlider].forEach(s => s.addEventListener('input', updateCalculator));
+
+        // Semaforo logic
+        const checkboxes = document.querySelectorAll('#checklist input');
+        const semaforo = document.getElementById('semaforo');
+        const semaforoIcon = document.getElementById('semaforo-icon');
+        const semaforoLabel = document.getElementById('semaforo-label');
+        const semaforoDesc = document.getElementById('semaforo-desc');
+
+        function updateSemaforo() {
+            const checkedCount = Array.from(checkboxes).filter(c => c.checked).length;
+            
+            if (checkedCount <= 1) {
+                semaforo.className = "flex items-center gap-4 p-4 rounded-lg bg-red-100 mb-6 transition-all duration-300";
+                semaforoIcon.className = "w-12 h-12 rounded-full bg-danger flex items-center justify-center text-white";
+                semaforoIcon.innerHTML = '<span class="material-symbols-outlined">warning</span>';
+                semaforoLabel.className = "font-bold text-danger";
+                semaforoLabel.innerText = "Luz Roja";
+                semaforoDesc.innerText = "Aún necesitas prepararte un poco más.";
+            } else if (checkedCount <= 3) {
+                semaforo.className = "flex items-center gap-4 p-4 rounded-lg bg-orange-100 mb-6 transition-all duration-300";
+                semaforoIcon.className = "w-12 h-12 rounded-full bg-warning flex items-center justify-center text-white";
+                semaforoIcon.innerHTML = '<span class="material-symbols-outlined">emergency_home</span>';
+                semaforoLabel.className = "font-bold text-warning";
+                semaforoLabel.innerText = "Luz Amarilla";
+                semaforoDesc.innerText = "Vas por buen camino, faltan detalles.";
+            } else {
+                semaforo.className = "flex items-center gap-4 p-4 rounded-lg bg-pale-green mb-6 transition-all duration-300";
+                semaforoIcon.className = "w-12 h-12 rounded-full bg-success flex items-center justify-center text-white";
+                semaforoIcon.innerHTML = '<span class="material-symbols-outlined">sentiment_satisfied</span>';
+                semaforoLabel.className = "font-bold text-primary-mid";
+                semaforoLabel.innerText = "Luz Verde";
+                semaforoDesc.innerText = "Estás en una posición sólida para calificar.";
+            }
+        }
+
+        checkboxes.forEach(c => c.addEventListener('change', updateSemaforo));
+
+        // Init
+        updateCalculator();
+        updateSemaforo();
+    </script>
+<script>
+  let currentLoanType = 'fha';
+  window.setLoanType = function(type) {
+    currentLoanType = type;
+    const btnFha = document.getElementById('btn-fha');
+    const btnConv = document.getElementById('btn-conv');
+    const badges = document.getElementById('loan-badges');
+    const loanText = document.getElementById('selected-loan-text');
+    
+    if (type === 'fha') {
+      btnFha.className = 'px-6 py-2 rounded-md font-bold transition-all bg-primary-mid text-white';
+      btnConv.className = 'px-6 py-2 rounded-md font-bold transition-all text-on-surface-variant hover:bg-surface-variant';
+      badges.innerHTML = '<span class="px-3 py-1 bg-pale-green text-primary-mid text-xs font-bold rounded-full">Enganche bajo (3.5%)</span><span class="px-3 py-1 bg-pale-green text-primary-mid text-xs font-bold rounded-full">Score desde 580</span>';
+      loanText.innerText = 'FHA';
+    } else {
+      btnConv.className = 'px-6 py-2 rounded-md font-bold transition-all bg-primary-mid text-white';
+      btnFha.className = 'px-6 py-2 rounded-md font-bold transition-all text-on-surface-variant hover:bg-surface-variant';
+      badges.innerHTML = '<span class="px-3 py-1 bg-secondary-fixed text-secondary text-xs font-bold rounded-full">Mejor tasa</span><span class="px-3 py-1 bg-secondary-fixed text-secondary text-xs font-bold rounded-full">Menos seguros</span><span class="px-3 py-1 bg-secondary-fixed text-secondary text-xs font-bold rounded-full">Score 620+</span>';
+      loanText.innerText = 'Convencional';
+    }
+    updateCalculator();
+  };
+
+  const originalUpdateCalculator = updateCalculator;
+  updateCalculator = function() {
+    originalUpdateCalculator();
+    const price = parseInt(document.getElementById('price-slider').value);
+    const closingVal = document.getElementById('closing-val');
+    const piVal = document.getElementById('pi-val');
+    const totalVal = document.getElementById('total-payment');
+    
+    if (currentLoanType === 'conv') {
+       // Simplified adjustment for conventional
+       const currentPi = parseInt(piVal.innerText.replace(/[^0-9]/g, ''));
+       piVal.innerText = '$' + Math.round(currentPi * 0.95).toLocaleString();
+       totalVal.innerText = '$' + (Math.round(currentPi * 0.95) + parseInt(document.getElementById('tax-val').innerText.replace(/[^0-9]/g, ''))).toLocaleString();
+       closingVal.innerText = '$' + Math.round(price * 0.05).toLocaleString();
+    }
+  };
+</script></body></html>

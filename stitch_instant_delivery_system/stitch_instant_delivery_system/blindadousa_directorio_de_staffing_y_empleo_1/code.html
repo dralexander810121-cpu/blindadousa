@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 25px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        /* Custom scrollbar for SideNav */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "success": "#52B788",
+                      "primary-fixed": "#c1ecd4",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9faf6",
+                      "surface-container-low": "#f3f4f1",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "secondary-fixed-dim": "#ffb780",
+                      "inverse-surface": "#2f312f",
+                      "gray": "#6B7280",
+                      "primary-mid": "#2D6A4F",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "tertiary-container": "#503700",
+                      "accent-dark": "#E76F51",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "surface-variant": "#e2e3e0",
+                      "error": "#ba1a1a",
+                      "primary": "#012d1d",
+                      "on-tertiary": "#ffffff",
+                      "danger": "#D62828",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#002114",
+                      "surface-dim": "#dadad7",
+                      "surface-tint": "#3f6653",
+                      "surface-container-highest": "#e2e3e0",
+                      "tertiary": "#342300",
+                      "on-primary-container": "#86af99",
+                      "on-secondary-container": "#783d01",
+                      "pale-green": "#D8F3DC",
+                      "on-error": "#ffffff",
+                      "secondary": "#8e4e14",
+                      "inverse-on-surface": "#f0f1ee",
+                      "on-surface": "#1a1c1a",
+                      "on-secondary": "#ffffff",
+                      "dark": "#1A1A2E",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#ffdcc4",
+                      "surface-container": "#eeeeeb",
+                      "on-background": "#1a1c1a",
+                      "outline": "#717973",
+                      "on-tertiary-fixed": "#271900",
+                      "surface": "#f9faf6",
+                      "surface-container-high": "#e8e8e5",
+                      "background": "#f9faf6",
+                      "primary-container": "#1b4332",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-secondary-fixed": "#2f1400",
+                      "error-container": "#ffdad6",
+                      "warning": "#F77F00",
+                      "on-tertiary-container": "#d89b00",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "outline-variant": "#c1c8c2",
+                      "primary-light": "#40916C",
+                      "inverse-primary": "#a5d0b9",
+                      "secondary-container": "#ffab69",
+                      "on-surface-variant": "#414844",
+                      "tertiary-fixed": "#ffdea9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "1rem",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "3rem",
+                      "touch-target": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Bebas Neue"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-primary dark:bg-primary-container border-r border-primary-mid shadow-md py-6 px-4 z-50 no-scrollbar">
+<div class="mb-10 px-2">
+<h1 class="font-display-lg text-display-lg text-pale-green leading-none">BlindadoUSA</h1>
+<p class="font-label-sm text-pale-green opacity-70">Biblia Financiera</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation Items Mapping from JSON -->
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Resumen</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span>Crédito</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>ITIN/SSN</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Presupuesto</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="savings">savings</span>
+<span>Ahorros</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Deudas</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Impuestos</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Inversiones</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Seguros</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Legal</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Educación</span>
+</a>
+<!-- Active Tab: Comunidad -->
+<a class="flex items-center gap-3 py-3 px-4 text-on-primary-fixed bg-primary-fixed rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Comunidad</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 text-pale-green/70 hover:text-pale-green hover:bg-primary-mid transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Soporte</span>
+</a>
+</nav>
+<div class="mt-8 pt-6 border-t border-primary-mid">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="upgrade">upgrade</span>
+<span>Actualizar Plan</span>
+</button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-20 bg-surface-bright border-b border-outline-variant flex items-center justify-between px-6 md:px-10 z-40">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-primary hidden md:block">Buscador de Empleo</h2>
+</div>
+<div class="flex items-center gap-4 md:gap-6 flex-1 justify-end max-w-2xl">
+<!-- Search Bar on Right -->
+<div class="relative w-full max-w-sm hidden sm:block">
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low border-none rounded-full text-body-md focus:ring-2 focus:ring-primary-light" placeholder="Buscar agencias..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="hidden lg:inline-block px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-bold rounded-full text-xs">Miembro Premium</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="settings">settings</button>
+<img alt="Avatar del usuario" class="w-10 h-10 rounded-full border-2 border-primary-fixed object-cover" data-alt="A professional portrait of a confident Hispanic man in his 40s, wearing a clean business-casual outfit. He has a warm, friendly smile and neat hair. The background is a soft-focus office environment with natural light pouring in, creating an atmosphere of trust, success, and financial stability. The lighting is high-key and modern, following a corporate clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHP-Sch3qSpI2pTEoseNkrnELbGSYLancGPPkbmKQcGTqTRVbfawRaJKLPR5O81UwrEMBZ3mxtm9WcPk6ASqjcqtXgMpzwXM0MSIUYSkhGn3We-dPpRbWiZxTsdAOKBntURZB8xI6WEApDtGVnsrhtgPt43NVDS6a3jeaGyZHEQAT-7ILkuN2MdEzqMX2vTwkQ2f-_JlNRUzOpbIiP-u61qPSoCYWjT-I5TtKmd2XMJK0ts-7M_fHY0IjjUgp2Hh6im6oooKGLogL0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:px-10 md:ml-64 min-h-screen bg-surface">
+<!-- Hero Search Section -->
+<section class="max-w-6xl mx-auto mb-stack-lg">
+<div class="bg-primary-container rounded-xl p-8 md:p-12 text-white relative overflow-hidden">
+<!-- Decorative pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#d8f3dc 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10">
+<h3 class="font-display-lg-mobile md:text-display-lg text-white mb-4">Encuentra tu próximo empleo</h3>
+<p class="text-pale-green text-body-lg max-w-xl mb-8">Conectamos a la comunidad hispana con agencias de staffing verificadas que valoran tu trabajo y ofrecen beneficios reales.</p>
+<!-- Search Filters Stack -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 bg-white/10 p-2 rounded-2xl backdrop-blur-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-pale-green" data-icon="business_center">business_center</span>
+<select class="w-full h-14 pl-12 pr-4 bg-white/20 border-none rounded-xl text-white focus:ring-2 focus:ring-pale-green appearance-none">
+<option class="text-dark">Todas las Industrias</option>
+<option class="text-dark">Construcción</option>
+<option class="text-dark">Limpieza</option>
+<option class="text-dark">Bodega / Logística</option>
+<option class="text-dark">Hospitalidad</option>
+</select>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-pale-green" data-icon="location_on">location_on</span>
+<input class="w-full h-14 pl-12 pr-4 bg-white/20 border-none rounded-xl text-white placeholder-pale-green/60 focus:ring-2 focus:ring-pale-green" placeholder="Ciudad o Estado" type="text"/>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-pale-green" data-icon="id_card">id_card</span>
+<select class="w-full h-14 pl-12 pr-4 bg-white/20 border-none rounded-xl text-white focus:ring-2 focus:ring-pale-green appearance-none">
+<option class="text-dark">Cualquier ID</option>
+<option class="text-dark">Acepta ITIN</option>
+<option class="text-dark">Solo SSN</option>
+</select>
+</div>
+<button class="h-14 bg-secondary-container text-on-secondary-container font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                            Buscar Ahora
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Section (Ads) -->
+<section class="max-w-6xl mx-auto mb-stack-lg">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-warning" data-icon="stars" data-weight="fill">stars</span>
+                    Agencias Destacadas
+                </h4>
+<span class="text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">Anuncio</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Featured Card 1 -->
+<div class="bg-surface-container-lowest p-1 rounded-2xl border-2 border-primary-fixed sombra-verde group cursor-pointer hover:-translate-y-1 transition-transform">
+<div class="flex gap-6 p-6">
+<img alt="Logo de Agencia" class="w-24 h-24 rounded-xl object-cover bg-surface-container" data-alt="A modern corporate logo for a staffing agency called 'Alianza Employment'. The imagery features stylized figures of workers in safety vests and hard hats shake hands with a manager. The color scheme is professional navy blue and vibrant success green. The style is clean, 2D vector art with a high-contrast corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXFJt0KLwqMNTU1YcwdlMAx3ZPiTS0365UKwPRp7FvunVkoW1V9lcKDwnURyCgeFATAaQr8je7kgSfeKk1V8IaGG1IoIsxttNQs-T-gEqBWpaKVz4F2NS03jIfbmEp5fltJVnlljt6Mn62gZIPYK7oop3BIhR7_56BCeFhPp63jk97oH5mtS4n7x6S9PU1frKBL2X-DqiezUg-l75mCPO_GuoOpRcBUNPBLLzcUYy_M7xjsbB7YzFJ6Gmavoouk4_339PRLgflcdKR"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h5 class="font-bold text-xl text-primary">Alianza Staffing Group</h5>
+<span class="bg-success text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">Verificada</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-3">Especialistas en Construcción y Manufactura pesada en todo Texas.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">Acepta ITIN</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-medium rounded-full">Bilingüe</span>
+</div>
+<button class="w-full md:w-auto px-6 py-2 bg-primary text-pale-green font-bold rounded-lg hover:bg-primary-mid transition-colors">Contactar Priority</button>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="bg-surface-container-lowest p-1 rounded-2xl border-2 border-primary-fixed sombra-verde group cursor-pointer hover:-translate-y-1 transition-transform">
+<div class="flex gap-6 p-6">
+<img alt="Logo de Agencia" class="w-24 h-24 rounded-xl object-cover bg-surface-container" data-alt="A diverse group of workers from different backgrounds, including a woman in a chef's uniform and a man in a delivery driver uniform, standing together confidently. The image is bright, professional, and optimistic, with a soft blur on a bustling city background. The lighting is warm and welcoming, emphasizing community and support." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5AgY8iwsKksLhRXlpFQr_vNIuFM0OntifYpsa1ZiFvlUtDJr6BPvq-acI2av2IX1j8b6_Ql-MrTdOS7xLuG0lYS_M9rwFM1TZkNrc8yU3S3lCXcNit6oUE-Wxk3EBcWatrLS7rTWX6qdttLNyf6fBu2AxRxabSUSDwILbKo59ZAVBV616ee6DyFPsR1Iv0GsVgDE1LZmSDlkalxQ7ouFcFxQKJxVkVdQuEfz7jTGjHGHPgg3O3j7ccciw1IRWh9K-QfXanCNtIbJ6"/>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h5 class="font-bold text-xl text-primary">Horizon Empleos USA</h5>
+<span class="bg-success text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">Verificada</span>
+</div>
+<p class="text-on-surface-variant text-sm mb-3">Oportunidades inmediatas en Limpieza y Hospitalidad en Florida.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">Pagos Semanales</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant text-xs font-medium rounded-full">Sin Experiencia</span>
+</div>
+<button class="w-full md:w-auto px-6 py-2 bg-primary text-pale-green font-bold rounded-lg hover:bg-primary-mid transition-colors">Ver Vacantes</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Directory & Guide Grid -->
+<div class="max-w-6xl mx-auto grid grid-cols-1 xl:grid-cols-3 gap-stack-lg items-start">
+<!-- Left Side: Agency List -->
+<div class="xl:col-span-2 space-y-6">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-md text-primary">Listado de Agencias</h4>
+<button class="text-primary-mid font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        Filtros Avanzados
+                    </button>
+</div>
+<!-- Agency Card 1 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:border-primary-light transition-all">
+<div class="p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="handyman">handyman</span>
+</div>
+<div>
+<h6 class="font-bold text-lg leading-tight">Constru-Pro Staffing</h6>
+<p class="text-on-surface-variant text-sm">Construcción • Phoenix, AZ</p>
+</div>
+</div>
+<!-- Traffic Light Status -->
+<div class="flex items-center gap-2 px-3 py-1 bg-success/10 text-success rounded-full border border-success/20">
+<span class="w-2 h-2 rounded-full bg-success"></span>
+<span class="text-xs font-bold uppercase">Contratando Ahora</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface mb-6">Buscan actualmente 15 albañiles y 10 ayudantes generales. Ofrecen capacitación gratuita en seguridad laboral (OSHA).</p>
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<button class="w-full sm:flex-1 h-12 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:opacity-90 transition-all">Aplicar Ahora</button>
+<button class="w-full sm:w-auto px-6 h-12 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary-fixed transition-colors">Ver Perfil</button>
+</div>
+</div>
+</div>
+<!-- Agency Card 2 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:border-primary-light transition-all">
+<div class="p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<h6 class="font-bold text-lg leading-tight">Logística del Sol</h6>
+<p class="text-on-surface-variant text-sm">Bodega • Chicago, IL</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-warning/10 text-warning rounded-full border border-warning/20">
+<span class="w-2 h-2 rounded-full bg-warning"></span>
+<span class="text-xs font-bold uppercase">Pocas Vacantes</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface mb-6">Operadores de montacargas y empacadores nocturnos. Transporte disponible desde puntos céntricos de la ciudad.</p>
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<button class="w-full sm:flex-1 h-12 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:opacity-90 transition-all">Aplicar Ahora</button>
+<button class="w-full sm:w-auto px-6 h-12 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary-fixed transition-colors">Ver Perfil</button>
+</div>
+</div>
+</div>
+<!-- Agency Card 3 -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden hover:border-primary-light transition-all">
+<div class="p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="cleaning_services">cleaning_services</span>
+</div>
+<div>
+<h6 class="font-bold text-lg leading-tight">Limpieza Brillante Inc.</h6>
+<p class="text-on-surface-variant text-sm">Limpieza • Los Angeles, CA</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-success/10 text-success rounded-full border border-success/20">
+<span class="w-2 h-2 rounded-full bg-success"></span>
+<span class="text-xs font-bold uppercase">Alta Demanda</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface mb-6">Personal para limpieza de oficinas comerciales y estadios. Flexibilidad de horarios y pago competitivo.</p>
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<button class="w-full sm:flex-1 h-12 bg-secondary-container text-on-secondary-container font-bold rounded-lg hover:opacity-90 transition-all">Aplicar Ahora</button>
+<button class="w-full sm:w-auto px-6 h-12 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary-fixed transition-colors">Ver Perfil</button>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-10">
+<button class="px-8 py-3 bg-surface-container-high text-primary font-bold rounded-full hover:bg-primary hover:text-pale-green transition-all">Cargar más agencias</button>
+</div>
+</div>
+<!-- Right Side: Interview Guide -->
+<div class="space-y-8 sticky top-24">
+<div class="bg-primary-mid rounded-2xl p-6 text-white sombra-verde relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[160px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+</div>
+<h5 class="font-headline-md mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                        Guía de Entrevista
+                    </h5>
+<p class="text-pale-green text-sm mb-6">Prepárate como un profesional y asegura tu puesto hoy mismo.</p>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<div class="w-6 h-6 rounded-full bg-pale-green/20 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold text-pale-green">1</span>
+</div>
+<p class="text-sm">Llega 15 minutos antes. La puntualidad es la primera impresión.</p>
+</li>
+<li class="flex gap-3">
+<div class="w-6 h-6 rounded-full bg-pale-green/20 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold text-pale-green">2</span>
+</div>
+<p class="text-sm">Viste limpio y profesional, incluso para trabajos físicos.</p>
+</li>
+<li class="flex gap-3">
+<div class="w-6 h-6 rounded-full bg-pale-green/20 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold text-pale-green">3</span>
+</div>
+<p class="text-sm">Ten tus documentos listos (ID, ITIN o SSN) en una carpeta.</p>
+</li>
+<li class="flex gap-3">
+<div class="w-6 h-6 rounded-full bg-pale-green/20 flex items-center justify-center shrink-0">
+<span class="text-xs font-bold text-pale-green">4</span>
+</div>
+<p class="text-sm">Muestra disposición de aprender y trabajar duro.</p>
+</li>
+</ul>
+<button class="w-full mt-8 py-3 bg-white text-primary font-bold rounded-xl hover:bg-pale-green transition-colors">Descargar Guía PDF</button>
+</div>
+<!-- Success Story Card -->
+<div class="bg-surface-container rounded-2xl p-6 border border-outline-variant">
+<h5 class="font-bold text-primary mb-4">Caso de Éxito</h5>
+<div class="flex items-center gap-4 mb-4">
+<img alt="Testimonio" class="w-12 h-12 rounded-full object-cover" data-alt="A close-up portrait of a hardworking Hispanic woman in her late 30s, smiling brightly with a background of a clean, modern warehouse facility. She wears a professional polo shirt. The lighting is crisp and natural, conveying a sense of accomplishment, dignity, and upward mobility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASRPFZj4IsKR2z2ZL5Rwy5ifPcyqoTL18EKjV4lgMTHMiU7B436aEI9zCuOSdyiUzH4JDvPUN5GPSHJ3V1Kb_nuz-Xsp_WgM-NT-KrAmXMdYnhMz4eSDhqhsH67cBty-72Kd04y9gjFjRVsE7QzvD_Esz3fIpiKr-x82RMNwHRdyzer2gjqvAH8Xe3KAGSe6PegZ9IJNPGlQzPW-3DBDXEjmP9JV-lXZYBRX3BltYPZQNECrks5KrOazDxqTop_ehCZ605QlotUbpP"/>
+<div>
+<p class="font-bold text-sm">Maria R.</p>
+<p class="text-xs text-on-surface-variant">Contratada hace 2 meses</p>
+</div>
+</div>
+<p class="text-sm italic text-on-surface-variant">"Gracias a BlindadoUSA encontré una agencia que aceptó mi ITIN y ahora tengo un trabajo estable con beneficios para mi familia."</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Button -->
+<button class="fixed bottom-8 right-8 z-50 rounded-full h-14 w-14 flex items-center justify-center bg-primary-mid dark:bg-primary-light text-on-primary shadow-lg shadow-primary-container/20 hover:scale-110 hover:shadow-xl transition-all group active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="smart_toy">smart_toy</span>
+<span class="absolute right-16 bg-primary-container text-white px-4 py-2 rounded-lg font-label-sm text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Asistente Blindado</span>
+</button>
+<!-- Script for simple interactions -->
+<script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

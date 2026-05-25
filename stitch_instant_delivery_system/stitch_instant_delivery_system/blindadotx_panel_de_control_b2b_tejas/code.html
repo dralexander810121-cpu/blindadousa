@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoTX Business | Partner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f3f4f1",
+                        "surface": "#f9faf6",
+                        "outline": "#717973",
+                        "tertiary-fixed": "#ffdea9",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f312f",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "warning": "#F77F00",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb780",
+                        "gray": "#6B7280",
+                        "surface-container-lowest": "#ffffff",
+                        "dark": "#1A1A2E",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#1a1c1a",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "primary-light": "#40916C",
+                        "surface-variant": "#e2e3e0",
+                        "on-tertiary-fixed": "#271900",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-tint": "#3f6653",
+                        "tertiary-container": "#503700",
+                        "primary": "#012d1d",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "accent-dark": "#E76F51",
+                        "on-background": "#1a1c1a",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeeb",
+                        "on-primary-fixed": "#002114",
+                        "inverse-on-surface": "#f0f1ee",
+                        "primary-mid": "#2D6A4F",
+                        "surface-bright": "#f9faf6",
+                        "error": "#ba1a1a",
+                        "background": "#f9faf6",
+                        "tertiary": "#342300",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "secondary-fixed": "#ffdcc4",
+                        "surface-dim": "#dadad7",
+                        "on-secondary-container": "#783d01",
+                        "primary-container": "#1b4332",
+                        "on-surface-variant": "#414844",
+                        "secondary-container": "#ffab69",
+                        "pale-green": "#D8F3DC",
+                        "surface-container-highest": "#e2e3e0",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary-container": "#d89b00",
+                        "success": "#52B788",
+                        "on-primary-container": "#86af99",
+                        "danger": "#D62828",
+                        "secondary": "#8e4e14",
+                        "on-secondary-fixed": "#2f1400",
+                        "on-secondary-fixed-variant": "#6f3800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Bebas Neue"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Bebas Neue"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Sidebar Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-primary dark:bg-primary-container shadow-md flex flex-col py-6 z-50 hidden md:flex">
+<div class="px-6 mb-10">
+<h1 class="font-display-lg text-display-lg-mobile text-on-primary tracking-tight">BLINDADOTX</h1>
+<p class="text-pale-green opacity-70 font-label-sm uppercase tracking-widest mt-1">Partner Dashboard</p>
+</div>
+<nav class="flex-grow flex flex-col gap-2">
+<!-- Active Navigation -->
+<a class="bg-primary-mid text-white font-bold rounded-lg mx-2 flex items-center px-4 py-3 transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-pale-green opacity-80 hover:opacity-100 mx-2 hover:bg-primary-light transition-colors flex items-center px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">storefront</span>
+<span>My Business Profile</span>
+</a>
+<a class="text-pale-green opacity-80 hover:opacity-100 mx-2 hover:bg-primary-light transition-colors flex items-center px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">analytics</span>
+<span>Statistics &amp; Clicks</span>
+</a>
+<a class="text-pale-green opacity-80 hover:opacity-100 mx-2 hover:bg-primary-light transition-colors flex items-center px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span>Billing &amp; Plan</span>
+</a>
+<a class="text-pale-green opacity-80 hover:opacity-100 mx-2 hover:bg-primary-light transition-colors flex items-center px-4 py-3 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span>Account Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-pale-green text-primary font-bold py-3 rounded-lg hover:bg-white transition-all active:scale-95 duration-150 flex justify-center items-center">
+<span class="material-symbols-outlined mr-2">contact_support</span>
+                Support Center
+            </button>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 bg-surface dark:bg-surface-dim border-b border-outline-variant flex justify-between items-center px-4 md:px-8 z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden text-primary">menu</span>
+<h2 class="font-headline-md text-headline-md text-primary hidden md:block">Business Dashboard</h2>
+<h2 class="font-headline-md text-headline-md text-primary md:hidden">BlindadoTX</h2>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-on-surface-variant hover:text-primary-mid transition-colors active:opacity-70">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 bg-danger w-2 h-2 rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 border-l pl-6 border-outline-variant">
+<div class="text-right hidden sm:block">
+<p class="font-bold text-primary leading-none">Carlos Mendoza</p>
+<p class="text-xs text-on-surface-variant">Admin</p>
+</div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-primary-mid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl7WYFNL9AjGNAQNhJhdCQ6ctBBds7GLJcMEl2SPk8S1v4spOG3yG58pQFPLW70iHbTfjJn_uHAvKNqvevhJMXeJmIrxtszoT9RDAxHn0cjgAOZHOfGZLocLzeuXi2WS2rHJrUvG-kcOej1uCeqj6INAYIohz_Ti4NPPxvEkbjTZDPlWzwFn2OzRf8KmSoIEkhRa0XA_D_10Mh0siT1Bqmuy0vC1HMp3luEPHbDci8_ZqVpXa6xukRYH5n_XcM72ADuwjnMdH17yR1"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-4 md:px-8 md:ml-64 min-h-screen">
+<!-- Welcome Header -->
+<div class="mb-10">
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Bienvenido a tu Panel de Negocios</h3>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-mid">domain</span> 
+                Mendoza Legal &amp; Financial Services, LLC
+            </p>
+</div>
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<!-- Metric 1 -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-pale-green p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</div>
+<span class="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded">+12%</span>
+</div>
+<p class="text-on-surface-variant font-label-sm uppercase mb-1">Vistas del Perfil</p>
+<p class="font-display-lg text-display-lg-mobile text-primary">1,284</p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-pale-green p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">touch_app</span>
+</div>
+<span class="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded">+5%</span>
+</div>
+<p class="text-on-surface-variant font-label-sm uppercase mb-1">Clicks a Web/Tel</p>
+<p class="font-display-lg text-display-lg-mobile text-primary">342</p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary-mid p-2 rounded-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="text-primary-mid text-xs font-bold bg-primary-mid/10 px-2 py-1 rounded">Válido</span>
+</div>
+<p class="text-on-surface-variant font-label-sm uppercase mb-1">Estado del Sello</p>
+<p class="font-display-lg text-display-lg-mobile text-primary">ACTIVE</p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant hover:border-primary-mid transition-all sombra-verde">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-pale-green p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+</div>
+<span class="text-warning text-xs font-bold bg-warning/10 px-2 py-1 rounded">Renovar</span>
+</div>
+<p class="text-on-surface-variant font-label-sm uppercase mb-1">Días de Suscripción</p>
+<p class="font-display-lg text-display-lg-mobile text-primary">45 DÍAS</p>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+<!-- Left Column: Performance Chart -->
+<div class="lg:col-span-2 bg-white rounded-xl border border-outline-variant p-6 sombra-verde">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline-md text-headline-md text-primary">Rendimiento en Texas</h4>
+<div class="flex gap-2">
+<select class="bg-surface border-outline-variant rounded-lg text-sm focus:ring-primary-mid focus:border-primary-mid">
+<option>Todo Texas</option>
+<option>Houston</option>
+<option>Dallas</option>
+<option>Austin</option>
+</select>
+<select class="bg-surface border-outline-variant rounded-lg text-sm focus:ring-primary-mid focus:border-primary-mid">
+<option>Últimos 30 días</option>
+<option>Últimos 90 días</option>
+<option>Este año</option>
+</select>
+</div>
+</div>
+<!-- Chart Placeholder Visual -->
+<div class="h-64 flex items-end gap-2 w-full">
+<div class="flex-1 bg-pale-green h-[40%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[65%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[50%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[85%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-primary-mid h-[100%] rounded-t-sm"></div>
+<div class="flex-1 bg-pale-green h-[75%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[60%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[90%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[45%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[55%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[80%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+<div class="flex-1 bg-pale-green h-[70%] rounded-t-sm hover:bg-primary-mid transition-all"></div>
+</div>
+<div class="flex justify-between text-xs text-on-surface-variant mt-4 font-label-sm uppercase tracking-tighter">
+<span>Semana 1</span>
+<span>Semana 2</span>
+<span>Semana 3</span>
+<span>Semana 4</span>
+</div>
+</div>
+<!-- Right Column: Listing Preview -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden sombra-verde">
+<div class="bg-primary p-4 flex justify-between items-center">
+<span class="text-white font-label-sm uppercase">Vista Previa de tu Ficha</span>
+<span class="material-symbols-outlined text-white text-sm">open_in_new</span>
+</div>
+<div class="p-6">
+<div class="relative mb-4">
+<img alt="Business Logo" class="w-full h-32 object-cover rounded-lg mb-4 shadow-sm" data-alt="A clean and modern corporate office building exterior with reflective glass windows during a bright sunny day. The scene is professional and high-contrast, representing a successful business establishment. The overall color palette is dominated by corporate greens and bright whites to match the BlindadoUSA brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJAJFjNsVS4ySyAOcfJEG2l2n-5a0AR7RbB3iEBZ2qXOXABe-hAhQrVI49aQAlbQcLg3tdtagYN7NarZ7nllX-MkFUHpJkOoEffZJFfaeHIwdOjdHCL2PZvAeseMRtKN6Yay12ka0utn6na-X2nQKbRAkKtsHweqpHxo9YuhIPKmMtg2vf8SUdNaH7AVoBejGw2X19rdKQwAclcYRoiyOv6dAbnil7PUR_6JhD73oQ6z-mVCoSdwo9RaYVvF0JWI6sgzfNEhOmZ80q"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm p-1 rounded-full flex items-center shadow-md">
+<span class="material-symbols-outlined text-primary-mid" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<h5 class="text-xl font-bold text-primary mb-1">Mendoza Legal &amp; Financial</h5>
+<p class="text-on-surface-variant text-sm mb-4">Servicios Legales • Houston, TX</p>
+<div class="flex gap-2 mb-6">
+<div class="bg-success/10 text-success text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Crédito</div>
+<div class="bg-success/10 text-success text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Notaría</div>
+<div class="bg-success/10 text-success text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Legal</div>
+</div>
+<button class="w-full border-2 border-primary-mid text-primary-mid font-bold py-2 rounded-lg hover:bg-primary-mid hover:text-white transition-colors flex justify-center items-center gap-2">
+                        Ver Perfil Público
+                    </button>
+</div>
+</div>
+</div>
+<!-- Lower Section: Quick Actions -->
+<section class="mb-10">
+<h4 class="font-headline-md text-headline-md text-primary mb-6">Acciones Rápidas</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Action 1 -->
+<button class="group bg-white p-6 rounded-xl border-2 border-dashed border-outline-variant hover:border-primary-mid hover:bg-pale-green/20 transition-all flex flex-col items-center text-center">
+<div class="bg-primary-mid text-white w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<span class="font-bold text-primary mb-1">Edit Profile</span>
+<span class="text-sm text-on-surface-variant">Actualiza tu información y fotos</span>
+</button>
+<!-- Action 2 -->
+<button class="group bg-primary p-6 rounded-xl border-2 border-primary hover:bg-primary-container transition-all flex flex-col items-center text-center">
+<div class="bg-warning text-dark w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">upgrade</span>
+</div>
+<span class="font-bold text-white mb-1">Upgrade Plan</span>
+<span class="text-sm text-pale-green opacity-70">Aumenta tu visibilidad y leads</span>
+</button>
+<!-- Action 3 -->
+<button class="group bg-white p-6 rounded-xl border-2 border-dashed border-outline-variant hover:border-primary-mid hover:bg-pale-green/20 transition-all flex flex-col items-center text-center">
+<div class="bg-primary-mid text-white w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">download</span>
+</div>
+<span class="font-bold text-primary mb-1">Descargar Sello</span>
+<span class="text-sm text-on-surface-variant">Usa el sello de confianza en tu web</span>
+</button>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="mt-16 pt-8 border-t border-outline-variant text-on-surface-variant">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-6 text-sm font-semibold">
+<a class="hover:text-primary-mid transition-colors" href="#">Términos de Partner</a>
+<a class="hover:text-primary-mid transition-colors" href="#">Guía de Uso</a>
+<a class="hover:text-primary-mid transition-colors" href="#">Centro de Ayuda</a>
+</div>
+<p class="text-xs">© 2024 BlindadoTX Business. Todos los derechos reservados.</p>
+</div>
+</footer>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 rounded-full bg-primary-mid text-white shadow-lg hover:bg-primary-container transition-all flex items-center justify-center group relative active:scale-90">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+<div class="absolute bottom-full right-0 mb-4 w-48 bg-white p-3 rounded-xl shadow-xl border border-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+<p class="text-xs text-primary font-bold">¿Necesitas ayuda con tu ficha?</p>
+<p class="text-[10px] text-on-surface-variant">Pregúntame cualquier cosa sobre tu panel.</p>
+</div>
+</button>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        // Simple scale effect for interactive elements
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.style.transform = 'scale(0.96)');
+            el.addEventListener('mouseup', () => el.style.transform = 'scale(1)');
+            el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
+        });
+
+        // Hover animation for "Chart" bars
+        const bars = document.querySelectorAll('.flex-1.bg-pale-green');
+        bars.forEach(bar => {
+            bar.addEventListener('mouseenter', () => {
+                bar.classList.add('scale-y-105');
+            });
+            bar.addEventListener('mouseleave', () => {
+                bar.classList.remove('scale-y-105');
+            });
+        });
+    </script>
+</body></html>

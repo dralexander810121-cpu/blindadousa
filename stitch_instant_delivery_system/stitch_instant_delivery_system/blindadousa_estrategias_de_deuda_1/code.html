@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estrategias de Deuda | BlindadoUSA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414844",
+                        "surface-container": "#eeeeeb",
+                        "primary-light": "#40916C",
+                        "surface-tint": "#3f6653",
+                        "surface-variant": "#e2e3e0",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#86af99",
+                        "outline-variant": "#c1c8c2",
+                        "warning": "#F77F00",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f4f1",
+                        "on-tertiary-fixed-variant": "#5e4100",
+                        "danger": "#D62828",
+                        "on-tertiary-container": "#d89b00",
+                        "surface": "#f9faf6",
+                        "surface-bright": "#f9faf6",
+                        "secondary": "#8e4e14",
+                        "primary-mid": "#2D6A4F",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary-fixed-dim": "#ffb780",
+                        "inverse-surface": "#2f312f",
+                        "background": "#f9faf6",
+                        "on-secondary-container": "#783d01",
+                        "on-secondary-fixed": "#2f1400",
+                        "surface-container-high": "#e8e8e5",
+                        "surface-dim": "#dadad7",
+                        "tertiary-fixed": "#ffdea9",
+                        "primary": "#012d1d",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#6f3800",
+                        "secondary-fixed": "#ffdcc4",
+                        "primary-container": "#1b4332",
+                        "surface-container-highest": "#e2e3e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "dark": "#1A1A2E",
+                        "tertiary": "#342300",
+                        "on-primary": "#ffffff",
+                        "accent-dark": "#E76F51",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-background": "#1a1c1a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#503700",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-fixed": "#271900",
+                        "gray": "#6B7280",
+                        "secondary-container": "#ffab69",
+                        "on-surface": "#1a1c1a",
+                        "inverse-on-surface": "#f0f1ee",
+                        "pale-green": "#D8F3DC",
+                        "tertiary-fixed-dim": "#ffba27",
+                        "outline": "#717973",
+                        "success": "#52B788"
+                    },
+                    "spacing": {
+                        "touch-target": "48px",
+                        "stack-lg": "3rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "margin-mobile": "1.25rem",
+                        "stack-md": "1.5rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Bebas Neue"],
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg": ["Bebas Neue"],
+                        "headline-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .semaforo-shadow-green { box-shadow: 0 4px 14px 0 rgba(82, 183, 136, 0.39); }
+        .semaforo-shadow-yellow { box-shadow: 0 4px 14px 0 rgba(247, 127, 0, 0.3); }
+        .semaforo-shadow-red { box-shadow: 0 4px 14px 0 rgba(214, 40, 40, 0.3); }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-touch-target bg-background shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg text-primary-mid">BlindadoUSA</span>
+<nav class="hidden md:flex ml-8 items-center gap-6">
+<span class="text-on-surface-variant font-medium text-body-md">Calculadoras</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+<span class="text-primary-mid font-bold border-b-2 border-primary-mid pb-1 text-body-md">Estrategias de Deuda</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:block font-bold text-primary">Hola, Miembro</span>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-full w-64 fixed left-0 top-0 pt-20 p-4 bg-surface-container-lowest border-r border-outline-variant z-40">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Mi Perfil</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span>Mis Documentos</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Historial</span>
+</a>
+<a class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container font-bold rounded-lg transition-all translate-x-1" href="#">
+<span class="material-symbols-outlined">calculate</span>
+<span>Calculadoras</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+<span>Soporte</span>
+</a>
+</div>
+<div class="mt-auto p-4 bg-pale-green rounded-xl">
+<p class="font-bold text-primary text-sm">Plan Premium Activo</p>
+<button class="mt-2 w-full py-2 bg-primary text-white rounded-lg text-sm font-bold uppercase tracking-wider">Mejorar Plan</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 pb-24 px-margin-mobile md:px-margin-desktop">
+<!-- Debt Analyzer Hero -->
+<section class="mb-stack-lg">
+<div class="flex flex-col md:flex-row gap-6">
+<!-- Input Card -->
+<div class="w-full md:w-2/3 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Analizador de Deuda Total</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">Deuda Total Acumulada</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-primary">$</span>
+<input class="w-full h-touch-target pl-8 rounded-lg border-2 border-outline-variant focus:border-primary-mid outline-none font-data-mono" type="number" value="45000"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">Ingreso Mensual Bruto</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-primary">$</span>
+<input class="w-full h-touch-target pl-8 rounded-lg border-2 border-outline-variant focus:border-primary-mid outline-none font-data-mono" type="number" value="5200"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">Gastos Fijos (Renta, Utilidades)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-primary">$</span>
+<input class="w-full h-touch-target pl-8 rounded-lg border-2 border-outline-variant focus:border-primary-mid outline-none font-data-mono" type="number" value="3100"/>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full h-touch-target bg-secondary-container text-on-secondary-container font-bold rounded-lg shadow-sm active:scale-95 transition-transform">CALCULAR DTI</button>
+</div>
+</div>
+</div>
+<!-- Semaphore Card -->
+<div class="w-full md:w-1/3 bg-error-container p-6 rounded-xl border border-danger shadow-md flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-6xl text-danger mb-2 filled-icon">warning</span>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-danger">DTI: 42%</h3>
+<p class="font-bold text-danger uppercase tracking-widest mb-2">Estado: Crítico (Rojo)</p>
+<p class="text-on-surface-variant text-sm">Tu nivel de deuda es superior al 40% de tus ingresos. Esto dificulta la aprobación de nuevos créditos y pone en riesgo tu estabilidad.</p>
+</div>
+</div>
+</section>
+<!-- Comparison of Strategies -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Comparación de Estrategias Ganadoras</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Snowball -->
+<div class="bg-surface-container-low p-8 rounded-2xl border-t-8 border-primary-light relative overflow-hidden">
+<div class="absolute top-4 right-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">ac_unit</span>
+</div>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-primary-mid mb-2">Bola de Nieve</h3>
+<p class="font-bold text-primary mb-4 italic">"Victorias emocionales primero"</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span class="text-body-md">Pagas primero la deuda con el <strong>monto más pequeño</strong>.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-success">check_circle</span>
+<span class="text-body-md">Generas un impulso psicológico al eliminar cuentas rápido.</span>
+</li>
+</ul>
+<div class="p-4 bg-white rounded-lg shadow-inner">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Libertad Total en:</span>
+<span class="font-data-mono text-xl text-primary-mid">22 meses</span>
+</div>
+</div>
+</div>
+<!-- Avalanche -->
+<div class="bg-primary p-8 rounded-2xl border-t-8 border-secondary relative overflow-hidden text-on-primary">
+<div class="absolute top-4 right-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">trending_down</span>
+</div>
+<h3 class="font-display-lg-mobile text-display-lg-mobile text-secondary-fixed mb-2">Avalancha</h3>
+<p class="font-bold text-secondary-fixed mb-4 italic">"Matemáticamente imbatible"</p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<span class="text-body-md">Pagas primero la deuda con la <strong>tasa de interés más alta</strong>.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<span class="text-body-md">Ahorras miles de dólares en intereses a largo plazo.</span>
+</li>
+</ul>
+<div class="p-4 bg-primary-container rounded-lg shadow-inner border border-white/10">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium">Libertad Total en:</span>
+<span class="font-data-mono text-xl text-secondary-fixed">19 meses</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hardship Plan Generator -->
+<section class="mb-stack-lg bg-primary-container p-8 rounded-3xl relative overflow-hidden">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.2) 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+<div class="md:col-span-2">
+<div class="flex items-center gap-4 mb-4">
+<div class="bg-secondary-container p-3 rounded-full">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl">smart_toy</span>
+</div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-white uppercase tracking-wide">Generador de Plan de Crisis (AI)</h2>
+</div>
+<p class="text-on-primary-container text-lg mb-6 max-w-2xl">Si no puedes pagar el mínimo, no te escondas. Nuestra IA genera scripts de negociación personalizados para que hables con tus acreedores hoy mismo.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 h-touch-target bg-secondary text-white font-bold rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                            OBTENER SCRIPT DE NEGOCIACIÓN
+                        </button>
+<button class="px-6 h-touch-target border-2 border-secondary-fixed text-secondary-fixed font-bold rounded-xl hover:bg-secondary-fixed/10 transition-colors">
+                            VER OPCIONES DE SETTLEMENT
+                        </button>
+</div>
+</div>
+<div class="hidden md:block">
+<img class="rounded-2xl shadow-2xl border-4 border-white/10 rotate-3" data-alt="A clean, professional workspace with a digital tablet showing financial growth charts. The scene is lit with warm, cinematic lighting that highlights deep forest green and vibrant orange accents, representing a balance between financial rigor and hope. High quality photography style, minimalist and powerful." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaefACwVp8Om-fhw23Zm0BaR5wjKrZ_oD1WiooSbWkozWhy28lDJHhV5rMu6bvy4U0Q7_80C_7s9J-fA6IrcRvDEzTk-MOwmq89Fx4KlMkFY4kD0m8Aq-JUyJvCzBgyWsAXt_uDoHp4Ef5-rV2a3BK2tz954UW4TmE_x5wyZCmszVIqlhUIb_gqHMTFewjcss1LWS0wphprbG2_EaDVhK76qoa7ENiobiYWsz6Qo6gRSoQ87d_OEGPN4jn_5mzuzDDldBJUZ-2Sftc"/>
+</div>
+</div>
+</section>
+<!-- Debt Payoff Timeline -->
+<section class="mb-stack-lg bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-md text-headline-md text-primary">Proyección: Ruta a la Libertad</h2>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary-light rounded-full"></div>
+<span class="text-xs font-bold text-on-surface-variant">Snowball</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-secondary rounded-full"></div>
+<span class="text-xs font-bold text-on-surface-variant">Avalanche</span>
+</div>
+</div>
+</div>
+<div class="relative h-64 w-full bg-surface-container rounded-lg p-4 overflow-hidden">
+<!-- Mock Chart Visualization -->
+<div class="absolute bottom-4 left-4 right-4 h-48 border-l-2 border-b-2 border-outline-variant flex items-end">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 1000 200">
+<!-- Snowball path -->
+<path d="M0,10 Q250,20 500,80 T1000,200" fill="none" stroke="#40916C" stroke-dasharray="10 5" stroke-width="4"></path>
+<!-- Avalanche path -->
+<path d="M0,10 Q200,40 400,100 T850,200" fill="none" stroke="#8e4e14" stroke-width="4"></path>
+<!-- Milestones -->
+<circle cx="0" cy="10" fill="#012d1d" r="6"></circle>
+<circle cx="850" cy="200" fill="#8e4e14" r="8"></circle>
+<circle cx="1000" cy="200" fill="#40916C" r="8"></circle>
+</svg>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 bg-pale-green rounded-xl text-center">
+<p class="text-sm font-bold text-primary-mid uppercase mb-1">Fecha de Libertad (Avalancha)</p>
+<p class="font-display-lg text-primary text-4xl">Noviembre 2025</p>
+</div>
+<div class="p-6 bg-secondary-fixed rounded-xl text-center">
+<p class="text-sm font-bold text-on-secondary-fixed-variant uppercase mb-1">Ahorro Total en Intereses</p>
+<p class="font-display-lg text-secondary text-4xl">$8,420.00</p>
+</div>
+</div>
+</section>
+<!-- Expert Help -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Asesoría Legal Especializada</h2>
+<p class="text-on-surface-variant">Expertos verificados para defender tus derechos como deudor.</p>
+</div>
+<a class="text-primary-mid font-bold flex items-center gap-1 hover:underline" href="#">Ver Directorio Completo <span class="material-symbols-outlined">arrow_right_alt</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Expert Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-shadow">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="Close-up headshot of a professional Hispanic male lawyer in his 40s wearing a charcoal suit. He has a friendly yet authoritative expression. The background is a blurred office with high-contrast warm lighting and corporate green tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPWnjhiysy57xyQ-5enwaSTMI4B47nkhcwLa3Rq6MbB3HjT39rrzIsGQ-4tGv7uJcbYREE4xeKsR1Knf7z1u1or7nN-nYZtaTPkYKlv73LQ3jksBSoBsaEjI6O-d6RgrM1UfN7YctB3LAYiWwWjV7rlzFBKyz5mnyQueSaTKqeZXSI-jSjjtegjrIu5VmwP7cZi13YGMun9IvRdWocn_u45wbtxUaCU60n76JDl4BeUnK8RoFAPZRwhTPzDRPP8qzbI_uuHdRldIuz"/>
+<div>
+<p class="font-bold text-primary">Abog. Luis Méndez</p>
+<p class="text-xs text-on-surface-variant">Derecho del Consumidor</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-warning mb-4">
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="text-on-surface-variant text-xs ml-2">(124 reseñas)</span>
+</div>
+<button class="w-full py-3 bg-pale-green text-primary-mid font-bold rounded-lg border border-primary-mid/20 hover:bg-primary-mid hover:text-white transition-colors">AGENDAR CONSULTA</button>
+</div>
+<!-- Expert Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-shadow">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="Professional headshot of a confident Hispanic female debt relief specialist. She is wearing a modern navy blazer. The lighting is bright and clean with a sophisticated color palette of white and forest green. High-end professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtTQpJ1f3DgkGbywnFBANpUNb_ZzmkcI9NwsTYwZsd5Bjcjx-Gth8W7FioJuD77P4SOlJ2my966xAeGq6Kv_rXJsJa7y2lPGxDiJl7PLfE68jEDHN5W7-sHVK_TM5nJU9Y8BRpZ7aXTCKHRyDWBTfGMp7JnIh6iCQ6AK7cGyR2V82joOTHJsjELxf-Aagj7nEFLzSdJHZgrinpGBIb8xBJ4_DcSjejuma6rwHx_b4GlK-QGdU1wLxIwQxBEgwIUwEHJGYsDFIgTvvX"/>
+<div>
+<p class="font-bold text-primary">Dra. Elena Ruiz</p>
+<p class="text-xs text-on-surface-variant">Bancarrota y Deudas</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-warning mb-4">
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined filled-icon text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="text-on-surface-variant text-xs ml-2">(89 reseñas)</span>
+</div>
+<button class="w-full py-3 bg-pale-green text-primary-mid font-bold rounded-lg border border-primary-mid/20 hover:bg-primary-mid hover:text-white transition-colors">AGENDAR CONSULTA</button>
+</div>
+<!-- Expert Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl hover:shadow-lg transition-shadow">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-3xl">gavel</span>
+</div>
+<div>
+<p class="font-bold text-primary">Blindado Jurídico</p>
+<p class="text-xs text-on-surface-variant">Defensa Ante Demandas</p>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">Equipo especializado en paralizar procesos de embargo y acoso telefónico.</p>
+<button class="w-full py-3 bg-pale-green text-primary-mid font-bold rounded-lg border border-primary-mid/20 hover:bg-primary-mid hover:text-white transition-colors">HABLAR CON UN ASESOR</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-16 h-16 bg-gradient-to-tr from-primary-mid to-primary-light text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl filled-icon">bolt</span>
+</button>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="font-label-sm text-label-sm">Crédito</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Casa</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="font-label-sm text-label-sm">Carro</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+<span class="material-symbols-outlined filled-icon">calculate</span>
+<span class="font-label-sm text-label-sm">Deuda</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">Más</span>
+</div>
+</nav>
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop bg-primary text-on-primary mt-12 mb-20 md:mb-0">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<span class="font-display-lg text-primary-fixed text-4xl">BlindadoUSA</span>
+<div class="flex gap-6">
+<a class="text-primary-fixed-dim hover:text-white underline transition-colors" href="#">Privacidad</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-colors" href="#">Términos</a>
+<a class="text-primary-fixed-dim hover:text-white underline transition-colors" href="#">Ayuda</a>
+</div>
+<p class="text-primary-fixed-dim text-sm">© 2024 BlindadoUSA. Tu biblia financiera.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and simulation logic
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', (e) => {
+                // Here we could update calculations in real-time
+                console.log('Recalculating for:', e.target.value);
+            });
+        });
+
+        // Simple button active state
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.add('scale-95');
+                setTimeout(() => btn.classList.remove('scale-95'), 150);
+            });
+        });
+    </script>
+</body></html>

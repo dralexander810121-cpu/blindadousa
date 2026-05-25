@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BlindadoUSA | Directorio de Educación y Recursos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Bebas+Neue&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .sombra-verde {
+            box-shadow: 0 10px 30px -5px rgba(27, 67, 50, 0.15);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(193, 200, 194, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c8c2;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "success": "#52B788",
+                      "primary-fixed": "#c1ecd4",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9faf6",
+                      "surface-container-low": "#f3f4f1",
+                      "on-tertiary-fixed-variant": "#5e4100",
+                      "secondary-fixed-dim": "#ffb780",
+                      "inverse-surface": "#2f312f",
+                      "gray": "#6B7280",
+                      "primary-mid": "#2D6A4F",
+                      "on-secondary-fixed-variant": "#6f3800",
+                      "tertiary-container": "#503700",
+                      "accent-dark": "#E76F51",
+                      "tertiary-fixed-dim": "#ffba27",
+                      "surface-variant": "#e2e3e0",
+                      "error": "#ba1a1a",
+                      "primary": "#012d1d",
+                      "on-tertiary": "#ffffff",
+                      "danger": "#D62828",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed": "#002114",
+                      "surface-dim": "#dadad7",
+                      "surface-tint": "#3f6653",
+                      "surface-container-highest": "#e2e3e0",
+                      "tertiary": "#342300",
+                      "on-primary-container": "#86af99",
+                      "on-secondary-container": "#783d01",
+                      "pale-green": "#D8F3DC",
+                      "on-error": "#ffffff",
+                      "secondary": "#8e4e14",
+                      "inverse-on-surface": "#f0f1ee",
+                      "on-surface": "#1a1c1a",
+                      "on-secondary": "#ffffff",
+                      "dark": "#1A1A2E",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#ffdcc4",
+                      "surface-container": "#eeeeeb",
+                      "on-background": "#1a1c1a",
+                      "outline": "#717973",
+                      "on-tertiary-fixed": "#271900",
+                      "surface": "#f9faf6",
+                      "surface-container-high": "#e8e8e5",
+                      "background": "#f9faf6",
+                      "primary-container": "#1b4332",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-secondary-fixed": "#2f1400",
+                      "error-container": "#ffdad6",
+                      "warning": "#F77F00",
+                      "on-tertiary-container": "#d89b00",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "outline-variant": "#c1c8c2",
+                      "primary-light": "#40916C",
+                      "inverse-primary": "#a5d0b9",
+                      "secondary-container": "#ffab69",
+                      "on-surface-variant": "#414844",
+                      "tertiary-fixed": "#ffdea9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "1rem",
+                      "margin-desktop": "2.5rem",
+                      "margin-mobile": "1.25rem",
+                      "stack-sm": "0.5rem",
+                      "stack-md": "1.5rem",
+                      "stack-lg": "3rem",
+                      "touch-target": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "display-lg-mobile": ["Bebas Neue"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Bebas Neue"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "display-lg-mobile": ["40px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "label-sm": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "data-mono": ["20px", {"lineHeight": "1.0", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar Navigation -->
+<header class="bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-touch-target fixed top-0 z-50">
+<div class="text-headline-md font-headline-md font-extrabold text-primary-mid dark:text-primary-fixed-dim tracking-tight">
+            BlindadoUSA
+        </div>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex gap-gutter">
+<a class="text-on-surface-variant font-medium hover:bg-pale-green/20 transition-colors px-2 py-1 rounded" href="#">Inicio</a>
+<a class="text-primary-mid font-bold border-b-2 border-primary-mid px-2 py-1" href="#">Educación</a>
+<a class="text-on-surface-variant font-medium hover:bg-pale-green/20 transition-colors px-2 py-1 rounded" href="#">Herramientas</a>
+</nav>
+<div class="flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-32 lg:w-48" placeholder="Buscar recursos..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-primary-mid text-[32px]">account_circle</span>
+</div>
+<button class="md:hidden material-symbols-outlined text-primary-mid">menu</button>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-stack-md hidden lg:flex bg-surface-container-low dark:bg-surface-container-lowest border-r border-outline-variant w-64 z-40 mt-touch-target">
+<div class="px-6 mb-8 mt-4">
+<div class="text-body-lg font-body-lg text-primary-mid font-bold">Menu Educativo</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant opacity-70">Encuentra tu futuro</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">credit_score</span>
+<span class="text-label-sm font-label-sm">Crédito</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Vivienda</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg bg-primary-container text-on-primary-container font-bold" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-sm font-label-sm">Educación</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-label-sm font-label-sm">Salud</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="text-label-sm font-label-sm">Seguros</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full bg-secondary text-on-secondary font-bold py-3 rounded-lg flex items-center justify-center gap-2 active:scale-95 duration-200">
+<span class="material-symbols-outlined">support_agent</span>
+                Asesoría Gratis
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-touch-target min-h-screen">
+<!-- Hero Section -->
+<section class="relative w-full py-stack-lg px-margin-mobile md:px-margin-desktop bg-primary text-on-primary overflow-hidden">
+<div class="max-w-4xl relative z-10">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase mb-4">Abre las puertas de tu <span class="text-success">éxito</span> en USA</h1>
+<p class="text-body-lg max-w-2xl mb-8 opacity-90">Tu guía definitiva para encontrar escuelas de inglés, cursos técnicos y becas. Educación de calidad al alcance de nuestra comunidad.</p>
+<div class="flex flex-col md:flex-row gap-4">
+<a class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-bold text-center hover:opacity-90 transition-opacity min-h-[48px] flex items-center justify-center" href="#buscador">Explorar Directorio</a>
+<a class="border-2 border-pale-green text-pale-green px-8 py-4 rounded-lg font-bold text-center hover:bg-pale-green hover:text-primary transition-all min-h-[48px] flex items-center justify-center" href="#becas">Ver Becas Disponibles</a>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute right-[-10%] top-[-20%] w-[500px] h-[500px] bg-primary-light/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Search & Map Section (Bento Grid Style) -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop" id="buscador">
+<div class="mb-stack-md flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Buscador de Centros Educativos</h2>
+<p class="text-on-surface-variant">Filtrado por ubicación y especialidad para inmigrantes.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-high rounded-full text-label-sm font-semibold border border-outline-variant hover:bg-pale-green/40">Filtros Avanzados</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Map Sidebar (Mobile: Stacks first) -->
+<div class="md:col-span-4 lg:col-span-3 bg-surface-container-low rounded-xl border border-outline-variant overflow-hidden flex flex-col h-[600px] order-2 md:order-1">
+<div class="p-4 bg-primary text-on-primary font-bold flex justify-between items-center">
+<span>Mapa de Escuelas</span>
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="flex-1 relative bg-surface-dim overflow-hidden">
+<img alt="Interactive map of educational centers" class="w-full h-full object-cover grayscale brightness-90 contrast-125 opacity-80" data-alt="A detailed digital map interface showing the city of Miami with multiple green location pins representing educational institutions. The map is rendered in a minimalist, corporate style with a clean light-mode aesthetic, featuring subtle tonal shifts and high-contrast typography. The visual mood is professional and helpful, emphasizing easy navigation and clarity for users seeking school locations." data-location="Miami, Florida" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJs8_rGQw7kJJDuHyAaMAJBueL1F-PwmI-_EmMkz1kHPOuVoPgby9vzRA2qpiGy1WKVov6mS5oT35BR675GYAyuANn4Og4sgemjH6iTscJJcxmoqvJ4-yDtj4peUJ52P6ZmuPEXHCOBqZUt8U7ucSdnt77PknubkJ-fVRnecUmxLnLq1pkiltoDrbUqjGregR1n-oOMrHazDp_yx9ZOO_Cx6f8dw64ZINS27xYw0xLmzALFIdA3zRCNTSlZGC-TA1fnbd69JJR6S0g"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-white/90 p-2 rounded shadow-lg border border-primary-mid flex items-center gap-2">
+<span class="w-3 h-3 bg-success rounded-full"></span>
+<span class="text-label-sm font-bold text-primary">Miami High Tech Center</span>
+</div>
+</div>
+</div>
+<div class="p-4 space-y-3 custom-scrollbar overflow-y-auto">
+<div class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Cerca de ti</div>
+<div class="p-3 bg-white rounded-lg border border-outline-variant hover:border-primary-mid cursor-pointer transition-colors">
+<div class="font-bold">Miami ESL Academy</div>
+<div class="text-[12px] opacity-70">2.4 miles • Programas Gratuitos</div>
+</div>
+<div class="p-3 bg-white rounded-lg border border-outline-variant hover:border-primary-mid cursor-pointer transition-colors">
+<div class="font-bold">Techno Latino Vocacional</div>
+<div class="text-[12px] opacity-70">4.1 miles • GED Disponible</div>
+</div>
+</div>
+</div>
+<!-- Directory Grid -->
+<div class="md:col-span-8 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-gutter order-1 md:order-2">
+<!-- School Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden sombra-verde hover:scale-[1.02] transition-transform duration-300 flex flex-col">
+<div class="h-48 relative">
+<img alt="ESL Classroom" class="w-full h-full object-cover" data-alt="A bright and welcoming classroom setting for adults learning English. The room features large windows with natural sunlight, ergonomic furniture, and a diverse group of focused students using modern laptops and tablets. The atmosphere is professional, empathetic, and academic, styled with a high-contrast corporate aesthetic using soft greens and warm wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1XtfwxPgFPUeLkwoYPDwPa4sOdxnIf3t9JoTYiePS2IenI5xUVGTgEbqe9c1B27k64cRAuyPXMI76f28vgC4_aQbVWLQ6I9XTaTtyHMO_UJOR68287WgKab-Z8wecySQgLyBt0geugR_xsqjqGxqeCOpZrbTVZsselPO9U6AN2jwWb2JEKXgXP-gKqPA6dZGOZtlQb0eaiBcmcPT2VVPp47DV9CwJdbi9lXRUfCq9ERfbVbpIJzk2uvuiNSutjQh7s0W-uukdSSB1"/>
+<span class="absolute top-3 left-3 bg-success text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase">ESL (Inglés)</span>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Academy of Excellence Miami</h3>
+<p class="text-body-md text-on-surface-variant mb-4 flex-1">Programas intensivos de inglés para adultos con horarios nocturnos y sabatinos. Ayuda con ITIN disponible.</p>
+<div class="flex items-center gap-4 text-label-sm font-bold text-primary-mid mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Certificado</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span>Plan de pagos</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-pale-green py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors">
+                                Solicitar Información
+                                <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- School Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden sombra-verde hover:scale-[1.02] transition-transform duration-300 flex flex-col">
+<div class="h-48 relative">
+<img alt="Vocational training" class="w-full h-full object-cover" data-alt="A high-tech vocational training laboratory featuring students working with electrical circuits and industrial equipment. The lighting is crisp and professional, highlighting a modern educational facility. The visual style is clean and authoritative, with a color palette of deep greens and industrial greys, conveying a sense of practical expertise and future success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-RcM497HnG1__DNGxKerhxFhmI7baIyfgWniLd1593vquyk8dv6Tpf1TdGXe9Y-UxRUA-drN7zGXRLFwFtlc7aUNjiWVl-_J6u_zyfpo_8Clda6cWh2s7Ro51IFTIvqOs-DP44EoxPRLSbPKYKAe7iXWkfENGu6nWNZ4Ha4JoqQolxNESnnOx7c4JKL5ck9fG24sCTIyUyE3XNlokHhUC5f3AiEaAWWaIH4OpgRftRv6lbVoMVilbBZkOHh6VuYp9hI-rpiq2ufH_"/>
+<span class="absolute top-3 left-3 bg-accent-dark text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase">Curso Técnico</span>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Vocacional USA South</h3>
+<p class="text-body-md text-on-surface-variant mb-4 flex-1">Especialidades en Electricidad, Plomería y HVAC. Títulos reconocidos a nivel nacional en 6 meses.</p>
+<div class="flex items-center gap-4 text-label-sm font-bold text-primary-mid mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">construction</span>
+<span>Práctico</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+<span>Job Placement</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-pale-green py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors">
+                                Solicitar Información
+                                <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- School Card 3 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden sombra-verde hover:scale-[1.02] transition-transform duration-300 flex flex-col">
+<div class="h-48 relative">
+<img alt="Bilingual school for kids" class="w-full h-full object-cover" data-alt="A vibrant, modern bilingual elementary school library. Children of diverse backgrounds are engaged in group reading activities with both Spanish and English books visible. The space is filled with colorful yet organized educational decor, soft lighting, and a feeling of safe, supportive community advocacy. The style is bright and high-contrast, optimized for accessibility and warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5g3ropazrdgLQf6w2rkLv4R4JWL3qpkl2OdVjMYcvCYVJpiXXuTCTJYup97vk0hgBpa8aZU0fa7BuXuMw_OVPYXjTZ8cK9O04tJ-xIsh4DBTEZdpU1WzU-BVTcC9wSgGNIEhJd3iK24yuw_AMRSSQtbf1dZc0VLTLOXEHwKVJ9x8FZMYcBuf5NhqSKlIJYB8kPgO0Sbhe0--Lac_-G0xhF1Qg4qvtUYXGwAVb9w6iBWTyHkCoCMZN1CaU9VY7kPWlfe7bb_gYhYj4"/>
+<span class="absolute top-3 left-3 bg-secondary text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase">Niños Bilingüe</span>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Little Explorers Dual Language</h3>
+<p class="text-body-md text-on-surface-variant mb-4 flex-1">Pre-K a 5to Grado. Programa de inmersión dual 50/50. Mantén tus raíces mientras conquistas el inglés.</p>
+<div class="flex items-center gap-4 text-label-sm font-bold text-primary-mid mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">child_care</span>
+<span>Seguro</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">public</span>
+<span>Bicultural</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-pale-green py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors">
+                                Solicitar Información
+                                <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<!-- Card 4 (GED) -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden sombra-verde hover:scale-[1.02] transition-transform duration-300 flex flex-col">
+<div class="h-48 relative">
+<img alt="GED Preparation" class="w-full h-full object-cover" data-alt="A professional study center focused on adult education and GED preparation. The scene shows focused individuals at workstations with textbooks and digital resources. The lighting is high-key and modern, emphasizing a serious yet hopeful academic environment. The color palette features corporate blues and the brand's primary green, creating a sense of authoritative financial and educational progress." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbiYVQVf3ACHkEXnTTrcnavA2Y9HXFv5bvEkTMwAiLIRWvI89ir3CYTsaK2l12DEyOFaKCofccW4_SpAHOOdEmwtcHprqNOM1xzBSnBZsf7TUvCabSuXjvmK2dk7JYphTBVpu45rttX2aWJ8rb_5SbTnrbicc3YN5drXXDOwRObg4eDFNax6NC2YYA_FNEtQb6pMslgnznbxOAuC50pyf2lDIn0ZVOYXrBW9jtKSq2GB90-8cXg78QtqZZD9npjJJrU2tLd1MSOQS2"/>
+<span class="absolute top-3 left-3 bg-tertiary-container text-on-tertiary-container text-[12px] font-bold px-3 py-1 rounded-full uppercase">GED / Bachillerato</span>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Centro Latino de Superación</h3>
+<p class="text-body-md text-on-surface-variant mb-4 flex-1">Termina tu bachillerato en español y obtén tu GED oficial. Clases presenciales y online.</p>
+<div class="flex items-center gap-4 text-label-sm font-bold text-primary-mid mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+<span>Validación</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">laptop_mac</span>
+<span>Híbrido</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-pale-green py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors">
+                                Solicitar Información
+                                <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Becas y Ayudas Educativas Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-y border-outline-variant" id="becas">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+<div class="md:w-1/2">
+<div class="inline-block bg-pale-green text-primary-mid px-4 py-1 rounded-full text-label-sm font-bold mb-4">OPORTUNIDADES EXCLUSIVAS</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Becas y Ayudas Financieras</h2>
+<p class="text-body-lg text-on-surface-variant">No dejes que el costo te detenga. Filtramos las mejores ayudas gubernamentales y privadas para estudiantes hispanos, con o sin estatus legal definido.</p>
+</div>
+<div class="md:w-1/2 flex justify-end">
+<div class="bg-primary-container p-8 rounded-2xl text-on-primary-container max-w-sm rotate-2 hover:rotate-0 transition-transform duration-500">
+<span class="material-symbols-outlined text-[48px] mb-4">savings</span>
+<div class="text-headline-md font-headline-md mb-2">Ahorro Promedio</div>
+<div class="text-[48px] font-display-lg leading-none mb-2 text-success">$4,500 <small class="text-body-md">/año</small></div>
+<p class="text-label-sm opacity-80">Por estudiante que aplica a través de nuestro portal de asesoría.</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Beca Card 1 -->
+<div class="p-6 bg-white border border-outline-variant rounded-xl flex flex-col">
+<div class="flex items-center gap-3 mb-4 text-warning">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-bold text-label-sm">Beca del Estado (Grant)</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Ayuda Federal FAFSA</h4>
+<p class="text-body-md text-on-surface-variant mb-6 flex-1">Guía paso a paso para residentes y ciudadanos. Cómo aplicar sin errores para el 2024.</p>
+<a class="text-primary-mid font-bold flex items-center gap-2 hover:underline" href="#">
+                            Ver Requisitos
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Beca Card 2 -->
+<div class="p-6 bg-white border border-outline-variant rounded-xl flex flex-col">
+<div class="flex items-center gap-3 mb-4 text-success">
+<span class="material-symbols-outlined">diversity_3</span>
+<span class="font-bold text-label-sm">Beca para Inmigrantes</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">The Dream.US Scholarship</h4>
+<p class="text-body-md text-on-surface-variant mb-6 flex-1">Para estudiantes con DACA o TPS. Cubre hasta el 100% de la matrícula en universidades asociadas.</p>
+<a class="text-primary-mid font-bold flex items-center gap-2 hover:underline" href="#">
+                            Ver Requisitos
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Beca Card 3 -->
+<div class="p-6 bg-white border border-outline-variant rounded-xl flex flex-col">
+<div class="flex items-center gap-3 mb-4 text-primary-light">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-bold text-label-sm">Ayuda Privada</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Fondo Comunitario Blindado</h4>
+<p class="text-body-md text-on-surface-variant mb-6 flex-1">Micro-becas para cursos técnicos cortos. Dirigido a trabajadores que quieren cambiar de oficio.</p>
+<a class="text-primary-mid font-bold flex items-center gap-2 hover:underline" href="#">
+                            Ver Requisitos
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- The Semáforo (Traffic Light) Status -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-4xl mx-auto bg-surface border border-outline-variant p-gutter rounded-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 text-center">Estado del Mercado Educativo</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-4 border-2 border-success/30 bg-success/10 rounded-lg text-center">
+<span class="material-symbols-outlined text-success text-[40px] mb-2">check_circle</span>
+<div class="font-bold text-success uppercase text-label-sm mb-1">Cursos ESL</div>
+<p class="text-[12px] text-on-surface">Alta disponibilidad de cupos gratuitos en bibliotecas y centros comunitarios.</p>
+</div>
+<div class="p-4 border-2 border-warning/30 bg-warning/10 rounded-lg text-center">
+<span class="material-symbols-outlined text-warning text-[40px] mb-2">schedule</span>
+<div class="font-bold text-warning uppercase text-label-sm mb-1">Ayudas Federales</div>
+<p class="text-[12px] text-on-surface">Periodo de aplicación abierto. Se recomienda aplicar antes del 30 de Mayo.</p>
+</div>
+<div class="p-4 border-2 border-danger/30 bg-danger/10 rounded-lg text-center">
+<span class="material-symbols-outlined text-danger text-[40px] mb-2">priority_high</span>
+<div class="font-bold text-danger uppercase text-label-sm mb-1">Becas Stem</div>
+<p class="text-[12px] text-on-surface">Competencia alta. Pocos fondos restantes para el semestre de otoño.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-mobile md:px-margin-desktop bg-primary dark:bg-surface-container-highest border-t border-primary-mid dark:border-outline-variant flex flex-col md:flex-row justify-between items-center gap-gutter text-on-primary">
+<div class="text-center md:text-left">
+<div class="text-body-lg font-headline-md text-pale-green mb-2">BlindadoUSA</div>
+<div class="text-label-sm opacity-80">© 2024 BlindadoUSA - Tu Futuro Protegido</div>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-pale-green hover:text-on-primary transition-opacity text-label-sm" href="#">Términos y Condiciones</a>
+<a class="text-pale-green hover:text-on-primary transition-opacity text-label-sm" href="#">Política de Privacidad</a>
+<a class="text-pale-green hover:text-on-primary transition-opacity text-label-sm" href="#">Soporte Técnico</a>
+<a class="text-pale-green hover:text-on-primary transition-opacity text-label-sm" href="#">Contacto</a>
+</div>
+</footer>
+<!-- Floating AI Assistant -->
+<div class="fixed bottom-6 right-6 z-[100] group">
+<div class="absolute bottom-full right-0 mb-4 scale-0 group-hover:scale-100 transition-transform origin-bottom-right duration-300">
+<div class="bg-white border border-outline-variant p-4 rounded-xl shadow-2xl w-64 text-on-surface">
+<p class="text-label-sm font-bold text-primary-mid mb-2">Hola, soy tu guía educativa.</p>
+<p class="text-[12px] opacity-70 mb-3">¿Buscas una escuela cerca de ti o ayuda con becas? ¡Pregúntame!</p>
+<button class="w-full py-2 bg-primary-mid text-white rounded text-[12px] font-bold">Chatear ahora</button>
+</div>
+</div>
+<button class="w-16 h-16 bg-gradient-to-br from-primary-mid to-primary-light rounded-full flex items-center justify-center text-white shadow-lg sombra-verde hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[32px]">smart_toy</span>
+</button>
+</div>
+<!-- Lead Generation Modal (Targeted by "Solicitar información") -->
+<div class="fixed inset-0 bg-dark/80 backdrop-blur-sm z-[110] hidden items-center justify-center p-4" id="leadModal">
+<div class="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
+<div class="bg-primary text-on-primary p-6 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md">Información de la Escuela</h3>
+<button class="material-symbols-outlined" onclick="document.getElementById('leadModal').style.display='none'">close</button>
+</div>
+<div class="p-8">
+<p class="text-on-surface-variant mb-6">Completa este formulario para recibir los folletos, precios y fechas de inicio directamente en tu correo.</p>
+<form class="space-y-4">
+<div>
+<label class="block text-label-sm font-bold text-primary mb-1">Nombre Completo</label>
+<input class="w-full border-outline-variant rounded-lg h-touch-target focus:ring-primary focus:border-primary" placeholder="Ej. Juan Pérez" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-bold text-primary mb-1">WhatsApp o Teléfono</label>
+<input class="w-full border-outline-variant rounded-lg h-touch-target focus:ring-primary focus:border-primary" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div>
+<label class="block text-label-sm font-bold text-primary mb-1">¿Tienes ITIN o SSN?</label>
+<select class="w-full border-outline-variant rounded-lg h-touch-target focus:ring-primary focus:border-primary">
+<option>Tengo ITIN</option>
+<option>Tengo SSN</option>
+<option>No tengo ninguno aún</option>
+</select>
+</div>
+<button class="w-full bg-secondary text-dark font-bold py-4 rounded-lg mt-4 hover:bg-secondary-container transition-colors shadow-lg" type="button">Enviar Solicitud</button>
+</form>
+</div>
+</div>
+</div>
+<script>
+        // Simple Interaction for Lead Buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText.includes('Solicitar Información')) {
+                btn.onclick = () => {
+                    document.getElementById('leadModal').style.display = 'flex';
+                }
+            }
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            let modal = document.getElementById('leadModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body></html>
