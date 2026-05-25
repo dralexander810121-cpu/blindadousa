@@ -16,10 +16,17 @@ export default function TrialPage() {
   async function handleTrial(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true); setError('')
-    const { data, error: authErr } = await supabase.auth.signUp({ email, password: pass, options: { data: { nombre } } })
-    if (authErr) { setError('Algo salió mal. Intenta de nuevo.'); setLoading(false); return }
+    const { data, error: authErr } = await supabase.auth.signUp({
+      email,
+      password: pass,
+      options: {
+        data: { nombre },
+        emailRedirectTo: `${window.location.origin}/bienvenido`,
+      },
+    })
+    if (authErr) { setError(authErr.message); setLoading(false); return }
     const res = await fetch('/api/trial/activar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, nombre, userId: data.user?.id }) })
-    if (res.ok) { router.push('/onboarding') }
+    if (res.ok) { router.push('/bienvenido?trial=1') }
     else { setError('No se pudo activar el trial. Intenta de nuevo.'); setLoading(false) }
   }
 
