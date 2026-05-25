@@ -149,7 +149,7 @@ export default function LandingPage() {
       </section>
 
       {/* PROBLEMA */}
-      <section style={{ background: 'var(--white)', padding: '100px 24px' }}>
+      <section id="como-funciona" style={{ background: 'var(--white)', padding: '100px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
             <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: 2 }}>El problema real</span>
@@ -202,7 +202,7 @@ export default function LandingPage() {
       </section>
 
       {/* PRECIO */}
-      <section style={{ background: 'var(--pale-green)', padding: '100px 24px' }}>
+      <section id="precio" style={{ background: 'var(--pale-green)', padding: '100px 24px' }}>
         <div style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
           <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: 2 }}>Precio</span>
           <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--dark)', marginTop: 12, marginBottom: 40 }}>Inversión única. Acceso de por vida.</h2>
@@ -316,15 +316,30 @@ export default function LandingPage() {
             </div>
             <div>
               <h4 style={{ color: 'rgba(255,255,255,.6)', fontSize: 13, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: 1 }}>Plataforma</h4>
-              {['Cómo funciona', 'Precios', 'Blog', 'Directorio'].map(l => (
-                <div key={l} style={{ color: 'rgba(255,255,255,.35)', fontSize: 14, padding: '4px 0', cursor: 'pointer' }}>{l}</div>
-              ))}
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/#como-funciona" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Cómo funciona</Link>
+              </div>
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/#precio" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Precios</Link>
+              </div>
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/blog" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Blog</Link>
+              </div>
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/directorio" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Directorio</Link>
+              </div>
             </div>
             <div>
               <h4 style={{ color: 'rgba(255,255,255,.6)', fontSize: 13, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: 1 }}>Legal</h4>
-              {['Términos de uso', 'Privacidad', 'Descargo de responsabilidad'].map(l => (
-                <div key={l} style={{ color: 'rgba(255,255,255,.35)', fontSize: 14, padding: '4px 0', cursor: 'pointer' }}>{l}</div>
-              ))}
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/terminos" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Términos de uso</Link>
+              </div>
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/privacidad" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Privacidad</Link>
+              </div>
+              <div style={{ fontSize: 14, padding: '4px 0' }}>
+                <Link href="/descargo" style={{ color: 'rgba(255,255,255,.35)', textDecoration: 'none' }}>Descargo de responsabilidad</Link>
+              </div>
             </div>
             <div>
               <h4 style={{ color: 'rgba(255,255,255,.6)', fontSize: 13, fontWeight: 700, marginBottom: 16, textTransform: 'uppercase', letterSpacing: 1 }}>Contacto</h4>
