@@ -1,5 +1,6 @@
 import { createAdmin } from '@/lib/supabase/server'
 import { hasAnthropicKey, askClaude } from '@/lib/anthropic'
+import { hasGeminiKey, askGemini } from '@/lib/gemini-llm'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { parseAccion } from '@/lib/ia/actions'
 import { generarCartaLegal } from '@/lib/ia/cartas'
@@ -9,8 +10,12 @@ import { SISTEMA_IA_MAESTRA } from '@/lib/ia/prompts'
 type HistorialMsg = { rol: string; mensaje: string }
 
 export async function handleMaestroChat(mensaje: string, historial?: HistorialMsg[]) {
-  if (!hasAnthropicKey()) {
-    return { error: 'Configura ANTHROPIC_API_KEY en .env.local para activar la IA Maestra.', status: 503 as const }
+  if (!hasAnthropicKey() && !hasGeminiKey()) {
+    return {
+      error:
+        'Configura ANTHROPIC_API_KEY o GEMINI_API_KEY en Vercel (Production) para activar la IA Maestra.',
+      status: 503 as const,
+    }
   }
 
   const { supabase, usuario } = await getAuthenticatedUsuario()
@@ -35,7 +40,7 @@ export async function handleMaestroChat(mensaje: string, historial?: HistorialMs
     ? `Conversación reciente:\n${historialTexto}\n\nNueva pregunta:\n${mensaje}`
     : mensaje
 
-  const raw = await askClaude(system, prompt, 2200)
+  const raw = hasAnthropicKey() ? await askClaude(system, prompt, 2200) : await askGemini(system, prompt, 2200)
   const { respuesta, accion } = parseAccion(raw)
 
   const db = createAdmin()

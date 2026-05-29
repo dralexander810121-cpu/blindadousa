@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "images:banana2": "node scripts/generate-banana2pro.mjs --all",
-    "images:stitch": "node scripts/import-stitch-banana2.mjs"
+    "images:stitch": "node scripts/import-stitch-banana2.mjs",
+    "stripe:sync-webhook": "node scripts/sync-stripe-webhook.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",

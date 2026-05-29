@@ -1,4 +1,4 @@
-import { askClaude, hasAnthropicKey } from '@/lib/anthropic'
+import { askLlm, hasLlmKey, llmMissingMessage } from '@/lib/llm'
 import { buildUserContext } from '@/lib/ia/context'
 import { SISTEMA_TAXES_IA } from '@/lib/ia/prompts'
 import type { SupabaseClient } from '@supabase/supabase-js'
@@ -25,8 +25,8 @@ export async function analizarTaxes(
   usuarioId: string,
   input: TaxesInput,
 ) {
-  if (!hasAnthropicKey()) {
-    throw new Error('ANTHROPIC_API_KEY_MISSING')
+  if (!hasLlmKey()) {
+    throw new Error(llmMissingMessage())
   }
 
   const contexto = await buildUserContext(supabase, usuarioId)
@@ -37,7 +37,7 @@ export async function analizarTaxes(
 - Impuestos retenidos (W-2): $${input.retenido}
 ${input.notas ? `\nNotas adicionales: ${input.notas}` : ''}`
 
-  const raw = await askClaude(SISTEMA_TAXES_IA, prompt, 2000)
+  const raw = await askLlm(SISTEMA_TAXES_IA, prompt, 2000)
   const cleaned = raw.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim()
   return JSON.parse(cleaned) as TaxesAnalisis
 }

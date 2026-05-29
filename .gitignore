@@ -14,5 +14,8 @@ next-env.d.ts
 .vscode/
 *.tsbuildinfo
 stitch_instant_delivery_system.zip
+stitch_texas_ai_real_estate_dashboard_redesign*.zip
+*.zip
+.env.vercel*
 
 .vercel

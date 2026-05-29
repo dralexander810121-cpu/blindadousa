@@ -1,5 +1,5 @@
 import { createAdmin } from '@/lib/supabase/server'
-import { askClaude, hasAnthropicKey } from '@/lib/anthropic'
+import { askLlm, hasLlmKey, llmMissingMessage } from '@/lib/llm'
 import { generarCartaLegal } from '@/lib/ia/cartas'
 import { SISTEMA_DISPUTA_CREDITO } from '@/lib/ia/prompts'
 
@@ -26,8 +26,8 @@ export async function analizarDisputaCredito(input: {
   items: DisputaItem[]
   generarCarta?: boolean
 }) {
-  if (!hasAnthropicKey()) {
-    throw new Error('ANTHROPIC_API_KEY_MISSING')
+  if (!hasLlmKey()) {
+    throw new Error(llmMissingMessage())
   }
   if (!input.items?.length) {
     throw new Error('Agrega al menos un ítem a disputar')
@@ -41,7 +41,7 @@ export async function analizarDisputaCredito(input: {
     )
     .join('\n')
 
-  const raw = await askClaude(
+  const raw = await askLlm(
     SISTEMA_DISPUTA_CREDITO,
     `Burós a notificar: ${bureaus}\n\nÍtems a disputar:\n${listado}`,
     2400,

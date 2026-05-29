@@ -1,4 +1,4 @@
-import { askClaude } from '@/lib/anthropic'
+import { askLlm } from '@/lib/llm'
 import { SISTEMA_CARTA_LEGAL, CARTA_LABELS } from '@/lib/ia/prompts'
 
 export type CartaGenerada = {
@@ -24,7 +24,7 @@ Detalle del caso: ${input.detalle}
 
 La carta debe ser profesional, lista para imprimir y enviar por correo certificado cuando aplique.`
 
-  const raw = await askClaude(SISTEMA_CARTA_LEGAL, prompt, 3500)
+  const raw = await askLlm(SISTEMA_CARTA_LEGAL, prompt, 3500)
   const cleaned = raw.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim()
   return JSON.parse(cleaned) as CartaGenerada
 }

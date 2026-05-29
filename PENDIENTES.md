@@ -1,31 +1,28 @@
 # PENDIENTES — blindadousa.com
 
-## 1) Variables/credenciales faltantes o no verificables desde repo
+Actualizado tras Prioridad A + automatización operativa.
 
-- `ANTHROPIC_API_KEY` en producción (si falta, `/api/ai/asistente` devuelve `503` controlado).
-- `STRIPE_WEBHOOK_SECRET` real en Vercel (debe coincidir con endpoint de Stripe Dashboard).
-- Confirmación de credenciales live de Stripe en panel (no se almacenan en este documento).
+## Hecho en código / deploy
 
-## 2) Verificación E2E que requiere interacción real de usuario
+- Suscripciones Stripe mensual y anual (`/pagar`, `/api/stripe/checkout`).
+- Webhook: `checkout.session.completed`, `customer.subscription.deleted`, `customer.subscription.updated`, `invoice.payment_failed`.
+- Portal de facturación: `/api/stripe/portal` + botón en `/dashboard/configuracion`.
+- Página `/que-incluye`, checklist en `/bienvenido`, copy 13 módulos.
+- IA Maestra: `ANTHROPIC_API_KEY` **o** `GEMINI_API_KEY` (fallback).
+- Script `npm run stripe:sync-webhook` — ver `SETUP-STRIPE-WEBHOOK.md`.
+- ZIPs grandes eliminados del repo (ver `.gitignore`).
 
-- Flujo completo de recuperación de contraseña con click en email real (`/recuperar` → `/nueva-contrasena`).
-- Flujo completo de pago real en Stripe + evento webhook en dashboard de Stripe.
-- Validación manual UI en móvil real (<480px) para cada formulario crítico.
+## Acción manual (5 minutos)
 
-## 3) Cambios existentes previos no tocados por seguridad
+1. **Stripe webhook** — Si no corriste el script, en [Stripe Webhooks](https://dashboard.stripe.com/webhooks) añade los 4 eventos de arriba al endpoint de `blindadousa.com`.
+2. **Vercel** — Añadir en Production al menos una de:
+   - `ANTHROPIC_API_KEY` (recomendado), o
+   - `GEMINI_API_KEY` (ya usas Gemini para imágenes; misma clave sirve para chat).
+3. **Supabase Auth** — Site URL `https://blindadousa.com`, redirects: `/bienvenido`, `/nueva-contrasena`, `/dashboard` (ver `BLOCKERS.md`).
 
-- Archivo borrado ya presente en árbol al iniciar:
-  - `stitch_instant_delivery_system/stitch_instant_delivery_system/blindadousa_prompt_definitivo.md`
+## Verificación E2E (usuario real)
 
-No se revirtió para no alterar trabajo previo del usuario fuera del alcance funcional.
-
-## 4) Próximos pasos exactos
-
-1. Confirmar en Vercel que `ANTHROPIC_API_KEY` está definida en `Production`.
-2. En Stripe, enviar evento de prueba `checkout.session.completed` al webhook de producción y validar respuesta `200`.
-3. Ejecutar smoke final manual en dominio:
-   - `/trial`
-   - `/recuperar`
-   - `/pagar`
-   - `/blog`
-   - `/directorio`
+- Trial `/trial` con email real.
+- Recuperar contraseña `/recuperar`.
+- Pago test o live en `/pagar` + evento webhook 200 en Stripe.
+- Móvil &lt;480px en formularios críticos.

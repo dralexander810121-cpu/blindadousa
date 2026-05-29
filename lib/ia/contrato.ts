@@ -1,4 +1,5 @@
-import { askClaude, askClaudeWithContent, hasAnthropicKey, type ClaudeContentBlock } from '@/lib/anthropic'
+import { askClaudeWithContent, hasAnthropicKey, type ClaudeContentBlock } from '@/lib/anthropic'
+import { askLlm, hasLlmKey, llmMissingMessage } from '@/lib/llm'
 import { createAdmin } from '@/lib/supabase/server'
 import { generarCartaLegal } from '@/lib/ia/cartas'
 import { SISTEMA_ESCANER_CONTRATO } from '@/lib/ia/prompts'
@@ -31,8 +32,11 @@ export async function analizarContrato(input: {
   mediaType?: 'image/jpeg' | 'image/png' | 'image/webp'
   generarCarta?: boolean
 }) {
-  if (!hasAnthropicKey()) {
-    throw new Error('ANTHROPIC_API_KEY_MISSING')
+  if (!hasLlmKey()) {
+    throw new Error(llmMissingMessage())
+  }
+  if (input.imagenBase64 && !hasAnthropicKey()) {
+    throw new Error('Para escanear fotos de contratos configura ANTHROPIC_API_KEY (visión). GEMINI solo soporta texto por ahora.')
   }
 
   const tipoLabel = TIPO_LABELS[input.tipo] ?? TIPO_LABELS.otro
@@ -57,7 +61,7 @@ export async function analizarContrato(input: {
     }
     raw = await askClaudeWithContent(SISTEMA_ESCANER_CONTRATO, content, 3200)
   } else if (input.texto?.trim()) {
-    raw = await askClaude(
+    raw = await askLlm(
       SISTEMA_ESCANER_CONTRATO,
       `${instruccion}\n\nTexto del contrato:\n${input.texto.trim()}`,
       3200,
