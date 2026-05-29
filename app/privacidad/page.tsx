@@ -1,26 +1,38 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import { MarketingContentShell } from '@/components/landing/MarketingContentShell'
+
+export const metadata: Metadata = {
+  title: 'Política de privacidad | BlindadoUSA',
+  description:
+    'Conoce cómo BlindadoUSA recopila, protege y procesa tus datos personales y financieros.',
+  alternates: { canonical: 'https://blindadousa.com/privacidad' },
+}
 
 export default function PrivacidadPage() {
   return (
-    <main style={{ maxWidth: 800, margin: '0 auto', padding: '4rem 2rem', color: '#fff', background: '#000', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem' }}>
-        Politica de Privacidad
-      </h1>
-      <p style={{ color: '#aaa', lineHeight: 1.8 }}>
-        En BlindadoUSA protegemos tus datos personales. Solo recopilamos la
-        informacion necesaria para ofrecer la plataforma, mejorar la experiencia
-        y procesar pagos de forma segura. No vendemos informacion personal a terceros.
+    <MarketingContentShell title="POLÍTICA DE PRIVACIDAD">
+      <p>
+        En BlindadoUSA protegemos tus datos personales y financieros con medidas de seguridad
+        razonables para prevenir accesos no autorizados. Solo recopilamos información necesaria
+        para operar la plataforma, procesar suscripciones, brindar funcionalidades solicitadas y
+        mejorar la experiencia del usuario.
       </p>
-      <p style={{ color: '#aaa', marginTop: '1rem', lineHeight: 1.8 }}>
-        Puedes solicitar acceso, correccion o eliminacion de tus datos escribiendo a
+      <p>
+        No vendemos información personal a terceros. Podemos compartir datos con proveedores
+        tecnológicos indispensables para la operación (por ejemplo: infraestructura, pagos,
+        analítica o comunicaciones), bajo obligaciones de confidencialidad y uso limitado.
+      </p>
+      <p>
+        Puedes solicitar acceso, corrección o eliminación de tus datos escribiendo a
         hola@blindadousa.com.
       </p>
-      <p style={{ color: '#aaa', marginTop: '1rem' }}>
-        © 2026 BlindadoUSA · Dr. Alexander Jesus Figueredo Izaguirre
+      <p>
+        Al utilizar BlindadoUSA aceptas esta política y sus actualizaciones. Si no estás de acuerdo
+        con este tratamiento de datos, debes dejar de usar la plataforma.
       </p>
-      <Link href="/" style={{ color: '#22d3ee', display: 'block', marginTop: '2rem' }}>
-        Volver al inicio
-      </Link>
-    </main>
+      <p className="text-sm text-[var(--text-muted)]">
+        © 2026 BlindadoUSA · Dr. Alexander Jesús Figueredo Izaguirre
+      </p>
+    </MarketingContentShell>
   )
 }

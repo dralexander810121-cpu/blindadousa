@@ -1,27 +1,66 @@
 'use client'
-import { useState, useEffect } from 'react'
+
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
+import { Button3D } from '@/components/ui/Button3D'
+import { MODULE_COUNT_LABEL } from '@/lib/productCatalog'
+import { checkoutDisplayAmount, type CheckoutPlan } from '@/lib/stripe'
+import { PRICING } from '@/lib/siteFacts'
+import { IMG } from '@/lib/images'
 
 export default function PagarPage() {
   const [email, setEmail] = useState('')
   const [codigo, setCodigo] = useState('')
   const [codigoValido, setCodigoValido] = useState<boolean | null>(null)
-  const [precio, setPrecio] = useState(20)
+  const [plan, setPlan] = useState<CheckoutPlan>('mensual')
+  const [precio, setPrecio] = useState<number>(PRICING.monthly)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const syncPrecio = useCallback((p: CheckoutPlan, valido: boolean | null) => {
+    const conDescuento = valido === true
+    setPrecio(checkoutDisplayAmount(p, conDescuento))
+  }, [])
+
+  const validarCodigo = useCallback(
+    async (cod: string, planActual: CheckoutPlan) => {
+      if (!cod) {
+        setCodigoValido(null)
+        syncPrecio(planActual, null)
+        return
+      }
+      const res = await fetch('/api/referidos/validar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ codigo: cod }),
+      })
+      const data = await res.json()
+      const valido = !!data.valido
+      setCodigoValido(valido)
+      syncPrecio(planActual, valido)
+    },
+    [syncPrecio],
+  )
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const cod = params.get('codigo') || ''
-    if (cod) { setCodigo(cod); validarCodigo(cod) }
-  }, [])
+    const planParam = params.get('plan') === 'anual' ? 'anual' : 'mensual'
+    setPlan(planParam)
+    syncPrecio(planParam, null)
+    if (cod) {
+      setCodigo(cod)
+      void validarCodigo(cod, planParam)
+    }
+  }, [syncPrecio, validarCodigo])
 
-  async function validarCodigo(cod: string) {
-    if (!cod) { setCodigoValido(null); setPrecio(20); return }
-    const res = await fetch('/api/referidos/validar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ codigo: cod }) })
-    const data = await res.json()
-    setCodigoValido(data.valido)
-    setPrecio(data.valido ? 15 : 20)
+  function selectPlan(next: CheckoutPlan) {
+    setPlan(next)
+    syncPrecio(next, codigoValido)
+    const url = new URL(window.location.href)
+    url.searchParams.set('plan', next)
+    window.history.replaceState({}, '', url.pathname + url.search)
   }
 
   async function handlePago(e: React.FormEvent) {
@@ -32,7 +71,7 @@ export default function PagarPage() {
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, codigo }),
+        body: JSON.stringify({ email, codigo, plan }),
       })
       const data = await res.json()
       if (!res.ok) {
@@ -52,48 +91,99 @@ export default function PagarPage() {
     }
   }
 
-  const inp = { width: '100%', padding: '14px 16px', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: 16, outline: 'none', fontFamily: 'Inter, sans-serif', marginBottom: 8 }
+  const periodLabel = plan === 'anual' ? '/año' : '/mes'
+  const planTitle = plan === 'anual' ? 'Plan anual' : 'Plan mensual'
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--pale-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-      <div style={{ width: '100%', maxWidth: 480 }}>
-        <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <Link href="/inicio" style={{ textDecoration: 'none' }}>
-            <span className="font-bebas" style={{ fontSize: 30, color: 'var(--primary)', letterSpacing: 2 }}>BLINDADO<span style={{ color: 'var(--accent)' }}>USA</span></span>
-          </Link>
-          <h1 style={{ fontSize: 26, fontWeight: 700, marginTop: 16, color: 'var(--dark)' }}>Acceso completo de por vida</h1>
-          <div className="font-bebas" style={{ fontSize: 72, color: 'var(--primary)', lineHeight: 1 }}>${precio}</div>
-          <p style={{ color: 'var(--gray)', fontSize: 15 }}>Una sola vez. Para siempre. Los 13 módulos.</p>
-        </div>
-        <div className="card" style={{ padding: 32 }}>
-          <form onSubmit={handlePago}>
-            <label style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', display: 'block', marginBottom: 6 }}>Tu email</label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="tu@email.com" required style={inp} />
-            <div style={{ marginBottom: 24, marginTop: 8 }}>
-              <label style={{ fontSize: 14, fontWeight: 600, color: 'var(--dark)', display: 'block', marginBottom: 6 }}>
-                ¿Tienes un código? <span style={{ fontWeight: 400, color: 'var(--gray)' }}>(opcional — ahorra $5)</span>
-              </label>
-              <input type="text" value={codigo} onChange={e => { setCodigo(e.target.value.toUpperCase()); validarCodigo(e.target.value.toUpperCase()) }}
-                placeholder="Ej: AETHERIS o ALEX1247" style={{ ...inp, marginBottom: 4, textTransform: 'uppercase', border: codigoValido === true ? '1.5px solid var(--success)' : codigoValido === false ? '1.5px solid var(--danger)' : '1.5px solid #E5E7EB' }} />
-              {codigoValido === true && <p style={{ color: 'var(--success)', fontSize: 13, fontWeight: 600 }}>✓ Código válido — Pagas $15</p>}
-              {codigoValido === false && <p style={{ color: 'var(--danger)', fontSize: 13 }}>Código no válido</p>}
-            </div>
-            <button type="submit" className="btn-primary" style={{ width: '100%', fontSize: 17, padding: '16px', justifyContent: 'center', display: 'flex', boxShadow: '0 8px 24px rgba(244,162,97,.35)' }} disabled={loading}>
-              {loading ? 'Conectando con Stripe...' : `Pagar $${precio} con tarjeta →`}
-            </button>
-            {error && (
-              <p style={{ marginTop: 12, color: '#b91c1c', fontSize: 14, lineHeight: 1.5 }}>
-                {error}
-              </p>
-            )}
-          </form>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 16, flexWrap: 'wrap' }}>
-            {['🔒 Stripe SSL', '✓ Garantía 30 días', '⚡ Acceso inmediato'].map(b => (
-              <span key={b} style={{ fontSize: 12, color: 'var(--gray)' }}>{b}</span>
-            ))}
-          </div>
-        </div>
+    <AuthShell
+      title="Activa tu suscripción"
+      subtitle="Suscripción renovable con Stripe. Acceso inmediato al dashboard."
+      image={IMG.pagar}
+    >
+      <div className="pay-plan-toggle" role="group" aria-label="Elige plan">
+        <button
+          type="button"
+          className={`pay-plan-btn ${plan === 'mensual' ? 'pay-plan-btn--active' : ''}`}
+          onClick={() => selectPlan('mensual')}
+        >
+          Mensual · ${PRICING.monthly}/mes
+        </button>
+        <button
+          type="button"
+          className={`pay-plan-btn ${plan === 'anual' ? 'pay-plan-btn--active' : ''}`}
+          onClick={() => selectPlan('anual')}
+        >
+          Anual · ${PRICING.annual}/año
+        </button>
       </div>
-    </div>
+
+      <div className="text-center mb-6">
+        <p className="auth-price">
+          ${precio}
+          <span className="text-lg font-semibold text-[var(--text-secondary)]">{periodLabel}</span>
+        </p>
+        <p className="text-sm text-[var(--text-secondary)]">
+          {planTitle} · {MODULE_COUNT_LABEL}
+        </p>
+        {plan === 'anual' && (
+          <p className="text-xs text-[var(--gold-400)] font-semibold mt-1">
+            Equivale a ${PRICING.annualPerMonth}/mes · ahorras ${PRICING.annualSavings}
+          </p>
+        )}
+      </div>
+
+      <form onSubmit={handlePago}>
+        {error && <AuthError message={error} />}
+        <AuthField label="Tu email">
+          <AuthInput
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="tu@email.com"
+            required
+          />
+        </AuthField>
+        <AuthField label="Código de referido (opcional)">
+          <AuthInput
+            type="text"
+            value={codigo}
+            onChange={(e) => {
+              const v = e.target.value.toUpperCase()
+              setCodigo(v)
+              void validarCodigo(v, plan)
+            }}
+            placeholder="Ej: ALEX1247"
+            style={{
+              borderColor:
+                codigoValido === true
+                  ? 'rgba(16,185,129,0.5)'
+                  : codigoValido === false
+                    ? 'rgba(239,68,68,0.5)'
+                    : undefined,
+            }}
+          />
+        </AuthField>
+        {codigoValido === true && (
+          <p className="text-sm text-[var(--emerald-400)] font-semibold mb-3">
+            ✓ Código válido — −${PRICING.referralPayout} en tu primer pago
+          </p>
+        )}
+        {codigoValido === false && (
+          <p className="text-sm text-[var(--red-500)] mb-3">Código no válido</p>
+        )}
+        <Button3D type="submit" variant="gold" className="w-full" pulse={!loading}>
+          {loading ? 'Conectando con Stripe…' : `Suscribirme — $${precio}${periodLabel} →`}
+        </Button3D>
+      </form>
+      <div className="auth-trust-row">
+        <span>Stripe SSL</span>
+        <span>Acceso inmediato</span>
+        <span>Cancela cuando quieras</span>
+      </div>
+      <div className="auth-footer flex flex-col gap-2">
+        <Link href="/que-incluye">Ver qué incluye tu plan →</Link>
+        <Link href="/precios">Comparar todos los planes</Link>
+      </div>
+    </AuthShell>
   )
 }

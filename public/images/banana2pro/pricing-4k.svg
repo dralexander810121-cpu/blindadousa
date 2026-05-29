@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#030812"/>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <g opacity="0.28">
+    <rect x="760" y="380" width="700" height="1280" rx="36" stroke="#4BECDD" stroke-width="3"/>
+    <rect x="1570" y="280" width="700" height="1380" rx="36" stroke="#F0C35A" stroke-width="3"/>
+    <rect x="2380" y="380" width="700" height="1280" rx="36" stroke="#4BECDD" stroke-width="3"/>
+  </g>
+  <ellipse cx="1870" cy="990" rx="980" ry="820" fill="url(#gold)"/>
+  <ellipse cx="1060" cy="740" rx="820" ry="620" fill="url(#teal)"/>
+  <defs>
+    <linearGradient id="bg" x1="400" y1="120" x2="3400" y2="2040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071A30"/>
+      <stop offset="0.5" stop-color="#0C1F39"/>
+      <stop offset="1" stop-color="#081427"/>
+    </linearGradient>
+    <radialGradient id="gold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1870 990) rotate(90) scale(820 980)">
+      <stop stop-color="#E6B94D" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#E6B94D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="teal" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1060 740) rotate(90) scale(620 820)">
+      <stop stop-color="#1DE8D8" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#1DE8D8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

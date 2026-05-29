@@ -1,5 +1,8 @@
 import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
-  serverExternalPackages: ['stripe', 'plaid']
+  serverExternalPackages: ['stripe', 'plaid'],
+  turbopack: {
+    root: process.cwd(),
+  },
 }
 export default nextConfig

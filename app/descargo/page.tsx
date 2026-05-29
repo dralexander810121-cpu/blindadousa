@@ -1,27 +1,39 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import { MarketingContentShell } from '@/components/landing/MarketingContentShell'
+
+export const metadata: Metadata = {
+  title: 'Descargo de responsabilidad | BlindadoUSA',
+  description:
+    'Aviso legal sobre el alcance educativo de BlindadoUSA y límites de responsabilidad.',
+  alternates: { canonical: 'https://blindadousa.com/descargo' },
+}
 
 export default function DescargoPage() {
   return (
-    <main style={{ maxWidth: 800, margin: '0 auto', padding: '4rem 2rem', color: '#fff', background: '#000', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem' }}>
-        Descargo de responsabilidad
-      </h1>
-      <p style={{ color: '#aaa', lineHeight: 1.8 }}>
-        El contenido de BlindadoUSA es informativo y educativo. No reemplaza
-        asesoria legal, fiscal, migratoria, financiera o contable personalizada.
-        Las decisiones que tomes son tu responsabilidad y deben validarse con
-        profesionales autorizados en tu estado o jurisdiccion.
+    <MarketingContentShell title="DESCARGO DE RESPONSABILIDAD">
+      <p>
+        BlindadoUSA es una plataforma educativa para orientar a la comunidad hispana en temas de
+        crédito, deudas, taxes, vivienda, contratos y prevención de estafas. El contenido
+        publicado no constituye asesoría legal, fiscal, contable, financiera ni migratoria
+        profesional.
       </p>
-      <p style={{ color: '#aaa', marginTop: '1rem', lineHeight: 1.8 }}>
-        BlindadoUSA no garantiza resultados especificos y no se hace responsable
-        por decisiones tomadas exclusivamente con base en este contenido.
+      <p>
+        BlindadoUSA no promete ni garantiza resultados específicos. Cualquier decisión tomada a
+        partir del contenido, guías, simulaciones o documentos generados es responsabilidad
+        exclusiva del usuario.
       </p>
-      <p style={{ color: '#aaa', marginTop: '1rem' }}>
-        © 2026 BlindadoUSA · Dr. Alexander Jesus Figueredo Izaguirre
+      <p>
+        Los documentos o cartas generados son plantillas de apoyo informativo y deben ser
+        revisados por un profesional licenciado cuando el caso lo requiera o pueda implicar
+        consecuencias legales relevantes.
       </p>
-      <Link href="/" style={{ color: '#22d3ee', display: 'block', marginTop: '2rem' }}>
-        Volver al inicio
-      </Link>
-    </main>
+      <p>
+        Si necesitas asesoría profesional, contacta un abogado, contador público certificado u
+        otro especialista autorizado en tu jurisdicción.
+      </p>
+      <p className="text-sm text-[var(--text-muted)]">
+        © 2026 BlindadoUSA · Dr. Alexander Jesús Figueredo Izaguirre
+      </p>
+    </MarketingContentShell>
   )
 }

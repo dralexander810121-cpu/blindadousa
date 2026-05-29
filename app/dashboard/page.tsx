@@ -1,108 +1,197 @@
 'use client'
-import { useEffect, useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
-import Link from 'next/link'
 
-const MODULOS = [
-  { href: '/dashboard/credito',     icon: '💳', name: 'Mi Crédito',        desc: 'Score, disputas y plan de mejora' },
-  { href: '/dashboard/casa',        icon: '🏠', name: 'Comprar Casa',       desc: 'Hipotecas, costos y tus derechos' },
-  { href: '/dashboard/carro',       icon: '🚗', name: 'Comprar Carro',      desc: 'Tasa justa y lo que no te dicen' },
-  { href: '/dashboard/remesas',     icon: '💸', name: 'Remesas 2026',       desc: 'Evita el impuesto activo' },
-  { href: '/dashboard/prestamos',   icon: '🚨', name: 'Préstamos',          desc: 'Escanea si te quieren engañar' },
-  { href: '/dashboard/jubilacion',  icon: '🏦', name: 'Jubilación',         desc: '401K, IRA y calculadora' },
-  { href: '/dashboard/banco',       icon: '🏧', name: 'Mi Banco',           desc: 'Primera cuenta sin SSN' },
-  { href: '/dashboard/trabajo',     icon: '⚖️', name: 'Salario Justo',      desc: '¿Te están pagando lo justo?' },
-  { href: '/dashboard/taxes',       icon: '📋', name: 'Taxes e ITIN',       desc: 'Declara y recupera tu dinero' },
-  { href: '/dashboard/emergencia',  icon: '🆘', name: 'Emergencias',        desc: 'Plan de 90 días con IA' },
-  { href: '/dashboard/derechos',    icon: '🛡️', name: 'Mis Derechos',       desc: 'Trabajo, casa, hospital, policía' },
-  { href: '/dashboard/subsidios',   icon: '🎁', name: 'Subsidios y Ayudas', desc: 'SNAP, Medicaid, Section 8' },
-  { href: '/dashboard/asistente',   icon: '🤖', name: 'Asistente IA',       desc: 'Chat en español 24/7' },
-]
+import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
+import { AccountsPanel, AlertsPanel } from '@/components/dashboard/AlertsPanel'
+import { ActionPlanCard } from '@/components/dashboard/ActionPlanCard'
+import { BannerTrial } from '@/components/dashboard/BannerTrial'
+import { ModulesGrid } from '@/components/dashboard/ModulesGrid'
+import { OnboardingBanner } from '@/components/dashboard/OnboardingBanner'
+import { PlaidConnect } from '@/components/dashboard/PlaidConnect'
+import { formatDollars } from '@/lib/utils'
+
+type DashboardData = {
+  usuario: {
+    nombre: string | null
+    trial_activo: boolean | null
+    trial_fin: string | null
+    acceso_pagado: boolean | null
+  }
+  metrics: {
+    credit_score: number | null
+    balance_total: number
+    gastos_mes: number
+    alertas_activas: number
+    cuentas_conectadas: number
+    deuda_tarjetas: number
+  }
+  cuentas: Parameters<typeof AccountsPanel>[0]['cuentas']
+  alertas: Parameters<typeof AlertsPanel>[0]['alertas']
+  plaid_configured: boolean
+}
+
+function MetricCard({
+  label,
+  value,
+  sub,
+  tone = 'neutral',
+}: {
+  label: string
+  value: string
+  sub?: string
+  tone?: 'neutral' | 'positive' | 'negative' | 'gold'
+}) {
+  return (
+    <div className={`dash-metric dash-metric--${tone}`}>
+      <p className="dash-metric-label">{label}</p>
+      <p className="dash-metric-value font-display">{value}</p>
+      {sub && <p className="dash-metric-sub">{sub}</p>}
+    </div>
+  )
+}
 
 export default function DashboardPage() {
-  const [usuario, setUsuario] = useState<any>(null)
-  const [alertas, setAlertas] = useState<any[]>([])
+  const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
-  const supabase = createClient()
 
-  useEffect(() => { loadData() }, [])
+  const load = useCallback(async () => {
+    try {
+      const res = await fetch('/api/plaid/accounts')
+      if (res.ok) {
+        setData(await res.json())
+      }
+    } finally {
+      setLoading(false)
+    }
+  }, [])
 
-  async function loadData() {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return
-    const [{ data: u }, { data: al }] = await Promise.all([
-      supabase.from('usuarios').select('*').eq('auth_user_id', user.id).single(),
-      supabase.from('alertas').select('*').eq('usuario_id', user.id).eq('leida', false).order('created_at', { ascending: false }).limit(5),
-    ])
-    setUsuario(u); setAlertas(al || [])
-    setLoading(false)
-  }
+  useEffect(() => {
+    load()
+  }, [load])
 
-  const diasTrial = usuario?.trial_fin ? Math.max(0, Math.ceil((new Date(usuario.trial_fin).getTime() - Date.now()) / 86400000)) : 0
-  const enTrial = usuario?.trial_activo && !usuario?.acceso_pagado
+  const nombre = data?.usuario?.nombre?.split(' ')[0] || 'amigo'
+  const trialFin = data?.usuario?.trial_fin
+  const diasTrial = trialFin
+    ? Math.max(0, Math.ceil((new Date(trialFin).getTime() - Date.now()) / 86400000))
+    : 0
+  const enTrial = Boolean(data?.usuario?.trial_activo && !data?.usuario?.acceso_pagado)
+  const connected = (data?.metrics.cuentas_conectadas ?? 0) > 0
+
+  const score = data?.metrics.credit_score
+  const scoreLabel = score ? `${score}` : '—'
+  const scoreSub = score ? (score >= 670 ? 'Bueno' : score >= 580 ? 'Regular' : 'Construir') : 'Conecta perfil'
 
   return (
-    <div>
-      {/* Header */}
-      <div style={{ marginBottom: 28 }}>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: 'var(--dark)', marginBottom: 4 }}>
-          Hola, {usuario?.nombre?.split(' ')[0] || 'amigo'} 👋
-        </h1>
-        <p style={{ color: 'var(--gray)', fontSize: 15 }}>
-          {new Date().toLocaleDateString('es-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
-        </p>
+    <div className="dash-page dash-page--banana">
+      <div className="dash-page-head">
+        <div>
+          <h1 className="dash-page-title">Bienvenido, {nombre} 👋</h1>
+          <p className="dash-page-date">
+            {new Date().toLocaleDateString('es-US', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </p>
+        </div>
+        <Link href="/dashboard/asistente" className="dash-ia-input">
+          ¿Qué necesitas hoy? Pregúntale a Blindado…
+        </Link>
       </div>
 
-      {/* Trial Banner */}
-      {enTrial && (
-        <div className="trial-banner" style={{ marginBottom: 24 }}>
-          <span style={{ fontWeight: 600, fontSize: 15 }}>⏰ Te quedan <strong>{diasTrial} día{diasTrial !== 1 ? 's' : ''}</strong> de prueba gratis</span>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <Link href="/pagar?codigo=AETHERIS" style={{ textDecoration: 'none' }}>
-              <button className="btn-primary" style={{ padding: '8px 16px', fontSize: 13 }}>Con AETHERIS → $15</button>
-            </Link>
-            <Link href="/pagar" style={{ textDecoration: 'none' }}>
-              <button className="btn-ghost" style={{ padding: '8px 16px', fontSize: 13, borderColor: 'var(--warning)' }}>Continuar por $20</button>
-            </Link>
-          </div>
-        </div>
-      )}
+      {enTrial && diasTrial > 0 && <BannerTrial diasRestantes={diasTrial} />}
 
-      {/* Alertas */}
-      {alertas.length > 0 && (
-        <div style={{ marginBottom: 28 }}>
-          <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 12, color: 'var(--dark)' }}>Tus alertas</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {alertas.map((a: any) => (
-              <div key={a.id} style={{ display: 'flex', gap: 12, padding: '12px 16px', background: 'white', borderRadius: 10, border: `1px solid`, borderColor: a.nivel === 'rojo' ? '#FECACA' : a.nivel === 'verde' ? '#BBF7D0' : '#FEF3C7', alignItems: 'center' }}>
-                <span style={{ fontSize: 20 }}>{a.nivel === 'rojo' ? '🔴' : a.nivel === 'verde' ? '🟢' : '🟡'}</span>
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: 14 }}>{a.titulo}</div>
-                  <div style={{ color: 'var(--gray)', fontSize: 13 }}>{a.mensaje}</div>
+      <OnboardingBanner />
+
+      {loading ? (
+        <div className="dash-loading">Cargando tu centro de comando…</div>
+      ) : (
+        <>
+          <div className="dash-metrics-grid">
+            <MetricCard
+              label="Score de crédito"
+              value={scoreLabel}
+              sub={scoreSub}
+              tone={score && score >= 670 ? 'positive' : 'gold'}
+            />
+            <MetricCard
+              label="Balance total"
+              value={formatDollars(data?.metrics.balance_total ?? 0)}
+              sub={`${data?.metrics.cuentas_conectadas ?? 0} cuenta(s) conectada(s)`}
+            />
+            <MetricCard
+              label="Gastos este mes"
+              value={formatDollars(data?.metrics.gastos_mes ?? 0)}
+              sub="Actualiza en perfil financiero"
+            />
+            <MetricCard
+              label="Alertas activas"
+              value={String(data?.metrics.alertas_activas ?? 0)}
+              sub={
+                (data?.metrics.alertas_activas ?? 0) > 0 ? 'Revisa abajo' : 'Todo bajo control'
+              }
+              tone={(data?.metrics.alertas_activas ?? 0) > 0 ? 'negative' : 'positive'}
+            />
+          </div>
+
+          <div className="dash-two-col">
+            <div className="space-y-5">
+              <AlertsPanel alertas={data?.alertas ?? []} />
+              <AccountsPanel cuentas={data?.cuentas ?? []} />
+            </div>
+
+            <aside className="space-y-5">
+              <ActionPlanCard
+                score={data?.metrics.credit_score ?? null}
+                alertasActivas={data?.metrics.alertas_activas ?? 0}
+                cuentasConectadas={data?.metrics.cuentas_conectadas ?? 0}
+                deudaTarjetas={data?.metrics.deuda_tarjetas ?? 0}
+              />
+
+              {data?.plaid_configured ? (
+                <PlaidConnect connected={connected} onConnected={load} />
+              ) : (
+                <div className="card-3d dash-plaid-box">
+                  <p className="text-sm font-bold mb-2">Plaid pendiente de configurar</p>
+                  <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+                    Añade PLAID_CLIENT_ID y PLAID_SECRET en .env.local para conectar cuentas
+                    bancarias en sandbox o producción.
+                  </p>
                 </div>
+              )}
+
+              <div className="chart-container banana-pro-panel">
+                <h3 className="dash-panel-title">Resumen rápido</h3>
+                <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
+                  <li className="flex justify-between">
+                    <span>Deuda en tarjetas</span>
+                    <strong className="text-[var(--text-primary)]">
+                      {formatDollars(data?.metrics.deuda_tarjetas ?? 0)}
+                    </strong>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Plan</span>
+                    <strong className="text-[var(--gold-400)]">
+                      {data?.usuario.acceso_pagado ? 'Activo' : enTrial ? 'Trial' : 'Gratis'}
+                    </strong>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Monitor de pagos</span>
+                    <strong className="text-[var(--emerald-400)]">Activo</strong>
+                  </li>
+                </ul>
               </div>
-            ))}
+            </aside>
           </div>
-        </div>
+
+          <ModulesGrid />
+        </>
       )}
 
-      {/* Módulos Grid */}
-      <div>
-        <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--dark)' }}>Tus 13 herramientas</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 14 }}>
-          {MODULOS.map(m => (
-            <Link key={m.href} href={m.href} style={{ textDecoration: 'none' }}>
-              <div className="card" style={{ cursor: 'pointer', transition: 'all .2s', padding: '18px 16px' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--primary)'; (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-2px)' }}
-                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = '#E5E7EB'; (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)' }}>
-                <div style={{ fontSize: 28, marginBottom: 8 }}>{m.icon}</div>
-                <div style={{ fontWeight: 700, fontSize: 15, color: 'var(--dark)', marginBottom: 4 }}>{m.name}</div>
-                <div style={{ fontSize: 12, color: 'var(--gray)', lineHeight: 1.4 }}>{m.desc}</div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <p className="dash-disclaimer">
+        Herramienta educativa. No constituye asesoría legal, contable ni financiera certificada.
+      </p>
     </div>
   )
 }

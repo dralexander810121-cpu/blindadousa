@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#02070F"/>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <g opacity="0.55">
+    <ellipse cx="730" cy="480" rx="980" ry="540" fill="url(#tealGlow)"/>
+    <ellipse cx="3000" cy="1680" rx="1180" ry="760" fill="url(#goldGlow)"/>
+    <ellipse cx="2280" cy="760" rx="920" ry="560" fill="url(#blueGlow)"/>
+  </g>
+  <g opacity="0.18" stroke="#7EF8ED" stroke-width="2">
+    <path d="M0 340H3840"/>
+    <path d="M0 760H3840"/>
+    <path d="M0 1180H3840"/>
+    <path d="M0 1600H3840"/>
+    <path d="M640 0V2160"/>
+    <path d="M1280 0V2160"/>
+    <path d="M1920 0V2160"/>
+    <path d="M2560 0V2160"/>
+    <path d="M3200 0V2160"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="210" y1="80" x2="3300" y2="2060" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#061426"/>
+      <stop offset="0.48" stop-color="#0B1B35"/>
+      <stop offset="1" stop-color="#0A1325"/>
+    </linearGradient>
+    <radialGradient id="tealGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(730 480) rotate(19) scale(1180 690)">
+      <stop stop-color="#1DF0DD" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#1DF0DD" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(3000 1680) rotate(8) scale(1400 880)">
+      <stop stop-color="#E9B83F" stop-opacity="0.36"/>
+      <stop offset="1" stop-color="#E9B83F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2280 760) rotate(12) scale(1050 620)">
+      <stop stop-color="#2D67F8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#2D67F8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

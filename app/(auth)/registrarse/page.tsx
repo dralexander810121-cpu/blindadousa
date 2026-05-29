@@ -2,6 +2,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
+import { Button3D } from '@/components/ui/Button3D'
+import { PRICING } from '@/lib/siteFacts'
 import { createSupabaseBrowserClient } from '@/lib/supabase/client'
 
 export default function RegistrarsePage() {
@@ -17,21 +20,20 @@ export default function RegistrarsePage() {
     setError(null)
     setLoading(true)
     const supabase = createSupabaseBrowserClient()
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error: signUpError } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { nombre } },
     })
-    if (error) {
+    if (signUpError) {
       setLoading(false)
-      setError(error.message)
+      setError(signUpError.message)
       return
     }
-    // Crear row en tabla usuarios
     if (data.user) {
       await supabase.from('usuarios').upsert(
         { auth_user_id: data.user.id, email, nombre },
-        { onConflict: 'auth_user_id' }
+        { onConflict: 'auth_user_id' },
       )
     }
     setLoading(false)
@@ -40,35 +42,35 @@ export default function RegistrarsePage() {
   }
 
   return (
-    <main className="min-h-screen bg-pale flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-        <h1 className="text-3xl font-bold text-primary mb-2">Crea tu cuenta</h1>
-        <p className="text-muted mb-6">Empezás con 3 días gratis. Sin tarjeta de crédito.</p>
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">Nombre</label>
-            <input type="text" required value={nombre} onChange={e => setNombre(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none text-base" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input type="email" required value={email} onChange={e => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none text-base" />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Contraseña (mínimo 6 caracteres)</label>
-            <input type="password" required minLength={6} value={password} onChange={e => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none text-base" />
-          </div>
-          {error && <p className="alert-rojo text-sm">{error}</p>}
-          <button type="submit" disabled={loading} className="btn-primary w-full">
-            {loading ? 'Creando cuenta…' : 'Crear cuenta y activar trial gratis'}
-          </button>
-        </form>
-        <p className="mt-6 text-sm text-center">
-          ¿Ya tenés cuenta? <Link href="/entrar" className="text-primary font-bold hover:underline">Entrá</Link>
-        </p>
+    <AuthShell
+      title="Crea tu cuenta"
+      subtitle={`Empiezas con ${PRICING.trialDays} días gratis. Sin tarjeta de crédito.`}
+      badge={`Trial ${PRICING.trialDays} días gratis`}
+    >
+      <form onSubmit={onSubmit}>
+        {error && <AuthError message={error} />}
+        <AuthField label="Nombre">
+          <AuthInput type="text" required value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        </AuthField>
+        <AuthField label="Email">
+          <AuthInput type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        </AuthField>
+        <AuthField label="Contraseña (mínimo 6 caracteres)">
+          <AuthInput
+            type="password"
+            required
+            minLength={6}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </AuthField>
+        <Button3D type="submit" variant="gold" className="w-full mt-2" pulse={!loading}>
+          {loading ? 'Creando cuenta…' : 'Crear cuenta y activar trial'}
+        </Button3D>
+      </form>
+      <div className="auth-footer">
+        ¿Ya tienes cuenta? <Link href="/entrar">Entrar</Link>
       </div>
-    </main>
+    </AuthShell>
   )
 }

@@ -1,33 +1,88 @@
 'use client'
-import { useState } from 'react'
+
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { DashDisplay, DashPanel, DashRangeRow } from '@/components/dashboard/DashPanel'
 
 function ScoreGauge({ score }: { score: number }) {
   const pct = Math.max(0, Math.min(1, (score - 300) / 550))
-  const col = score >= 800 ? '#52B788' : score >= 740 ? '#40916C' : score >= 670 ? '#FFB703' : score >= 580 ? '#F77F00' : '#D62828'
-  const label = score >= 800 ? 'Excepcional' : score >= 740 ? 'Muy Bueno' : score >= 670 ? 'Bueno' : score >= 580 ? 'Regular' : 'Bajo'
+  const col =
+    score >= 800
+      ? 'var(--emerald-400)'
+      : score >= 740
+        ? 'var(--cyan-bright)'
+        : score >= 670
+          ? 'var(--amber-500)'
+          : score >= 580
+            ? 'var(--amber-500)'
+            : 'var(--red-500)'
+  const label =
+    score >= 800
+      ? 'Excepcional'
+      : score >= 740
+        ? 'Muy bueno'
+        : score >= 670
+          ? 'Bueno'
+          : score >= 580
+            ? 'Regular'
+            : 'Bajo'
   const circumference = Math.PI * 90
   const offset = circumference * (1 - pct)
   return (
-    <div style={{ textAlign: 'center' }}>
-      <svg width="220" height="130" viewBox="0 0 220 130">
-        <path d="M 25 115 A 90 90 0 0 1 195 115" fill="none" stroke="#E5E7EB" strokeWidth="14" strokeLinecap="round"/>
-        <path d="M 25 115 A 90 90 0 0 1 195 115" fill="none" stroke={col} strokeWidth="14" strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={offset} style={{ transition: 'stroke-dashoffset 1.2s ease, stroke .5s' }} />
-        <text x="110" y="102" textAnchor="middle" style={{ fontFamily: 'Bebas Neue, cursive', fontSize: 52, fill: col }}>{score || '—'}</text>
-        <text x="22" y="128" textAnchor="middle" style={{ fontSize: 10, fill: '#9CA3AF' }}>300</text>
-        <text x="198" y="128" textAnchor="middle" style={{ fontSize: 10, fill: '#9CA3AF' }}>850</text>
+    <div className="text-center">
+      <svg width="220" height="130" viewBox="0 0 220 130" className="mx-auto">
+        <path
+          d="M 25 115 A 90 90 0 0 1 195 115"
+          fill="none"
+          stroke="rgba(255,255,255,0.1)"
+          strokeWidth="14"
+          strokeLinecap="round"
+        />
+        <path
+          d="M 25 115 A 90 90 0 0 1 195 115"
+          fill="none"
+          stroke={col}
+          strokeWidth="14"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          style={{ transition: 'stroke-dashoffset 1.2s ease' }}
+        />
+        <text
+          x="110"
+          y="102"
+          textAnchor="middle"
+          style={{ fontFamily: 'Plus Jakarta Sans, Inter, sans-serif', fontWeight: 800, fontSize: 48, fill: col }}
+        >
+          {score || '—'}
+        </text>
+        <text x="22" y="128" textAnchor="middle" className="fill-[var(--text-muted)] text-[10px]">
+          300
+        </text>
+        <text x="198" y="128" textAnchor="middle" className="fill-[var(--text-muted)] text-[10px]">
+          850
+        </text>
       </svg>
-      <div style={{ fontWeight: 700, color: col, fontSize: 15, letterSpacing: 1, textTransform: 'uppercase' }}>{label}</div>
+      <p className="font-bold uppercase tracking-wide text-sm" style={{ color: col }}>
+        {label}
+      </p>
     </div>
   )
 }
 
 const FACTORES = [
-  { pct: 35, icon: '📅', name: '¿Pagas a tiempo?', desc: 'El factor más importante. Un solo pago tarde puede bajar tu score 50-100 puntos.' },
-  { pct: 30, icon: '💰', name: '¿Cuánto debes vs cuánto puedes?', desc: 'Usa menos del 30% de tu límite. Lo ideal es menos del 10%.' },
-  { pct: 15, icon: '🕐', name: '¿Cuánto tiempo llevas?', desc: 'Cuanto más tiempo tienes tus cuentas abiertas, mejor.' },
-  { pct: 10, icon: '📝', name: '¿Pediste crédito nuevo?', desc: 'Cada solicitud de crédito puede bajar el score 5-10 puntos.' },
-  { pct: 10, icon: '🎭', name: '¿Tienes variedad?', desc: 'Tener tarjetas, un auto, y una hipoteca muestra que puedes manejar diferentes tipos de crédito.' },
+  { pct: 35, icon: '📅', name: '¿Pagas a tiempo?', desc: 'Un solo pago tarde puede bajar tu score 50–100 puntos.' },
+  { pct: 30, icon: '💰', name: 'Utilización', desc: 'Usa menos del 30% de tu límite. Lo ideal es menos del 10%.' },
+  { pct: 15, icon: '🕐', name: 'Antigüedad', desc: 'Cuentas más viejas ayudan tu historial.' },
+  { pct: 10, icon: '📝', name: 'Crédito nuevo', desc: 'Cada consulta dura puede bajar 5–10 puntos.' },
+  { pct: 10, icon: '🎭', name: 'Mezcla', desc: 'Variedad de crédito (tarjeta, auto, casa) ayuda.' },
+]
+
+const LINKS = [
+  { href: '/dashboard/credito/tarjetas', icon: '💳', name: 'Mis tarjetas (Plaid)', desc: 'Conecta y optimiza' },
+  { href: '/dashboard/credito/disputas', icon: '⚡', name: 'Disputas al buró', desc: 'Errores FCRA' },
+  { href: '/dashboard/credito/cartas', icon: '✉️', name: 'Cartas generadas', desc: 'Listas para enviar' },
+  { href: '/dashboard/credito/simulador', icon: '🎯', name: 'Simulador', desc: 'Proyecciones' },
 ]
 
 export default function CreditoPage() {
@@ -35,78 +90,107 @@ export default function CreditoPage() {
   const [loading, setLoading] = useState(false)
   const [plan, setPlan] = useState('')
 
+  useEffect(() => {
+    fetch('/api/perfil')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.perfil?.credit_score) setScore(Number(d.perfil.credit_score))
+      })
+      .catch(() => {})
+  }, [])
+
   async function generarPlan() {
     setLoading(true)
-    const res = await fetch('/api/ai/asistente', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mensaje: `Mi score de crédito es ${score}. Dame un plan de 3 acciones concretas ordenadas por impacto para subir mi score. Sé muy específico con números y fechas.`, historial: [] }) })
+    const res = await fetch('/api/ia/maestro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        mensaje: `Mi score de crédito es ${score}. Dame un plan de 3 acciones concretas ordenadas por impacto para subir mi score. Sé específico con números y fechas.`,
+        historial: [],
+      }),
+    })
     const data = await res.json()
-    setPlan(data.respuesta)
+    setPlan(data.respuesta || data.error || '')
     setLoading(false)
   }
 
   return (
-    <div>
-      <h1 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>Mi Crédito 💳</h1>
-      <p style={{ color: 'var(--gray)', marginBottom: 28 }}>Entiende tu score y mejóralo paso a paso</p>
+    <div className="dash-page dash-page--banana">
+      <h1 className="dash-page-title">Mi crédito</h1>
+      <p className="dash-page-date mb-8">Entiende tu score y mejóralo paso a paso</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20, marginBottom: 28 }}>
-        {/* Score Card */}
-        <div className="card" style={{ padding: 28, gridColumn: 'span 1' }}>
-          <div style={{ fontSize: 13, color: 'var(--gray)', marginBottom: 8, fontWeight: 600 }}>TU SCORE ACTUAL</div>
+      <div className="dash-grid-2 mb-8">
+        <DashPanel>
+          <p className="dash-form-label mb-3">Tu score actual</p>
           <ScoreGauge score={score} />
-          <div style={{ marginTop: 16 }}>
-            <label style={{ fontSize: 13, color: 'var(--gray)', display: 'block', marginBottom: 6 }}>Ajusta para simular:</label>
-            <input type="range" min={300} max={850} value={score} onChange={e => setScore(+e.target.value)} />
-          </div>
-        </div>
+          <label className="dash-form-label mt-4">Simular otro score</label>
+          <DashRangeRow label="Puntaje" value={String(score)}>
+            <input
+              type="range"
+              min={300}
+              max={850}
+              value={score}
+              onChange={(e) => setScore(+e.target.value)}
+              className="w-full accent-[var(--cyan-bright)]"
+            />
+          </DashRangeRow>
+        </DashPanel>
 
-        {/* Acceso rápido */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {[
-            { href: '/dashboard/credito/tarjetas', icon: '💳', name: 'Mis Tarjetas (Plaid)', desc: 'Conecta y optimiza tus tarjetas' },
-            { href: '/dashboard/credito/disputas', icon: '⚡', name: 'Disputas al Buró', desc: 'Encuentra y disputa errores' },
-            { href: '/dashboard/credito/cartas', icon: '✉️', name: 'Cartas Generadas', desc: 'Cartas listas para enviar' },
-            { href: '/dashboard/credito/simulador', icon: '🎯', name: 'Simulador', desc: '¿Qué pasa si pago X?' },
-          ].map(item => (
-            <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
-              <div className="card" style={{ padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center', cursor: 'pointer', transition: 'border-color .2s' }}
-                onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--primary)'}
-                onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = '#E5E7EB'}>
-                <span style={{ fontSize: 22 }}>{item.icon}</span>
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: 14 }}>{item.name}</div>
-                  <div style={{ fontSize: 12, color: 'var(--gray)' }}>{item.desc}</div>
-                </div>
-                <span style={{ marginLeft: 'auto', color: 'var(--gray)' }}>→</span>
+        <div className="flex flex-col gap-3">
+          {LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="dash-panel flex gap-3 items-center hover:border-[var(--cyan-bright)]/40 transition-colors no-underline"
+            >
+              <span className="text-2xl" aria-hidden>
+                {item.icon}
+              </span>
+              <div className="flex-1">
+                <p className="font-bold text-sm text-[var(--text-primary)] mb-0">{item.name}</p>
+                <p className="text-xs text-[var(--text-muted)] m-0">{item.desc}</p>
               </div>
+              <span className="text-[var(--text-muted)]">→</span>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Factores FICO */}
-      <div className="card" style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: 17, fontWeight: 700, marginBottom: 20 }}>¿Por qué está tu score así?</h2>
-        {FACTORES.map(f => (
-          <div key={f.name} style={{ marginBottom: 18 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-              <span style={{ fontWeight: 600, fontSize: 14 }}>{f.icon} {f.name}</span>
-              <span style={{ color: 'var(--primary)', fontWeight: 700, fontSize: 13 }}>{f.pct}% del score</span>
+      <DashPanel className="mb-6">
+        <h2>¿Por qué está tu score así?</h2>
+        {FACTORES.map((f) => (
+          <div key={f.name} className="mb-4">
+            <div className="flex justify-between text-sm mb-1">
+              <span className="font-semibold text-[var(--text-primary)]">
+                {f.icon} {f.name}
+              </span>
+              <span className="text-[var(--cyan-bright)] font-bold">{f.pct}%</span>
             </div>
-            <div className="progress" style={{ marginBottom: 4 }}>
-              <div className="progress-fill" style={{ width: `${f.pct * 2}%`, background: f.pct >= 30 ? 'var(--primary)' : 'var(--primary-light)' }} />
+            <div className="progress mb-1">
+              <div className="progress-fill" style={{ width: `${f.pct * 2}%` }} />
             </div>
-            <p style={{ fontSize: 12, color: 'var(--gray)', lineHeight: 1.5 }}>{f.desc}</p>
+            <p className="text-xs text-[var(--text-muted)] m-0">{f.desc}</p>
           </div>
         ))}
-      </div>
+      </DashPanel>
 
-      {/* Plan IA */}
-      <div className="card">
-        <h2 style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>¿Qué hago PRIMERO para subir mi score?</h2>
-        <p style={{ color: 'var(--gray)', fontSize: 14, marginBottom: 16 }}>La IA analiza tu score actual ({score} puntos) y te da el plan exacto.</p>
-        {!plan && <button className="btn-green" onClick={generarPlan} disabled={loading} style={{ fontSize: 15 }}>{loading ? 'Generando tu plan...' : '🤖 Generar mi plan personalizado →'}</button>}
-        {plan && <div style={{ background: 'var(--pale-green)', borderRadius: 12, padding: 20, fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-wrap', color: 'var(--dark)' }}>{plan}</div>}
-      </div>
+      <DashPanel>
+        <h2>¿Qué hago primero para subir mi score?</h2>
+        <p className="text-sm text-[var(--text-muted)] mb-4">
+          La IA analiza tu score ({score} puntos) y te da el plan exacto.
+        </p>
+        {!plan && (
+          <button
+            type="button"
+            className="btn-3d-gold !min-h-[44px] !text-sm"
+            disabled={loading}
+            onClick={generarPlan}
+          >
+            {loading ? 'Generando…' : 'Generar mi plan con IA Maestra →'}
+          </button>
+        )}
+        {plan && <div className="dash-result-box mt-4">{plan}</div>}
+      </DashPanel>
     </div>
   )
 }

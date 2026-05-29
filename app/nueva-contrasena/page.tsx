@@ -1,7 +1,10 @@
 'use client'
 import { useState } from 'react'
-import { createClient } from '@/lib/supabase/client'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
+import { Button3D } from '@/components/ui/Button3D'
+import { createClient } from '@/lib/supabase/client'
 
 export default function NuevaContrasenaPage() {
   const [password, setPassword] = useState('')
@@ -12,8 +15,14 @@ export default function NuevaContrasenaPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (password !== confirm) { setError('Las contrasenas no coinciden'); return }
-    if (password.length < 6) { setError('Minimo 6 caracteres'); return }
+    if (password !== confirm) {
+      setError('Las contraseñas no coinciden')
+      return
+    }
+    if (password.length < 6) {
+      setError('Mínimo 6 caracteres')
+      return
+    }
     setLoading(true)
     setError('')
     const supabase = createClient()
@@ -24,34 +33,34 @@ export default function NuevaContrasenaPage() {
   }
 
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#000', color: '#fff' }}>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: 400, padding: '2rem' }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 700 }}>Nueva contrasena</h1>
-        <input
-          type="password"
-          placeholder="Nueva contrasena (min. 6 caracteres)"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-          style={{ padding: '0.75rem 1rem', borderRadius: 8, border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }}
-        />
-        <input
-          type="password"
-          placeholder="Confirmar contrasena"
-          value={confirm}
-          onChange={e => setConfirm(e.target.value)}
-          required
-          style={{ padding: '0.75rem 1rem', borderRadius: 8, border: '1px solid #333', background: '#111', color: '#fff', fontSize: '1rem' }}
-        />
-        {error && <p style={{ color: '#f87171', fontSize: '0.85rem' }}>{error}</p>}
-        <button
-          type="submit"
-          disabled={loading}
-          style={{ padding: '0.85rem', borderRadius: 8, background: '#22d3ee', color: '#000', fontWeight: 700, border: 'none', cursor: 'pointer', fontSize: '1rem' }}
-        >
-          {loading ? 'Guardando...' : 'Guardar nueva contrasena'}
-        </button>
+    <AuthShell title="Nueva contraseña" subtitle="Elige una contraseña segura de al menos 6 caracteres.">
+      <form onSubmit={handleSubmit}>
+        {error && <AuthError message={error} />}
+        <AuthField label="Nueva contraseña">
+          <AuthInput
+            type="password"
+            placeholder="Mínimo 6 caracteres"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </AuthField>
+        <AuthField label="Confirmar contraseña">
+          <AuthInput
+            type="password"
+            placeholder="Repite la contraseña"
+            value={confirm}
+            onChange={(e) => setConfirm(e.target.value)}
+            required
+          />
+        </AuthField>
+        <Button3D type="submit" variant="gold" className="w-full mt-2">
+          {loading ? 'Guardando…' : 'Guardar nueva contraseña'}
+        </Button3D>
       </form>
-    </main>
+      <div className="auth-footer">
+        <Link href="/entrar">Volver al login</Link>
+      </div>
+    </AuthShell>
   )
 }

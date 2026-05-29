@@ -1,25 +1,33 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
+import { MarketingContentShell } from '@/components/landing/MarketingContentShell'
+
+export const metadata: Metadata = {
+  title: 'Términos de uso | BlindadoUSA',
+  description:
+    'Términos y condiciones de uso de BlindadoUSA para usuarios en Estados Unidos.',
+  alternates: { canonical: 'https://blindadousa.com/terminos' },
+}
 
 export default function TerminosPage() {
   return (
-    <main style={{ maxWidth: 800, margin: '0 auto', padding: '4rem 2rem', color: '#fff', background: '#000', minHeight: '100vh' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '2rem' }}>
-        Terminos de Uso
-      </h1>
-      <p style={{ color: '#aaa', lineHeight: 1.8 }}>
-        BlindadoUSA es una plataforma educativa. La informacion proporcionada
-        es de caracter educativo y no constituye asesoria legal, financiera
-        ni fiscal. Al usar esta plataforma aceptas estos terminos.
-        Para consultas especificas te recomendamos un profesional licenciado
-        en tu jurisdiccion.
+    <MarketingContentShell title="TÉRMINOS DE USO">
+      <p>
+        Al utilizar BlindadoUSA aceptas estos términos de uso. La plataforma es de carácter
+        educativo y de apoyo organizativo; no sustituye asesoría legal, fiscal, financiera ni
+        contable profesional.
       </p>
-      <p style={{ color: '#aaa', marginTop: '1rem' }}>
-        © 2026 BlindadoUSA · Dr. Alexander Jesus Figueredo Izaguirre<br />
-        Houston, Texas · Todos los derechos reservados.
+      <p>
+        Es responsabilidad del usuario validar decisiones relevantes con profesionales autorizados
+        en su jurisdicción. BlindadoUSA no garantiza resultados específicos derivados del uso de
+        herramientas, simuladores o contenido publicado.
       </p>
-      <Link href="/" style={{ color: '#22d3ee', display: 'block', marginTop: '2rem' }}>
-        Volver al inicio
-      </Link>
-    </main>
+      <p>
+        Nos reservamos el derecho de actualizar funciones, precios, políticas y condiciones de
+        acceso cuando sea necesario para la operación del servicio.
+      </p>
+      <p className="text-sm text-[var(--text-muted)]">
+        © 2026 BlindadoUSA · Dr. Alexander Jesús Figueredo Izaguirre · Houston, Texas
+      </p>
+    </MarketingContentShell>
   )
 }

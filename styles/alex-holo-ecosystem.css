@@ -1,0 +1,314 @@
+/**
+ * Alex Holo Ecosystem — sistema UI compartido
+ * BlindadoUSA · Figueredo Med · Capital Hispano · Hazte Millonario
+ * Tipografía: Plus Jakarta Sans + Inter + JetBrains Mono
+ * CTA/cards: cyan #22d3ee, pill 3D, glass holo
+ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --canvas:       #0a0e14;
+  --void:         #02060c;
+  --deep:         #03121d;
+  --rich:         #0a1820;
+  --elevated:     #0f1723;
+  --surface:      rgba(15, 23, 35, 0.72);
+  --surface2:     rgba(15, 23, 35, 0.5);
+  --cyan:         #06b6d4;
+  --cyan-bright:  #22d3ee;
+  --cyan-soft:    #67e8f9;
+  --cyan-deep:    #0e7490;
+  --cyan-dim:     rgba(34, 211, 238, 0.55);
+  --cyan-glow:    rgba(34, 211, 238, 0.35);
+  --cyan-border:  rgba(34, 211, 238, 0.18);
+  --cyan-border-strong: rgba(34, 211, 238, 0.45);
+  --text-primary:   #f8fafc;
+  --text-secondary: rgba(226, 232, 240, 0.78);
+  --text-soft:      rgba(203, 213, 225, 0.72);
+  --text-muted:     rgba(148, 163, 184, 0.82);
+  --btn-shadow-blue: 0 8px 28px rgba(34, 211, 238, 0.35);
+  --btn-shadow-gold: 0 8px 28px rgba(34, 211, 238, 0.4);
+  --card-shadow:     0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+  --card-shadow-hov: 0 20px 50px rgba(0,0,0,0.55), 0 0 32px rgba(34,211,238,0.12);
+  --grad-gold:    linear-gradient(135deg, #22d3ee 0%, #0e7490 100%);
+  --grad-blue:    linear-gradient(135deg, #22d3ee 0%, #0e7490 100%);
+  --grad-hologram:linear-gradient(135deg, rgba(34,211,238,0.12) 0%, rgba(6,182,212,0.04) 50%, rgba(34,211,238,0.08) 100%);
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    20px;
+  --radius-pill:  999px;
+
+  /* Aliases ecosistema (Capital Hispano / dashboards) */
+  --neon-500:     var(--cyan-bright);
+  --neon-400:     var(--cyan-soft);
+  --neon-300:     #a5f3fc;
+  --txt-primary:  var(--text-primary);
+  --txt-secondary:var(--text-secondary);
+  --txt-muted:    var(--text-muted);
+}
+
+.holo-global {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% -20%, rgba(34, 211, 238, 0.08), transparent 55%),
+    var(--canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.holo-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.holo-global > *:not(.holo-vignette):not(.skip-link) {
+  position: relative;
+  z-index: 1;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 200;
+  padding: 0.65rem 1rem;
+  background: var(--cyan-bright);
+  color: var(--void);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { left: 12px; }
+
+.font-display,
+.font-bebas { font-family: var(--font-display); font-weight: 800; letter-spacing: 0.04em; }
+.font-mono  { font-family: var(--font-mono); }
+
+.container,
+.marketing-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding-left: clamp(16px, 4vw, 24px);
+  padding-right: clamp(16px, 4vw, 24px);
+}
+
+.eyebrow-cyan,
+.section-kicker {
+  display: inline-block;
+  padding: 0.32rem 0.95rem;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid var(--cyan-border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--cyan-soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.text-shimmer-cyan,
+.text-shimmer-gold {
+  background: linear-gradient(90deg, #67e8f9 0%, #22d3ee 45%, #0e7490 80%, #67e8f9 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: alexShimmer 3s linear infinite;
+}
+@keyframes alexShimmer {
+  to { background-position: 200% center; }
+}
+
+/* Botones pill 3D (modelo Alex) */
+.btn-3d-blue,
+.btn-3d-gold,
+.btn-neon-blue {
+  background: var(--grad-gold);
+  color: var(--void);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transform: translateY(0);
+  box-shadow: var(--btn-shadow-gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 52px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  clip-path: none;
+  text-transform: none;
+}
+.btn-3d-blue:hover,
+.btn-3d-gold:hover,
+.btn-neon-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(34, 211, 238, 0.45);
+}
+.btn-3d-blue:active,
+.btn-3d-gold:active,
+.btn-neon-blue:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(34, 211, 238, 0.28);
+}
+
+.btn-glass,
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  color: var(--cyan-bright);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 0.9rem 1.55rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn-glass:hover,
+.btn-ghost:hover {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: rgba(34, 211, 238, 0.65);
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.12);
+  transform: translateY(-1px);
+}
+
+.btn,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.7rem;
+  min-height: 52px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--grad-gold);
+  color: var(--void);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow-gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover,
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(34, 211, 238, 0.45);
+}
+
+/* Cards holo 3D */
+.card-3d,
+.card-holo,
+.card {
+  background: var(--surface2);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--cyan-border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  clip-path: none;
+}
+.card-3d::before,
+.card-holo::before,
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.card-3d:hover,
+.card-holo:hover,
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hov);
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.card-premium {
+  background: linear-gradient(145deg, var(--surface) 0%, var(--elevated) 100%);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(34,211,238,0.15);
+  border-color: rgba(34, 211, 238, 0.35);
+}
+
+.ux-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34,211,238,0.38), 0 0 0 7px rgba(34,211,238,0.14);
+}
+
+/* Clinical / Figueredo alias */
+.clinical-btn-3d,
+.clinical-btn-3d--accent {
+  background: var(--grad-gold);
+  color: var(--void);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.95rem 1.7rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.96rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow-gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.clinical-btn-3d:hover,
+.clinical-btn-3d--accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(34, 211, 238, 0.45);
+}
+.clinical-btn-3d--ghost {
+  background: transparent;
+  color: var(--cyan-bright);
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}

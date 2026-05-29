@@ -1,7 +1,34 @@
 'use client'
 import { useState } from 'react'
+import { DashDisplay, DashPanel, DashRangeRow } from '@/components/dashboard/DashPanel'
 
-function fmt(n: number) { return '$' + Math.round(n).toLocaleString('en-US') }
+function fmt(n: number) {
+  return '$' + Math.round(n).toLocaleString('en-US')
+}
+
+const CUENTAS = [
+  {
+    n: '401K',
+    quien: 'Tu trabajo te lo da',
+    como: 'Si tu empresa pone $1 por cada $1 tuyo (match) y no lo usas, estás regalando dinero gratis.',
+    limite: '$23,500/año (2026)',
+    tip: 'Pon al menos lo suficiente para recibir el match completo de tu empresa. Es dinero gratis.',
+  },
+  {
+    n: 'IRA Tradicional',
+    quien: 'Lo abres tú',
+    como: 'Ahorras hoy y pagas menos impuestos este año. Pagas impuestos cuando lo sacas al retirarte.',
+    limite: '$7,000/año (2026)',
+    tip: 'Ideal si piensas que al retirarte ganarás menos que ahora (pagarás menos impuestos entonces).',
+  },
+  {
+    n: 'Roth IRA',
+    quien: 'Lo abres tú',
+    como: 'Pagas impuestos ahora. Pero cuando te retires, TODO ese dinero es tuyo libre de impuestos.',
+    limite: '$7,000/año (2026)',
+    tip: 'Ideal si eres joven y piensas que en el futuro ganarás más. Es la favorita de muchos expertos.',
+  },
+]
 
 export default function JubilacionPage() {
   const [edad, setEdad] = useState(35)
@@ -14,96 +41,150 @@ export default function JubilacionPage() {
   const tasaAnual = 0.07
   const tasaMes = tasaAnual / 12
 
-  const futuro = ahorro > 0 ? ahorro * ((Math.pow(1 + tasaMes, meses) - 1) / tasaMes) : 0
+  const futuro =
+    ahorro > 0 ? ahorro * ((Math.pow(1 + tasaMes, meses) - 1) / tasaMes) : 0
   const metaRetiro = ingreso * 12 * 25
   const faltante = Math.max(0, metaRetiro - futuro)
-  const necesitaMes = faltante > 0 ? faltante * tasaMes / (Math.pow(1 + tasaMes, meses) - 1) : 0
+  const necesitaMes =
+    faltante > 0 ? (faltante * tasaMes) / (Math.pow(1 + tasaMes, meses) - 1) : 0
 
-  const futuroSi5 = ahorro > 0 ? ahorro * ((Math.pow(1 + tasaMes, Math.max(1, (retiro - edad - 5)) * 12) - 1) / tasaMes) : 0
+  const futuroSi5 =
+    ahorro > 0
+      ? ahorro * ((Math.pow(1 + tasaMes, Math.max(1, retiro - edad - 5) * 12) - 1) / tasaMes)
+      : 0
   const perdida = futuro - futuroSi5
 
-  const CUENTAS = [
-    { n: '401K', icon: '🏢', quien: 'Tu trabajo te lo da', como: 'Si tu empresa pone $1 por cada $1 tuyo (match) y no lo usas, estás regalando dinero gratis.', limite: '$23,500/año (2026)', tip: 'Pon al menos lo suficiente para recibir el match completo de tu empresa. Es dinero gratis.' },
-    { n: 'IRA Tradicional', icon: '🏦', quien: 'Lo abres tú', como: 'Ahorras hoy y pagas menos impuestos este año. Pagas impuestos cuando lo sacas al retirarte.', limite: '$7,000/año (2026)', tip: 'Ideal si piensas que al retirarte ganarás menos que ahora (pagarás menos impuestos entonces).' },
-    { n: 'Roth IRA', icon: '⭐', quien: 'Lo abres tú', como: 'Pagas impuestos ahora. Pero cuando te retires, TODO ese dinero es tuyo libre de impuestos.', limite: '$7,000/año (2026)', tip: 'Ideal si eres joven y piensas que en el futuro ganarás más. Es la favorita de los expertos.' },
-  ]
-
-  const S = (l: string, v: number, set: (n: number) => void, min: number, max: number, step: number, f: (n: number) => string) => (
-    <div style={{ marginBottom: 18 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, marginBottom: 6 }}>
-        <span style={{ color: 'var(--gray)' }}>{l}</span><span style={{ fontWeight: 600 }}>{f(v)}</span>
-      </div>
-      <input type="range" min={min} max={max} step={step} value={v} onChange={e => set(+e.target.value)} style={{ width: '100%' }} />
-    </div>
-  )
+  const ahorroDemo = ahorro || 200
+  const futuroDemo =
+    ahorro > 0
+      ? futuro
+      : ahorroDemo * ((Math.pow(1 + tasaMes, meses) - 1) / tasaMes)
+  const futuroSi5Demo =
+    ahorroDemo * ((Math.pow(1 + tasaMes, Math.max(1, anos - 5) * 12) - 1) / tasaMes)
+  const perdidaDemo = (ahorro > 0 ? perdida : futuroDemo - futuroSi5Demo) || futuroDemo * 0.35
 
   return (
-    <div>
-      <h1 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>Jubilación / Retiro 🏦</h1>
-      <p style={{ color: 'var(--gray)', marginBottom: 20 }}>El 83% de hispanos millennials no tiene NADA ahorrado. Tú puedes cambiar eso hoy.</p>
+    <div className="dash-page dash-page--banana">
+      <h1 className="dash-page-title">Jubilación / retiro</h1>
+      <p className="dash-page-date mb-5">
+        El 83% de hispanos millennials no tiene nada ahorrado. Tú puedes cambiar eso hoy.
+      </p>
 
-      <div style={{ background: '#FEE2E2', border: '1px solid #FECACA', borderRadius: 12, padding: '14px 18px', marginBottom: 24, fontSize: 15, color: '#991B1B', fontWeight: 600 }}>
-        ⚠️ 8 de cada 10 hispanos jóvenes NO tienen ahorros para el retiro
+      <div className="dash-banner-inline dash-banner-inline--danger mb-6">
+        <strong>8 de cada 10 hispanos jóvenes no tienen ahorros para el retiro</strong>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20, marginBottom: 28 }}>
-        <div className="card">
-          <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 20 }}>Tu situación</h2>
-          {S('Tu edad actual', edad, setEdad, 18, 60, 1, n => n + ' años')}
-          {S('¿A qué edad quieres retirarte?', retiro, setRetiro, 55, 75, 1, n => n + ' años')}
-          {S('Ingreso mensual actual', ingreso, setIngreso, 1500, 15000, 250, fmt)}
-          {S('¿Cuánto ahorras al mes para retiro?', ahorro, setAhorro, 0, 2000, 25, fmt)}
-        </div>
+      <div className="dash-grid-2 mb-8">
+        <DashPanel>
+          <h2>Tu situación</h2>
+          <DashRangeRow label="Tu edad actual" value={`${edad} años`}>
+            <input
+              type="range"
+              min={18}
+              max={60}
+              step={1}
+              value={edad}
+              onChange={(e) => setEdad(+e.target.value)}
+              className="w-full accent-[var(--cyan-bright)]"
+            />
+          </DashRangeRow>
+          <DashRangeRow label="¿A qué edad quieres retirarte?" value={`${retiro} años`}>
+            <input
+              type="range"
+              min={55}
+              max={75}
+              step={1}
+              value={retiro}
+              onChange={(e) => setRetiro(+e.target.value)}
+              className="w-full accent-[var(--cyan-bright)]"
+            />
+          </DashRangeRow>
+          <DashRangeRow label="Ingreso mensual actual" value={fmt(ingreso)}>
+            <input
+              type="range"
+              min={1500}
+              max={15000}
+              step={250}
+              value={ingreso}
+              onChange={(e) => setIngreso(+e.target.value)}
+              className="w-full accent-[var(--cyan-bright)]"
+            />
+          </DashRangeRow>
+          <DashRangeRow label="¿Cuánto ahorras al mes para retiro?" value={fmt(ahorro)}>
+            <input
+              type="range"
+              min={0}
+              max={2000}
+              step={25}
+              value={ahorro}
+              onChange={(e) => setAhorro(+e.target.value)}
+              className="w-full accent-[var(--cyan-bright)]"
+            />
+          </DashRangeRow>
+        </DashPanel>
 
         <div>
-          <div className="card" style={{ marginBottom: 16 }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 16 }}>Tus números de retiro</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              <div style={{ background: 'var(--light)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
-                <div style={{ fontSize: 12, color: 'var(--gray)' }}>Años para retirarte</div>
-                <div className="font-bebas" style={{ fontSize: 36, color: 'var(--primary)' }}>{anos}</div>
+          <DashPanel className="mb-4">
+            <h2>Tus números de retiro</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="dash-panel !p-4 text-center">
+                <p className="text-xs text-[var(--text-muted)] mb-1">Años para retirarte</p>
+                <DashDisplay value={String(anos)} className="!text-4xl" />
               </div>
-              <div style={{ background: 'var(--light)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
-                <div style={{ fontSize: 12, color: 'var(--gray)' }}>Meta de ahorro</div>
-                <div className="font-bebas" style={{ fontSize: 24, color: 'var(--primary)' }}>{fmt(metaRetiro)}</div>
+              <div className="dash-panel !p-4 text-center">
+                <p className="text-xs text-[var(--text-muted)] mb-1">Meta de ahorro</p>
+                <DashDisplay value={fmt(metaRetiro)} className="!text-2xl" />
               </div>
-              <div style={{ background: ahorro > 0 ? '#D1FAE5' : '#FEE2E2', borderRadius: 10, padding: 14, textAlign: 'center' }}>
-                <div style={{ fontSize: 12, color: 'var(--gray)' }}>Tendrás si sigues así</div>
-                <div className="font-bebas" style={{ fontSize: 24, color: ahorro > 0 ? '#065F46' : '#991B1B' }}>{ahorro > 0 ? fmt(futuro) : '$0'}</div>
+              <div
+                className={`dash-panel !p-4 text-center ${ahorro > 0 ? 'dash-panel--success' : 'dash-panel--danger'}`}
+              >
+                <p className="text-xs text-[var(--text-muted)] mb-1">Tendrás si sigues así</p>
+                <DashDisplay
+                  value={ahorro > 0 ? fmt(futuro) : '$0'}
+                  tone={ahorro > 0 ? 'positive' : 'negative'}
+                  className="!text-2xl"
+                />
               </div>
-              <div style={{ background: 'var(--light)', borderRadius: 10, padding: 14, textAlign: 'center' }}>
-                <div style={{ fontSize: 12, color: 'var(--gray)' }}>Necesitas ahorrar/mes</div>
-                <div className="font-bebas" style={{ fontSize: 24, color: 'var(--accent-dark)' }}>{fmt(necesitaMes)}</div>
+              <div className="dash-panel !p-4 text-center">
+                <p className="text-xs text-[var(--text-muted)] mb-1">Necesitas ahorrar/mes</p>
+                <DashDisplay value={fmt(necesitaMes)} className="!text-2xl" />
               </div>
             </div>
-          </div>
+          </DashPanel>
 
-          {/* Poder del tiempo */}
-          <div className="card" style={{ background: 'var(--pale-green)' }}>
-            <h3 style={{ fontWeight: 700, fontSize: 15, marginBottom: 8, color: 'var(--primary)' }}>⏰ El poder del tiempo</h3>
-            <p style={{ fontSize: 14, color: 'var(--dark)', lineHeight: 1.7 }}>
-              Si empiezas HOY ahorrando {fmt(ahorro || 200)}/mes → tendrás <strong>{fmt(futuro || 200 * ((Math.pow(1 + tasaMes, meses) - 1) / tasaMes))}</strong> a los {retiro}.<br />
-              Si esperas 5 años → tendrás solo <strong>{fmt(futuroSi5 || 200 * ((Math.pow(1 + tasaMes, Math.max(1, anos - 5) * 12) - 1) / tasaMes))}</strong>.<br />
-              <strong style={{ color: '#D62828' }}>Esperar 5 años te cuesta {fmt(perdida || futuro * 0.35)} en dinero perdido.</strong>
+          <DashPanel tone="success">
+            <h3>El poder del tiempo</h3>
+            <p className="m-0">
+              Si empiezas hoy ahorrando {fmt(ahorroDemo)}/mes → tendrás{' '}
+              <strong className="text-[var(--text-primary)]">{fmt(futuroDemo)}</strong> a los {retiro}.
+              <br />
+              Si esperas 5 años → tendrás solo{' '}
+              <strong className="text-[var(--text-primary)]">{fmt(futuroSi5Demo)}</strong>.
+              <br />
+              <strong className="text-[var(--red-500)]">
+                Esperar 5 años te cuesta {fmt(perdidaDemo)} en dinero perdido.
+              </strong>
             </p>
-          </div>
+          </DashPanel>
         </div>
       </div>
 
-      {/* Tipos de cuenta */}
-      <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16 }}>Los 3 tipos de cuenta de retiro explicados simple</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 14 }}>
-        {CUENTAS.map(c => (
-          <div key={c.n} className="card" style={{ borderTop: '4px solid var(--primary)' }}>
-            <div style={{ fontSize: 28, marginBottom: 8 }}>{c.icon}</div>
-            <h3 style={{ fontWeight: 700, fontSize: 18, marginBottom: 4, color: 'var(--primary)' }}>{c.n}</h3>
-            <p style={{ fontSize: 13, color: 'var(--gray)', marginBottom: 8 }}><strong>¿Quién lo abre?</strong> {c.quien}</p>
-            <p style={{ fontSize: 14, color: 'var(--dark)', lineHeight: 1.6, marginBottom: 8 }}>{c.como}</p>
-            <div style={{ fontSize: 12, color: 'var(--gray)', marginBottom: 8 }}>Límite: {c.limite}</div>
-            <div style={{ background: 'var(--pale-green)', borderRadius: 8, padding: '8px 12px', fontSize: 13, color: 'var(--primary)' }}>
-              💡 <strong>Tip:</strong> {c.tip}
+      <h2 className="dash-section-title">Los 3 tipos de cuenta de retiro explicados simple</h2>
+      <div className="dash-grid-2">
+        {CUENTAS.map((c) => (
+          <DashPanel key={c.n} className="border-t-4 border-t-[var(--cyan-bright)]">
+            <h3 className="!text-[var(--cyan-bright)]">{c.n}</h3>
+            <p className="text-sm mb-2">
+              <strong className="text-[var(--text-primary)]">¿Quién lo abre?</strong> {c.quien}
+            </p>
+            <p className="mb-2">{c.como}</p>
+            <p className="text-xs text-[var(--text-muted)] mb-3">Límite: {c.limite}</p>
+            <div className="dash-panel dash-panel--info !p-3">
+              <p className="text-sm m-0">
+                <strong className="text-[var(--cyan-bright)]">Tip:</strong> {c.tip}
+              </p>
             </div>
-          </div>
+          </DashPanel>
         ))}
       </div>
     </div>

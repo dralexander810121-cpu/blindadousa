@@ -1,6 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { AuthShell } from '@/components/landing/AuthShell'
+import { Button3D } from '@/components/ui/Button3D'
+import { DashDisplay } from '@/components/dashboard/DashPanel'
+import { IMG } from '@/lib/images'
+import { PRICING } from '@/lib/siteFacts'
 import { createClient } from '@/lib/supabase/client'
 
 export default function ExitoPage() {
@@ -9,28 +13,36 @@ export default function ExitoPage() {
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {
-      if (user) supabase.from('usuarios').select('mi_codigo').eq('auth_user_id', user.id).single()
-        .then(({ data }) => setCodigo(data?.mi_codigo || ''))
+      if (user) {
+        supabase
+          .from('usuarios')
+          .select('mi_codigo')
+          .eq('auth_user_id', user.id)
+          .single()
+          .then(({ data }) => setCodigo(data?.mi_codigo || ''))
+      }
     })
   }, [])
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--pale-green)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-      <div style={{ maxWidth: 480, width: '100%', textAlign: 'center' }}>
-        <div style={{ fontSize: 80, marginBottom: 16 }}>🎉</div>
-        <h1 style={{ fontSize: 32, fontWeight: 700, color: 'var(--dark)', marginBottom: 8 }}>¡Ya estás Blindado de por vida!</h1>
-        <p style={{ color: 'var(--gray)', marginBottom: 32, fontSize: 16 }}>Acceso completo a los 13 módulos. Para siempre.</p>
-        {codigo && (
-          <div className="card" style={{ padding: 24, marginBottom: 24 }}>
-            <p style={{ color: 'var(--gray)', fontSize: 13, marginBottom: 4 }}>Tu código de referido</p>
-            <div className="font-bebas" style={{ fontSize: 40, color: 'var(--primary)', letterSpacing: 3 }}>{codigo}</div>
-            <p style={{ fontSize: 13, color: 'var(--gray)', marginTop: 8 }}>Compártelo. Tus amigos pagan $15 con él.</p>
-          </div>
-        )}
-        <Link href="/dashboard">
-          <button className="btn-green" style={{ fontSize: 17, padding: '16px 48px', width: '100%', justifyContent: 'center', display: 'flex' }}>Ir a mi panel →</button>
-        </Link>
-      </div>
-    </div>
+    <AuthShell
+      title="¡Suscripción activa!"
+      subtitle="Acceso completo al dashboard y todos los módulos publicados."
+      badge="Pago confirmado"
+      image={IMG.exito}
+    >
+      {codigo && (
+        <div className="dash-panel dash-panel--success text-center mb-5">
+          <p className="text-sm text-[var(--text-muted)] mb-1">Tu código de referido</p>
+          <DashDisplay value={codigo} tone="neutral" className="!text-4xl tracking-widest" />
+          <p className="text-sm text-[var(--text-secondary)] mt-2">
+            Comparte tu código. Referidos con descuento de ${PRICING.referralPayout}.
+          </p>
+        </div>
+      )}
+      <Button3D href="/dashboard" variant="gold" className="w-full" pulse>
+        Ir a mi panel →
+      </Button3D>
+    </AuthShell>
   )
 }

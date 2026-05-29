@@ -3,30 +3,40 @@ import type { Metadata } from 'next'
 export const SEO_CONFIG = {
   siteName: 'BlindadoUSA',
   siteUrl: 'https://blindadousa.com',
-  defaultTitle: 'BlindadoUSA — La guía financiera y legal del hispano en USA',
+  defaultTitle: 'BlindadoUSA — Guardaespaldas financiero con IA para hispanos en USA',
   defaultDescription:
-    'Crédito, casa, carro, remesas, taxes, derechos. En español sin mentiras. Prueba gratis 3 días. $20 de por vida (con código AETHERIS: $15).',
+    'Ecosistema de IA en español: abogado, contador, asesor y protector financiero. Crédito, taxes, casa, carro y derechos. Trial 3 días gratis. Desde $20/mes o $100/año.',
   twitterHandle: '@blindadousa',
   locale: 'es_US',
   keywords: [
+    'blindadousa',
+    'guardaespaldas financiero hispano',
+    'ia finanzas español usa',
     'credito hispanos usa',
-    'guia financiera hispanos',
-    'derechos hispanos estados unidos',
-    'comprar casa hispano usa',
-    'prestamos hispanos',
+    'disputa credito carta español',
+    'taxes itin hispanos 2026',
+    'abogado laboral hispano texas',
+    'contador hispano houston',
+    'comprar casa hispano usa fha',
+    'dealer carro estafa texas',
     'remesas impuesto 2026',
-    'score credito español',
-    'taxes itin hispanos',
-    'subsidios hispanos usa',
-    'salario justo hispanos texas',
+    'subsidios hispanos snap medicaid',
+    'derechos inquilino texas español',
+    'prestamos predatorios detector',
+    'directorio abogados inmigracion houston',
+    'alertas whatsapp pagos tarjeta',
+    'plan financiero hispano estados unidos',
+    'referidos gana dinero app finanzas',
+    'trial gratis finanzas hispanos',
   ],
 }
 
 export const PAGE_SEO = {
   home: {
-    title: 'BlindadoUSA — La biblia financiera del hispano en USA | $20 de por vida',
-    description: 'La guía más completa en español para hispanos en Estados Unidos. Crédito, casa, carro, remesas, taxes, tus derechos. Solo $20 — con código AETHERIS $15.',
-    path: '/',
+    title: 'BlindadoUSA — Guardaespaldas financiero con IA | Trial 3 días gratis',
+    description:
+      'La IA que protege, guía y administra la vida financiera del hispano en USA. Abogado, contador y asesor en español. Trial gratis · $20/mes · $100/año · $5 por referido.',
+    path: '/inicio',
   },
   comoFunciona: {
     title: 'Cómo funciona BlindadoUSA — 13 módulos en español',
@@ -34,9 +44,16 @@ export const PAGE_SEO = {
     path: '/como-funciona',
   },
   precios: {
-    title: 'Precios — $20 de por vida o $15 con código | BlindadoUSA',
-    description: 'Acceso de por vida a todos los módulos por solo $20. Con código AETHERIS o un código de referido pagás solo $15.',
+    title: 'Precios BlindadoUSA — $20/mes o $100/año | Trial 3 días gratis',
+    description:
+      'Plan mensual $20, plan anual $100 (ahorra $140). Trial 3 días sin tarjeta. Referidos: $5 depositados en tu banco por cada amigo que paga.',
     path: '/precios',
+  },
+  queIncluye: {
+    title: 'Qué incluye BlindadoUSA — Tabla honesta por módulo',
+    description:
+      '13 módulos + IA Maestra: qué está listo hoy, qué es parcial y qué viene pronto. Herramienta educativa en español — no sustituye abogado ni contador licenciado.',
+    path: '/que-incluye',
   },
   trial: {
     title: 'Activa tu prueba gratis de 3 días | BlindadoUSA',
@@ -113,6 +130,12 @@ export const PAGE_SEO = {
     description: 'Abogados de inmigración, bancos, dealers, realtors y notarios verificados que hablan español. Buscá por ciudad.',
     path: '/directorio',
   },
+  directorioRegistrar: {
+    title: 'Registrar tu negocio en el directorio | BlindadoUSA',
+    description:
+      'Listing verificado para negocios hispanos en Texas. Desde $299. La IA Maestra recomienda tu negocio a usuarios en tu área.',
+    path: '/directorio/registrar-negocio',
+  },
   blog: {
     title: 'Blog BlindadoUSA — Educación financiera y legal en español',
     description: 'Artículos en español sobre crédito, derechos, taxes, casa, carro y más para hispanos en USA.',
@@ -121,6 +144,45 @@ export const PAGE_SEO = {
 }
 
 export type SeoPageKey = keyof typeof PAGE_SEO
+
+const NOINDEX: Metadata['robots'] = {
+  index: false,
+  follow: false,
+  googleBot: { index: false, follow: false, noimageindex: true },
+}
+
+/** Metadata para rutas dinámicas (blog, directorio, etc.). */
+export function routeMetadata(input: {
+  title: string
+  description: string
+  path: string
+  index?: boolean
+}): Metadata {
+  const canonical = SEO_CONFIG.siteUrl + input.path
+  const robots = input.index === false ? NOINDEX : undefined
+  return {
+    title: input.title,
+    description: input.description,
+    keywords: SEO_CONFIG.keywords,
+    alternates: { canonical },
+    robots,
+    openGraph: {
+      type: 'website',
+      locale: SEO_CONFIG.locale,
+      url: canonical,
+      siteName: SEO_CONFIG.siteName,
+      title: input.title,
+      description: input.description,
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: SEO_CONFIG.siteName }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: input.title,
+      description: input.description,
+      images: ['/twitter-image'],
+    },
+  }
+}
 
 /** Construye Metadata Next.js completo para una página. */
 export function pageMetadata(key: SeoPageKey, overrides?: Partial<Metadata>): Metadata {

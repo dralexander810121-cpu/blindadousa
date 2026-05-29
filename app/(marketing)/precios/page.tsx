@@ -1,66 +1,111 @@
-import Link from 'next/link'
-import { pageMetadata } from '@/lib/seo/metadata'
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Button3D } from '@/components/ui/Button3D'
+import { Card3D } from '@/components/ui/Card3D'
+import { ImageHero4K } from '@/components/ui/ImageHero4K'
+import { MarketingFooter } from '@/components/landing/MarketingFooter'
+import { MarketingNav } from '@/components/landing/MarketingNav'
+import { IMG } from '@/lib/images'
+import { MODULE_COUNT_LABEL } from '@/lib/productCatalog'
+import { PRICING } from '@/lib/siteFacts'
+import { pageMetadata } from '@/lib/seo/metadata'
 
 export const metadata: Metadata = pageMetadata('precios')
 
 export default function PreciosPage() {
   return (
-    <main className="bg-pale py-16 min-h-screen">
-      <div className="container-narrow">
-        <div className="text-center mb-12">
-          <h1 className="font-display text-5xl md:text-6xl text-primary mb-3">PRECIOS HONESTOS</h1>
-          <p className="text-xl text-muted">Un pago. Para siempre. Sin cobros recurrentes.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
-          {/* Sin código */}
-          <div className="bg-white rounded-2xl shadow-sm p-8 border-2 border-gray-100">
-            <p className="text-sm text-muted uppercase tracking-wide font-bold mb-2">Precio normal</p>
-            <p className="font-display text-6xl text-primary leading-none my-3">$20</p>
-            <p className="text-muted mb-6">Pago único · De por vida</p>
-            <ul className="space-y-2 text-sm mb-6">
-              <li>✓ Los 13 módulos completos</li>
-              <li>✓ Asistente IA Blindado 24/7</li>
-              <li>✓ Calculadoras ilimitadas</li>
-              <li>✓ Acceso al directorio</li>
-              <li>✓ 30 días de garantía</li>
-            </ul>
-            <Link href="/trial" className="btn-secondary w-full">Empezar gratis 3 días</Link>
-          </div>
-
-          {/* Con código */}
-          <div className="bg-primary text-white rounded-2xl shadow-2xl p-8 border-2 border-gold relative overflow-hidden">
-            <div className="absolute top-3 right-3 bg-gold text-primary text-xs font-bold px-3 py-1 rounded-full">
-              ⭐ MÁS POPULAR
-            </div>
-            <p className="text-sm text-white/70 uppercase tracking-wide font-bold mb-2">Con código de descuento</p>
-            <p className="font-display text-6xl text-gold leading-none my-3">$15</p>
-            <p className="text-white/85 mb-6">Pago único · De por vida</p>
-            <ul className="space-y-2 text-sm mb-6">
-              <li>✓ Todo lo del plan normal</li>
-              <li>✓ Mismo acceso completo</li>
-              <li>✓ Mismo asistente IA</li>
-              <li>✓ Mismas calculadoras</li>
-              <li>✓ <strong>Ahorrás $5</strong></li>
-            </ul>
-            <Link href="/pagar?codigo=AETHERIS"
-              className="bg-accent hover:bg-accent-dark text-white font-bold px-6 py-4 rounded-xl block text-center transition-colors">
-              Pagar con código AETHERIS
-            </Link>
-            <p className="text-xs text-white/60 mt-3 text-center">
-              También funciona con el código personal de cualquier usuario actual.
+    <>
+      <MarketingNav />
+      <main id="main-content" className="pt-24">
+        <ImageHero4K imageUrl={IMG.precio} minHeight="min-h-[360px]">
+          <div className="marketing-container py-14 text-center">
+            <p className="section-kicker">Inversión clara</p>
+            <h1 className="section-title font-display !text-5xl md:!text-6xl">
+              Precios <span className="hero-accent">publicados</span>
+            </h1>
+            <p className="section-lead mx-auto text-center mt-4">
+              Trial sin tarjeta. Planes mensual y anual visibles. Sin letra pequeña oculta.
             </p>
           </div>
-        </div>
+        </ImageHero4K>
 
-        {/* Sistema referidos */}
-        <div className="bg-white rounded-2xl p-6 text-center mt-12">
-          <h2 className="text-2xl font-bold text-primary mb-2">🎁 Sistema de referidos</h2>
-          <p className="text-muted mb-2">Después de pagar recibís TU código personal único.</p>
-          <p className="text-muted">Compartilo con familia y amigos — ellos pagan $15 en vez de $20.</p>
-        </div>
-      </div>
-    </main>
+        <section className="marketing-section bg-section-panel pb-16">
+          <div className="marketing-container">
+            <div className="pricing-grid max-w-4xl mx-auto">
+              <Card3D className="flex flex-col">
+                <p className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">Trial</p>
+                <p className="price-amount">$0</p>
+                <p className="text-[var(--text-secondary)] mb-4">{PRICING.trialDays} días · Sin tarjeta</p>
+                <ul className="price-features flex-1">
+                  <li>Ecosistema completo</li>
+                  <li>{MODULE_COUNT_LABEL}</li>
+                  <li>21 guías en el blog</li>
+                </ul>
+                <Button3D href="/trial" variant="glass" className="w-full">
+                  Activar trial
+                </Button3D>
+              </Card3D>
+
+              <Card3D premium className="card-premium--featured flex flex-col">
+                <span className="text-sm font-bold uppercase text-[var(--gold-400)] mb-2">Plan mensual</span>
+                <p className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">Stripe Checkout</p>
+                <p className="price-amount">${PRICING.monthly}</p>
+                <p className="text-[var(--text-secondary)] mb-4">/mes</p>
+                <ul className="price-features flex-1">
+                  <li>IA Maestra y documentos</li>
+                  <li>Plaid + alertas WhatsApp</li>
+                  <li>Referidos ${PRICING.referralPayout} ACH</li>
+                </ul>
+                <Button3D href="/pagar?plan=mensual" variant="gold" pulse className="w-full">
+                  Suscribirme — ${PRICING.monthly}/mes
+                </Button3D>
+              </Card3D>
+
+              <Card3D className="flex flex-col">
+                <p className="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">Anual</p>
+                <p className="price-amount">${PRICING.annual}</p>
+                <p className="text-[var(--text-secondary)]">
+                  /año · ${PRICING.annualPerMonth}/mes
+                </p>
+                <p className="text-sm text-[var(--gold-400)] font-bold mb-4">
+                  Ahorra ${PRICING.annualSavings}
+                </p>
+                <ul className="price-features flex-1">
+                  <li>Todo el plan mensual</li>
+                  <li>Resumen anual PDF</li>
+                  <li>Soporte prioritario</li>
+                </ul>
+                <Button3D href="/pagar?plan=anual" variant="blue" className="w-full">
+                  Plan anual — ${PRICING.annual}
+                </Button3D>
+              </Card3D>
+            </div>
+
+            <div className="referidos-banner max-w-2xl mx-auto">
+              <h2 className="text-xl font-bold mb-2">Programa de referidos</h2>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                Tras pagar recibes tu código. Por cada amigo suscrito depositamos{' '}
+                <strong className="text-[var(--text-primary)]">${PRICING.referralPayout}</strong> vía ACH,
+                según términos publicados.
+              </p>
+              <Button3D href="/dashboard/referidos" variant="glass" className="mt-4">
+                Ver detalle del programa →
+              </Button3D>
+            </div>
+
+            <p className="text-center text-sm text-[var(--text-muted)] mt-8">
+              <Link href="/que-incluye" className="text-[var(--cyan-bright)] font-semibold hover:underline">
+                Ver tabla completa: qué incluye $20/mes →
+              </Link>
+            </p>
+
+            <p className="text-center text-sm text-[var(--text-muted)] mt-6 max-w-lg mx-auto leading-relaxed">
+              Herramienta educativa. No constituye asesoría legal, contable ni financiera certificada.
+            </p>
+          </div>
+        </section>
+      </main>
+      <MarketingFooter />
+    </>
   )
 }

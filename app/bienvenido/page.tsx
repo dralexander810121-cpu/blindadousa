@@ -1,16 +1,25 @@
 import Link from 'next/link'
+import { AuthShell } from '@/components/landing/AuthShell'
+import { First10Minutes } from '@/components/onboarding/First10Minutes'
+import { Button3D } from '@/components/ui/Button3D'
+import { PRICING } from '@/lib/siteFacts'
 
 export default function BienvenidoPage() {
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#000', color: '#fff', gap: '1rem', textAlign: 'center', padding: '2rem' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 800 }}>Bienvenido a BlindadoUSA</h1>
-      <p style={{ color: '#aaa', maxWidth: 500, fontSize: '1.1rem' }}>
-        Tu prueba gratuita de 3 dias esta activa.<br />
-        Revisa tu email para confirmar tu cuenta si es necesario.
-      </p>
-      <Link href="/dashboard" style={{ padding: '0.85rem 2rem', background: '#22d3ee', color: '#000', fontWeight: 700, borderRadius: 8, textDecoration: 'none', fontSize: '1rem' }}>
-        Entrar a la plataforma
-      </Link>
-    </main>
+    <AuthShell
+      title="Bienvenido a BlindadoUSA"
+      subtitle={`Tu prueba gratuita de ${PRICING.trialDays} días está activa. Revisa tu email si necesitas confirmar la cuenta.`}
+      badge="Cuenta creada"
+    >
+      <Button3D href="/dashboard" variant="gold" className="w-full" pulse>
+        Entrar a la plataforma →
+      </Button3D>
+      <First10Minutes />
+      <div className="auth-footer mt-4">
+        <Link href="/dashboard/onboarding">Completar perfil primero →</Link>
+        <span className="mx-2 text-[var(--text-muted)]">·</span>
+        <Link href="/que-incluye">Qué incluye tu plan</Link>
+      </div>
+    </AuthShell>
   )
 }

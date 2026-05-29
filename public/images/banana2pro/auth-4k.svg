@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" fill="none">
+  <rect width="3840" height="2160" fill="#030814"/>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <g opacity="0.24" stroke="#71F4E6" stroke-width="2">
+    <rect x="980" y="420" width="1880" height="1240" rx="42"/>
+    <rect x="1080" y="560" width="1680" height="140" rx="20"/>
+    <rect x="1080" y="770" width="1680" height="140" rx="20"/>
+    <rect x="1080" y="980" width="1680" height="140" rx="20"/>
+    <rect x="1080" y="1190" width="800" height="220" rx="20"/>
+    <rect x="1960" y="1190" width="800" height="220" rx="20"/>
+  </g>
+  <ellipse cx="960" cy="560" rx="720" ry="460" fill="url(#teal)"/>
+  <ellipse cx="2900" cy="1480" rx="860" ry="560" fill="url(#gold)"/>
+  <defs>
+    <linearGradient id="bg" x1="260" y1="120" x2="3560" y2="2020" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071A30"/>
+      <stop offset="0.52" stop-color="#0B2340"/>
+      <stop offset="1" stop-color="#08142A"/>
+    </linearGradient>
+    <radialGradient id="teal" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 560) rotate(90) scale(460 720)">
+      <stop stop-color="#1FE9D9" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#1FE9D9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2900 1480) rotate(90) scale(560 860)">
+      <stop stop-color="#E9C05B" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#E9C05B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
