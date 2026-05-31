@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  const body = await req.json()
+  const body = (await req.json().catch(() => null)) ?? {}
   const tipo = TIPOS.has(body.tipo) ? body.tipo : 'otro'
 
   try {

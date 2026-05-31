@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  const body = await req.json()
+  const body = (await req.json().catch(() => null)) ?? {}
 
   const row = {
     usuario_id: usuario.id,

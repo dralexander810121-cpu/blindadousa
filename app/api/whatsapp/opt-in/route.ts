@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  const body = await req.json()
+  const body = (await req.json().catch(() => null)) ?? {}
   const optIn = Boolean(body.whatsapp_opt_in)
   const telefono = body.telefono_whatsapp?.trim()
 

@@ -8,7 +8,7 @@ function apiKey() {
   return process.env.GEMINI_API_KEY?.trim() || process.env.GOOGLE_API_KEY?.trim() || ''
 }
 
-const MODEL = 'gemini-2.0-flash'
+const MODEL = 'gemini-2.0-flash-lite'
 
 export async function askGemini(system: string, user: string, maxTokens = 2200): Promise<string> {
   const key = apiKey()

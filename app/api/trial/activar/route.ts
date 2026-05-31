@@ -2,7 +2,9 @@ import { PRICING } from '@/lib/siteFacts'
 import { createAdmin } from '@/lib/supabase/server'
 
 export async function POST(req: Request) {
-  const { email, nombre, userId } = await req.json()
+  const body = await req.json().catch(() => null)
+  if (!body) return Response.json({ error: 'Body JSON inválido' }, { status: 400 })
+  const { email, nombre, userId } = body
   if (!userId || !email) return Response.json({ error: 'Datos incompletos' }, { status: 400 })
   const db = createAdmin()
 

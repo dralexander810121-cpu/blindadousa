@@ -26,7 +26,9 @@ export async function PATCH(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 403 })
   }
 
-  const { id, verificado, activo } = await req.json()
+  const body = await req.json().catch(() => null)
+  if (!body) return Response.json({ error: 'Body JSON inválido' }, { status: 400 })
+  const { id, verificado, activo } = body
   if (!id) return Response.json({ error: 'id requerido' }, { status: 400 })
 
   const updates: Record<string, boolean> = {}

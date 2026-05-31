@@ -15,7 +15,9 @@ export async function POST(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  const { tipo, detalle, destinatario } = await req.json()
+  const body = await req.json().catch(() => null)
+  if (!body) return Response.json({ error: 'Body JSON inválido' }, { status: 400 })
+  const { tipo, detalle, destinatario } = body
   if (!tipo || !detalle) {
     return Response.json({ error: 'tipo y detalle son requeridos' }, { status: 400 })
   }

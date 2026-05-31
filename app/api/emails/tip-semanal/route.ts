@@ -24,7 +24,7 @@ const TIPS = [
   },
 ]
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
   if (!verifyCronRequest(req)) return Response.json({ error: 'Unauthorized' }, { status: 401 })
   const resend = getResend()
   if (!resend) return Response.json({ ok: false, error: 'RESEND_API_KEY no configurada' }, { status: 503 })

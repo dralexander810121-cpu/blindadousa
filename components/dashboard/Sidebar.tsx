@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 const NAV = [
   { href: '/dashboard', icon: '⬡', label: 'Centro de Comando', exact: true },
   { href: '/dashboard/asistente', icon: '🤖', label: 'IA Maestra' },
+  { href: '/dashboard/agente', icon: '⚡', label: 'Agente Autónomo' },
   { href: '/dashboard/documentos', icon: '🔍', label: 'Escanear' },
   { href: '/dashboard/credito', icon: '💳', label: 'Mi Crédito' },
   { href: '/dashboard/taxes', icon: '📋', label: 'Taxes e ITIN' },
