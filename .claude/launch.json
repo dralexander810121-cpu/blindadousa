@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "blindadousa-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "C:\\Users\\Alex\\Desktop\\blindadousa", "run", "dev"],
+      "port": 3001
+    }
+  ]
+}

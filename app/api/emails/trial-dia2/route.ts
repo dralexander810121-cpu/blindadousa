@@ -2,11 +2,13 @@ import { createAdmin } from '@/lib/supabase/server'
 import { verifyCronRequest } from '@/lib/ia/auth-cron'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+function getResend() { const k = process.env.RESEND_API_KEY; return k ? new Resend(k) : null }
 const FROM = `${process.env.RESEND_FROM_NAME || 'BlindadoUSA'} <${process.env.RESEND_FROM_EMAIL || 'hola@blindadousa.com'}>`
 
 export async function GET(req: Request) {
   if (!verifyCronRequest(req)) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+  const resend = getResend()
+  if (!resend) return Response.json({ ok: false, error: 'RESEND_API_KEY no configurada' }, { status: 503 })
 
   const db = createAdmin()
   const cutoffStart = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString()
