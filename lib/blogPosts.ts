@@ -1,3 +1,5 @@
+import { GENERATED_POSTS } from '@/lib/blogPosts.generated'
+
 export type BlogPost = {
   slug: string
   title: string
@@ -8,7 +10,7 @@ export type BlogPost = {
   content: string[]
 }
 
-export const BLOG_POSTS: BlogPost[] = [
+const STATIC_POSTS: BlogPost[] = [
   {
     slug: 'subir-score-credito-90-dias',
     title: 'Como subir tu score de credito en 90 dias',
@@ -270,5 +272,8 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
 ]
+
+// Artículos estáticos + generados por IA (SEO long-tail para hispanos)
+export const BLOG_POSTS: BlogPost[] = [...STATIC_POSTS, ...GENERATED_POSTS]
 
 export const BLOG_POSTS_BY_SLUG = new Map(BLOG_POSTS.map((post) => [post.slug, post]))
