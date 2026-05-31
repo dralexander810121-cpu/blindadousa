@@ -14,10 +14,10 @@ export async function askGemini(system: string, user: string, maxTokens = 2200):
   const key = apiKey()
   if (!key) throw new Error('GEMINI_API_KEY_MISSING')
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${encodeURIComponent(key)}`
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: system }] },
       contents: [{ role: 'user', parts: [{ text: user }] }],
@@ -35,3 +35,4 @@ export async function askGemini(system: string, user: string, maxTokens = 2200):
   if (!text.trim()) throw new Error('Gemini devolvió respuesta vacía')
   return text
 }
+

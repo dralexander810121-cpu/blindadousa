@@ -1,3 +1,4 @@
+import { z } from 'zod'
 import { hasAnthropicKey } from '@/lib/anthropic'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { analizarDisputaCredito } from '@/lib/ia/disputa'
@@ -34,3 +35,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

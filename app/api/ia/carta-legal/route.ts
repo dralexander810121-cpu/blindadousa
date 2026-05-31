@@ -1,3 +1,4 @@
+import { z } from 'zod'
 import { createAdmin } from '@/lib/supabase/server'
 import { hasAnthropicKey } from '@/lib/anthropic'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
@@ -80,3 +81,4 @@ export async function GET() {
 }
 
 export const dynamic = 'force-dynamic'
+

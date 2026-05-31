@@ -101,7 +101,7 @@ export default function DashboardPage() {
             })}
           </p>
         </div>
-        <Link href="/dashboard/asistente" className="dash-ia-input">
+        <Link href="/dashboard/asistente" className="dash-ia-input" aria-label="Abrir asistente de IA Maestra">
           ¿Qué necesitas hoy? Pregúntale a Blindado…
         </Link>
       </div>
@@ -213,3 +213,4 @@ export default function DashboardPage() {
     </div>
   )
 }
+

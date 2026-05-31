@@ -34,7 +34,21 @@ export async function POST(req: Request) {
 
     const eventName = event.meta?.event_name || ''
     const attrs = event.data?.attributes || {}
+    const eventId = event.data?.id || null
+
     const db = createAdmin()
+
+    // Idempotencia: ignorar eventos ya procesados
+    if (eventId) {
+      const { data: existing } = await db
+        .from('webhook_events')
+        .select('id')
+        .eq('event_id', eventId)
+        .eq('provider', 'lemonsqueezy')
+        .maybeSingle()
+      if (existing) return Response.json({ ok: true, skipped: 'already_processed' })
+      await db.from('webhook_events').insert({ event_id: eventId, provider: 'lemonsqueezy', processed_at: new Date().toISOString() })
+    }
 
     if (eventName === 'subscription_created' || eventName === 'subscription_payment_success') {
       const custom = {
@@ -80,3 +94,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

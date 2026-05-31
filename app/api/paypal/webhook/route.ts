@@ -64,8 +64,21 @@ export async function POST(req: Request) {
     const event = JSON.parse(rawBody)
     const eventType = event.event_type as string
     const resource = event.resource as { id?: string; custom_id?: string; status?: string }
+    const eventId = (event.id as string | undefined) || null
 
     const db = createAdmin()
+
+    // Idempotencia: ignorar eventos ya procesados
+    if (eventId) {
+      const { data: existing } = await db
+        .from('webhook_events')
+        .select('id')
+        .eq('event_id', eventId)
+        .eq('provider', 'paypal')
+        .maybeSingle()
+      if (existing) return Response.json({ ok: true, skipped: 'already_processed' })
+      await db.from('webhook_events').insert({ event_id: eventId, provider: 'paypal', processed_at: new Date().toISOString() })
+    }
 
     if (
       eventType === 'BILLING.SUBSCRIPTION.ACTIVATED' ||
@@ -121,3 +134,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

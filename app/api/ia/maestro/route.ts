@@ -1,9 +1,20 @@
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { handleMaestroChat } from '@/lib/ia/maestro-handler'
+import { z } from 'zod'
+
+const MaestroSchema = z.object({
+  mensaje: z.string().min(1, 'Mensaje requerido').max(8000, 'Mensaje demasiado largo'),
+  historial: z.array(z.object({ rol: z.string(), mensaje: z.string() })).optional(),
+})
 
 export async function POST(req: Request) {
   try {
-    const { mensaje, historial } = await req.json()
+    const body = await req.json()
+    const parsed = MaestroSchema.safeParse(body)
+    if (!parsed.success) {
+      return Response.json({ error: parsed.error.issues[0]?.message ?? 'Datos inválidos' }, { status: 400 })
+    }
+    const { mensaje, historial } = parsed.data
     const result = await handleMaestroChat(mensaje, historial)
 
     if ('error' in result && result.status !== 200) {
@@ -38,3 +49,4 @@ export async function GET() {
 }
 
 export const dynamic = 'force-dynamic'
+
