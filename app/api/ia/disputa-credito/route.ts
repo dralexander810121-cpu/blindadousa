@@ -1,12 +1,12 @@
 import type { DisputaItem } from '@/lib/ia/disputa'
 import { z } from 'zod'
-import { hasAnthropicKey } from '@/lib/anthropic'
+import { hasLlmKey, llmMissingMessage } from '@/lib/llm'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { analizarDisputaCredito } from '@/lib/ia/disputa'
 
 export async function POST(req: Request) {
-  if (!hasAnthropicKey()) {
-    return Response.json({ error: 'ANTHROPIC_API_KEY no configurada' }, { status: 503 })
+  if (!hasLlmKey()) {
+    return Response.json({ error: llmMissingMessage() }, { status: 503 })
   }
 
   const { usuario } = await getAuthenticatedUsuario()

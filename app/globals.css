@@ -2222,3 +2222,65 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
 .pay-method-btn--klarna:hover:not(:disabled) {
   transform: translateY(-1px);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   LEGIBILIDAD MÓVIL — para hispanos no-tech
+   Letras grandes, botones grandes, todo claro y fácil de tocar.
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  /* Base más grande con más aire */
+  html { font-size: 17.5px; }
+  body { line-height: 1.65; }
+
+  /* Texto de lectura nunca diminuto */
+  p, li { font-size: 1rem; line-height: 1.7; }
+  .dash-action-detail, .dash-step-desc, .section-lead, .hero-sub { font-size: 1rem !important; line-height: 1.7 !important; }
+  .text-xs { font-size: 0.85rem !important; line-height: 1.5; }
+  .text-sm { font-size: 0.97rem !important; line-height: 1.6; }
+
+  /* Títulos claros y jerárquicos */
+  .dash-page-title { font-size: 1.65rem !important; line-height: 1.2; }
+  .dash-panel-title, .dash-section-title { font-size: 1.18rem !important; }
+  .dash-page h1, .dash-page h2 { line-height: 1.25; }
+  .dash-page h2 { font-size: 1.3rem !important; }
+  .dash-page h3 { font-size: 1.12rem !important; }
+
+  /* Métricas grandes */
+  .dash-metric-value { font-size: 1.55rem !important; }
+  .dash-metric-label { font-size: 0.88rem !important; }
+
+  /* Formularios: 16px evita el zoom automático de iOS, alturas tocables */
+  .dash-input, .dash-select, .dash-textarea,
+  input[type="text"], input[type="email"], input[type="password"],
+  input[type="number"], input[type="tel"], input[type="search"], select, textarea {
+    font-size: 16px !important;
+    min-height: 50px;
+    padding: 12px 14px;
+  }
+  textarea { min-height: 90px; }
+  .dash-form-label, label { font-size: 0.97rem !important; margin-bottom: 6px; }
+
+  /* Botones grandes y fáciles de tocar (clases nombradas, no botones-ícono) */
+  .btn-accent, .btn-3d-blue, .btn-3d-gold, .btn-glass, .btn-ghost,
+  .pay-method-btn, .btn-3d {
+    min-height: 54px !important;
+    font-size: 1.02rem !important;
+    padding: 0.95rem 1.25rem !important;
+  }
+  .dash-action-link { font-size: 1rem !important; display: inline-block; padding: 6px 0; }
+
+  /* Tarjetas de módulos del dashboard: más grandes y claras */
+  .dash-module-card { padding: 18px !important; min-height: 96px; }
+  .dash-module-card .dash-module-name, .dash-module-card h3 { font-size: 1.05rem !important; }
+  .dash-module-card .dash-module-desc { font-size: 0.9rem !important; }
+
+  /* Más aire entre secciones — menos saturado */
+  .dash-panel { padding: 18px !important; margin-bottom: 14px; }
+  .dash-page { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Navegación lateral más tocable */
+  .sidebar-link { font-size: 1rem !important; padding: 13px 16px !important; min-height: 50px; }
+
+  /* Pills y badges legibles */
+  .hero-pill { font-size: 0.85rem !important; }
+}
