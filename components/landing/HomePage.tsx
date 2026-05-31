@@ -204,12 +204,12 @@ export function HomePage() {
             <div className="referidos-banner max-w-2xl mx-auto">
               <h3 className="text-xl font-bold mb-2 text-[var(--cyan-bright)]">Programa de referidos</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                Cada amigo que paga con tu código recibe depósito de{' '}
-                <strong className="text-[var(--text-primary)]">${PRICING.referralPayout}</strong> por referido
-                vía ACH, según términos publicados.
+                Tras pagar recibes tu código. Ganas{' '}
+                <strong className="text-[var(--text-primary)]">${PRICING.referralPayout}</strong> por cada amigo
+                que se suscribe con él, vía ACH según términos publicados.
               </p>
-              <Button3D href="/dashboard/referidos" variant="glass" className="mt-4">
-                Ver programa de referidos →
+              <Button3D href="/precios" variant="glass" className="mt-4">
+                Ver planes y referidos →
               </Button3D>
             </div>
           </div>

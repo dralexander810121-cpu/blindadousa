@@ -29,7 +29,7 @@ export const PLAN_INCLUDES: PlanIncludeRow[] = [
   { name: 'Mis derechos', href: '/dashboard/derechos', status: 'ready', note: 'Inquilino, trabajo, salud' },
   { name: 'Mi primera cuenta (banco)', href: '/dashboard/banco', status: 'ready', note: 'Tabla ITIN/pasaporte y pasos' },
   { name: 'IA Maestra 24/7', href: '/dashboard/asistente', status: 'ready', note: 'Chat en español con contexto USA' },
-  { name: 'Crédito — estrategia / simulador', href: '/dashboard/credito/estrategia', status: 'partial', note: 'Usa IA Maestra mientras se expande' },
+  { name: 'Crédito — simulador / estrategia', href: '/dashboard/asistente', status: 'ready', note: 'Prompts especializados vía IA Maestra' },
   { name: 'Conectar banco (Plaid)', href: '/dashboard', status: 'partial', note: 'En panel principal y tarjetas' },
   { name: 'Alertas WhatsApp', href: '/dashboard/configuracion', status: 'partial', note: 'Opt-in en configuración' },
   { name: 'Referidos $5 ACH', href: '/dashboard/referidos', status: 'partial', note: 'Requiere cuenta conectada y pago activo' },

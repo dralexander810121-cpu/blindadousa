@@ -1,5 +1,5 @@
+import { PRICING } from '@/lib/siteFacts'
 import { createAdmin } from '@/lib/supabase/server'
-import { generarCodigo } from '@/lib/stripe'
 
 export async function POST(req: Request) {
   const { email, nombre, userId } = await req.json()
@@ -11,10 +11,10 @@ export async function POST(req: Request) {
   if (existing?.acceso_pagado) return Response.json({ ok: true, redirect: '/dashboard' })
 
   const ahora = new Date()
-  const fin = new Date(ahora.getTime() + 3 * 24 * 60 * 60 * 1000)
+  const fin = new Date(ahora.getTime() + PRICING.trialDays * 24 * 60 * 60 * 1000)
 
   await db.from('usuarios').upsert({
-    auth_user_id: userId, email, nombre,
+    auth_user_id: userId, email: email.trim().toLowerCase(), nombre,
     trial_activo: true, trial_inicio: ahora.toISOString(), trial_fin: fin.toISOString(), trial_usado: true,
     acceso_pagado: false,
   }, { onConflict: 'auth_user_id' })

@@ -119,7 +119,7 @@ export default function RegistrarNegocioPage() {
 
             <div className="grid sm:grid-cols-3 gap-4 text-center">
               {[
-                { n: '1', t: 'Completa el formulario', d: 'Nombre, categoría, ciudad y contacto.' },
+                { n: '1', t: 'Crea cuenta e inicia sesión', d: 'El formulario de tu negocio está en el panel B2B.' },
                 { n: '2', t: 'Paga con Stripe', d: 'Básico $299 o Premium $500.' },
                 { n: '3', t: 'Te verificamos', d: 'Publicamos tu perfil en el directorio.' },
               ].map((step) => (

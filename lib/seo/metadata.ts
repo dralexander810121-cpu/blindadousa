@@ -5,7 +5,7 @@ export const SEO_CONFIG = {
   siteUrl: 'https://blindadousa.com',
   defaultTitle: 'BlindadoUSA — Guardaespaldas financiero con IA para hispanos en USA',
   defaultDescription:
-    'Ecosistema de IA en español: abogado, contador, asesor y protector financiero. Crédito, taxes, casa, carro y derechos. Trial 3 días gratis. Desde $20/mes o $100/año.',
+    'Herramienta educativa con IA en español para hispanos en USA: crédito, taxes, casa, carro, derechos y cartas. No sustituye abogado ni contador licenciado. Trial 3 días · $20/mes · $100/año.',
   twitterHandle: '@blindadousa',
   locale: 'es_US',
   keywords: [
@@ -35,7 +35,7 @@ export const PAGE_SEO = {
   home: {
     title: 'BlindadoUSA — Guardaespaldas financiero con IA | Trial 3 días gratis',
     description:
-      'La IA que protege, guía y administra la vida financiera del hispano en USA. Abogado, contador y asesor en español. Trial gratis · $20/mes · $100/año · $5 por referido.',
+      'IA en español que te guía en crédito, taxes, compras y derechos del consumidor. 13 módulos + IA Maestra. Trial gratis · $20/mes · $100/año · $5 por referido.',
     path: '/inicio',
   },
   comoFunciona: {

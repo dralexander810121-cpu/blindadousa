@@ -1,31 +1,30 @@
 # PENDIENTES — blindadousa.com
 
-Actualizado tras Prioridad A + automatización operativa.
+Actualizado tras pulido integral (auth, pagos, UX, copy).
 
-## Hecho en código / deploy
+## Hecho en código
 
-- Suscripciones Stripe mensual y anual (`/pagar`, `/api/stripe/checkout`).
-- Webhook: `checkout.session.completed`, `customer.subscription.deleted`, `customer.subscription.updated`, `invoice.payment_failed`.
-- Portal de facturación: `/api/stripe/portal` + botón en `/dashboard/configuracion`.
-- Página `/que-incluye`, checklist en `/bienvenido`, copy 13 módulos.
-- IA Maestra: `ANTHROPIC_API_KEY` **o** `GEMINI_API_KEY` (fallback).
-- Script `npm run stripe:sync-webhook` — ver `SETUP-STRIPE-WEBHOOK.md`.
-- ZIPs grandes eliminados del repo (ver `.gitignore`).
+- **Auth:** `/auth/callback`, recuperar → callback → `/nueva-contrasena`, trial/registro activan trial sin duplicar signup, mensajes en español.
+- **Pagos:** checkout exige cuenta existente (mismo email que `/trial`), webhook enlaza usuario por email, `/pagar/exito` verifica sesión Stripe.
+- **Producto:** 13 módulos en grid del dashboard, copy referidos corregido, precios honestos (parcial/planned).
+- **UX:** nav móvil, inputs 16px (iOS), errores en dashboard, monitor de pagos realista.
+- **Ops:** `npm run smoke:production`, `npm run stripe:sync-webhook`, guías `SETUP-SUPABASE-AUTH.md`, `SETUP-STRIPE-WEBHOOK.md`.
+- **Migración:** `stripe_subscription_id` en `usuarios` — **aplicada** en Supabase (proyecto blindadousa).
+- **CEO batch:** stubs crédito → IA Maestra, grid 13 módulos, admin en configuración, copy referidos, nav móvil.
+- **Deploy:** producción en https://blindadousa.com (build + smoke OK).
 
-## Acción manual (≈3 minutos)
+## Manual (≈5 min) — ver `BLOCKERS.md`
 
-1. **Stripe webhook** — En terminal (con tu `sk_live_...`):
-   ```powershell
-   $env:STRIPE_SECRET_KEY = "sk_live_..."
-   npm run stripe:sync-webhook
-   ```
-   O en [Stripe Webhooks](https://dashboard.stripe.com/webhooks) añade manualmente los 4 eventos al endpoint `https://blindadousa.com/api/stripe/webhook`.
-2. **Vercel** — `GEMINI_API_KEY` ya está en Production (IA Maestra activa con Gemini). Opcional: añadir `ANTHROPIC_API_KEY` para mejor calidad y escaneo de fotos de contratos.
-3. **Supabase Auth** — Site URL `https://blindadousa.com`, redirects: `/bienvenido`, `/nueva-contrasena`, `/dashboard` (ver `BLOCKERS.md`).
+1. **Supabase Auth** — Site URL + redirects + (opcional) desactivar confirm email si SMTP no está listo → `SETUP-SUPABASE-AUTH.md`.
+2. **Rotar Stripe key** si se expuso en chat → Vercel `STRIPE_SECRET_KEY`.
+3. **Opcional:** `ANTHROPIC_API_KEY`, `ADMIN_EMAILS`, Plaid, Twilio.
 
-## Verificación E2E (usuario real)
+## Verificación E2E
 
-- Trial `/trial` con email real.
-- Recuperar contraseña `/recuperar`.
-- Pago test o live en `/pagar` + evento webhook 200 en Stripe.
-- Móvil &lt;480px en formularios críticos.
+```powershell
+npm run smoke:production
+```
+
+- `/trial` → email → `/bienvenido` → dashboard
+- `/recuperar` → email → nueva contraseña
+- `/pagar` con cuenta existente → Stripe → `/pagar/exito` → dashboard con acceso

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { BrandLogo } from '@/components/brand/BrandLogo'
 import { Button3D } from '@/components/ui/Button3D'
+import { PRICING } from '@/lib/siteFacts'
 
 const LINKS = [
   { href: '/inicio', label: 'Inicio' },
@@ -13,9 +14,8 @@ const LINKS = [
 
 const SUBNAV = [
   { href: '/trial', label: 'Trial' },
-  { href: '/dashboard/asistente', label: 'IA Maestra' },
-  { href: '/dashboard/credito', label: 'Crédito' },
-  { href: '/dashboard/taxes', label: 'Taxes' },
+  { href: '/que-incluye', label: 'Qué incluye' },
+  { href: '/precios', label: 'Precios' },
   { href: '/terminos', label: 'Legal' },
 ]
 
@@ -38,10 +38,18 @@ export function MarketingNav() {
             Entrar
           </Button3D>
           <Button3D href="/trial" variant="gold" pulse className="!min-h-[44px] !py-2.5 !px-5 !text-sm">
-            3 días gratis →
+            {PRICING.trialDays} días gratis →
           </Button3D>
         </div>
       </div>
+
+      <nav className="marketing-nav-mobile" aria-label="Menú móvil">
+        {LINKS.map((l) => (
+          <Link key={l.href} href={l.href}>
+            {l.label}
+          </Link>
+        ))}
+      </nav>
 
       <nav className="marketing-subnav" aria-label="Accesos rápidos">
         {SUBNAV.map((l) => (

@@ -86,8 +86,6 @@ export default function SubsidiosPage() {
     ? PROGRAMAS.filter((p) => p.req.some((r) => respuestas[r] === true))
     : []
 
-  const lista = programasCalifica.length > 0 ? programasCalifica : PROGRAMAS
-
   return (
     <div className="dash-page dash-page--banana">
       <h1 className="dash-page-title">Subsidios y ayudas</h1>
@@ -153,7 +151,7 @@ export default function SubsidiosPage() {
           </div>
 
           <div className="flex flex-col gap-4">
-            {lista.map((p) => (
+            {programasCalifica.map((p) => (
               <DashPanel key={p.n} className="border-l-4 border-l-[var(--cyan-bright)]">
                 <div className="flex gap-3 items-start">
                   <span className="text-2xl" aria-hidden>

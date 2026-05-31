@@ -27,6 +27,19 @@ export async function handleMaestroChat(mensaje: string, historial?: HistorialMs
     return { error: 'Mensaje vacío', status: 400 as const }
   }
 
+  // Rate limiting: max 40 mensajes por dia por usuario
+  const hoy = new Date().toISOString().slice(0, 10)
+  const db0 = createAdmin()
+  const { count } = await db0
+    .from('chat_historial')
+    .select('*', { count: 'exact', head: true })
+    .eq('usuario_id', usuario.id)
+    .eq('rol', 'user')
+    .gte('created_at', `${hoy}T00:00:00Z`)
+  if ((count ?? 0) >= 40) {
+    return { error: 'Limite diario de 40 mensajes alcanzado. Vuelve mañana.', status: 429 as const }
+  }
+
   const contexto = await buildUserContext(supabase, usuario.id)
   const system = SISTEMA_IA_MAESTRA.replace('{contexto_usuario}', contexto)
 
@@ -106,3 +119,4 @@ export async function handleMaestroChat(mensaje: string, historial?: HistorialMs
     carta,
   }
 }
+

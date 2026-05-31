@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     apple: IMG.logo,
   },
   keywords: ['credito hispanos usa','guia financiera hispanos','derechos hispanos estados unidos','comprar casa hispano usa','prestamos hispanos','score credito español','taxes itin hispanos','subsidios hispanos usa 2026'],
-  openGraph: { type: 'website', locale: 'es_US', url: 'https://blindadousa.com', siteName: 'BlindadoUSA', title: 'BlindadoUSA — Guardaespaldas financiero con IA', description: 'Tu abogado, contador y asesor en español. Trial 3 días gratis.', images:[{ url:'/opengraph-image', width:1200, height:630 }] },
+  openGraph: { type: 'website', locale: 'es_US', url: 'https://blindadousa.com', siteName: 'BlindadoUSA', title: 'BlindadoUSA — Guardaespaldas financiero con IA', description: 'IA educativa en español: crédito, taxes, casa y derechos. Trial 3 días gratis.', images:[{ url:'/opengraph-image', width:1200, height:630 }] },
   twitter: { card: 'summary_large_image', site: '@blindadousa', images: ['/twitter-image'] },
   robots: { index: true, follow: true },
 }

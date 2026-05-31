@@ -1,30 +1,47 @@
-# Blockers de Emergencia
+# Blockers de lanzamiento — CEO checklist
 
-Fecha: 2026-05-25
+Actualizado: operaciones que **no** se resuelven solo con código.
 
-## 1) Supabase Auth SMTP / confirmacion de email (manual dashboard)
+## Hecho en código (no repetir)
 
-Accion manual pendiente en Supabase Dashboard:
+- Auth callback, trial, pagos, webhook script, copy honesto, stubs crédito → IA Maestra, grid 13 módulos alineado.
 
-1. Authentication -> Settings.
-2. Si "Enable email confirmations" esta ON y no hay SMTP operativo:
-   - desactivar temporalmente para no bloquear registro en produccion.
-3. Configurar:
-   - Site URL: `https://blindadousa.com`
-   - Redirect URLs:
-     - `https://blindadousa.com/bienvenido`
-     - `https://blindadousa.com/nueva-contrasena`
-     - `https://blindadousa.com/dashboard`
+## Tú — 15 minutos en dashboards
 
-Sin acceso al dashboard desde este entorno no se puede aplicar automaticamente.
+### 1. Supabase Auth
+- Site URL: `https://blindadousa.com`
+- Redirect URLs: ver `SETUP-SUPABASE-AUTH.md` (incluye `/auth/callback`)
+- Si el registro se traba: desactivar “Enable email confirmations” hasta tener SMTP, o configurar SMTP.
 
-## 2) Verificacion de variables en Vercel (manual dashboard)
+### 2. SQL en Supabase (SQL Editor)
+Ejecutar contenido de `supabase/migrations/004_usuarios_stripe_subscription.sql`:
 
-Validar en Vercel Production:
+```sql
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS stripe_subscription_id TEXT;
+CREATE INDEX IF NOT EXISTS idx_usuarios_stripe_sub ON usuarios(stripe_subscription_id);
+```
 
-- `STRIPE_SECRET_KEY`
-- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
-- `STRIPE_WEBHOOK_SECRET`
-- `NEXT_PUBLIC_BASE_URL`
+### 3. Vercel Production — env vars
+| Variable | Obligatorio |
+|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_*` + `SUPABASE_SERVICE_ROLE_KEY` | Sí |
+| `GEMINI_API_KEY` o `ANTHROPIC_API_KEY` | Sí (IA) |
+| `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, publishable | Sí (pagos) |
+| `ADMIN_EMAILS` | Sí (aprobar directorio B2B) |
+| `PLAID_*` | Recomendado (home + tarjetas + referidos ACH) |
+| `TWILIO_*` | Opcional (WhatsApp) |
 
-Sin acceso directo al dashboard, queda como paso manual de operacion.
+### 4. Stripe
+- Webhook: `https://blindadousa.com/api/stripe/webhook`
+- Eventos: checkout.session.completed, customer.subscription.*, invoice.payment_failed
+- Rotar secret key si se expuso en chat.
+
+### 5. Smoke test humano
+1. `/trial` → `/bienvenido` → dashboard  
+2. IA Maestra responde  
+3. `/pagar` mismo email → Stripe → `/pagar/exito` → dashboard con acceso  
+4. `/dashboard/configuracion` → portal Stripe (tras pago)
+
+---
+
+Sin pasos 1–4 el producto **se ve** bien pero **no convierte** trial → pago → retención con datos reales.

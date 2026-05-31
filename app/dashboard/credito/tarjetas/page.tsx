@@ -8,13 +8,26 @@ import { AccountsPanel } from '@/components/dashboard/AlertsPanel'
 export default function TarjetasPage() {
   const [connected, setConnected] = useState(false)
   const [cuentas, setCuentas] = useState<Parameters<typeof AccountsPanel>[0]['cuentas']>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   const load = useCallback(async () => {
-    const res = await fetch('/api/plaid/accounts')
-    if (!res.ok) return
-    const data = await res.json()
-    setConnected((data.metrics?.cuentas_conectadas ?? 0) > 0)
-    setCuentas(data.cuentas ?? [])
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/plaid/accounts')
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data.error || 'No se pudieron cargar las cuentas.')
+        return
+      }
+      setConnected((data.metrics?.cuentas_conectadas ?? 0) > 0)
+      setCuentas(data.cuentas ?? [])
+    } catch {
+      setError('Error de conexión. Intenta de nuevo.')
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -44,9 +57,22 @@ export default function TarjetasPage() {
         </div>
       </div>
 
-      <div className="mt-8">
-        <AccountsPanel cuentas={cuentas} />
-      </div>
+      {error && (
+        <p className="text-sm text-[var(--red-400)] mt-4 max-w-4xl" role="alert">
+          {error}{' '}
+          <button type="button" className="underline" onClick={() => load()}>
+            Reintentar
+          </button>
+        </p>
+      )}
+
+      {loading && !error ? (
+        <p className="text-sm text-[var(--text-muted)] mt-6">Cargando cuentas…</p>
+      ) : (
+        <div className="mt-8">
+          <AccountsPanel cuentas={cuentas} />
+        </div>
+      )}
     </div>
   )
 }

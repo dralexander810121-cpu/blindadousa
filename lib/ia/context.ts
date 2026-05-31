@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
+import { unstable_cache } from 'next/cache'
 
-export async function buildUserContext(supabase: SupabaseClient, usuarioId: string): Promise<string> {
+async function _buildUserContext(supabase: SupabaseClient, usuarioId: string): Promise<string> {
   const [{ data: perfil }, { data: cuentas }, { data: alertas }] = await Promise.all([
     supabase
       .from('perfil_financiero')
@@ -61,4 +62,14 @@ export async function buildUserContext(supabase: SupabaseClient, usuarioId: stri
   }
 
   return lines.join('\n')
+}
+
+// Cache por 5 minutos por usuario para evitar DB round-trips en cada mensaje
+export async function buildUserContext(supabase: SupabaseClient, usuarioId: string): Promise<string> {
+  const cached = unstable_cache(
+    () => _buildUserContext(supabase, usuarioId),
+    [`ia-context-${usuarioId}`],
+    { revalidate: 300 }
+  )
+  return cached()
 }

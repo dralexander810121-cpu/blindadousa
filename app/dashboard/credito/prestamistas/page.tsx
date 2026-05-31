@@ -1,12 +1,10 @@
-import { DashCreditoStub } from '@/components/dashboard/DashCreditoStub'
+import { redirect } from 'next/navigation'
 
 export default function PrestamistasPage() {
-  return (
-    <DashCreditoStub
-      slug="prestamistas"
-      title="Prestamistas justos"
-      icon="🏦"
-      description="Compara opciones legítimas según tu score y deuda."
-    />
+  redirect(
+    '/dashboard/asistente?q=' +
+      encodeURIComponent(
+        'Necesito comparar opciones de préstamo personal legítimas para hispanos en Texas con ITIN o SSN. ¿Qué prestamistas evitar y qué APR es razonable?',
+      ),
   )
 }

@@ -15,7 +15,7 @@ export default function AsistentePage() {
           <p className="section-kicker !mb-2">Oracle · IA Maestra</p>
           <h1 className="dash-page-title">Tu equipo completo en un chat</h1>
           <p className="dash-page-date">
-            Abogado, contador, negociador y protector — con acceso a tu perfil y cuentas.
+            Orientación educativa en español — con acceso a tu perfil y cuentas. No sustituye asesoría licenciada.
           </p>
         </div>
       </div>

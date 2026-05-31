@@ -37,6 +37,7 @@ export default function EmergenciaPage() {
   const [gastos, setGastos] = useState(2500)
   const [test, setTest] = useState<number | null>(null)
   const [plan, setPlan] = useState('')
+  const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   const meta1 = 1000
@@ -48,17 +49,27 @@ export default function EmergenciaPage() {
 
   async function generarPlan() {
     setLoading(true)
-    const res = await fetch('/api/ai/asistente', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        mensaje: `Mis gastos fijos mensuales son ${fmt(gastos)}. No tengo fondo de emergencia. Dame un plan detallado de 90 días, semana por semana, para crear un fondo de emergencia de $${meta1}. Incluye: dónde recortar gastos específicos, cuánto ahorrar cada semana, y dónde guardar el dinero.`,
-        historial: [],
-      }),
-    })
-    const data = await res.json()
-    setPlan(data.respuesta)
-    setLoading(false)
+    setError('')
+    try {
+      const res = await fetch('/api/ia/maestro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mensaje: `Mis gastos fijos mensuales son ${fmt(gastos)}. No tengo fondo de emergencia. Dame un plan detallado de 90 días, semana por semana, para crear un fondo de emergencia de $${meta1}. Incluye: dónde recortar gastos específicos, cuánto ahorrar cada semana, y dónde guardar el dinero.`,
+          historial: [],
+        }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        setPlan(data.respuesta)
+      } else {
+        setError(data.error || 'No se pudo generar el plan. Intenta de nuevo.')
+      }
+    } catch {
+      setError('Error de conexión. Revisa tu internet e intenta otra vez.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -124,6 +135,11 @@ export default function EmergenciaPage() {
             </DashPanel>
           ))}
 
+          {error && (
+            <p className="text-sm text-[var(--red-400)] mb-2" role="alert">
+              {error}
+            </p>
+          )}
           <button
             type="button"
             onClick={generarPlan}

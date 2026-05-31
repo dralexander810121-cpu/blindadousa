@@ -38,17 +38,43 @@ function loadEnvFile(path) {
   return out
 }
 
+function isPlaceholderKey(key) {
+  const k = key.trim()
+  if (!k || k.includes('placeholder') || k.includes('...')) return true
+  if (/^sk_(live|test)_\.{2,}$/i.test(k)) return true
+  if (!/^sk_(live|test)_[A-Za-z0-9]{20,}$/.test(k)) return true
+  return false
+}
+
 function getSecretKey() {
   const fromEnv = process.env.STRIPE_SECRET_KEY
-  if (fromEnv && !fromEnv.includes('placeholder')) return fromEnv
-  const files = ['.env.vercel.production', '.env.local', '.env']
+  if (fromEnv && !isPlaceholderKey(fromEnv)) return fromEnv.trim()
+  const files = ['.env.local', '.env.vercel.production', '.env']
   for (const f of files) {
     const vars = loadEnvFile(resolve(root, f))
-    if (vars.STRIPE_SECRET_KEY && !vars.STRIPE_SECRET_KEY.includes('placeholder')) {
-      return vars.STRIPE_SECRET_KEY
-    }
+    const key = vars.STRIPE_SECRET_KEY?.trim()
+    if (key && !isPlaceholderKey(key)) return key
   }
   return null
+}
+
+function explainMissingKey() {
+  console.error('❌ No hay una Secret key válida de Stripe.')
+  console.error('')
+  console.error('El comando falló porque usaste el EJEMPLO "sk_live_..." — eso no es tu clave real.')
+  console.error('')
+  console.error('Opción A — PowerShell (pega la clave COMPLETA, ~100+ caracteres):')
+  console.error('  1. https://dashboard.stripe.com/apikeys → modo Live → Reveal secret key')
+  console.error('  2. $env:STRIPE_SECRET_KEY = "sk_live_51xxxxxxxx..."  ← sin "..." al final')
+  console.error('  3. npm run stripe:sync-webhook')
+  console.error('')
+  console.error('Opción B — .env.local en la carpeta del proyecto:')
+  console.error('  STRIPE_SECRET_KEY=sk_live_51...')
+  console.error('  (una sola línea, sin comillas) → npm run stripe:sync-webhook')
+  console.error('')
+  console.error('Opción C — Sin script: Stripe Dashboard → Webhooks → tu endpoint →')
+  console.error('  Añadir eventos: checkout.session.completed, customer.subscription.deleted,')
+  console.error('  customer.subscription.updated, invoice.payment_failed')
 }
 
 async function stripeRequest(secret, method, path, body) {
@@ -76,9 +102,15 @@ function encodeEvents(events) {
 }
 
 async function main() {
+  const raw = process.env.STRIPE_SECRET_KEY?.trim()
+  if (raw && isPlaceholderKey(raw)) {
+    explainMissingKey()
+    process.exit(1)
+  }
+
   const secret = getSecretKey()
   if (!secret) {
-    console.error('❌ Falta STRIPE_SECRET_KEY (export o .env.vercel.production)')
+    explainMissingKey()
     process.exit(1)
   }
 
@@ -94,10 +126,20 @@ async function main() {
   })
 
   if (!matches.length) {
-    console.log('⚠️  No hay webhook apuntando a', WEBHOOK_PATH)
-    console.log('   Crea uno en Stripe → URL: https://blindadousa.com/api/stripe/webhook')
-    console.log('   Eventos:', REQUIRED_EVENTS.join(', '))
-    process.exit(1)
+    console.log('⚠️  No hay webhook — creando endpoint en Stripe…')
+    const params = new URLSearchParams()
+    params.set('url', 'https://blindadousa.com/api/stripe/webhook')
+    params.set('description', 'BlindadoUSA production')
+    REQUIRED_EVENTS.forEach((ev, i) => params.set(`enabled_events[${i}]`, ev))
+    const created = await stripeRequest(secret, 'POST', '/webhook_endpoints', Object.fromEntries(params))
+    console.log(`✅ Webhook creado: ${created.id}`)
+    console.log(`   URL: ${created.url}`)
+    if (created.secret) {
+      console.log('')
+      console.log('⚠️  Copia el Signing secret (whsec_…) a Vercel → STRIPE_WEBHOOK_SECRET')
+      console.log(`   Prefijo: ${created.secret.slice(0, 12)}…`)
+    }
+    matches.push(created)
   }
 
   for (const ep of matches) {
@@ -115,6 +157,11 @@ async function main() {
 }
 
 main().catch((e) => {
-  console.error('❌', e.message)
+  const msg = e.message || String(e)
+  console.error('❌', msg)
+  if (/invalid api key/i.test(msg)) {
+    console.error('')
+    console.error('La clave no es válida. Usa la Secret key completa de Live (sk_live_51...), no el texto de ejemplo.')
+  }
   process.exit(1)
 })

@@ -1,12 +1,10 @@
-import { DashCreditoStub } from '@/components/dashboard/DashCreditoStub'
+import { redirect } from 'next/navigation'
 
 export default function SimuladorPage() {
-  return (
-    <DashCreditoStub
-      slug="simulador"
-      title="Simulador de score"
-      icon="📈"
-      description="Proyecta cómo sube tu FICO con pagos y utilización."
-    />
+  redirect(
+    '/dashboard/asistente?q=' +
+      encodeURIComponent(
+        'Simula cómo subiría mi score de crédito si pago a tiempo, bajo utilización al 10% y sin consultas nuevas en 90 días. Dame proyección por semanas.',
+      ),
   )
 }

@@ -39,7 +39,7 @@ export const FEATURED_TOOLS = [
   { n: '05', t: 'Reclamo al Landlord', d: 'Derechos de inquilino en Texas.', href: '/dashboard/derechos' },
   { n: '06', t: 'Checklist Compra de Carro', d: 'Pasos antes de firmar.', href: '/dashboard/carro' },
   { n: '07', t: 'Taxes con ITIN', d: 'Créditos EITC y Child Tax Credit.', href: '/dashboard/taxes' },
-  { n: '08', t: 'Plan 30 Días de Crédito', d: 'Estrategia paso a paso.', href: '/dashboard/credito/estrategia' },
+  { n: '08', t: 'Disputas de crédito', d: 'Análisis FCRA + carta bilingüe.', href: '/dashboard/credito/disputas' },
   { n: '09', t: 'Directorio verificado', d: 'Profesionales hispanos en Texas.', href: '/directorio' },
   { n: '10', t: 'Onboarding personalizado', d: 'Ruta según tu situación.', href: '/trial' },
 ] as const

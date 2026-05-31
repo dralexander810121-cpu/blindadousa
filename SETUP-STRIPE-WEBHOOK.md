@@ -15,9 +15,13 @@ Con la **secret key** de Stripe en el entorno:
 
 ```powershell
 cd C:\Users\Alex\Desktop\blindadousa
-$env:STRIPE_SECRET_KEY = "sk_live_..."   # Dashboard → API keys
+# Pega tu clave REAL (Reveal en https://dashboard.stripe.com/apikeys — modo Live).
+# Debe empezar con sk_live_51 y tener ~100 caracteres. NO uses "sk_live_..." del tutorial.
+$env:STRIPE_SECRET_KEY = "sk_live_51TU_CLAVE_COMPLETA_AQUI"
 npm run stripe:sync-webhook
 ```
+
+Si ves `Invalid API Key provided: sk_live_...`, pegaste el ejemplo y no tu clave.
 
 El script fusiona los eventos anteriores con los que ya tenga tu endpoint (no los borra).
 

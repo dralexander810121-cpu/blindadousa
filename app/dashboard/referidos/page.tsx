@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
+import { PRICING } from '@/lib/siteFacts'
 import { DashModuleShell } from '@/components/dashboard/DashModuleShell'
 
 type ReferidoRow = {
@@ -36,9 +37,11 @@ export default function ReferidosPage() {
   const [historial, setHistorial] = useState<ReferidoRow[]>([])
   const [copied, setCopied] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   const load = useCallback(async () => {
     setLoading(true)
+    setError('')
     try {
       const res = await fetch('/api/referidos')
       const data = await res.json()
@@ -47,7 +50,11 @@ export default function ReferidosPage() {
         setCount(data.referidos_count || 0)
         setGanancias(Number(data.ganancias_referidos || 0))
         setHistorial(data.historial || [])
+      } else {
+        setError(data.error || 'No se pudo cargar tu panel de referidos.')
       }
+    } catch {
+      setError('Error de conexión. Intenta de nuevo.')
     } finally {
       setLoading(false)
     }
@@ -57,7 +64,7 @@ export default function ReferidosPage() {
     load()
   }, [load])
 
-  const msgWA = `BlindadoUSA te ayuda con crédito, casa, carro, taxes y derechos — todo en español.\n3 días gratis. Con mi código ${codigo} pagas $15 en vez de $20.\nhttps://blindadousa.com/pagar?codigo=${codigo}`
+  const msgWA = `BlindadoUSA te ayuda con crédito, casa, carro, taxes y derechos — todo en español.\n${PRICING.trialDays} días gratis. Con mi código ${codigo} pagas $${PRICING.monthly - PRICING.referralPayout} en vez de $${PRICING.monthly}.\nhttps://blindadousa.com/pagar?codigo=${codigo}`
 
   function copiar() {
     navigator.clipboard.writeText(codigo)
@@ -70,6 +77,17 @@ export default function ReferidosPage() {
       title="Mis referidos"
       subtitle="Gana $5 por cada amigo que paga. El depósito va a tu cuenta bancaria (ACH)."
     >
+      {error && (
+        <div className="card-3d dash-panel max-w-md mb-6 border border-[var(--red-500)]/30">
+          <p className="text-sm text-[var(--red-400)] mb-3" role="alert">
+            {error}
+          </p>
+          <button type="button" className="btn-glass !min-h-[40px] !text-xs" onClick={() => load()}>
+            Reintentar
+          </button>
+        </div>
+      )}
+
       <div className="card-3d dash-panel max-w-md text-center py-8 mb-6">
         <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider mb-2">Tu código personal</p>
         <p className="font-display text-5xl text-[var(--cyan-bright)] tracking-wide mb-4">{codigo || '——'}</p>

@@ -1,5 +1,5 @@
-import { generarCodigo, checkoutAmountCents, type CheckoutPlan } from '@/lib/stripe'
-import { processReferralPayout } from '@/lib/referidos/payout'
+import { checkoutAmountCents, type CheckoutPlan } from '@/lib/stripe'
+import { activateSubscriptionAccess } from '@/lib/payments/activate-access'
 import { createAdmin } from '@/lib/supabase/server'
 import { headers } from 'next/headers'
 
@@ -96,65 +96,23 @@ export async function POST(req: Request) {
         return Response.json({ ok: true })
       }
 
-      const email = metadata.email
+      const email = (metadata.email || '').trim().toLowerCase()
       if (!email) return Response.json({ ok: true })
 
-      const { data: user } = await db.from('usuarios').select('*').eq('email', email).single()
-      if (!user) return Response.json({ ok: true })
-
-      const miCodigo = generarCodigo(user.nombre || email)
       const precioPagado = precioFromSession({
         amount_total: session.amount_total as number | null,
         metadata,
       })
-      const codigo = metadata.codigo
-
-      await db
-        .from('usuarios')
-        .update({
-          acceso_pagado: true,
-          trial_activo: false,
-          fecha_pago: new Date().toISOString(),
-          precio_pagado: precioPagado,
-          codigo_usado: codigo || null,
-          mi_codigo: miCodigo,
-          stripe_customer_id: session.customer,
-          stripe_subscription_id: (session.subscription as string) || (session.id as string),
-        })
-        .eq('email', email)
-
-      if (codigo && codigo.toUpperCase() !== 'AETHERIS') {
-        const { data: ref } = await db
-          .from('usuarios')
-          .select('id,referidos_count')
-          .eq('mi_codigo', codigo.toUpperCase())
-          .single()
-        if (ref) {
-          await db
-            .from('usuarios')
-            .update({ referidos_count: (ref.referidos_count || 0) + 1 })
-            .eq('id', ref.id)
-          const { data: refRow } = await db
-            .from('referidos')
-            .insert({
-              codigo,
-              referidor_id: ref.id,
-              referido_id: user.id,
-              precio_pagado: precioPagado,
-              referido_nombre: user.nombre || email,
-            })
-            .select('id')
-            .single()
-          if (refRow?.id) {
-            await processReferralPayout(db, {
-              referidorId: ref.id,
-              referidoId: user.id,
-              referidosId: refRow.id,
-              referidoNombre: user.nombre || email,
-            })
-          }
-        }
-      }
+      await activateSubscriptionAccess(db, {
+        email,
+        plan: (metadata.plan === 'anual' ? 'anual' : 'mensual'),
+        codigo: metadata.codigo || null,
+        descuento: metadata.descuento === 'si',
+        precioPagado,
+        externalCustomerId: session.customer as string | null,
+        externalSubscriptionId: ((session.subscription as string) || (session.id as string)) ?? null,
+        paymentProvider: 'stripe',
+      })
     }
 
     return Response.json({ ok: true })
@@ -165,3 +123,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

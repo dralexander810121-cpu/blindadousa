@@ -79,16 +79,17 @@ const FACTORES = [
 ]
 
 const LINKS = [
+  { href: '/dashboard/credito/disputas', icon: '⚡', name: 'Disputas al buró', desc: 'Errores FCRA + carta IA' },
+  { href: '/dashboard/credito/cartas', icon: '✉️', name: 'Cartas generadas', desc: 'Historial bilingüe' },
   { href: '/dashboard/credito/tarjetas', icon: '💳', name: 'Mis tarjetas (Plaid)', desc: 'Conecta y optimiza' },
-  { href: '/dashboard/credito/disputas', icon: '⚡', name: 'Disputas al buró', desc: 'Errores FCRA' },
-  { href: '/dashboard/credito/cartas', icon: '✉️', name: 'Cartas generadas', desc: 'Listas para enviar' },
-  { href: '/dashboard/credito/simulador', icon: '🎯', name: 'Simulador', desc: 'Proyecciones' },
+  { href: '/dashboard/asistente', icon: '🤖', name: 'Plan con IA Maestra', desc: 'Simulador y estrategia' },
 ]
 
 export default function CreditoPage() {
   const [score, setScore] = useState(680)
   const [loading, setLoading] = useState(false)
   const [plan, setPlan] = useState('')
+  const [planError, setPlanError] = useState('')
 
   useEffect(() => {
     fetch('/api/perfil')
@@ -101,17 +102,25 @@ export default function CreditoPage() {
 
   async function generarPlan() {
     setLoading(true)
-    const res = await fetch('/api/ia/maestro', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        mensaje: `Mi score de crédito es ${score}. Dame un plan de 3 acciones concretas ordenadas por impacto para subir mi score. Sé específico con números y fechas.`,
-        historial: [],
-      }),
-    })
-    const data = await res.json()
-    setPlan(data.respuesta || data.error || '')
-    setLoading(false)
+    setPlanError('')
+    setPlan('')
+    try {
+      const res = await fetch('/api/ia/maestro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mensaje: `Mi score de crédito es ${score}. Dame un plan de 3 acciones concretas ordenadas por impacto para subir mi score. Sé específico con números y fechas.`,
+          historial: [],
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'No se pudo generar el plan')
+      setPlan(data.respuesta || '')
+    } catch (e) {
+      setPlanError(e instanceof Error ? e.message : 'Error al conectar con la IA')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -179,7 +188,7 @@ export default function CreditoPage() {
         <p className="text-sm text-[var(--text-muted)] mb-4">
           La IA analiza tu score ({score} puntos) y te da el plan exacto.
         </p>
-        {!plan && (
+        {!plan && !planError && (
           <button
             type="button"
             className="btn-3d-gold !min-h-[44px] !text-sm"
@@ -189,6 +198,7 @@ export default function CreditoPage() {
             {loading ? 'Generando…' : 'Generar mi plan con IA Maestra →'}
           </button>
         )}
+        {planError && <p className="text-sm text-[var(--red-500)] mt-2">{planError}</p>}
         {plan && <div className="dash-result-box mt-4">{plan}</div>}
       </DashPanel>
     </div>

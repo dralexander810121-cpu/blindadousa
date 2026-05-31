@@ -23,7 +23,26 @@ export async function POST(req: Request) {
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const { email, codigo, plan: planRaw } = await req.json()
     const plan = parsePlan(planRaw)
+    if (!email?.trim()) {
+      return Response.json({ error: 'Ingresa tu email.' }, { status: 400 })
+    }
+    const normalizedEmail = email.trim().toLowerCase()
     const db = createAdmin()
+
+    const { data: cuenta } = await db
+      .from('usuarios')
+      .select('id')
+      .eq('email', normalizedEmail)
+      .maybeSingle()
+    if (!cuenta) {
+      return Response.json(
+        {
+          error:
+            'No encontramos una cuenta con ese email. Crea tu trial gratis en /trial con el mismo email antes de pagar.',
+        },
+        { status: 400 },
+      )
+    }
     let esValido = false
 
     if (codigo?.toUpperCase() === CODIGO_FIJO) {
@@ -45,7 +64,7 @@ export async function POST(req: Request) {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       payment_method_types: ['card'],
-      customer_email: email,
+      customer_email: normalizedEmail,
       line_items: [
         {
           price_data: {
@@ -62,13 +81,13 @@ export async function POST(req: Request) {
       ],
       subscription_data: {
         metadata: {
-          email: email || '',
+          email: normalizedEmail,
           plan,
           codigo: codigo || '',
         },
       },
       metadata: {
-        email: email || '',
+        email: normalizedEmail,
         plan,
         codigo: codigo || '',
         descuento: esValido ? 'si' : 'no',

@@ -10,6 +10,7 @@ import {
 } from '@/components/landing/AuthShell'
 import { Button3D } from '@/components/ui/Button3D'
 import { createClient } from '@/lib/supabase/client'
+import { mapAuthError } from '@/lib/authErrors'
 
 export default function RecuperarPage() {
   const [email, setEmail] = useState('')
@@ -23,9 +24,9 @@ export default function RecuperarPage() {
     setError('')
     const supabase = createClient()
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/nueva-contrasena`,
+      redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent('/nueva-contrasena')}`,
     })
-    if (resetError) setError(resetError.message)
+    if (resetError) setError(mapAuthError(resetError.message))
     else setSent(true)
     setLoading(false)
   }

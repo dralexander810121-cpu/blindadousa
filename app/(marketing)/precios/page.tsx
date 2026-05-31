@@ -53,8 +53,8 @@ export default function PreciosPage() {
                 <p className="text-[var(--text-secondary)] mb-4">/mes</p>
                 <ul className="price-features flex-1">
                   <li>IA Maestra y documentos</li>
-                  <li>Plaid + alertas WhatsApp</li>
-                  <li>Referidos ${PRICING.referralPayout} ACH</li>
+                  <li>13 módulos educativos</li>
+                  <li>Referidos ${PRICING.referralPayout} ACH (parcial)</li>
                 </ul>
                 <Button3D href="/pagar?plan=mensual" variant="gold" pulse className="w-full">
                   Suscribirme — ${PRICING.monthly}/mes
@@ -88,8 +88,8 @@ export default function PreciosPage() {
                 <strong className="text-[var(--text-primary)]">${PRICING.referralPayout}</strong> vía ACH,
                 según términos publicados.
               </p>
-              <Button3D href="/dashboard/referidos" variant="glass" className="mt-4">
-                Ver detalle del programa →
+              <Button3D href="/entrar" variant="glass" className="mt-4">
+                Entrar para ver tu código →
               </Button3D>
             </div>
 

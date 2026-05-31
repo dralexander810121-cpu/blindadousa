@@ -2,8 +2,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
+import {
+  AuthError,
+  AuthField,
+  AuthInput,
+  AuthShell,
+  AuthSuccess,
+} from '@/components/landing/AuthShell'
 import { Button3D } from '@/components/ui/Button3D'
+import { mapAuthError } from '@/lib/authErrors'
 import { PRICING } from '@/lib/siteFacts'
 import { createClient } from '@/lib/supabase/client'
 
@@ -13,6 +20,7 @@ export default function TrialPage() {
   const [nombre, setNombre] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [needsConfirm, setNeedsConfirm] = useState(false)
   const router = useRouter()
   const supabase = createClient()
 
@@ -20,29 +28,67 @@ export default function TrialPage() {
     e.preventDefault()
     setLoading(true)
     setError('')
+    const origin = window.location.origin
     const { data, error: authErr } = await supabase.auth.signUp({
       email,
       password: pass,
       options: {
         data: { nombre },
-        emailRedirectTo: `${window.location.origin}/bienvenido`,
+        emailRedirectTo: `${origin}/auth/callback?next=${encodeURIComponent('/bienvenido?trial=1')}`,
       },
     })
     if (authErr) {
-      setError(authErr.message)
+      setError(mapAuthError(authErr.message))
       setLoading(false)
       return
     }
+    if (!data.user) {
+      setError('No se pudo crear la cuenta.')
+      setLoading(false)
+      return
+    }
+
     const res = await fetch('/api/trial/activar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, nombre, userId: data.user?.id }),
+      body: JSON.stringify({
+        email: email.trim().toLowerCase(),
+        nombre,
+        userId: data.user.id,
+      }),
     })
-    if (res.ok) router.push('/bienvenido?trial=1')
-    else {
-      setError('No se pudo activar el trial. Intenta de nuevo.')
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}))
+      setError(err.error || 'No se pudo activar el trial. Intenta de nuevo.')
       setLoading(false)
+      return
     }
+
+    if (data.session) {
+      router.push('/bienvenido?trial=1')
+      return
+    }
+
+    setNeedsConfirm(true)
+    setLoading(false)
+  }
+
+  if (needsConfirm) {
+    return (
+      <AuthSuccess
+        title="Revisa tu email"
+        body={
+          <>
+            Confirma tu cuenta para acceder a tu trial de {PRICING.trialDays} días.
+            <br />
+            <Link href="/entrar" className="inline-block mt-4 text-[var(--cyan-bright)] underline">
+              Ya confirmé — entrar
+            </Link>
+          </>
+        }
+      />
+    )
   }
 
   return (

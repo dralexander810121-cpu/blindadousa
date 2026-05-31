@@ -1,12 +1,10 @@
-import { DashCreditoStub } from '@/components/dashboard/DashCreditoStub'
+import { redirect } from 'next/navigation'
 
 export default function EstrategiaPage() {
-  return (
-    <DashCreditoStub
-      slug="estrategia de deuda"
-      title="Estrategia de deuda"
-      icon="📊"
-      description="Plan avalancha vs bola de nieve según tu perfil."
-    />
+  redirect(
+    '/dashboard/asistente?q=' +
+      encodeURIComponent(
+        'Arma mi estrategia de deuda: método avalancha vs bola de nieve según mi situación. Pregúntame lo que necesites y dame pasos concretos.',
+      ),
   )
 }

@@ -53,13 +53,19 @@ function MetricCard({
 export default function DashboardPage() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState(false)
 
   const load = useCallback(async () => {
     try {
       const res = await fetch('/api/plaid/accounts')
       if (res.ok) {
         setData(await res.json())
+        setLoadError(false)
+      } else {
+        setLoadError(true)
       }
+    } catch {
+      setLoadError(true)
     } finally {
       setLoading(false)
     }
@@ -106,6 +112,16 @@ export default function DashboardPage() {
 
       {loading ? (
         <div className="dash-loading">Cargando tu centro de comando…</div>
+      ) : loadError ? (
+        <div className="card-3d dash-panel text-center py-10 max-w-lg mx-auto">
+          <p className="font-bold mb-2">No pudimos cargar tus datos</p>
+          <p className="text-sm text-[var(--text-muted)] mb-4">
+            Revisa tu conexión o vuelve a entrar.
+          </p>
+          <button type="button" onClick={() => { setLoading(true); load() }} className="btn-3d-gold !min-h-[44px] !text-sm">
+            Reintentar
+          </button>
+        </div>
       ) : (
         <>
           <div className="dash-metrics-grid">
@@ -178,7 +194,9 @@ export default function DashboardPage() {
                   </li>
                   <li className="flex justify-between">
                     <span>Monitor de pagos</span>
-                    <strong className="text-[var(--emerald-400)]">Activo</strong>
+                    <strong className={connected ? 'text-[var(--emerald-400)]' : 'text-[var(--text-muted)]'}>
+                      {connected ? 'Con cuentas' : 'Sin conectar'}
+                    </strong>
                   </li>
                 </ul>
               </div>

@@ -1,10 +1,18 @@
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import { AuthShell } from '@/components/landing/AuthShell'
 import { First10Minutes } from '@/components/onboarding/First10Minutes'
 import { Button3D } from '@/components/ui/Button3D'
+import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { PRICING } from '@/lib/siteFacts'
 
-export default function BienvenidoPage() {
+export default async function BienvenidoPage() {
+  const { user } = await getAuthenticatedUsuario()
+
+  if (!user) {
+    redirect('/trial')
+  }
+
   return (
     <AuthShell
       title="Bienvenido a BlindadoUSA"

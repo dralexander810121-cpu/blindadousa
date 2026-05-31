@@ -132,7 +132,7 @@ export default async function DirectorioSlugPage({ params }: { params: Promise<P
   }
 
   const template = listStitchTemplates().find((item) => item.slug === slug)
-  if (!template) notFound()
+  if (!template || process.env.NODE_ENV === 'production') notFound()
 
   return (
     <main style={{ minHeight: '100vh', background: '#050505', color: '#fff' }}>

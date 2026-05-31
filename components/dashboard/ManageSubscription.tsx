@@ -2,17 +2,23 @@
 
 import { useState } from 'react'
 
-export function ManageSubscription({ hasStripeCustomer }: { hasStripeCustomer: boolean }) {
+export function ManageSubscription({
+  hasBillingAccount,
+  providerLabel,
+}: {
+  hasBillingAccount: boolean
+  providerLabel: string
+}) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  if (!hasStripeCustomer) {
+  if (!hasBillingAccount) {
     return (
       <div className="card-3d dash-panel max-w-lg">
         <h2 className="dash-panel-title mb-2">Suscripción</h2>
         <p className="text-sm text-[var(--text-muted)] mb-4">
-          Cuando actives un plan de pago podrás cancelar o cambiar tarjeta desde el portal seguro de
-          Stripe.
+          Cuando actives un plan de pago podrás cancelar o cambiar tu método de pago desde el portal
+          seguro.
         </p>
         <a href="/pagar?plan=mensual" className="btn-glass inline-flex !min-h-[40px] !text-xs">
           Activar plan →
@@ -25,7 +31,7 @@ export function ManageSubscription({ hasStripeCustomer }: { hasStripeCustomer: b
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/stripe/portal', { method: 'POST' })
+      const res = await fetch('/api/billing/portal', { method: 'POST' })
       const data = await res.json()
       if (!res.ok || !data.url) {
         setError(data.error || 'No se pudo abrir el portal')
@@ -43,7 +49,7 @@ export function ManageSubscription({ hasStripeCustomer }: { hasStripeCustomer: b
     <div className="card-3d dash-panel max-w-lg">
       <h2 className="dash-panel-title mb-2">Suscripción y facturación</h2>
       <p className="text-sm text-[var(--text-muted)] mb-4">
-        Cancela, actualiza tu tarjeta o descarga facturas en el portal seguro de Stripe.
+        Cancela, actualiza tu tarjeta o descarga facturas en el portal seguro ({providerLabel}).
       </p>
       {error && <p className="text-sm text-[var(--red-500)] mb-3">{error}</p>}
       <button
@@ -52,7 +58,7 @@ export function ManageSubscription({ hasStripeCustomer }: { hasStripeCustomer: b
         onClick={() => void openPortal()}
         disabled={loading}
       >
-        {loading ? 'Abriendo portal…' : 'Gestionar suscripción en Stripe →'}
+        {loading ? 'Abriendo portal…' : `Gestionar suscripción →`}
       </button>
     </div>
   )

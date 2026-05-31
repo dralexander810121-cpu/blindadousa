@@ -17,11 +17,19 @@ type Carta = {
 export default function CartasPage() {
   const [cartas, setCartas] = useState<Carta[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetch('/api/ia/carta-legal')
-      .then((r) => r.json())
-      .then((d) => setCartas(d.cartas ?? []))
+      .then(async (r) => {
+        const d = await r.json()
+        if (r.ok) {
+          setCartas(d.cartas ?? [])
+        } else {
+          setError(d.error || 'No se pudieron cargar tus cartas.')
+        }
+      })
+      .catch(() => setError('Error de conexión al cargar cartas.'))
       .finally(() => setLoading(false))
   }, [])
 
@@ -37,6 +45,15 @@ export default function CartasPage() {
 
       {loading ? (
         <p className="text-[var(--text-muted)]">Cargando…</p>
+      ) : error ? (
+        <div className="card-3d dash-panel max-w-lg">
+          <p className="text-[var(--red-400)] mb-4" role="alert">
+            {error}
+          </p>
+          <button type="button" className="btn-glass !min-h-[44px] !text-sm" onClick={() => window.location.reload()}>
+            Reintentar
+          </button>
+        </div>
       ) : cartas.length === 0 ? (
         <div className="card-3d dash-panel max-w-lg">
           <p className="text-[var(--text-secondary)] mb-4">

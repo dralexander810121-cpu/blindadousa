@@ -1,17 +1,21 @@
 'use client'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
 import { Button3D } from '@/components/ui/Button3D'
+import { PRICING } from '@/lib/siteFacts'
 import { createClient } from '@/lib/supabase/client'
 
-export default function EntrarPage() {
+function EntrarForm() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
+  const searchParams = useSearchParams()
+  const resetOk = searchParams.get('reset') === 'ok'
+  const authErr = searchParams.get('error') === 'auth'
   const supabase = createClient()
 
   async function handleLogin(e: React.FormEvent) {
@@ -29,6 +33,14 @@ export default function EntrarPage() {
 
   return (
     <AuthShell title="Bienvenido de vuelta" subtitle="Entra a tu cuenta para continuar">
+      {resetOk && (
+        <p className="auth-success-banner mb-4" role="status">
+          ✓ Contraseña actualizada. Ya puedes entrar.
+        </p>
+      )}
+      {authErr && !error && (
+        <AuthError message="El enlace expiró o no es válido. Intenta de nuevo o recupera tu contraseña." />
+      )}
       <form onSubmit={handleLogin}>
         {error && <AuthError message={error} />}
         <AuthField label="Tu email">
@@ -58,12 +70,20 @@ export default function EntrarPage() {
       <div className="auth-footer">
         <p>
           ¿No tienes cuenta?{' '}
-          <Link href="/trial">Prueba gratis 3 días</Link>
+          <Link href="/trial">Prueba gratis {PRICING.trialDays} días</Link>
         </p>
         <p className="mt-2">
           <Link href="/recuperar">Olvidé mi contraseña</Link>
         </p>
       </div>
     </AuthShell>
+  )
+}
+
+export default function EntrarPage() {
+  return (
+    <Suspense fallback={<AuthShell title="Entrando…" subtitle=""><span /></AuthShell>}>
+      <EntrarForm />
+    </Suspense>
   )
 }

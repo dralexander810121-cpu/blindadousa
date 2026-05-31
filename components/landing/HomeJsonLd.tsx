@@ -3,7 +3,7 @@ import { SEO_CONFIG } from '@/lib/seo/metadata'
 const FAQ = [
   {
     q: '¿Qué es BlindadoUSA?',
-    a: 'Un ecosistema de inteligencia artificial en español que actúa como tu abogado, contador, asesor financiero y protector contra estafas — diseñado para hispanos en Estados Unidos.',
+    a: 'Una plataforma educativa con IA en español para organizar tu vida financiera en USA: crédito, taxes, casa, carro, derechos y documentos. No reemplaza a un abogado ni contador licenciado.',
   },
   {
     q: '¿Cuánto cuesta BlindadoUSA?',
@@ -81,11 +81,6 @@ export function HomeJsonLd() {
         },
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '847',
-    },
   }
 
   const websiteSchema = {

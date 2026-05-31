@@ -49,10 +49,12 @@ export default function PrestamosPage() {
     analisis?: string
   } | null>(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [tab, setTab] = useState<'scanner' | 'tipos'>('scanner')
 
   async function escanear() {
     setLoading(true)
+    setError('')
     const r = tasa / 100 / 12
     const pago = (monto * (r * Math.pow(1 + r, pagos))) / (Math.pow(1 + r, pagos) - 1)
     const total = pago * pagos
@@ -67,17 +69,27 @@ export default function PrestamosPage() {
     if (tasa > 36) veredicto = 'muy_abusivo'
     else if (tasa > 20) veredicto = 'abusivo'
 
-    const res = await fetch('/api/ai/asistente', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        mensaje: `Me ofrecen un préstamo de ${fmt(monto)} a ${tasa}% APR a ${pagos} meses. El pago mensual sería ${fmt(pago)}. Total a pagar: ${fmt(total)}. ¿Es justo o abusivo? Dame tu opinión directa en 3-4 líneas y alternativas.`,
-        historial: [],
-      }),
-    })
-    const data = await res.json()
+    let analisis: string | undefined
+    try {
+      const res = await fetch('/api/ia/maestro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mensaje: `Me ofrecen un préstamo de ${fmt(monto)} a ${tasa}% APR a ${pagos} meses. El pago mensual sería ${fmt(pago)}. Total a pagar: ${fmt(total)}. ¿Es justo o abusivo? Dame tu opinión directa en 3-4 líneas y alternativas.`,
+          historial: [],
+        }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        analisis = data.respuesta
+      } else {
+        setError(data.error || 'No se pudo obtener el análisis de IA.')
+      }
+    } catch {
+      setError('Error de conexión. Los números del escáner siguen siendo válidos.')
+    }
 
-    setResult({ pago, total, intereses, exceso, veredicto, analisis: data.respuesta })
+    setResult({ pago, total, intereses, exceso, veredicto, analisis })
     setLoading(false)
   }
 
@@ -143,6 +155,11 @@ export default function PrestamosPage() {
                 className="w-full accent-[var(--cyan-bright)]"
               />
             </DashRangeRow>
+            {error && (
+              <p className="text-sm text-[var(--red-400)] mb-2" role="alert">
+                {error}
+              </p>
+            )}
             <button
               type="button"
               onClick={escanear}

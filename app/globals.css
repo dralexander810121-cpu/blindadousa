@@ -733,10 +733,32 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
   gap: 10px;
   margin-left: auto;
 }
+.marketing-nav-mobile {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 16px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.marketing-nav-mobile::-webkit-scrollbar { display: none; }
+.marketing-nav-mobile a {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.marketing-nav-mobile a:hover { color: var(--cyan-bright); border-color: rgba(34, 211, 238, 0.35); }
 @media (min-width: 900px) {
   .marketing-nav-links { display: flex; margin-left: 24px; margin-right: auto; }
   .marketing-nav-actions { margin-left: 0; }
   .marketing-subnav { display: flex; }
+  .marketing-nav-mobile { display: none; }
 }
 
 .marketing-section { padding: clamp(64px, 10vw, 100px) 0; }
@@ -1467,10 +1489,10 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
+  font-size: 16px;
   border: 1px solid rgba(255,255,255,0.1);
   background: var(--void);
   color: var(--text-primary);
-  font-size: 14px;
   outline: none;
 }
 .dash-input:focus {
@@ -1938,6 +1960,14 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
   font-size: 14px;
   margin-bottom: 14px;
 }
+.auth-success-banner {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  color: #6ee7b7;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 .auth-footer {
   text-align: center;
   margin-top: 20px;
@@ -2146,9 +2176,11 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
   color: var(--text-secondary);
   border-radius: 12px;
   padding: 10px 8px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
+  line-height: 1.25;
+  min-height: 44px;
   transition: border-color 0.15s, background 0.15s, color 0.15s;
 }
 .pay-plan-btn:hover {
@@ -2159,4 +2191,34 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px;
   border-color: rgba(34, 211, 238, 0.55);
   background: rgba(34, 211, 238, 0.12);
   color: var(--cyan-bright);
+}
+.pay-method-btn {
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 52px;
+  transition: transform 0.12s, opacity 0.12s, box-shadow 0.12s;
+  border: 1px solid transparent;
+}
+.pay-method-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.pay-method-btn--paypal {
+  background: linear-gradient(180deg, #ffc439 0%, #f0b429 100%);
+  color: #003087;
+  box-shadow: 0 4px 0 #c99200, 0 8px 24px rgba(255, 196, 57, 0.25);
+}
+.pay-method-btn--paypal:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.pay-method-btn--klarna {
+  background: linear-gradient(180deg, #ffb3c7 0%, #ffa8c5 100%);
+  color: #0a0a0a;
+  box-shadow: 0 4px 0 #e8899f, 0 8px 24px rgba(255, 168, 197, 0.2);
+}
+.pay-method-btn--klarna:hover:not(:disabled) {
+  transform: translateY(-1px);
 }

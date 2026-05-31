@@ -1,9 +1,10 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { AuthError, AuthField, AuthInput, AuthShell } from '@/components/landing/AuthShell'
 import { Button3D } from '@/components/ui/Button3D'
+import { mapAuthError } from '@/lib/authErrors'
 import { createClient } from '@/lib/supabase/client'
 
 export default function NuevaContrasenaPage() {
@@ -11,7 +12,16 @@ export default function NuevaContrasenaPage() {
   const [confirm, setConfirm] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [ready, setReady] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    const supabase = createClient()
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) setReady(true)
+      else setError('Enlace expirado o inválido. Solicita uno nuevo.')
+    })
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -27,7 +37,7 @@ export default function NuevaContrasenaPage() {
     setError('')
     const supabase = createClient()
     const { error: updateError } = await supabase.auth.updateUser({ password })
-    if (updateError) setError(updateError.message)
+    if (updateError) setError(mapAuthError(updateError.message))
     else router.push('/entrar?reset=ok')
     setLoading(false)
   }
@@ -43,6 +53,7 @@ export default function NuevaContrasenaPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={!ready && !!error}
           />
         </AuthField>
         <AuthField label="Confirmar contraseña">
@@ -52,6 +63,7 @@ export default function NuevaContrasenaPage() {
             value={confirm}
             onChange={(e) => setConfirm(e.target.value)}
             required
+            disabled={!ready && !!error}
           />
         </AuthField>
         <Button3D type="submit" variant="gold" className="w-full mt-2">
@@ -59,6 +71,8 @@ export default function NuevaContrasenaPage() {
         </Button3D>
       </form>
       <div className="auth-footer">
+        <Link href="/recuperar">Solicitar nuevo enlace</Link>
+        {' · '}
         <Link href="/entrar">Volver al login</Link>
       </div>
     </AuthShell>
