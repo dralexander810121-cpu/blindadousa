@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import { PRECIOS_B2B, type PlanB2B } from '@/lib/stripe'
 import { CATEGORIAS_DIRECTORIO } from '@/lib/directorio/seed'
 
@@ -35,7 +36,6 @@ export async function POST(req: Request) {
       return Response.json({ error: 'Categoría no válida' }, { status: 400 })
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const amount = PRECIOS_B2B[plan]
     const planLabel = plan === 'premium' ? 'Premium' : 'Básico'
@@ -79,3 +79,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

@@ -1,3 +1,4 @@
+import type { DisputaItem } from '@/lib/ia/disputa'
 import { z } from 'zod'
 import { hasAnthropicKey } from '@/lib/anthropic'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
@@ -13,19 +14,24 @@ export async function POST(req: Request) {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  const body = await req.json()
-  const items = body.items
-  if (!Array.isArray(items) || items.length === 0) {
-    return Response.json({ error: 'items es requerido (array)' }, { status: 400 })
+  const DisputaSchema = z.object({
+    items: z.array(z.object({ acreedor: z.string(), motivo: z.string(), cuenta: z.string().optional(), monto: z.string().optional() })).min(1, 'Se requiere al menos un item de disputa') as z.ZodType<DisputaItem[]>,
+    bureaus: z.array(z.string()).optional(),
+    generarCarta: z.boolean().optional().default(true),
+  })
+  const parsed = DisputaSchema.safeParse(await req.json())
+  if (!parsed.success) {
+    return Response.json({ error: parsed.error.issues[0]?.message ?? 'Datos inválidos' }, { status: 400 })
   }
+  const { items, bureaus, generarCarta } = parsed.data
 
   try {
     const result = await analizarDisputaCredito({
       usuarioId: usuario.id,
       nombreUsuario: usuario.nombre || 'Consumidor',
-      bureaus: body.bureaus,
+      bureaus,
       items,
-      generarCarta: body.generarCarta !== false,
+      generarCarta,
     })
     return Response.json({ ok: true, ...result })
   } catch (e) {
@@ -35,4 +41,6 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+
+
 

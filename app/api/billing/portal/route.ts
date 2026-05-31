@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { getLemonSubscriptionPortalUrl, isLemonSqueezyConfigured } from '@/lib/payments/lemonsqueezy'
 import { getPayPalManageUrl } from '@/lib/payments/paypal'
@@ -55,7 +56,6 @@ export async function POST() {
       )
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const session = await stripe.billingPortal.sessions.create({
       customer: row.stripe_customer_id,
@@ -70,4 +70,5 @@ export async function POST() {
 }
 
 export const dynamic = 'force-dynamic'
+
 

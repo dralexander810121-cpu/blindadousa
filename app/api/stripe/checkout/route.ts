@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import {
   CODIGO_FIJO,
   checkoutAmountCents,
@@ -19,7 +20,6 @@ export async function POST(req: Request) {
         { status: 503 },
       )
     }
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const { email, codigo, plan: planRaw } = await req.json()
     const plan = parsePlan(planRaw)
@@ -103,3 +103,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

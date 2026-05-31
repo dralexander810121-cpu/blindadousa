@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import { checkoutAmountCents, type CheckoutPlan } from '@/lib/stripe'
 import { activateSubscriptionAccess } from '@/lib/payments/activate-access'
 import { createAdmin } from '@/lib/supabase/server'
@@ -33,11 +34,11 @@ export async function POST(req: Request) {
       )
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const body = await req.text()
     const sig = (await headers()).get('stripe-signature') || ''
-    let event: { type: string; data: { object: Record<string, unknown> } }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let event: any
     try {
       event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
     } catch {
@@ -45,6 +46,19 @@ export async function POST(req: Request) {
     }
 
     const db = createAdmin()
+
+    // Idempotencia: ignorar eventos ya procesados
+    const stripeEventId = (event as Record<string,unknown>).id || null
+    if (stripeEventId) {
+      const { data: existing } = await db
+        .from('webhook_events')
+        .select('id')
+        .eq('event_id', stripeEventId)
+        .eq('provider', 'stripe')
+        .maybeSingle()
+      if (existing) return Response.json({ ok: true, skipped: 'already_processed' })
+      await db.from('webhook_events').insert({ event_id: stripeEventId, provider: 'stripe', processed_at: new Date().toISOString() })
+    }
 
     if (event.type === 'customer.subscription.deleted') {
       const sub = event.data.object
@@ -123,5 +137,10 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+
+
+
+
+
 
 

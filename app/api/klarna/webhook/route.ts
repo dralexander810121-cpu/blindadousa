@@ -39,6 +39,20 @@ export async function POST(req: Request) {
     }
 
     const db = createAdmin()
+    const klarnaEventId = event.subscription_id || event.order_id || null
+
+    // Idempotencia: ignorar eventos ya procesados
+    if (klarnaEventId) {
+      const { data: existing } = await db
+        .from('webhook_events')
+        .select('id')
+        .eq('event_id', klarnaEventId + '-' + (event.event_type || ''))
+        .eq('provider', 'klarna')
+        .maybeSingle()
+      if (existing) return Response.json({ ok: true, skipped: 'already_processed' })
+      await db.from('webhook_events').insert({ event_id: klarnaEventId + '-' + (event.event_type || ''), provider: 'klarna', processed_at: new Date().toISOString() })
+    }
+
     const eventType = event.event_type
 
     if (eventType === 'ORDER_COMPLETED' || eventType === 'SUBSCRIPTION_ACTIVATED') {
@@ -74,3 +88,4 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

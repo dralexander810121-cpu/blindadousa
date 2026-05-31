@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import type { CheckoutPlan } from '@/lib/stripe'
 import { createLemonCheckout, isLemonSqueezyConfigured } from '@/lib/payments/lemonsqueezy'
 import { createPayPalSubscription, getHostedButtonId, getPayPalClientId, isPayPalApiConfigured, isPayPalConfigured, isPayPalHostedConfigured } from '@/lib/payments/paypal'
@@ -103,7 +104,6 @@ export async function POST(req: Request) {
       )
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const unitAmount = checkoutAmountCents(plan, esValido)
     const interval = plan === 'anual' ? 'year' : 'month'
@@ -167,3 +167,4 @@ export async function GET() {
 }
 
 export const dynamic = 'force-dynamic'
+

@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import { createAdmin } from '@/lib/supabase/server'
 
 export async function GET(req: Request) {
@@ -12,7 +13,6 @@ export async function GET(req: Request) {
       return Response.json({ error: 'Stripe no configurado' }, { status: 503 })
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const session = await stripe.checkout.sessions.retrieve(sessionId)
 
@@ -48,3 +48,4 @@ export async function GET(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+

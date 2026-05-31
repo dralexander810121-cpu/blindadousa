@@ -1,3 +1,4 @@
+import Stripe from 'stripe'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
 import { createAdmin } from '@/lib/supabase/server'
 
@@ -27,7 +28,6 @@ export async function POST() {
       )
     }
 
-    const Stripe = require('stripe')
     const stripe = new Stripe(secretKey, { apiVersion: '2026-04-22.dahlia' })
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://blindadousa.com'
 
@@ -44,3 +44,4 @@ export async function POST() {
 }
 
 export const dynamic = 'force-dynamic'
+

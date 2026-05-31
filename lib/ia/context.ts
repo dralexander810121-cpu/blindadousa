@@ -1,7 +1,8 @@
-import type { SupabaseClient } from '@supabase/supabase-js'
 import { unstable_cache } from 'next/cache'
+import { createAdmin } from '@/lib/supabase/server'
 
-async function _buildUserContext(supabase: SupabaseClient, usuarioId: string): Promise<string> {
+async function _buildUserContextRaw(usuarioId: string): Promise<string> {
+  const supabase = createAdmin()
   const [{ data: perfil }, { data: cuentas }, { data: alertas }] = await Promise.all([
     supabase
       .from('perfil_financiero')
@@ -64,12 +65,13 @@ async function _buildUserContext(supabase: SupabaseClient, usuarioId: string): P
   return lines.join('\n')
 }
 
-// Cache por 5 minutos por usuario para evitar DB round-trips en cada mensaje
-export async function buildUserContext(supabase: SupabaseClient, usuarioId: string): Promise<string> {
-  const cached = unstable_cache(
-    () => _buildUserContext(supabase, usuarioId),
-    [`ia-context-${usuarioId}`],
-    { revalidate: 300 }
-  )
-  return cached()
+// Cache registrado fuera del wrapper — cliente admin instanciado dentro, no en closure
+const _buildCached = unstable_cache(
+  _buildUserContextRaw,
+  ['ia-context'],
+  { revalidate: 300 }
+)
+
+export async function buildUserContext(_supabase: unknown, usuarioId: string): Promise<string> {
+  return _buildCached(usuarioId)
 }
