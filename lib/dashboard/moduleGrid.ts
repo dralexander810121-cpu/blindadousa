@@ -1,5 +1,6 @@
 /** Grid del dashboard — alineado con los 13 módulos de lib/siteFacts.ts PRODUCT_MODULES */
 export const DASHBOARD_MODULE_GRID = [
+  { href: '/dashboard/agente', icon: '🤖', name: 'Agente Autónomo', desc: 'Tu meta → plan ejecutable' },
   { href: '/dashboard/credito', icon: '💳', name: 'Crédito', desc: 'Score, disputas y plan' },
   { href: '/dashboard/casa', icon: '🏠', name: 'Comprar Casa', desc: 'Hipotecas y derechos' },
   { href: '/dashboard/carro', icon: '🚗', name: 'Comprar Carro', desc: 'Anti-abuso dealer' },
