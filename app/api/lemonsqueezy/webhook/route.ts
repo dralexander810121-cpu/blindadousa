@@ -77,7 +77,7 @@ export async function POST(req: Request) {
       if (subId && REVOKED.has(status)) {
         await revokeSubscriptionAccess(db, subId)
       } else if (subId && ACTIVE.has(status)) {
-        await db.from('usuarios').update({ acceso_pagado: true }).eq('stripe_subscription_id', subId)
+        await db.from('usuarios').update({ acceso_pagado: true }).eq('external_subscription_id', subId)
       }
     }
 
@@ -94,4 +94,5 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+
 

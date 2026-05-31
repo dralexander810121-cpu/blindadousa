@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     if (event.type === 'customer.subscription.deleted') {
       const sub = event.data.object
       const subId = sub.id as string
-      await db.from('usuarios').update({ acceso_pagado: false }).eq('stripe_subscription_id', subId)
+      await db.from('usuarios').update({ acceso_pagado: false }).eq('external_subscription_id', subId)
       return Response.json({ ok: true })
     }
 
@@ -58,9 +58,9 @@ export async function POST(req: Request) {
       const subId = sub.id as string
       const status = String(sub.status || '')
       if (REVOKED_SUB_STATUSES.has(status)) {
-        await db.from('usuarios').update({ acceso_pagado: false }).eq('stripe_subscription_id', subId)
+        await db.from('usuarios').update({ acceso_pagado: false }).eq('external_subscription_id', subId)
       } else if (ACTIVE_SUB_STATUSES.has(status)) {
-        await db.from('usuarios').update({ acceso_pagado: true }).eq('stripe_subscription_id', subId)
+        await db.from('usuarios').update({ acceso_pagado: true }).eq('external_subscription_id', subId)
       }
       return Response.json({ ok: true })
     }
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
       const invoice = event.data.object
       const subId = invoice.subscription as string | undefined
       if (subId) {
-        await db.from('usuarios').update({ acceso_pagado: false }).eq('stripe_subscription_id', subId)
+        await db.from('usuarios').update({ acceso_pagado: false }).eq('external_subscription_id', subId)
       }
       return Response.json({ ok: true })
     }
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
           telefono: metadata.telefono || null,
           email: metadata.email || null,
           plan: metadata.plan === 'premium' ? 'premium' : 'basico',
-          stripe_subscription_id: session.id as string,
+          external_subscription_id: session.id as string,
           verificado: false,
           activo: true,
           featured: metadata.plan === 'premium',
@@ -123,4 +123,5 @@ export async function POST(req: Request) {
 }
 
 export const dynamic = 'force-dynamic'
+
 

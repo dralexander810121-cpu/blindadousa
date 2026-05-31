@@ -20,3 +20,6 @@ stitch_texas_ai_real_estate_dashboard_redesign*.zip
 .stripe-webhook-secret.tmp
 
 .vercel
+
+# Directorio duplicado legacy
+repo/

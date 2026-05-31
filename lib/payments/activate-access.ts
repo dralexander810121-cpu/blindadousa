@@ -38,7 +38,7 @@ export async function activateSubscriptionAccess(db: Db, input: ActivateSubscrip
       codigo_usado: codigo,
       mi_codigo: miCodigo,
       stripe_customer_id: input.externalCustomerId ?? null,
-      stripe_subscription_id: input.externalSubscriptionId ?? null,
+      external_subscription_id: input.externalSubscriptionId ?? null,
     })
     .eq('email', email)
 
@@ -82,5 +82,6 @@ export async function revokeSubscriptionAccess(db: Db, externalSubscriptionId: s
   await db
     .from('usuarios')
     .update({ acceso_pagado: false })
-    .eq('stripe_subscription_id', externalSubscriptionId)
+    .eq('external_subscription_id', externalSubscriptionId)
 }
+

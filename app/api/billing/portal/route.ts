@@ -14,18 +14,18 @@ export async function POST() {
     const db = createAdmin()
     const { data: row } = await db
       .from('usuarios')
-      .select('stripe_customer_id, stripe_subscription_id, acceso_pagado')
+      .select('stripe_customer_id, external_subscription_id, acceso_pagado')
       .eq('id', usuario.id)
       .single()
 
-    if (!row?.acceso_pagado && !row?.stripe_subscription_id) {
+    if (!row?.acceso_pagado && !row?.external_subscription_id) {
       return Response.json(
         { error: 'Aún no tienes suscripción activa. Usa /pagar para activar.' },
         { status: 400 },
       )
     }
 
-    const subId = row.stripe_subscription_id || ''
+    const subId = row.external_subscription_id || ''
     const userProvider = detectUserPaymentProvider(subId)
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://blindadousa.com'
 
@@ -70,3 +70,4 @@ export async function POST() {
 }
 
 export const dynamic = 'force-dynamic'
+

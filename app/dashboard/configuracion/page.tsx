@@ -16,13 +16,13 @@ export default async function ConfiguracionPage() {
     const db = createAdmin()
     const { data } = await db
       .from('usuarios')
-      .select('stripe_customer_id, stripe_subscription_id, acceso_pagado')
+      .select('stripe_customer_id, external_subscription_id, acceso_pagado')
       .eq('id', usuario.id)
       .single()
     hasBillingAccount = Boolean(
-      data?.acceso_pagado && (data?.stripe_subscription_id || data?.stripe_customer_id),
+      data?.acceso_pagado && (data?.external_subscription_id || data?.stripe_customer_id),
     )
-    providerLabel = paymentProviderLabel(detectUserPaymentProvider(data?.stripe_subscription_id))
+    providerLabel = paymentProviderLabel(detectUserPaymentProvider(data?.external_subscription_id))
   }
 
   return (
@@ -64,3 +64,4 @@ export default async function ConfiguracionPage() {
     </DashModuleShell>
   )
 }
+

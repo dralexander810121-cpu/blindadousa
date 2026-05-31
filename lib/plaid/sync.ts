@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { plaid } from '@/lib/plaid'
+import { encryptPlaidToken, decryptPlaidToken, isEncrypted } from '@/lib/plaid/crypto'
 import { isWhatsAppConfigured, sendWhatsAppAlert } from '@/lib/whatsapp'
 
 type Db = SupabaseClient
@@ -40,7 +41,7 @@ export async function syncPlaidItem(
       usuario_id: usuarioId,
       plaid_account_id: acct.account_id,
       plaid_item_id: itemId,
-      plaid_access_token: accessToken,
+      plaid_access_token: encryptPlaidToken(accessToken),
       institucion: balanceRes.data.item.institution_id ?? null,
       nombre_cuenta: acct.name,
       tipo: acct.type,
@@ -75,7 +76,8 @@ export async function syncAllUserAccounts(db: Db, usuarioId: string) {
   const items = new Map<string, string>()
   for (const c of cuentas ?? []) {
     if (c.plaid_access_token && c.plaid_item_id) {
-      items.set(c.plaid_item_id, c.plaid_access_token)
+      const token = isEncrypted(c.plaid_access_token) ? decryptPlaidToken(c.plaid_access_token) : c.plaid_access_token
+      items.set(c.plaid_item_id, token)
     }
   }
 
@@ -182,3 +184,4 @@ export async function runPaymentMonitor(db: Db, usuarioId: string) {
 
   return created
 }
+
