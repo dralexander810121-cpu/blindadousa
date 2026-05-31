@@ -79,6 +79,21 @@ export default function OnboardingPage() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Error')
+      // Genera plan personalizado con IA según la meta (no bloquea la navegación)
+      fetch('/api/onboarding/plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          meta: form.mayor_preocupacion,
+          perfil: {
+            credit_score: form.credit_score,
+            ingreso_mensual: form.ingreso_mensual,
+            deuda_total: form.deuda_total,
+            tiene_ssn: form.tiene_ssn,
+            tiene_itin: form.tiene_itin,
+          },
+        }),
+      }).catch(() => {})
       router.push('/dashboard/credito/tarjetas')
     } catch (e) {
       setError(e instanceof Error ? e.message : 'No se pudo guardar')

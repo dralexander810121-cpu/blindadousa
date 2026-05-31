@@ -1,11 +1,18 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+
 type ActionItem = {
   title: string
   detail: string
   href: string
   cta: string
   priority: 'alta' | 'media' | 'baja'
+}
+
+type PlanIA = {
+  resumen: string
+  pasos: { titulo: string; detalle: string; modulo: string; prioridad: 'alta' | 'media' | 'baja' }[]
 }
 
 function pickActions(input: {
@@ -75,13 +82,42 @@ export function ActionPlanCard(props: {
   cuentasConectadas: number
   deudaTarjetas: number
 }) {
-  const actions = pickActions(props)
+  const fallback = pickActions(props)
+  const [planIA, setPlanIA] = useState<PlanIA | null>(null)
+
+  useEffect(() => {
+    let cancel = false
+    fetch('/api/onboarding/plan')
+      .then((r) => r.json())
+      .then((d) => {
+        if (!cancel && d.plan?.pasos?.length) {
+          setPlanIA({ resumen: d.plan.resumen || '', pasos: d.plan.pasos })
+        }
+      })
+      .catch(() => {})
+    return () => {
+      cancel = true
+    }
+  }, [])
+
+  // Plan generado por IA según la meta del usuario (preferido sobre reglas)
+  const actions: ActionItem[] = planIA
+    ? planIA.pasos.map((p) => ({
+        title: p.titulo,
+        detail: p.detalle,
+        href: p.modulo,
+        cta: 'Empezar',
+        priority: p.prioridad,
+      }))
+    : fallback
 
   return (
     <section className="card-3d dash-panel">
       <h3 className="dash-panel-title mb-2">Tu siguiente paso HOY</h3>
       <p className="text-xs text-[var(--text-muted)] mb-4">
-        Recomendaciones automáticas basadas en tu perfil actual.
+        {planIA?.resumen
+          ? `🤖 ${planIA.resumen}`
+          : 'Recomendaciones automáticas basadas en tu perfil actual.'}
       </p>
       <div className="space-y-3">
         {actions.map((a) => {
