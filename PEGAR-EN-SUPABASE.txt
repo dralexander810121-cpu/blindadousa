@@ -28,7 +28,7 @@ ALTER TABLE perfil_financiero
 
 -- Arreglo 2: seguridad de tablas
 DO $$ BEGIN CREATE POLICY "propio" ON referidos FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=referidor_id) OR auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=referido_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
-DO $$ BEGIN CREATE POLICY "propio" ON recomendaciones_pago FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "propio" ON recomendaciones_pago FOR ALL USING (auth.uid()=(SELECT u.auth_user_id FROM cuentas_conectadas c JOIN usuarios u ON u.id=c.usuario_id WHERE c.id=recomendaciones_pago.cuenta_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 DO $$ BEGIN CREATE POLICY "propio" ON chat_historial FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 DO $$ BEGIN CREATE POLICY "propio" ON calculos_guardados FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 DO $$ BEGIN CREATE POLICY "propio" ON afiliado_clicks FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;

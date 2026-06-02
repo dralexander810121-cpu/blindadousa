@@ -11,9 +11,14 @@ DO $$ BEGIN
     );
 EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
+-- recomendaciones_pago no tiene usuario_id: se enlaza via cuenta_id -> cuentas_conectadas -> usuarios
 DO $$ BEGIN
   CREATE POLICY "propio" ON recomendaciones_pago FOR ALL
-    USING (auth.uid() = (SELECT auth_user_id FROM usuarios WHERE id = usuario_id));
+    USING (auth.uid() = (
+      SELECT u.auth_user_id FROM cuentas_conectadas c
+      JOIN usuarios u ON u.id = c.usuario_id
+      WHERE c.id = recomendaciones_pago.cuenta_id
+    ));
 EXCEPTION WHEN duplicate_object THEN NULL; END $$;
 
 DO $$ BEGIN
