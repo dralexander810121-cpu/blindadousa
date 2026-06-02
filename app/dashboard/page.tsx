@@ -169,10 +169,10 @@ export default function DashboardPage() {
                 <PlaidConnect connected={connected} onConnected={load} />
               ) : (
                 <div className="card-3d dash-plaid-box">
-                  <p className="text-sm font-bold mb-2">Plaid pendiente de configurar</p>
+                  <p className="text-sm font-bold mb-2">Conexión bancaria 🔒</p>
                   <p className="text-xs text-[var(--text-muted)] leading-relaxed">
-                    Añade PLAID_CLIENT_ID y PLAID_SECRET en .env.local para conectar cuentas
-                    bancarias en sandbox o producción.
+                    Estamos activando la conexión segura con tu banco para monitorear pagos,
+                    cortes y utilización en automático. Disponible muy pronto.
                   </p>
                 </div>
               )}

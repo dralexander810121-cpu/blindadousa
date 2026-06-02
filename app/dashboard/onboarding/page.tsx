@@ -4,15 +4,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { DashOption, DashPanel, DashRangeRow } from '@/components/dashboard/DashPanel'
+import { PREOCUPACIONES_UI } from '@/lib/perfil/mayorPreocupacion'
 
-const PREOCUPACIONES = [
-  'Subir mi score de crédito',
-  'Pagar menos en taxes',
-  'Comprar casa o carro',
-  'Deudas y cobradores',
-  'Salario o trabajo',
-  'Emergencia / ahorro',
-]
+const PREOCUPACIONES = [...PREOCUPACIONES_UI]
 
 type Form = {
   estado: string
@@ -64,23 +58,27 @@ export default function OnboardingPage() {
     setForm((f) => ({ ...f, [key]: value }))
   }
 
-  async function guardar() {
+  async function guardar(destino: 'tarjetas' | 'dashboard') {
+    if (loading) return false
     setLoading(true)
     setError('')
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 25_000)
     try {
       const res = await fetch('/api/perfil', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           ...form,
           whatsapp_opt_in: whatsappOptIn,
-          telefono_whatsapp: whatsappOptIn && telefono ? `+1${telefono.replace(/\D/g, '')}` : null,
+          telefono_whatsapp: whatsappOptIn && telefono ? telefono.replace(/\D/g, '').slice(-10) : null,
         }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Error')
-      // Genera plan personalizado con IA según la meta (no bloquea la navegación)
-      fetch('/api/onboarding/plan', {
+
+      void fetch('/api/onboarding/plan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -94,10 +92,20 @@ export default function OnboardingPage() {
           },
         }),
       }).catch(() => {})
-      router.push('/dashboard/credito/tarjetas')
+
+      const href =
+        destino === 'tarjetas' ? '/dashboard/credito/tarjetas' : '/dashboard'
+      router.replace(href)
+      return true
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'No se pudo guardar')
+      if (e instanceof Error && e.name === 'AbortError') {
+        setError('Tardó demasiado. Revisa tu internet e intenta de nuevo.')
+      } else {
+        setError(e instanceof Error ? e.message : 'No se pudo guardar')
+      }
+      return false
     } finally {
+      window.clearTimeout(timeout)
       setLoading(false)
     }
   }
@@ -322,7 +330,7 @@ export default function OnboardingPage() {
             type="button"
             className="btn-3d-gold w-full mb-3"
             disabled={loading}
-            onClick={guardar}
+            onClick={() => void guardar('tarjetas')}
           >
             {loading ? 'Guardando…' : 'Guardar y conectar banco →'}
           </button>
@@ -330,10 +338,7 @@ export default function OnboardingPage() {
             type="button"
             className="btn-glass w-full text-sm"
             disabled={loading}
-            onClick={async () => {
-              await guardar()
-              router.push('/dashboard')
-            }}
+            onClick={() => void guardar('dashboard')}
           >
             Guardar e ir al dashboard
           </button>

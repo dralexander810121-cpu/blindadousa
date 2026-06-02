@@ -1,0 +1,41 @@
+========================================================
+  PEGAR ESTO EN SUPABASE  (blindadousa)
+========================================================
+
+QUE HACE:
+ - Arregla el error rojo del onboarding paso 5
+   ("perfil_financiero_mayor_preocupacion_check")
+ - (Si ya lo aplicó el agente en jun 2026, puedes omitir el Arreglo 1)
+ - Protege unas tablas (seguridad)
+
+COMO HACERLO (5 minutos, una sola vez):
+ 1. Entra a  https://supabase.com  e inicia sesion
+ 2. Abre el proyecto de blindadousa
+ 3. En el menu de la izquierda, clic en  "SQL Editor"
+ 4. Clic en  "+ New query"  (nueva consulta)
+ 5. Copia y pega TODO el codigo de abajo (desde la linea ---)
+ 6. Clic en el boton  "Run"  (o presiona Ctrl + Enter)
+ 7. Si dice "Success" abajo, LISTO. Cierra. Ya quedo.
+
+ (Si sale algun aviso amarillo, no pasa nada. Solo importa
+  que no salga un error rojo grande.)
+
+--------- COPIA DESDE AQUI HACIA ABAJO ---------
+
+-- Arreglo 1: el error del formulario de registro
+ALTER TABLE perfil_financiero
+  DROP CONSTRAINT IF EXISTS perfil_financiero_mayor_preocupacion_check;
+
+-- Arreglo 2: seguridad de tablas
+DO $$ BEGIN CREATE POLICY "propio" ON referidos FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=referidor_id) OR auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=referido_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "propio" ON recomendaciones_pago FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "propio" ON chat_historial FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "propio" ON calculos_guardados FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "propio" ON afiliado_clicks FOR ALL USING (auth.uid()=(SELECT auth_user_id FROM usuarios WHERE id=usuario_id)); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+ALTER TABLE IF EXISTS directorio_negocios ENABLE ROW LEVEL SECURITY;
+DO $$ BEGIN CREATE POLICY "lectura_publica" ON directorio_negocios FOR SELECT USING (activo=true); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+DO $$ BEGIN CREATE POLICY "admin_escritura" ON directorio_negocios FOR ALL USING (auth.uid() IS NOT NULL AND activo IS NOT NULL); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+ALTER TABLE IF EXISTS blog_posts ENABLE ROW LEVEL SECURITY;
+DO $$ BEGIN CREATE POLICY "lectura_publica" ON blog_posts FOR SELECT USING (true); EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+ALTER TABLE IF EXISTS webhook_events ENABLE ROW LEVEL SECURITY;
+DO $$ BEGIN CREATE POLICY "denegado_anon" ON webhook_events FOR ALL USING (false); EXCEPTION WHEN duplicate_object THEN NULL; END $$;

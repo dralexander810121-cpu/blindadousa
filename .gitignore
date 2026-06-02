@@ -23,3 +23,6 @@ stitch_texas_ai_real_estate_dashboard_redesign*.zip
 
 # Directorio duplicado legacy
 repo/
+
+# Salidas de scripts de smoke/screenshot (no versionar)
+scripts/out-*.png

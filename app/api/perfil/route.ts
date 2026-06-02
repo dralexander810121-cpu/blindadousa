@@ -1,4 +1,5 @@
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
+import { normalizeMayorPreocupacion, perfilErrorMessage } from '@/lib/perfil/mayorPreocupacion'
 
 export async function GET() {
   const { supabase, usuario } = await getAuthenticatedUsuario()
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
     pais_remesas: body.pais_remesas || null,
     tiene_carro: Boolean(body.tiene_carro),
     tiene_casa: Boolean(body.tiene_casa),
-    mayor_preocupacion: body.mayor_preocupacion || null,
+    mayor_preocupacion: normalizeMayorPreocupacion(body.mayor_preocupacion),
     updated_at: new Date().toISOString(),
   }
 
@@ -51,7 +52,7 @@ export async function POST(req: Request) {
     .single()
 
   if (error) {
-    return Response.json({ error: error.message }, { status: 500 })
+    return Response.json({ error: perfilErrorMessage(error.message) }, { status: 500 })
   }
 
   if (body.estado && typeof body.estado === 'string') {

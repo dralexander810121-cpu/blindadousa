@@ -1,12 +1,23 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
-import { PlaidConnect } from '@/components/dashboard/PlaidConnect'
 import { AccountsPanel } from '@/components/dashboard/AlertsPanel'
+
+const PlaidConnect = dynamic(
+  () => import('@/components/dashboard/PlaidConnect').then((m) => m.PlaidConnect),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="dash-plaid-box text-sm text-[var(--text-muted)]">Cargando conexión bancaria…</div>
+    ),
+  },
+)
 
 export default function TarjetasPage() {
   const [connected, setConnected] = useState(false)
+  const [plaidConfigured, setPlaidConfigured] = useState<boolean | null>(null)
   const [cuentas, setCuentas] = useState<Parameters<typeof AccountsPanel>[0]['cuentas']>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -22,6 +33,7 @@ export default function TarjetasPage() {
         return
       }
       setConnected((data.metrics?.cuentas_conectadas ?? 0) > 0)
+      setPlaidConfigured(data.plaid_configured !== false)
       setCuentas(data.cuentas ?? [])
     } catch {
       setError('Error de conexión. Intenta de nuevo.')
@@ -45,7 +57,19 @@ export default function TarjetasPage() {
       </p>
 
       <div className="grid md:grid-cols-2 gap-5 max-w-4xl">
-        <PlaidConnect connected={connected} onConnected={load} />
+        {plaidConfigured === null ? (
+          <div className="dash-plaid-box text-sm text-[var(--text-muted)]">Cargando conexión bancaria…</div>
+        ) : plaidConfigured ? (
+          <PlaidConnect connected={connected} onConnected={load} />
+        ) : (
+          <div className="card-3d dash-plaid-box">
+            <p className="text-sm font-bold text-[var(--text-primary)] mb-2">Conexión bancaria 🔒</p>
+            <p className="text-xs text-[var(--text-muted)] leading-relaxed">
+              Estamos activando la conexión segura con tu banco. Muy pronto podrás conectar tus
+              cuentas y monitorear pagos, cortes y utilización en automático.
+            </p>
+          </div>
+        )}
         <div className="card-3d dash-plaid-box">
           <h2 className="dash-panel-title">Qué monitorea Blindado</h2>
           <ul className="text-sm text-[var(--text-secondary)] space-y-2">

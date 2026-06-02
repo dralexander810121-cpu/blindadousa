@@ -1,5 +1,6 @@
 import { CountryCode, Products } from 'plaid'
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
+import { isPlaidConfigured, plaidNotConfiguredMessage } from '@/lib/plaid/config'
 import { plaid } from '@/lib/plaid'
 
 export async function POST() {
@@ -8,11 +9,8 @@ export async function POST() {
     return Response.json({ error: 'No autorizado' }, { status: 401 })
   }
 
-  if (!process.env.PLAID_CLIENT_ID || !process.env.PLAID_SECRET) {
-    return Response.json(
-      { error: 'Plaid no configurado. Añade PLAID_CLIENT_ID y PLAID_SECRET en .env.local' },
-      { status: 503 },
-    )
+  if (!isPlaidConfigured()) {
+    return Response.json({ error: plaidNotConfiguredMessage() }, { status: 503 })
   }
 
   try {

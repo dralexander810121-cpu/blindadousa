@@ -1,4 +1,5 @@
 import { getAuthenticatedUsuario } from '@/lib/dashboard/auth'
+import { isPlaidConfigured } from '@/lib/plaid/config'
 
 export async function GET() {
   const { supabase, usuario } = await getAuthenticatedUsuario()
@@ -57,7 +58,7 @@ export async function GET() {
     },
     cuentas: cuentas ?? [],
     alertas: alertas ?? [],
-    plaid_configured: Boolean(process.env.PLAID_CLIENT_ID && process.env.PLAID_SECRET),
+    plaid_configured: isPlaidConfigured(),
   })
 }
 
