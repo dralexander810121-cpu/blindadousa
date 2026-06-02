@@ -38,6 +38,11 @@ export async function GET() {
     ok: true,
     plaid_configured: isPlaidConfigured(),
     plaid_env: process.env.PLAID_ENV?.trim() || 'sandbox',
+    plaid_detail: {
+      client_id: Boolean(process.env.PLAID_CLIENT_ID?.trim()),
+      secret: Boolean(process.env.PLAID_SECRET?.trim()),
+      enc_key_64hex: /^[0-9a-fA-F]{64}$/.test((process.env.PLAID_TOKEN_ENCRYPTION_KEY || '').trim()),
+    },
     llm_configured: hasLlmKey(),
     supabase_configured: Boolean(
       process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim(),
