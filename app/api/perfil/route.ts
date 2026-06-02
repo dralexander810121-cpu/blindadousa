@@ -45,11 +45,23 @@ export async function POST(req: Request) {
     updated_at: new Date().toISOString(),
   }
 
-  const { data, error } = await supabase
+  let { data, error } = await supabase
     .from('perfil_financiero')
     .upsert(row, { onConflict: 'usuario_id' })
     .select()
     .single()
+
+  // Si la BD todavia tiene la restriccion vieja (migracion 010 sin aplicar),
+  // reintenta guardando sin ese campo para que el onboarding NUNCA se trabe.
+  if (error && error.message.includes('perfil_financiero_mayor_preocupacion_check')) {
+    const retry = await supabase
+      .from('perfil_financiero')
+      .upsert({ ...row, mayor_preocupacion: null }, { onConflict: 'usuario_id' })
+      .select()
+      .single()
+    data = retry.data
+    error = retry.error
+  }
 
   if (error) {
     return Response.json({ error: perfilErrorMessage(error.message) }, { status: 500 })

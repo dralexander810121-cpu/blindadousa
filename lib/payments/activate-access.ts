@@ -23,10 +23,19 @@ export async function activateSubscriptionAccess(db: Db, input: ActivateSubscrip
   const user = await ensureUsuarioByEmail(db, email)
   if (!user) return { ok: false as const, reason: 'no_user' as const }
 
+  // Idempotencia: si ya estaba pagado, NO re-procesar el referido ni regenerar el
+  // codigo (esto permite que webhook y /pagar/exito activen sin duplicar pagos de referido).
+  const { data: prev } = await db
+    .from('usuarios')
+    .select('acceso_pagado, mi_codigo')
+    .eq('email', email)
+    .maybeSingle()
+  const yaActivo = Boolean(prev?.acceso_pagado)
+
   const precioPagado =
     input.precioPagado ?? checkoutAmountCents(input.plan, input.descuento) / 100
   const codigo = input.codigo?.trim() || null
-  const miCodigo = generarCodigo(user.nombre || email)
+  const miCodigo = prev?.mi_codigo?.trim() || generarCodigo(user.nombre || email)
 
   await db
     .from('usuarios')
@@ -42,7 +51,7 @@ export async function activateSubscriptionAccess(db: Db, input: ActivateSubscrip
     })
     .eq('email', email)
 
-  if (codigo && codigo.toUpperCase() !== 'AETHERIS') {
+  if (!yaActivo && codigo && codigo.toUpperCase() !== 'AETHERIS') {
     const { data: ref } = await db
       .from('usuarios')
       .select('id,referidos_count')
