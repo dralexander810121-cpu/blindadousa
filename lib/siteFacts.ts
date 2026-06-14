@@ -1,3 +1,22 @@
+export const PRODUCT_MODULES = [
+  { label: 'Crédito y disputas', href: '/dashboard/credito' },
+  { label: 'Comprar casa', href: '/dashboard/casa' },
+  { label: 'Comprar carro', href: '/dashboard/carro' },
+  { label: 'Remesas 2026', href: '/dashboard/remesas' },
+  { label: 'Préstamos seguros', href: '/dashboard/prestamos' },
+  { label: 'Jubilación 401K', href: '/dashboard/jubilacion' },
+  { label: 'Banco e ITIN', href: '/dashboard/banco' },
+  { label: 'Salario justo', href: '/dashboard/trabajo' },
+  { label: 'Taxes', href: '/dashboard/taxes' },
+  { label: 'Emergencias', href: '/dashboard/emergencia' },
+  { label: 'Derechos legales', href: '/dashboard/derechos' },
+  { label: 'Subsidios', href: '/dashboard/subsidios' },
+  { label: 'Asistente IA 24/7', href: '/dashboard/asistente' },
+] as const
+
+/** Número canónico de módulos del producto — derivado del array real para que marketing y producto no se desincronicen. */
+export const PRODUCT_MODULES_COUNT = PRODUCT_MODULES.length
+
 /** Datos publicados verificables — no testimonios ni métricas inventadas. */
 export const SITE_STATS = [
   {
@@ -11,7 +30,7 @@ export const SITE_STATS = [
     source: 'Precio en /precios',
   },
   {
-    value: '13',
+    value: `${PRODUCT_MODULES_COUNT}`,
     label: 'módulos en el dashboard',
     source: 'Menú del producto',
   },
@@ -76,20 +95,4 @@ export const IA_MODULES = [
   { icon: '💸', t: 'Remesas 2026', d: 'Calcula el impuesto del 1% y cómo evitarlo.', href: '/dashboard/remesas' },
   { icon: '📱', t: 'Alertas WhatsApp', d: 'Configura avisos de pagos y cargos.', href: '/dashboard/configuracion' },
   { icon: '🤖', t: 'IA Maestra 24/7', d: 'Pregunta en español y recibe pasos concretos.', href: '/dashboard/asistente' },
-] as const
-
-export const PRODUCT_MODULES = [
-  { label: 'Crédito y disputas', href: '/dashboard/credito' },
-  { label: 'Comprar casa', href: '/dashboard/casa' },
-  { label: 'Comprar carro', href: '/dashboard/carro' },
-  { label: 'Remesas 2026', href: '/dashboard/remesas' },
-  { label: 'Préstamos seguros', href: '/dashboard/prestamos' },
-  { label: 'Jubilación 401K', href: '/dashboard/jubilacion' },
-  { label: 'Banco e ITIN', href: '/dashboard/banco' },
-  { label: 'Salario justo', href: '/dashboard/trabajo' },
-  { label: 'Taxes', href: '/dashboard/taxes' },
-  { label: 'Emergencias', href: '/dashboard/emergencia' },
-  { label: 'Derechos legales', href: '/dashboard/derechos' },
-  { label: 'Subsidios', href: '/dashboard/subsidios' },
-  { label: 'Asistente IA 24/7', href: '/dashboard/asistente' },
 ] as const
