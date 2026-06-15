@@ -4,8 +4,6 @@
  * Tipografía: Plus Jakarta Sans + Inter + JetBrains Mono
  * CTA/cards: cyan #22d3ee, pill 3D, glass holo
  */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 :root {
   --canvas:       #0a0e14;
   --void:         #02060c;
