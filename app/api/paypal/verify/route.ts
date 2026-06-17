@@ -10,7 +10,9 @@ export async function GET(req: Request) {
     }
 
     const sub = await getPayPalSubscription(subscriptionId)
-    const active = sub.status === 'ACTIVE' || sub.status === 'APPROVAL_PENDING'
+    // Solo ACTIVE concede acceso. APPROVAL_PENDING es el estado PREVIO al pago:
+    // antes se aceptaba y permitía activar acceso sin haber pagado.
+    const active = sub.status === 'ACTIVE'
     if (!active) {
       return Response.json({ ok: false, pending: true, acceso_pagado: false, status: sub.status })
     }

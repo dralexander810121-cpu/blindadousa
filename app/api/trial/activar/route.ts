@@ -1,11 +1,20 @@
 import { PRICING } from '@/lib/siteFacts'
-import { createAdmin } from '@/lib/supabase/server'
+import { createAdmin, createClient } from '@/lib/supabase/server'
 
 export async function POST(req: Request) {
-  const body = await req.json().catch(() => null)
-  if (!body) return Response.json({ error: 'Body JSON inválido' }, { status: 400 })
-  const { email, nombre, userId } = body
-  if (!userId || !email) return Response.json({ error: 'Datos incompletos' }, { status: 400 })
+  const body = await req.json().catch(() => ({}))
+
+  // Seguridad: NO se confía en el userId/email del body. Se exige sesión válida
+  // y se usa el id del usuario autenticado (antes un anónimo podía sembrar/quemar
+  // el trial de cualquier auth_user_id arbitrario).
+  const supa = await createClient()
+  const { data: { user } } = await supa.auth.getUser()
+  if (!user) return Response.json({ error: 'No autenticado' }, { status: 401 })
+
+  const userId = user.id
+  const email = (user.email || body?.email || '').trim().toLowerCase()
+  const nombre = body?.nombre
+  if (!email) return Response.json({ error: 'Datos incompletos' }, { status: 400 })
   const db = createAdmin()
 
   const { data: existing } = await db.from('usuarios').select('trial_usado, acceso_pagado').eq('auth_user_id', userId).single()
