@@ -79,6 +79,18 @@ export function HomePage() {
           </div>
         </ImageHero4K>
 
+        {/* BANNER OFICIAL BLINDADO USA — sello de marca (desktop + móvil) */}
+        <section style={{ width: '100%', background: '#05140d', lineHeight: 0 }} aria-label="Blindado USA — Tu Escudo Financiero">
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/blindado-banner-mobile.jpeg" />
+            <img
+              src="/images/blindado-banner.png"
+              alt="Blindado USA — Tu Escudo Financiero · Protección financiera y legal"
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+            />
+          </picture>
+        </section>
+
         <ImageHero4K imageUrl={IMG.ia_dios} className="marketing-section">
           <div className="marketing-container py-16 md:py-24">
             <p className="section-kicker">Módulos activos</p>
@@ -133,6 +145,28 @@ export function HomePage() {
                 Probar todo gratis — {PRICING.trialDays} días
               </Button3D>
             </div>
+          </div>
+        </section>
+
+        {/* LIBROS Y GUÍAS — acceso a los libros del Dr. (Figueredo Market) */}
+        <section className="marketing-section" aria-labelledby="libros-heading">
+          <div className="marketing-container text-center">
+            <p className="section-kicker">Libros y guías</p>
+            <h2 id="libros-heading" className="section-title">
+              Los libros del <span className="hero-accent">Dr. Figueredo</span>
+            </h2>
+            <p className="section-lead mb-10 mx-auto max-w-2xl">
+              Crédito, finanzas, bienes raíces, taxes y derechos del hispano en EE.UU.,
+              explicados claro. Más de 20 libros y guías para comprar y descargar.
+            </p>
+            <a
+              href="https://market.figueredomed.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-3d-gold ux-focus-ring pulse-cta"
+            >
+              📚 Ver los libros →
+            </a>
           </div>
         </section>
 

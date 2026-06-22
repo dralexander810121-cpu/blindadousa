@@ -1,6 +1,5 @@
 // Página PUENTE desde blindadousa -> figueredomed.com (salud / medicina).
-// Ecosistema enlazado. Self-contained (estilos inline) para no depender del
-// design system y no romper el build. Todos los enlaces van a figueredomed.com.
+// Self-contained. Todos los enlaces van a figueredomed.com.
 
 export const metadata = {
   title: "FigueredoMed — Salud | Ecosistema",
@@ -9,7 +8,6 @@ export const metadata = {
 };
 
 const FM = "https://figueredomed.com";
-const ACC = "#22d3ee";
 
 const items = [
   { t: "Enciclopedia médica", d: "Patologías explicadas en español claro.", href: `${FM}/patologias` },
@@ -20,27 +18,54 @@ const items = [
 
 export default function PuenteFigueredoMed() {
   return (
-    <main style={{ maxWidth: 920, margin: "60px auto", padding: "0 24px", fontFamily: "system-ui, sans-serif", color: "#0f172a" }}>
-      <p style={{ color: ACC, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, fontSize: 13, margin: 0 }}>
-        Ecosistema · Salud
-      </p>
-      <h1 style={{ fontSize: 40, margin: "6px 0 8px", color: "#0f172a" }}>FigueredoMed</h1>
-      <p style={{ color: "#475569", fontSize: 18, marginBottom: 24 }}>
-        La plataforma médica del Dr. Figueredo vive en{" "}
-        <strong style={{ color: "#0e7490" }}>figueredomed.com</strong>: medicina en español claro para médicos y pacientes.
-      </p>
+    <main className="mx-auto max-w-5xl px-5 py-10 md:py-14">
+      <section className="relative overflow-hidden rounded-3xl shadow-2xl">
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/images/figueredomed-hero-mobile.jpeg" />
+          <img
+            src="/images/figueredomed-hero.png"
+            alt="FigueredoMed — Plataforma médica digital del Dr. Figueredo"
+            className="w-full h-auto object-cover"
+          />
+        </picture>
 
-      <a href={FM} target="_blank" rel="noopener noreferrer"
-        style={{ display: "inline-flex", alignItems: "center", gap: 8, background: ACC, color: "#06121a", fontWeight: 800, padding: "14px 26px", borderRadius: 14, textDecoration: "none", fontSize: 17 }}>
-        Ir a FigueredoMed ↗
-      </a>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 16, marginTop: 36 }}>
+        <div className="absolute inset-x-0 bottom-0 p-6 md:p-9">
+          <p className="text-xs md:text-sm font-extrabold uppercase tracking-[0.2em] text-cyan-400">
+            Ecosistema · Salud
+          </p>
+          <h1 className="mt-2 text-2xl md:text-4xl font-black text-white drop-shadow">
+            FigueredoMed
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm md:text-base text-slate-200">
+            La plataforma médica del Dr. Figueredo vive en{" "}
+            <strong className="text-cyan-300">figueredomed.com</strong>: medicina en español claro para médicos y pacientes.
+          </p>
+          <a
+            href={FM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-cyan-500 px-6 py-3.5 text-base font-extrabold text-black shadow-lg transition hover:bg-cyan-400"
+          >
+            Ir a FigueredoMed ↗
+          </a>
+        </div>
+      </section>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {items.map((it) => (
-          <a key={it.t} href={it.href} target="_blank" rel="noopener noreferrer"
-            style={{ display: "block", background: "#f0fdff", border: "1px solid #a5f3fc", borderRadius: 14, padding: 20, textDecoration: "none", color: "#0f172a" }}>
-            <div style={{ fontWeight: 800, fontSize: 18 }}>{it.t} ↗</div>
-            <div style={{ color: "#475569", marginTop: 6, fontSize: 15 }}>{it.d}</div>
+          <a
+            key={it.t}
+            href={it.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:border-cyan-400/40 hover:bg-white/10"
+          >
+            <div className="text-lg font-extrabold text-white">
+              {it.t} <span className="text-cyan-300">↗</span>
+            </div>
+            <div className="mt-1.5 text-sm text-slate-300">{it.d}</div>
           </a>
         ))}
       </div>

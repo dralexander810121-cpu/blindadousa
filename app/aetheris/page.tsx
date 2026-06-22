@@ -46,39 +46,58 @@ const productos = [
 
 export default function PuenteAetheris() {
   return (
-    <main style={{ maxWidth: 960, margin: "60px auto", padding: "0 24px", fontFamily: "system-ui, sans-serif", color: "#0f172a" }}>
-      <p style={{ color: ACC, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, fontSize: 13, margin: 0 }}>
-        Ecosistema · IA clínica
-      </p>
-      <h1 style={{ fontSize: 40, margin: "6px 0 8px" }}>Aetheris Med</h1>
-      <p style={{ color: "#475569", fontSize: 18, marginBottom: 22 }}>
-        Software médico de escritorio (Windows) con IA, en 2 ediciones. La base de 40,000+ patologías,
-        el vademécum y las <strong>49 calculadoras funcionan sin internet</strong>; la IA usa internet con tu llave.
-        Se activa con una huella que envías por <strong style={{ color: "#7c3aed" }}>WhatsApp</strong>. Prueba 7 días gratis.
-      </p>
+    <main className="mx-auto max-w-5xl px-5 py-10 md:py-14" style={{ fontFamily: "system-ui, sans-serif" }}>
+      <section className="relative overflow-hidden rounded-3xl shadow-2xl">
+        <picture>
+          <source media="(max-width: 640px)" srcSet="/images/aetheris-hero-mobile.jpeg" />
+          <img
+            src="/images/aetheris-hero.png"
+            alt="Aetheris Med AI — software médico con inteligencia artificial"
+            className="w-full h-auto object-cover"
+          />
+        </picture>
 
-      <a href={WA} target="_blank" rel="noopener noreferrer"
-        style={{ display: "inline-flex", alignItems: "center", gap: 8, background: ACC, color: "#fff", fontWeight: 800, padding: "14px 26px", borderRadius: 14, textDecoration: "none", fontSize: 17 }}>
-        Pedir Aetheris por WhatsApp ↗
-      </a>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 16, marginTop: 32 }}>
+        <div className="absolute inset-x-0 bottom-0 p-6 md:p-9">
+          <p className="text-xs md:text-sm font-extrabold uppercase tracking-[0.2em]" style={{ color: ACC }}>
+            Ecosistema · IA clínica
+          </p>
+          <h1 className="mt-2 text-2xl md:text-4xl font-black text-white drop-shadow">Aetheris Med</h1>
+          <p className="mt-2 max-w-2xl text-sm md:text-base text-slate-200">
+            Software médico de escritorio (Windows) con IA, en 2 ediciones. La base de 40,000+ patologías,
+            el vademécum y las <strong className="text-white">49 calculadoras funcionan sin internet</strong>.
+            Se activa por <strong className="text-purple-300">WhatsApp</strong>. Prueba 7 días gratis.
+          </p>
+          <a
+            href={WA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-2xl px-6 py-3.5 text-base font-extrabold text-white shadow-lg transition hover:brightness-110"
+            style={{ background: ACC }}
+          >
+            Pedir Aetheris por WhatsApp ↗
+          </a>
+        </div>
+      </section>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {productos.map((pr) => (
-          <div key={pr.n} style={{ background: "#faf5ff", border: "1px solid #e9d5ff", borderRadius: 16, padding: 22 }}>
-            <div style={{ fontWeight: 800, fontSize: 20 }}>{pr.n}</div>
-            <div style={{ color: "#64748b", fontSize: 14, marginTop: 4 }}>{pr.pub}</div>
-            <div style={{ marginTop: 10 }}>
-              <span style={{ color: "#7c3aed", fontWeight: 800, fontSize: 28 }}>{pr.p}</span>{" "}
-              <span style={{ color: "#64748b", fontSize: 14 }}>{pr.anual}</span>
+          <div key={pr.n} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div className="text-xl font-extrabold text-white">{pr.n}</div>
+            <div className="mt-1 text-sm text-slate-400">{pr.pub}</div>
+            <div className="mt-2.5">
+              <span className="text-3xl font-black text-purple-300">{pr.p}</span>{" "}
+              <span className="text-sm text-slate-400">{pr.anual}</span>
             </div>
-            <ul style={{ marginTop: 14, paddingLeft: 18, color: "#334155", fontSize: 15, lineHeight: 1.7 }}>
+            <ul className="mt-3.5 list-disc pl-5 text-sm leading-relaxed text-slate-300">
               {pr.f.map((x) => <li key={x}>{x}</li>)}
             </ul>
           </div>
         ))}
       </div>
 
-      <p style={{ color: "#64748b", fontSize: 14, marginTop: 20 }}>
+      <p className="mt-5 text-sm text-slate-400">
         Pago por Zelle o efectivo, coordinado por WhatsApp — sin tarjeta en línea. Soporte y activación: WhatsApp +1 305-360-6892.
         Aetheris Med es una herramienta de apoyo; no sustituye la firma de un profesional licenciado.
         Autor: Dr. Alexander J. Figueredo Izaguirre, MD (Cuba) · RP #108356.
