@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { CARTA_LABELS } from '@/lib/ia/prompts'
+import EcosystemCrossSell from '@/components/EcosystemCrossSell'
 
 type Carta = {
   id: string
@@ -93,6 +94,7 @@ export default function CartasPage() {
               </button>
             </article>
           ))}
+          <EcosystemCrossSell variant="health" />
         </div>
       )}
     </div>
