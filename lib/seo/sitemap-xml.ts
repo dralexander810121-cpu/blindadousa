@@ -20,6 +20,9 @@ const STATIC_ENTRIES: SitemapEntry[] = [
   { path: '/terminos', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/privacidad', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/descargo', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/alexanderfigueredo', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/figueredomed', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/aetheris', changeFrequency: 'monthly', priority: 0.6 },
 ]
 
 function escapeXml(value: string): string {

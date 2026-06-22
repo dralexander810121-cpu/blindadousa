@@ -29,6 +29,14 @@ const COLS = [
       { href: '/descargo', label: 'Descargo' },
     ],
   },
+  {
+    title: 'Ecosistema',
+    links: [
+      { href: '/alexanderfigueredo', label: 'Dr. Alexander Figueredo' },
+      { href: '/figueredomed', label: 'FigueredoMed · salud' },
+      { href: '/aetheris', label: 'Aetheris Med' },
+    ],
+  },
 ]
 
 export function MarketingFooter() {
