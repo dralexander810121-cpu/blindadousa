@@ -14,9 +14,12 @@ const LINKS = [
 
 const SUBNAV = [
   { href: '/trial', label: 'Trial' },
-  { href: '/que-incluye', label: 'Qué incluye' },
   { href: '/precios', label: 'Precios' },
-  { href: '/terminos', label: 'Legal' },
+  { href: '/alexanderfigueredo', label: 'Dr. Figueredo' },
+  { href: '/figueredomed', label: 'FigueredoMed' },
+  { href: '/aetheris', label: 'Aetheris' },
+  { href: 'https://market.figueredomed.com', label: '🛒 Market', external: true },
+  { href: 'https://figueredomed.com/aetheris-game', label: '🎮 Aetheris Game', external: true },
 ]
 
 export function MarketingNav() {
@@ -52,11 +55,17 @@ export function MarketingNav() {
       </nav>
 
       <nav className="marketing-subnav" aria-label="Accesos rápidos">
-        {SUBNAV.map((l) => (
-          <Link key={l.href} href={l.href}>
-            {l.label}
-          </Link>
-        ))}
+        {SUBNAV.map((l) =>
+          l.external ? (
+            <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+              {l.label}
+            </a>
+          ) : (
+            <Link key={l.href} href={l.href}>
+              {l.label}
+            </Link>
+          )
+        )}
       </nav>
     </header>
   )
