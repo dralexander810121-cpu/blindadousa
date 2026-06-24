@@ -148,7 +148,7 @@ export function HomePage() {
           </div>
         </section>
 
-        {/* LIBROS Y GUÍAS — acceso a los libros del Dr. (Figueredo Market) */}
+        {/* LIBROS Y GUÍAS — pagina propia de libros del Dr. en BlindadoUSA (/libros) */}
         <section className="marketing-section" aria-labelledby="libros-heading">
           <div className="marketing-container text-center">
             <p className="section-kicker">Libros y guías</p>
@@ -159,14 +159,9 @@ export function HomePage() {
               Crédito, finanzas, bienes raíces, taxes y derechos del hispano en EE.UU.,
               explicados claro. Más de 20 libros y guías para comprar y descargar.
             </p>
-            <a
-              href="https://market.figueredomed.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-3d-gold ux-focus-ring pulse-cta"
-            >
+            <Link href="/libros" className="btn-3d-gold ux-focus-ring pulse-cta">
               📚 Ver los libros →
-            </a>
+            </Link>
           </div>
         </section>
 

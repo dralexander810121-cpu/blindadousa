@@ -21,7 +21,7 @@ const SUBNAV = [
   { href: '/alexanderfigueredo', label: 'Dr. Figueredo' },
   { href: '/figueredomed', label: 'FigueredoMed' },
   { href: '/aetheris', label: 'Aetheris' },
-  { href: 'https://market.figueredomed.com', label: '📚 Libros', external: true },
+  { href: '/libros', label: '📚 Libros' },
   { href: 'https://market.figueredomed.com', label: '🛒 Market', external: true },
   { href: GAME_URL, label: '🎮 Aetheris Game', external: true, highlight: true },
 ]
